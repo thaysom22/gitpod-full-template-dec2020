@@ -38,20 +38,30 @@ Goals:
 
 How project satisfies these player goals:
 
-*
-*
-*
+* Game is designed to be adversarial to encourage focus and to motivate players.
+* Provides useful feedback to players about whether they have evaluated an expression correctly.
+* Feedback is provided to players after each about whether they chose the optimal expression from the grid so that they can understand and improve their performance in the game over time.
+* Complexity of algebric expressions is aligned with UK GCSE curriculum for expected level of proficiency of pupils aged 10-15 years.
+* Mathematical notation used is clear, unambiguous and appropriate to experience of target audience players.
+* Expressions vary each time the game is played to provide value to players for a longer period of time.
+* UI of game board and controls is intuitive for new players to use.
+* Styling and design is planned to be engaging and attractive to players of target audience.
+* User feedback is clear, immediate and intuitive so players learn quickly and intuitively how the game works.
 
 **Teacher goals**
 
 Audience:
 
+The target audience for teachers using this game is *teachers/tutors of any school/national mathematics curriculum.*
 
 Goals:
 
-*
-*
-*
+* To engage and motivate their students to practice and improve.
+* Test students' knowledge and understanding by measuring their performance.
+* Provide students with instant, automated feedback for their learning.
+* To supply students with a less routine, more game based practice of mathematics. 
+* To provide students with an activity that is educationally relevant and which has clear learning development value.
+* An activity that facilitates differentiation for students of varying abilities in mathematics. 
 
 
 How project satisfies these teacher goals:
