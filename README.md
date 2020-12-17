@@ -1,45 +1,151 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Substitution Grid Game
 
-Welcome USER_NAME,
+*An engaging and educational two player head-to-head maths game. Designed for middle school maths students learning the concepts of evaluating algebraic expressions and order of operations.*
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+[Try the game here](url)
 
-## Gitpod Reminders
+## Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+1. UX
 
-`python3 -m http.server`
+2. Features
 
-A blue button should appear to click: *Make Public*,
+3. Technology stack and dependencies
 
-Another blue button should appear to click: *Open Browser*.
+4. Deployment process
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+5. [Testing](./TESTING.md)
 
-A blue button should appear to click: *Make Public*,
+6. Acknowledgements and credits
 
-Another blue button should appear to click: *Open Browser*.
+## 1. UX
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### 1.1 Project goals
 
-## Updates Since The Instructional Video
+**Player goals**
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Audience: 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+The primary target audience for players of this game is *10-15 year old children studying middle school level mathematics*. The secondary target audience is younger children for extension material or older children/adults for learning support material. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Goals:
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* Practice and test the mathematical concepts of substitution and order of operations.
+* Practice and test the mathematical concepts of arithmetic operations, negative numbers and basic indices.
+* Have fun testing their knowledge and competing against an opponent. 
+* Improve confidence and fluency with numeracy and algebra skills.
+* Have a positive and useful educational experience.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+How project satisfies these player goals:
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+*
+*
+*
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+**Teacher goals**
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Audience:
 
---------
 
-Happy coding!
+Goals:
+
+*
+*
+*
+
+
+How project satisfies these teacher goals:
+
+*
+*
+*
+
+**Developer goals**
+
+*
+*
+*
+
+### 1.2 User Stories
+
+As a player...
+
+
+
+As a teacher...
+
+
+### 1.3 Wireframes and design choices
+
+[Link to wireframes](url)
+
+**Design choices**
+
+*
+*
+*
+
+## 2. Features
+
+### 2.1 Existing features
+
+* 
+*
+*
+*
+*
+*
+
+### 2.2 Features left to implement
+
+*
+*
+*
+*
+
+## 3.Technology Stack and Dependencies
+
+*
+*
+*
+*
+*
+*
+
+## 4. Deployment Proceedure
+
+### 4.1 Deployment process followed by developer to hosting platform
+
+*
+*
+*
+
+### 4.2 How to clone and run this project locally
+
+*
+*
+*
+
+## 5. Testing
+
+* Found in separate [TESTING.md](./TESTING.md) file.
+
+## 6. Acknowledgements and Credits
+
+### 6.1 Credits
+
+**Content**
+
+**Media**
+
+**Code**
+
+### 6.2 Acknowledgements
+
+*
+*
+*
+
+### 6.3 Disclaimer
+
+The content of this website is for educational purposes of developer only. The project was created for the assessment requirements of the 'Code Institute Full Stack Diploma in Software Development' and the developer has no commercial purposes for this project.
