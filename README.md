@@ -62,19 +62,27 @@ Goals:
 * To supply students with a less routine, more game based practice of mathematics. 
 * To provide students with an activity that is educationally relevant and which has clear learning development value.
 * An activity that facilitates differentiation for students of varying abilities in mathematics. 
+* An activity that is easy to learn and undertstand how to engage with without much teacher instruction/intervention.
 
 
 How project satisfies these teacher goals:
 
-*
-*
-*
+* The game has a head-to-head competitive format to engage learners.
+* Keeps track of performance of players in the game by measuring rate at which they chose the optimum expression and players are informed of their performance rating after each selection. 
+* The visual design of the game is vibrant, fun, engaging and stimulating to learners with bold colors and simple user feedback.
+* The game randomizes the selection of expressions so it is useful as a learning exercise multiple times and improvement can be seen over attempts made.
+* There are difficulty options available to the user to provide a selection of more/less complex expressions to players of different ability levels. 
+* The instructions and guidance for how to play the game is clearly displayed to the user and available at all times. 
+* The user is clearly and gracefully informed if they perform an incorrect or disallowed action or input.
 
-**Developer goals**
+**Developer and site owner goals**
 
-*
-*
-*
+* As a secondary maths teacher - to create a useful and engaging learning activity to help mathematics students in my classes and in my school community. 
+* To practice and deepen my understanding of how to use JavaScript, HTML and CSS by creating an interactive, user-friendly web appliations.
+* To begin the journey of creating interactive educational applications as I seek to change to a career in this sector. 
+* To create a project that can be part of an interesting and commercially viable developer porfolio to help me find a job.
+* To learn more about and practice the paradigm of test-driven development (TDD) with JavaScript and the Jasmine test suite. 
+* To improve my ability to design and create useful educational experiences with technology through the process of planning, implementing and testing this application and crucially, obtaining feedback from other teaching proffessionals. 
 
 ### 1.2 User Stories
 
@@ -91,7 +99,7 @@ As a teacher...
 
 **Design choices**
 
-*
+* Tablet/desktop first design strategy was followed since the main purpose of the application is as a classroom based learning tool where users would most likely bne using a tablet/laptop/desktop device size. Also, since it is a two player game on one device there experience is more suited to a larger display size where players can see the game board more clearly at all times.  
 *
 *
 
