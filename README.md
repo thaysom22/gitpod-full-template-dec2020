@@ -36,7 +36,7 @@ Goals:
 * Improve confidence and fluency with numeracy and algebra skills.
 * Have a positive and useful educational experience.
 
-How project satisfies these player goals:
+How project will satisfy these player goals:
 
 * Game is designed to be adversarial to encourage focus and to motivate players.
 * Provides useful feedback to players about whether they have evaluated an expression correctly.
@@ -46,7 +46,7 @@ How project satisfies these player goals:
 * Expressions vary each time the game is played to provide value to players for a longer period of time.
 * UI of game board and controls is intuitive for new players to use.
 * Styling and design is planned to be engaging and attractive to players of target audience.
-* User feedback is clear, immediate and intuitive so players learn quickly and intuitively how the game works.
+* User feedback is clear, immediate and intuitive so players learn quickly how the game works.
 
 **Teacher goals**
 
@@ -65,7 +65,7 @@ Goals:
 * An activity that is easy to learn and undertstand how to engage with without much teacher instruction/intervention.
 
 
-How project satisfies these teacher goals:
+How project will satisfy these teacher goals:
 
 * The game has a head-to-head competitive format to engage learners.
 * Keeps track of performance of players in the game by measuring rate at which they chose the optimum expression and players are informed of their performance rating after each selection. 
@@ -88,10 +88,24 @@ How project satisfies these teacher goals:
 
 As a player...
 
-
+1. I want to easily understand the aim of the game, so that I can think about how to leverage and employ my mathematical knowledge.
+2. I want to easily find and understand the controls of the game and how to interact with them, so that I can engage and play effectively and implement my strategies
+3. I want clear user feedback from my interaction with the game, so that I know whether I have completed an interaction correctly.
+4. I want mathematical questions, notation and content that is relevant to my level of knowledge and understanding, so that I can succeed at the aims of the game, learn from feedback and have fun playing the game.
+5. I want to see my score and my opponent's game score easily and clearly, so I can know if I am winning the game or not!
+6. I want to test my mathematical understanding and fluency, so that I can understand and try to correct any misconceptions I am retaining.
+7. I want feedback on my relative performance in the game during play and over multiple plays, so that I can measure and set targets for my improvement.
+8. I want to be able to choose between levels of difficulty for the game, so that I can play at the level appropriate for me and I can continue to stay engaged and challenged as I improve. 
 
 As a teacher...
 
+1. I want the game to be easy to understand and interact with for players, so that it requires minimal explanation from me and I can focus on correcting my pupils' understanding of the mathematical concepts. 
+2. I want the user interface, player scores and player performance to be easily visible on the screen, so that I can evaluate students understanding and intervene where necessary.
+3. I want the game to be fun and engaging, so that players are motivated to try their best and want to understand the concepts better so they can perform better in the game.
+4. I want the mathematical concepts and difficulty to be relevant to the ability and curriculum of the players, so that I know I am providing them with a useful and relevant learning experience. 
+5. I want the game to offer differentiated levels of difficulty, so that I can challenge and support players of varying ability levels.
+6. I want the game to provide feedback to players automatically and instantly, so that they can learn effectively independently and know when to ask for my input. 
+7. I want the styling, aesthetic design and effects for the application to be appropriate for the age of my students and gender neutral in tone, so that it is a pleasing and enjoyable experience for as many players as possible.
 
 ### 1.3 Wireframes and design choices
 
@@ -99,9 +113,22 @@ As a teacher...
 
 **Design choices**
 
-* Tablet/desktop first design strategy was followed since the main purpose of the application is as a classroom based learning tool where users would most likely bne using a tablet/laptop/desktop device size. Also, since it is a two player game on one device there experience is more suited to a larger display size where players can see the game board more clearly at all times.  
-*
-*
+Design approach
+
+* A desktop first approach was considered as the main use of the application will be in classrooms where users will have larger screen sizes. However, in order to ensure the application is accessible and performant for all users on mobile (and those outside a classroom environment), a mobile first approach was chosen with an aim to optimize the experience for tablet/desktop screen sizes as much as possible.
+* 
+
+Colors:
+
+* A colorful, vibrant color palette was selected using the 'trending' feature from [coolors.co](https://coolors.co/palettes/trending). The contrast in the palette makes the game board and interactive elements easy to see and navigate for younger users. The bright colors and contrast are used to aid the experience of user interaction by making it easier to understand how to play the game and see feedback.
+![color palette](url)
+
+Fonts:
+
+* Selected and downloaded from [fontspace](url). Both fonts under a 'free' liscence. 
+* [Arbei Berry](https://www.fontspace.com/a-arbei-berry-font-f45335) font was chosen as a title font for it's bold, clear glyphs and a fun, playful effect.
+* [Really Free](https://www.fontspace.com/really-font-f45186) font was chosen as a body text/aside font for it's contrast with Arbei Berry and it's attractive, fun, freeflowing qualities.
+* Both fonts were chosen to emphasize fun and to be engaging for children. The core purpose of the game is learning maths which is daunting and somethimes dry to children so it was important for the aesthetic to be accessible and feel unthreatening and light-hearted. 
 
 ## 2. Features
 
@@ -123,7 +150,7 @@ As a teacher...
 
 ## 3.Technology Stack and Dependencies
 
-*
+* 
 *
 *
 *
