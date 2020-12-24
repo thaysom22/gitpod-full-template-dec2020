@@ -19,3 +19,14 @@ POSSIBLE ADDITIONS TO STYLING
 
 * Combat theme icons on welcome modal
 * Celebration theme icons on game over modal
+* ADVICE FROM MS1: Use box shadow effect to make elements stand out
+* Torn paper or other border effect
+
+ACCESSIBILITY
+
+* Add title attributes to links and interactive elements
+
+
+QUESTIONS FOR ARNOLD
+
+* When initially writing HTML content, should I add id, class and data-* attributions for css/js selection at this point or later onceI know what needs to be selected and how?

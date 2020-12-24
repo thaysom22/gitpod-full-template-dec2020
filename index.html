@@ -4,15 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Tom Haysom (thaysom22)">
-    <meta name="description" content="Substitution Skirmish! A two player competitive Math Game for middle school students to practice evaluating algebraic expressions">
+    <meta name="description" content="Substitution Skirmish! A two player competitive math game for middle school students to practice substituting into and evaluating algebraic expressions">
     <meta name="application-name" content="Substitution Skirmish!"> 
     <title>Substitution Skirmish! 2 Player Math Game</title>
-
+    <!-- Local stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css">
-
+    <!-- JS for Font Awesome -->
+    <script src="https://kit.fontawesome.com/623db69bf7.js" crossorigin="anonymous"></script>
+    <!-- Local JS -->
     <script src="assets/js/script.js" type="text/javascript" defer></script>
 </head>
 <body>
+    <!-- Main heading section -->
+    <header id="header-wrapper">
+        <h1 id="main-heading" class="heading">Substitution Skirmish</h1>
+        <div id="info-wrapper" class="trigger-wrapper">
+            <!-- CREDIT: Font Awesome -->
+            <i aria-hidden="true" class="fas fa-info-circle" aria-label="Click to view instructions on how to play" title="How to Play"></i>
+            <span>How to Play</span>
+        </div>
+    </header>
+
+    <!-- Scoreboard section -->
+    <section id="scoreboards-wrapper">
+        <div id="player1-scoreboard" class="player-scoreboard">
+            <h4 class="scoreboard-title">player1Name</h4>
+            <div class="score-aside score-turns"></div>
+            <div class="main-score"></div>
+            <div class="score-aside score-bonus"></div>
+        </div>
+        <div id="player2-scoreboard" class="player-scoreboard">
+            <h4 class="scoreboard-title">player2Name</h4>
+            <div class="score-aside score-turns"></div>
+            <div class="main-score"></div>
+            <div class="score-aside score-bonus"></div>
+        </div>
+
+    </section>
+
+
     
 </body>
 </html>

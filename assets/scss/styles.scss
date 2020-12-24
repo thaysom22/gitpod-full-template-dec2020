@@ -1,0 +1,14 @@
+// Global reset styles
+// CREDIT: WebDevSimplifed YouTube channel for practice of using these reset styles
+
+*,*::before,*::after{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+

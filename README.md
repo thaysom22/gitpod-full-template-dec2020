@@ -207,6 +207,8 @@ Layout:
 
 **Code**
 
+* CREDIT: WebDevSimplifed YouTube channel for practice of using these reset styles
+
 ### 6.2 Acknowledgements
 
 *
