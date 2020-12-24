@@ -3,3 +3,19 @@ PROJECT HARD DEADLINE:  08/02/2021
 README
 
 * Implement internal links in TOC to relevant sections
+
+TESTING
+
+POSSIBLE EXTRA FEATURES
+
+* Email to teacher input and submit for 'game over' modal
+* Increase number of grid elements to 20
+* Optional settings for time limit per turn and number of turns per game
+* Share on backbook/twitter link on game over page
+* High score log for each player name in window/local storage - display on game over page?
+* Audio played as user feedback when clicking on elements of page and at significant points in gameplay
+
+POSSIBLE ADDITIONS TO STYLING
+
+* Combat theme icons on welcome modal
+* Celebration theme icons on game over modal

@@ -1,8 +1,8 @@
-# Substitution Grid Game
+# Substitution Grid Game (Substitution Skirmish!)
 
 *An engaging and educational two player head-to-head maths game. Designed for middle school maths students learning the concepts of evaluating algebraic expressions and order of operations.*
 
-[Try the game here](url)
+[Play the game here](url)
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ Goals:
 
 How project will satisfy these player goals:
 
-* Game is designed to be adversarial to encourage focus and to motivate players.
+* Game is designed to be adversarial to encourage focus and to motivate players - the game is head to head and is called 'Substitution Skirmish'. 
 * Provides useful feedback to players about whether they have evaluated an expression correctly.
 * Feedback is provided to players after each about whether they chose the optimal expression from the grid so that they can understand and improve their performance in the game over time.
 * Complexity of algebric expressions is aligned with UK GCSE curriculum for expected level of proficiency of pupils aged 10-15 years.
@@ -68,7 +68,7 @@ Goals:
 How project will satisfy these teacher goals:
 
 * The game has a head-to-head competitive format to engage learners.
-* Keeps track of performance of players in the game by measuring rate at which they chose the optimum expression and players are informed of their performance rating after each selection. 
+* Keeps track of performance of players in the game by measuring and informing when they chose the optimum expression.
 * The visual design of the game is vibrant, fun, engaging and stimulating to learners with bold colors and simple user feedback.
 * The game randomizes the selection of expressions so it is useful as a learning exercise multiple times and improvement can be seen over attempts made.
 * There are difficulty options available to the user to provide a selection of more/less complex expressions to players of different ability levels. 
@@ -105,13 +105,20 @@ As a teacher...
 4. I want the mathematical concepts and difficulty to be relevant to the ability and curriculum of the players, so that I know I am providing them with a useful and relevant learning experience. 
 5. I want the game to offer differentiated levels of difficulty, so that I can challenge and support players of varying ability levels.
 6. I want the game to provide feedback to players automatically and instantly, so that they can learn effectively independently and know when to ask for my input. 
-7. I want the styling, aesthetic design and effects for the application to be appropriate for the age of my students and gender neutral in tone, so that it is a pleasing and enjoyable experience for as many players as possible.
+7. I want the styling, aesthetic design and effects of the application to be appropriate for the age of my students and gender neutral in tone, so that it is a visually stimulating experience for as many players as possible.
+8. I want the application to keep track of player scores and performance automatically, so that they are motivated and engaged by competition and I can view their performance easily.
 
 ### 1.3 Wireframes and design choices
 
-[Link to wireframes](url)
+* Wireframes were created using [Balsamiq](url)
+
+[Link to wireframes stored locally on server](url)
 
 **Design choices**
+
+Information architecture
+
+* Modals instead of separate pages were used for welcome and game over user sub-interfaces to avoid page reload and provide a soother more coherent UX.
 
 Design approach
 
@@ -122,6 +129,8 @@ Colors:
 
 * A colorful, vibrant color palette was selected using the 'trending' feature from [coolors.co](https://coolors.co/palettes/trending). The contrast in the palette makes the game board and interactive elements easy to see and navigate for younger users. The bright colors and contrast are used to aid the experience of user interaction by making it easier to understand how to play the game and see feedback.
 ![color palette](url)
+* Strong and striking color contrasts were chosen for various togglable display/hide elements of the page to guide users' attention on a busy user interface.
+
 
 Fonts:
 
@@ -130,16 +139,26 @@ Fonts:
 * [Really Free](https://www.fontspace.com/really-font-f45186) font was chosen as a body text/aside font for it's contrast with Arbei Berry and it's attractive, fun, freeflowing qualities.
 * Both fonts were chosen to emphasize fun and to be engaging for children. The core purpose of the game is learning maths which is daunting and somethimes dry to children so it was important for the aesthetic to be accessible and feel unthreatening and light-hearted. 
 
+User feedback:
+
+* Clear and immediate feedback provided by snappy animations and transitions during gameplay to make experience more satisfying and enjoyable for players who are interacting under time pressure. 
+
+Layout:
+
+* I decided against using the Bootstrap framework because I wanted finer control over responsive layout by using specific breakpoints for media queries. Also I felt a Grid layout was very appropriate to this project and I wanted practice using CSS Grid system directly, even if this was more time consuming. 
+* The gameboard is much taller and narrower on mobile viewport so player scores and 'click to play' elements are always visible fixed to top of viewport when scrolling down page.
+
 ## 2. Features
 
 ### 2.1 Existing features
 
-* 
-*
-*
-*
-*
-*
+* Countdown timer
+* Scoreboard
+* Gameboard grid
+* How to play togglable (show / hide) info element
+* Welcome modal
+* Togglable (show/hide) 'About' footer. 
+* Game over modal
 
 ### 2.2 Features left to implement
 
@@ -150,7 +169,8 @@ Fonts:
 
 ## 3.Technology Stack and Dependencies
 
-* 
+* CDNs used...
+* [SASS]() CSS pre-processor
 *
 *
 *
@@ -180,6 +200,8 @@ Fonts:
 ### 6.1 Credits
 
 **Content**
+
+* [Font Awesome](url) used for font icons.
 
 **Media**
 
