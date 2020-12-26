@@ -201,7 +201,7 @@ Layout:
 
 **Content**
 
-* [Font Awesome](url) used for font icons.
+* [Font Awesome](url) used for font icons and docs for accessibility best practices.
 
 **Media**
 
