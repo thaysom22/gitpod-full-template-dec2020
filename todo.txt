@@ -1,5 +1,15 @@
 PROJECT HARD DEADLINE:  08/02/2021
 
+RUNNING TASKS (commit after each)
+
+1. Update directory structure for SASS
+2. Add grid item elements to markup
+2. Add layout styles to SCSS
+3. Add border effects and sizing to elements of main page
+4. Add data-* attribute selectors to markup for selection from JS
+5. Set up basic JS data structures and functions
+6. Set up basic Jasmine tests for JS (read article on best practice)
+
 README
 
 * Implement internal links in TOC to relevant sections
@@ -21,12 +31,13 @@ POSSIBLE ADDITIONS TO STYLING
 * Celebration theme icons on game over modal
 * ADVICE FROM MS1: Use box shadow effect to make elements stand out
 * Torn paper or other border effect
+* Load extra font for body
 
-ACCESSIBILITY
+ACCESSIBILITY CHECKLIST
 
-* Add title attributes to links and interactive elements
+* Add title and aria-label attributes to links and interactive elements
 
 
-QUESTIONS FOR ARNOLD
+QUESTIONS FOR ARNOLD/TUTORING/SLACK
 
 * When initially writing HTML content, should I add id, class and data-* attributions for css/js selection at this point or later onceI know what needs to be selected and how?

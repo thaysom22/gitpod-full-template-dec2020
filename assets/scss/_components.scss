@@ -1,0 +1,8 @@
+// load base partial module
+@use "base";
+
+// Header 
+
+.heading {
+    font-family: base.$title-font;
+}

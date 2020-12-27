@@ -1,27 +1,9 @@
 // load partial files as modules
-@use "variables";
+
+@use "layout";
+@use "components";
 
 
-// Global reset 
-// CREDIT: WebDevSimplifed YouTube channel for example of using these reset styles
 
-*,*::before,*::after{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    font-family: variables.$body-font;
-    background-color: variables.$purple; // TEMP
-}
-
-// Header 
-
-.heading {
-    font-family: variables.$title-font;
-}
 
 
