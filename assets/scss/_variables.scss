@@ -1,0 +1,25 @@
+// load local fonts
+@font-face {
+  font-family: 'arbeiBerry';
+  src: url('../fonts/ArbeiBerry-rg3Ky.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'reallyFree';
+  src: url("fonts/ReallyFree-ALwl7.ttf") format('truetype');
+}
+
+
+// ----------- font variables
+
+$title-font: "arbeiBerry", sans-serif;
+$body-font: "reallyFree", cursive;
+
+
+// ----------- background color variables
+
+$purple: #9b5de5;
+$pink: #f15bb5;
+$yellow: #fee440;
+$blue: #00bbf9;
+$green: #00f5d4;

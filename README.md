@@ -135,9 +135,9 @@ Colors:
 Fonts:
 
 * Selected and downloaded from [fontspace](url). Both fonts under a 'free' liscence. 
-* [Arbei Berry](https://www.fontspace.com/a-arbei-berry-font-f45335) font was chosen as a title font for it's bold, clear glyphs and a fun, playful effect.
+* [Arbei Berry](https://www.fontspace.com/a-arbei-berry-font-f45335) font was chosen as a title font for it's bold, clear glyphs and a fun, playful feel.
 * [Really Free](https://www.fontspace.com/really-font-f45186) font was chosen as a body text/aside font for it's contrast with Arbei Berry and it's attractive, fun, freeflowing qualities.
-* Both fonts were chosen to emphasize fun and to be engaging for children. The core purpose of the game is learning maths which is daunting and somethimes dry to children so it was important for the aesthetic to be accessible and feel unthreatening and light-hearted. 
+* These fonts were chosen to emphasize fun and to be engaging for children. The core purpose of the game is learning maths which is daunting and somethimes dry to children so it was important for the aesthetic to be accessible and feel unthreatening and light-hearted. 
 
 User feedback:
 

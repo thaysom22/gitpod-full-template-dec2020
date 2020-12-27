@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "arbeiBerry";
+  src: url("../fonts/ArbeiBerry-rg3Ky.ttf") format("truetype");
+}
+@font-face {
+  font-family: "reallyFree";
+  src: url("fonts/ReallyFree-ALwl7.ttf") format("truetype");
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "reallyFree", cursive;
+  background-color: #9b5de5;
+}
+
+.heading {
+  font-family: "arbeiBerry", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */
