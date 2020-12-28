@@ -2,7 +2,7 @@ PROJECT HARD DEADLINE:  08/02/2021
 
 RUNNING TASKS (commit after each)
 
-1. Update directory structure for SASS
+1. Update directory structure for SASS x
 2. Add grid item elements to markup
 2. Add layout styles to SCSS
 3. Add border effects and sizing to elements of main page

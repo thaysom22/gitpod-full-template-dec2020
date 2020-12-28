@@ -1,8 +1,33 @@
-// load base partial module
+// import variables
 @use "base";
 
 // Header 
 
-.heading {
-    font-family: base.$title-font;
+#header-wrapper{
+    height: 8rem;
+    justify-content: space-between;
 }
+
+#main-heading{
+    font-family: base.$title-font;
+    flex-grow: 3;
+    margin: auto 0;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#header-info-wrapper{
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    i{
+        font-size: 3rem;
+    }
+    span{
+        font-size: 2rem;
+    }
+}
+
+
+

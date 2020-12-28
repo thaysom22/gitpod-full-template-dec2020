@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: "reallyFree";
-  src: url("fonts/ReallyFree-ALwl7.ttf") format("truetype");
+  src: url("../fonts/ReallyFree-ALwl7.ttf") format("truetype");
 }
 *, *::before, *::after {
   margin: 0;
@@ -12,18 +12,52 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 0.625rem;
+}
+
 body {
   margin: 0;
   padding: 0;
+}
+
+.section-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.trigger-wrapper {
+  display: flex;
+}
+
+body {
   font-family: "reallyFree", cursive;
 }
 
-#gameboard-grid-container {
-  display: grid;
+#header-wrapper {
+  height: 8rem;
+  justify-content: space-between;
 }
 
-.heading {
+#main-heading {
   font-family: "arbeiBerry", sans-serif;
+  flex-grow: 3;
+  margin: auto 0;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#header-info-wrapper {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#header-info-wrapper i {
+  font-size: 3rem;
+}
+#header-info-wrapper span {
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
