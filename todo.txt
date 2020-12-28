@@ -5,10 +5,13 @@ RUNNING TASKS (commit after each)
 1. Update directory structure for SASS x
 2. Add grid item elements to markup
 2. Add layout styles to SCSS
+3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css"
 3. Add border effects and sizing to elements of main page
+
 4. Add data-* attribute selectors to markup for selection from JS
 5. Set up basic JS data structures and functions
 6. Set up basic Jasmine tests for JS (read article on best practice)
+4. Choose new body font (more readable)
 
 README
 

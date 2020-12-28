@@ -6,6 +6,7 @@
 .section-wrapper{
     display: flex;
     flex-direction: row;
+    padding: 0 base.$section-x-padding-mobile;
 }
 
 .trigger-wrapper{

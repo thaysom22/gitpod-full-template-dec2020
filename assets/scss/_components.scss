@@ -1,7 +1,7 @@
 // import variables
 @use "base";
 
-// Header 
+// ------------------ header 
 
 #header-wrapper{
     height: 8rem;
@@ -27,6 +27,31 @@
     span{
         font-size: 2rem;
     }
+}
+
+// -------------- scoreboards
+
+#scoreboards-wrapper{
+    height: 12rem;
+    width: 60%;
+    float: left;
+}
+
+
+// -------------- click to play
+
+#click-to-play-wrapper{
+    height: 12rem;
+    width: 40%;
+}
+
+// -------------- gameboard
+
+#gameboard-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template: repeat(8, 8rem) / 1fr 1fr;
+    grid-gap: .5rem;
 }
 
 

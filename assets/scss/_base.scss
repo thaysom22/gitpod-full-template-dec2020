@@ -23,6 +23,10 @@ $yellow: #fee440;
 $blue: #00bbf9;
 $green: #00f5d4;
 
+// ---------- box sizing variables
+
+$section-x-padding-mobile: .2rem;
+
 // ------------- global resets 
 // CREDIT: WebDevSimplifed YouTube channel for example of using these reset styles
 
@@ -36,8 +40,4 @@ html{
     font-size: 0.625rem;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-}
 
