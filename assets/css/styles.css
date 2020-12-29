@@ -79,7 +79,7 @@ body {
   font-size: 1.75rem;
 }
 #click-to-play-wrapper i {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 #click-to-play-wrapper p {
   font-size: 2rem;
@@ -127,7 +127,7 @@ body {
 }
 #about-content-wrapper i {
   font-size: 2rem;
-  padding-bottom: 0.5rem;
+  padding: 0.4rem 0;
 }
 #about-content-wrapper span:not(.sr-only) {
   font-size: 1.25rem;

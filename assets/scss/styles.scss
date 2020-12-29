@@ -1,7 +1,13 @@
-// load partial files as modules
+// load partial scss files as modules
 
 @use "index";
-@use "components";
+
+@use "components/header";
+@use "components/scoreboard";
+@use "components/click-to-play";
+@use "components/gameboard";
+@use "components/footer";
+
 
 
 
