@@ -211,7 +211,7 @@ Layout:
 
 ### 6.2 Acknowledgements
 
-*
+* [itnext.io article](https://itnext.io/structuring-your-sass-projects-c8d41fa55ed4) about directory structure for SCSS files
 *
 *
 
