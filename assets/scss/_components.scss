@@ -23,6 +23,7 @@
     align-items: center;
     i{
         font-size: 2.5rem;
+        padding-bottom: .2rem;
     }
     span{
         font-size: 1.5rem;
@@ -52,6 +53,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    >span{
+        font-size: 1.75rem;
+    }
     i{
         font-size: 3rem;
     }
@@ -87,6 +91,7 @@
 
 #about-trigger-wrapper{
     align-items: center;
+    padding-bottom: 0.1rem;
     i{
         font-size: 2.5rem;
     }
@@ -100,17 +105,43 @@
     display: grid;
     grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
     width: 100%;
+    height: 10rem;
     border-top: solid black .1rem;
+    i{
+        font-size: 2rem;
+        padding-bottom: .5rem;
+    }
+    span:not(.sr-only){
+        font-size: 1.25rem;
+    }
+    a{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
     #dev-portfolio-wrapper{
         grid-area: dev-portfolio;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     #github-repo-wrapper{
         grid-area: github-repo;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     #copyright-wrapper{
         // display copyright notice at end of about container on mobile view
         order: 1;
         grid-area: copyright;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
 

@@ -7,7 +7,7 @@ RUNNING TASKS (commit after each)
 2. Add header layout styles to SCSS for mobilex
 3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css" x
 2. Finish layout styles for scoreboard, click to play and gameboard sections for mobile x
-3. Add layout styles for footer for mobile
+3. Add layout styles for footer for mobile x
 * Make layout responsive on tablet viewports 
 * Make layout responsive on desktop viewports
 3. Create mix-in for flexbox css styles?
@@ -23,6 +23,9 @@ README
 
 TESTING
 
+* On first loading site browser default fonts displayed briefly before webfonts on server load
+* Copyright symbol in footer not centered vertically with text in span
+
 POSSIBLE EXTRA FEATURES
 
 * Email to teacher input and submit for 'game over' modal
@@ -31,6 +34,7 @@ POSSIBLE EXTRA FEATURES
 * Share on backbook/twitter link on game over page
 * High score log for each player name in window/local storage - display on game over page?
 * Audio played as user feedback when clicking on elements of page and at significant points in gameplay
+* Math handwriting recognition API?
 
 POSSIBLE ADDITIONS TO STYLING
 

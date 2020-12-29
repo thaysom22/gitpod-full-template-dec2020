@@ -51,6 +51,7 @@ body {
 }
 #header-info-wrapper i {
   font-size: 2.5rem;
+  padding-bottom: 0.2rem;
 }
 #header-info-wrapper span {
   font-size: 1.5rem;
@@ -73,6 +74,9 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+#click-to-play-wrapper > span {
+  font-size: 1.75rem;
 }
 #click-to-play-wrapper i {
   font-size: 3rem;
@@ -104,6 +108,7 @@ body {
 
 #about-trigger-wrapper {
   align-items: center;
+  padding-bottom: 0.1rem;
 }
 #about-trigger-wrapper i {
   font-size: 2.5rem;
@@ -117,17 +122,43 @@ body {
   display: grid;
   grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
   width: 100%;
+  height: 10rem;
   border-top: solid black 0.1rem;
+}
+#about-content-wrapper i {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+#about-content-wrapper span:not(.sr-only) {
+  font-size: 1.25rem;
+}
+#about-content-wrapper a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 #about-content-wrapper #dev-portfolio-wrapper {
   grid-area: dev-portfolio;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #about-content-wrapper #github-repo-wrapper {
   grid-area: github-repo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #about-content-wrapper #copyright-wrapper {
   order: 1;
   grid-area: copyright;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
