@@ -97,4 +97,37 @@ body {
   font-size: 2rem;
 }
 
+#footer-wrapper {
+  flex-direction: column;
+  align-items: center;
+}
+
+#about-trigger-wrapper {
+  align-items: center;
+}
+#about-trigger-wrapper i {
+  font-size: 2.5rem;
+}
+#about-trigger-wrapper span:not(.sr-only) {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+#about-content-wrapper {
+  display: grid;
+  grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
+  width: 100%;
+  border-top: solid black 0.1rem;
+}
+#about-content-wrapper #dev-portfolio-wrapper {
+  grid-area: dev-portfolio;
+}
+#about-content-wrapper #github-repo-wrapper {
+  grid-area: github-repo;
+}
+#about-content-wrapper #copyright-wrapper {
+  order: 1;
+  grid-area: copyright;
+}
+
 /*# sourceMappingURL=styles.css.map */

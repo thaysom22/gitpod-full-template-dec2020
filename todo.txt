@@ -4,16 +4,18 @@ RUNNING TASKS (commit after each)
 
 1. Update directory structure for SASS x
 2. Add grid item elements to markup x
-2. Add layout styles to SCSS x
-2. Finish layout styles for scoreboard, click to play and gameboard sections
-3. Add layout styles for footer
+2. Add header layout styles to SCSS for mobilex
 3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css" x
-3. Create mix-in for flexbox css styles
+2. Finish layout styles for scoreboard, click to play and gameboard sections for mobile x
+3. Add layout styles for footer for mobile
+* Make layout responsive on tablet viewports 
+* Make layout responsive on desktop viewports
+3. Create mix-in for flexbox css styles?
 3. Add border effects and sizing to elements of main page
 
 5. Set up basic JS data structures and functions
 6. Set up basic Jasmine tests for JS (read article on best practice)
-4. Choose new body font (more readable)
+4. Choose new body font(s)? (more readable)
 
 README
 
@@ -34,9 +36,9 @@ POSSIBLE ADDITIONS TO STYLING
 
 * Combat theme icons on welcome modal
 * Celebration theme icons on game over modal
-* ADVICE FROM MS1: Use box shadow effect to make elements stand out
+* ADVICE FROM MS1: Use box shadow effect to make elements stand out x
 * Torn paper or other border effect
-* Load extra font for body
+* Load extra font for body x
 
 ACCESSIBILITY CHECKLIST
 
@@ -45,4 +47,4 @@ ACCESSIBILITY CHECKLIST
 
 QUESTIONS FOR ARNOLD/TUTORING/SLACK
 
-* When initially writing HTML content, should I add id, class and data-* attributions for css/js selection at this point or later onceI know what needs to be selected and how?
+* When initially writing HTML content, should I add id, class and data-* attributions for css/js selection at this point or later onceI know what needs to be selected and how? x

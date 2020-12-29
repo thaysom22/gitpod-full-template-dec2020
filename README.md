@@ -123,7 +123,6 @@ Information architecture
 Design approach
 
 * A desktop first approach was considered as the main use of the application will be in classrooms where users will have larger screen sizes. However, in order to ensure the application is accessible and performant for all users on mobile (and those outside a classroom environment), a mobile first approach was chosen with an aim to optimize the experience for tablet/desktop screen sizes as much as possible.
-* 
 
 Colors:
 
@@ -145,8 +144,13 @@ User feedback:
 
 Layout:
 
-* I decided against using the Bootstrap framework because I wanted finer control over responsive layout by using specific breakpoints for media queries. Also I felt a Grid layout was very appropriate to this project and I wanted practice using CSS Grid system directly, even if this was more time consuming. 
+* I decided against using the Bootstrap framework because I wanted finer control over responsive layout by using specific breakpoints for media queries. Also I felt a Grid layout was very appropriate to this project and I wanted practice using the CSS Grid and CSS Flexbox systems directly, even if this was more time consuming. 
 * The gameboard is much taller and narrower on mobile viewport so player scores and 'click to play' elements are always visible fixed to top of viewport when scrolling down page.
+
+**Deviations from wireframes made during implementation**
+
+* 'Click to Play' section: player name removed and 'click to play' instruction displayed above ? icon
+* Scoreboard of current player will be highlighted during turn
 
 ## 2. Features
 

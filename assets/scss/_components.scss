@@ -78,5 +78,39 @@
     }
 }
 
+// ----------------- footer
 
+#footer-wrapper{
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-trigger-wrapper{
+    align-items: center;
+    i{
+        font-size: 2.5rem;
+    }
+    span:not(.sr-only){
+        font-size: 1.5rem;
+        padding: 0 .5rem;
+    }
+}
+
+#about-content-wrapper{
+    display: grid;
+    grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
+    width: 100%;
+    border-top: solid black .1rem;
+    #dev-portfolio-wrapper{
+        grid-area: dev-portfolio;
+    }
+    #github-repo-wrapper{
+        grid-area: github-repo;
+    }
+    #copyright-wrapper{
+        // display copyright notice at end of about container on mobile view
+        order: 1;
+        grid-area: copyright;
+    }
+}
 
