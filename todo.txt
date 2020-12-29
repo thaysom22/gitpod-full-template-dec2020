@@ -7,10 +7,10 @@ RUNNING TASKS (commit after each)
 2. Add layout styles to SCSS x
 2. Finish layout styles for scoreboard, click to play and gameboard sections
 3. Add layout styles for footer
-3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css"
+3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css" x
+3. Create mix-in for flexbox css styles
 3. Add border effects and sizing to elements of main page
 
-4. Add data-* attribute selectors to markup for selection from JS
 5. Set up basic JS data structures and functions
 6. Set up basic Jasmine tests for JS (read article on best practice)
 4. Choose new body font (more readable)
