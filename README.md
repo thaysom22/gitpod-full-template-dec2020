@@ -149,8 +149,10 @@ Layout:
 
 **Deviations from wireframes made during implementation**
 
-* 'Click to Play' section: player name removed and 'click to play' instruction displayed above ? icon
+* 'Click to Play' section: player name removed and 'click to play' instruction displayed above '?' icon
+* 'Click to Play' section moved to left of scoreboard section on mobile view for consistent positioning of key interactive component of application across viewport sizes
 * Scoreboard of current player will be highlighted during turn
+* 
 
 ## 2. Features
 

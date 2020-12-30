@@ -4,13 +4,14 @@ RUNNING TASKS (commit after each)
 
 1. Update directory structure for SASS x
 2. Add grid item elements to markup x
-2. Add header layout styles to SCSS for mobilex
+2. Add header layout styles to SCSS for mobile x
 3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css" x
 2. Finish layout styles for scoreboard, click to play and gameboard sections for mobile x
 3. Add layout styles for footer for mobile x
-3. Create mix-in for flexbox css styles and create variables for fontsizes used across viewport sizes
+3. Create mix-in for flexbox css styles x 
 * Make layout responsive on tablet viewports 
 * Make layout responsive on desktop viewports
+*  create variables for values reused across viewport sizes?
 
 3. Add border effects and sizing to elements of main page
 

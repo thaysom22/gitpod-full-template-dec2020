@@ -5,6 +5,7 @@ tasks:
    command: >
      npm install -g sass
      sass --watch assets/scss:assets/css
+     python3 -m "http.server"
 vscode:
   extensions:
     - ms-python.python@2019.8.30787:TnGEOx35GXMhyKLjDGz9Aw==
@@ -13,4 +14,4 @@ vscode:
     - eventyret.bootstrap-4-cdn-snippet@1.9.0:I8wcXFcKWQIROg7J0SLLqg==
     - esbenp.prettier-vscode@5.7.1:4Zx39KyQMoIz7x94PSmDmQ==
     - kevinglasson.cornflakes-linter@0.5.1:KAaMshgHOKan8eojXQ53OQ==
-
+    - ritwickdey.live-sass@3.0.0:x2c+sCJm+QmH2qn2h1X9Zw==
