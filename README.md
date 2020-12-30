@@ -146,13 +146,14 @@ Layout:
 
 * I decided against using the Bootstrap framework because I wanted finer control over responsive layout by using specific breakpoints for media queries. Also I felt a Grid layout was very appropriate to this project and I wanted practice using the CSS Grid and CSS Flexbox systems directly, even if this was more time consuming. 
 * The gameboard is much taller and narrower on mobile viewport so player scores and 'click to play' elements are always visible fixed to top of viewport when scrolling down page.
+* 767px chosen for 'tablet' breakpoint as it is just below popular device size of 768px and ensures tablet layout is displayed on most popular tablet devices. Dev tools used during implementation to confirm this viewport width is large enough to accommodate 4 columns on gameboard section
 
 **Deviations from wireframes made during implementation**
 
 * 'Click to Play' section: player name removed and 'click to play' instruction displayed above '?' icon
 * 'Click to Play' section moved to left of scoreboard section on mobile view for consistent positioning of key interactive component of application across viewport sizes
 * Scoreboard of current player will be highlighted during turn
-* 
+* Footer mobile viewport wireframe layout replicated on tablet and desktop viewports because it looks good and because footer display is toggle on/off there is no need to conserve vertical space
 
 ## 2. Features
 
@@ -168,7 +169,7 @@ Layout:
 
 ### 2.2 Features left to implement
 
-*
+* Add media query styling specifically for print view so teachers can print activity for use in lessons
 *
 *
 *

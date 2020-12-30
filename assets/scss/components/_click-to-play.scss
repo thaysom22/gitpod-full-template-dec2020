@@ -19,3 +19,24 @@
         font-size: 2rem;
     }
 }
+
+// ------------------------ tablet
+
+@media screen and (min-width: 767px){
+    #click-to-play-wrapper{
+        height: 16rem;
+        
+        >span{
+            font-size: 2rem;
+        }
+        i{
+            font-size: 5rem;
+        }
+        p{
+            font-size: 2.5rem;
+        }
+    }
+
+}
+
+// ------------------------ desktop

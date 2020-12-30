@@ -35,7 +35,7 @@ body {
 #main-heading {
   font-family: "arbeiBerry", sans-serif;
   flex-grow: 3;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 
@@ -48,12 +48,25 @@ body {
 }
 #header-info-wrapper i {
   font-size: 2.5rem;
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.5rem;
 }
 #header-info-wrapper span {
   font-size: 1.5rem;
 }
 
+@media screen and (min-width: 767px) {
+  #main-heading {
+    font-size: 3.5rem;
+    flex-grow: 4;
+  }
+
+  #header-info-wrapper i {
+    font-size: 3rem;
+  }
+  #header-info-wrapper span {
+    font-size: 1.75rem;
+  }
+}
 #scoreboards-wrapper {
   display: flex;
   flex-direction: row;
@@ -66,6 +79,14 @@ body {
   font-size: 2.5rem;
 }
 
+@media screen and (min-width: 767px) {
+  #scoreboards-wrapper {
+    height: 16rem;
+  }
+  #scoreboards-wrapper h4 {
+    font-size: 2rem;
+  }
+}
 #click-to-play-wrapper {
   display: flex;
   flex-direction: column;
@@ -85,8 +106,23 @@ body {
   font-size: 2rem;
 }
 
+@media screen and (min-width: 767px) {
+  #click-to-play-wrapper {
+    height: 16rem;
+  }
+  #click-to-play-wrapper > span {
+    font-size: 2rem;
+  }
+  #click-to-play-wrapper i {
+    font-size: 5rem;
+  }
+  #click-to-play-wrapper p {
+    font-size: 2.5rem;
+  }
+}
 #gameboard-grid-container {
   display: grid;
+  margin: 2rem 0;
   width: 100%;
   grid-template: repeat(8, 8rem)/1fr 1fr;
   grid-gap: 0.5rem;
@@ -99,9 +135,19 @@ body {
   align-items: center;
 }
 .gameboard-grid-item span {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
+@media screen and (min-width: 767px) {
+  #gameboard-grid-container {
+    grid-template: repeat(4, 10rem)/repeat(4, 1fr);
+    grid-gap: 0.5rem;
+  }
+
+  .gameboard-grid-item span {
+    font-size: 2rem;
+  }
+}
 #footer-wrapper {
   display: flex;
   flex-direction: column;
@@ -130,6 +176,7 @@ body {
   width: 100%;
   height: 10rem;
   border-top: solid black 0.1rem;
+  padding-top: 0.5rem;
 }
 #about-content-wrapper i {
   font-size: 2rem;
@@ -165,6 +212,32 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 767px) {
+  #about-trigger-wrapper {
+    padding-bottom: 0.2rem;
+  }
+  #about-trigger-wrapper i {
+    font-size: 2.75rem;
+  }
+  #about-trigger-wrapper span:not(.sr-only) {
+    font-size: 1.75rem;
+    padding: 0 0.5rem;
+  }
+
+  #about-content-wrapper {
+    height: 12rem;
+    border-top: solid black 0.2rem;
+    padding-top: 0.5rem;
+  }
+  #about-content-wrapper i {
+    font-size: 2.5rem;
+    padding: 0.5rem 0;
+  }
+  #about-content-wrapper span:not(.sr-only) {
+    font-size: 1.5rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

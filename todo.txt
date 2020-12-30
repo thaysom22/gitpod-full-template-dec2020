@@ -11,13 +11,14 @@ RUNNING TASKS (commit after each)
 3. Create mix-in for flexbox css styles x 
 * Make layout responsive on tablet viewports 
 * Make layout responsive on desktop viewports
-*  create variables for values reused across viewport sizes?
-
-3. Add border effects and sizing to elements of main page
+* create variables for values reused across viewport sizes?
+* Add border effects and styling to click to play section 
+* Add border effects and styling to scoreboard section 
+* Choose new body font(s)? (more readable)
 
 5. Set up basic JS data structures and functions
 6. Set up basic Jasmine tests for JS (read article on best practice)
-4. Choose new body font(s)? (more readable)
+
 
 README
 

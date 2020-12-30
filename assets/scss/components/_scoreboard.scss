@@ -14,3 +14,18 @@
         font-size: 2.5rem;
     }
 }
+
+// ------------------------ tablet
+
+@media screen and (min-width: 767px){
+    #scoreboards-wrapper{
+    height: 16rem;
+
+    h4{
+        font-size: 2rem;
+    }
+}
+
+}
+
+// ------------------------ desktop
