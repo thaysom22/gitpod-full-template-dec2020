@@ -6,11 +6,10 @@
 // -------------------- mobile
 
 #scoreboards-wrapper{
+    @include base.make-flexbox($justify: space-around);
     height: 12rem;
     width: 60%;
     float: left;
-    justify-content: space-around;
-    align-items: center;
     h4{
         font-size: 2.5rem;
     }

@@ -173,8 +173,8 @@ Layout:
 
 ## 3.Technology Stack and Dependencies
 
-* CDNs used...
-* [SASS]() CSS pre-processor
+* CDNs used...ADD HERE
+* [SASS]() CSS pre-processor used to effectively modularize styles and for practice as this is the first time I have used SASS.
 *
 *
 *

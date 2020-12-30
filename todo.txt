@@ -8,9 +8,10 @@ RUNNING TASKS (commit after each)
 3. Add "npm install -g sass" command to run on workspace startup" and "sass --watch assets/scss:assets/css" x
 2. Finish layout styles for scoreboard, click to play and gameboard sections for mobile x
 3. Add layout styles for footer for mobile x
+3. Create mix-in for flexbox css styles and create variables for fontsizes used across viewport sizes
 * Make layout responsive on tablet viewports 
 * Make layout responsive on desktop viewports
-3. Create mix-in for flexbox css styles?
+
 3. Add border effects and sizing to elements of main page
 
 5. Set up basic JS data structures and functions

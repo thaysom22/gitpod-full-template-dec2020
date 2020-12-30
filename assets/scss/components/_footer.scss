@@ -5,12 +5,11 @@
 // --------------------- mobile 
 
 #footer-wrapper{
-    flex-direction: column;
-    align-items: center;
+    @include base.make-flexbox($direction: column);
 }
 
 #about-trigger-wrapper{
-    align-items: center;
+    @include base.make-flexbox();
     padding-bottom: 0.1rem;
     i{
         font-size: 2.5rem;
@@ -35,32 +34,20 @@
         font-size: 1.25rem;
     }
     a{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+        @include base.make-flexbox($direction: column, $justify: space-around);
     }
     #dev-portfolio-wrapper{
         grid-area: dev-portfolio;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include base.make-flexbox($direction: column);
     }
     #github-repo-wrapper{
         grid-area: github-repo;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include base.make-flexbox($direction: column);
     }
     #copyright-wrapper{
         // display copyright notice at end of about container on mobile view
         order: 1;
         grid-area: copyright;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include base.make-flexbox($direction: column);
     }
 }

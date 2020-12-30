@@ -5,11 +5,9 @@
 // -------------------- mobile
 
 #click-to-play-wrapper{
+    @include base.make-flexbox($direction: column, $justify: space-around);
     height: 12rem;
     width: 40%;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     >span{
         font-size: 1.75rem;
     }

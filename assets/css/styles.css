@@ -17,13 +17,7 @@ html {
 }
 
 .section-wrapper {
-  display: flex;
-  flex-direction: row;
   padding: 0 0.2rem;
-}
-
-.trigger-wrapper {
-  display: flex;
 }
 
 body {
@@ -31,23 +25,26 @@ body {
 }
 
 #header-wrapper {
-  height: 8rem;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: 8rem;
 }
 
 #main-heading {
   font-family: "arbeiBerry", sans-serif;
   flex-grow: 3;
-  margin: auto 0;
   font-size: 3rem;
   text-align: center;
 }
 
 #header-info-wrapper {
-  flex-grow: 1;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 #header-info-wrapper i {
   font-size: 2.5rem;
@@ -58,22 +55,25 @@ body {
 }
 
 #scoreboards-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   height: 12rem;
   width: 60%;
   float: left;
-  justify-content: space-around;
-  align-items: center;
 }
 #scoreboards-wrapper h4 {
   font-size: 2.5rem;
 }
 
 #click-to-play-wrapper {
-  height: 12rem;
-  width: 40%;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  height: 12rem;
+  width: 40%;
 }
 #click-to-play-wrapper > span {
   font-size: 1.75rem;
@@ -94,6 +94,7 @@ body {
 
 .gameboard-grid-item {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -102,11 +103,16 @@ body {
 }
 
 #footer-wrapper {
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
 #about-trigger-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   padding-bottom: 0.1rem;
 }

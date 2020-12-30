@@ -12,9 +12,7 @@
 }
 
 .gameboard-grid-item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include base.make-flexbox();
     span{
         font-size: 2rem;
     }
