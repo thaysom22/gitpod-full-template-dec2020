@@ -40,3 +40,21 @@
 }
 
 // ------------------------ desktop
+
+@media screen and (min-width: 1023px){
+    #click-to-play-wrapper{
+        grid-area: click-to-play;
+        height: 20rem;
+        width: 100%;
+        >span{
+            font-size: 3rem;
+        }
+        i{
+            font-size: 6rem;
+        }
+        p{
+            font-size: 3rem;
+        }
+    }        
+        
+}

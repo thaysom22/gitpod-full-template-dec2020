@@ -7,6 +7,7 @@
 #header-wrapper{
     @include base.make-flexbox($justify: space-between);
     height: 8rem;
+    padding: 0.5rem 0;
 }
 
 #main-heading{
@@ -48,3 +49,22 @@
 }
 
 // ------------------------ desktop
+
+@media screen and (min-width: 1023px){
+    #header-wrapper{
+        grid-area: heading;
+        width: 100%;
+    }
+    #main-heading{
+        font-size: 4.5rem;
+    }
+
+    #header-info-wrapper{
+        i{
+            font-size: 3.5rem;
+        }
+        span{
+            font-size: 2rem;
+        }
+    }
+}

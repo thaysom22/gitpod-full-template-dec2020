@@ -146,7 +146,8 @@ Layout:
 
 * I decided against using the Bootstrap framework because I wanted finer control over responsive layout by using specific breakpoints for media queries. Also I felt a Grid layout was very appropriate to this project and I wanted practice using the CSS Grid and CSS Flexbox systems directly, even if this was more time consuming. 
 * The gameboard is much taller and narrower on mobile viewport so player scores and 'click to play' elements are always visible fixed to top of viewport when scrolling down page.
-* 767px chosen for 'tablet' breakpoint as it is just below popular device size of 768px and ensures tablet layout is displayed on most popular tablet devices. Dev tools used during implementation to confirm this viewport width is large enough to accommodate 4 columns on gameboard section
+* 767px chosen for 'tablet' breakpoint as it is just below popular tablet device size of 768px and ensures tablet layout is displayed on most popular tablet devices. Dev tools used during implementation to confirm this viewport width is large enough to accommodate 4 columns on gameboard section
+* 1023px chosen for 'desktop' breakpoint as it is just below desktop popular device size of 1024px. Dev tools used during implementation to confirm this viewport width is large enough to accommodate horizontally adjacent gameboard and click to play / info components. 
 
 **Deviations from wireframes made during implementation**
 
@@ -154,6 +155,8 @@ Layout:
 * 'Click to Play' section moved to left of scoreboard section on mobile view for consistent positioning of key interactive component of application across viewport sizes
 * Scoreboard of current player will be highlighted during turn
 * Footer mobile viewport wireframe layout replicated on tablet and desktop viewports because it looks good and because footer display is toggle on/off there is no need to conserve vertical space
+* Layout on desktop viewport changed significantly: header made consistent with mobile and tablet viewports so that info icon remains at top right of viewport. Scoreboard is displayed on left of gameboard below 'click-to-play' component. 
+
 
 ## 2. Features
 
@@ -219,7 +222,7 @@ Layout:
 ### 6.2 Acknowledgements
 
 * [itnext.io article](https://itnext.io/structuring-your-sass-projects-c8d41fa55ed4) about directory structure for SCSS files
-*
+* [hobo-web article](https://www.hobo-web.co.uk/best-screen-size/) about choosing breakpoints for responsive design
 *
 
 ### 6.3 Disclaimer

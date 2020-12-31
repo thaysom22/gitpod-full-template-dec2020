@@ -24,7 +24,6 @@
 @media screen and (min-width: 767px){
     #gameboard-grid-container{
     grid-template: repeat(4, 10rem) / repeat(4, 1fr);
-    grid-gap: .5rem;
     }
 
     .gameboard-grid-item{
@@ -36,3 +35,19 @@
 }
 
 // ------------------------ desktop
+
+@media screen and (min-width: 1023px){
+    #gameboard-wrapper{
+        grid-area: gameboard;
+        width: 100%;
+    }
+    #gameboard-grid-container{
+        grid-gap: 0.8rem;
+    }
+
+    .gameboard-grid-item{
+        span{
+            font-size: 2.5rem;
+        }
+    }
+}

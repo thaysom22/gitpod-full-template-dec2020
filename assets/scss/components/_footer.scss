@@ -6,6 +6,7 @@
 
 #footer-wrapper{
     @include base.make-flexbox($direction: column);
+    padding: 0.5rem 0;
 }
 
 #about-trigger-wrapper{
@@ -78,6 +79,29 @@
         }
         span:not(.sr-only){
             font-size: 1.5rem;
+        }
+    }
+}
+
+// ------------------------ desktop
+
+@media screen and (min-width: 1023px){
+    #footer-wrapper{
+        grid-area: foot;
+        width: 100%;
+    }
+    #about-trigger-wrapper{
+        
+        span:not(.sr-only){
+            font-size: 2rem;   
+        }
+    }
+
+    #about-content-wrapper{
+        height: 15rem;
+        border-top: solid black .3rem;
+        span:not(.sr-only){
+            font-size: 2rem;
         }
     }
 }

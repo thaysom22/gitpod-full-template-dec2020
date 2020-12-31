@@ -21,15 +21,37 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#grid-container-body {
+  width: 100%;
+}
+
+body {
   font-family: "reallyFree", cursive;
 }
 
+@media screen and (min-width: 1023px) {
+  #grid-container-body {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: "heading heading heading heading" "click-to-play gameboard gameboard gameboard" "scoreboard gameboard gameboard gameboard" "foot foot foot foot";
+  }
+}
 #header-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 8rem;
+  padding: 0.5rem 0;
 }
 
 #main-heading {
@@ -67,6 +89,23 @@ body {
     font-size: 1.75rem;
   }
 }
+@media screen and (min-width: 1023px) {
+  #header-wrapper {
+    grid-area: heading;
+    width: 100%;
+  }
+
+  #main-heading {
+    font-size: 4.5rem;
+  }
+
+  #header-info-wrapper i {
+    font-size: 3.5rem;
+  }
+  #header-info-wrapper span {
+    font-size: 2rem;
+  }
+}
 #scoreboards-wrapper {
   display: flex;
   flex-direction: row;
@@ -85,6 +124,16 @@ body {
   }
   #scoreboards-wrapper h4 {
     font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1023px) {
+  #scoreboards-wrapper {
+    grid-area: scoreboard;
+    width: 100%;
+    height: 20rem;
+  }
+  #scoreboards-wrapper h4 {
+    font-size: 2.5rem;
   }
 }
 #click-to-play-wrapper {
@@ -120,6 +169,22 @@ body {
     font-size: 2.5rem;
   }
 }
+@media screen and (min-width: 1023px) {
+  #click-to-play-wrapper {
+    grid-area: click-to-play;
+    height: 20rem;
+    width: 100%;
+  }
+  #click-to-play-wrapper > span {
+    font-size: 3rem;
+  }
+  #click-to-play-wrapper i {
+    font-size: 6rem;
+  }
+  #click-to-play-wrapper p {
+    font-size: 3rem;
+  }
+}
 #gameboard-grid-container {
   display: grid;
   margin: 2rem 0;
@@ -141,11 +206,24 @@ body {
 @media screen and (min-width: 767px) {
   #gameboard-grid-container {
     grid-template: repeat(4, 10rem)/repeat(4, 1fr);
-    grid-gap: 0.5rem;
   }
 
   .gameboard-grid-item span {
     font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1023px) {
+  #gameboard-wrapper {
+    grid-area: gameboard;
+    width: 100%;
+  }
+
+  #gameboard-grid-container {
+    grid-gap: 0.8rem;
+  }
+
+  .gameboard-grid-item span {
+    font-size: 2.5rem;
   }
 }
 #footer-wrapper {
@@ -153,6 +231,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0.5rem 0;
 }
 
 #about-trigger-wrapper {
@@ -237,6 +316,24 @@ body {
   }
   #about-content-wrapper span:not(.sr-only) {
     font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1023px) {
+  #footer-wrapper {
+    grid-area: foot;
+    width: 100%;
+  }
+
+  #about-trigger-wrapper span:not(.sr-only) {
+    font-size: 2rem;
+  }
+
+  #about-content-wrapper {
+    height: 15rem;
+    border-top: solid black 0.3rem;
+  }
+  #about-content-wrapper span:not(.sr-only) {
+    font-size: 2rem;
   }
 }
 

@@ -9,12 +9,18 @@ RUNNING TASKS (commit after each)
 2. Finish layout styles for scoreboard, click to play and gameboard sections for mobile x
 3. Add layout styles for footer for mobile x
 3. Create mix-in for flexbox css styles x 
-* Make layout responsive on tablet viewports 
+* Make layout responsive on tablet viewports x
 * Make layout responsive on desktop viewports
-* create variables for values reused across viewport sizes?
+* refactor scss to create variables for values reused across viewport sizes?
 * Add border effects and styling to click to play section 
 * Add border effects and styling to scoreboard section 
 * Choose new body font(s)? (more readable)
+* Create markup for how to play 'pop up'
+* layout styling for how to play 'pop up'
+* Create markup for welcome modal
+* layout styling for welcome modal
+* Create markup for gameover modal
+* layout styling for gameover modal
 
 5. Set up basic JS data structures and functions
 6. Set up basic Jasmine tests for JS (read article on best practice)
