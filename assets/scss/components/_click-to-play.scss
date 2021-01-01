@@ -7,11 +7,12 @@
 #click-to-play-wrapper{
     @include base.make-flexbox($direction: column, $justify: center);
     @include base.elliptical-border();
-    @include base.box-shadow();
+    @include base.box-shadow($blur-radius: 0.75rem);
     margin-left: 1rem;
     margin-right: 1rem;
     height: 14rem;
-    width: 40%;
+    width: 33.333%;
+    max-width: 35rem;
     float: left;
     >span{
         font-size: 1.5rem;
@@ -31,6 +32,7 @@
 @media screen and (min-width: 767px){
     #click-to-play-wrapper{
         height: 16rem;
+        width: 40%;
         
         >span{
             font-size: 2rem;

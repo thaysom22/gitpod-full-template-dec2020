@@ -12,8 +12,8 @@ RUNNING TASKS (commit after each)
 * Make layout responsive on tablet viewports x
 * Make layout responsive on desktop viewports x
 * refactor scss to create variables for values reused across viewport sizes? x
-* Add border effects and styling to click to play section 
-* Add border effects and styling to scoreboard section 
+* Add border effects and styling to click to play section x
+* Add border effects and styling to scoreboard section x
 * Choose new body font(s)? (more readable)
 * Add gridlines to gameboard
 * Create markup for how to play 'pop up'

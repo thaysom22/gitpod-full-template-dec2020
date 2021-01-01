@@ -108,20 +108,82 @@ body {
 #scoreboards-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 14rem;
 }
 #scoreboards-wrapper h4 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  margin: 1rem;
+  text-align: center;
 }
 
+.player-scoreboard {
+  margin: 1rem 1.25rem;
+}
+.player-scoreboard div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-style: ridge;
+  border-color: black;
+  border-width: 0.25rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.5rem black;
+}
+.player-scoreboard .main-score {
+  height: 5.5rem;
+  width: 5.5rem;
+}
+.player-scoreboard .score-aside {
+  height: 3rem;
+  width: 3rem;
+  z-index: 1;
+  background: red;
+}
+.player-scoreboard .score-turns {
+  align-self: flex-start;
+  position: relative;
+  top: -1rem;
+}
+.player-scoreboard .score-bonus {
+  align-self: flex-end;
+  position: relative;
+  bottom: -1rem;
+}
+
+@media screen and (min-width: 450px) {
+  .player-scoreboard {
+    margin: 1rem 3rem;
+  }
+  .player-scoreboard .main-score {
+    height: 9rem;
+    width: 9rem;
+  }
+  .player-scoreboard .score-aside {
+    height: 4rem;
+    width: 4rem;
+    z-index: 1;
+    background: red;
+  }
+  .player-scoreboard .score-turns {
+    align-self: flex-start;
+    position: relative;
+    top: -1rem;
+  }
+  .player-scoreboard .score-bonus {
+    align-self: flex-end;
+    position: relative;
+    bottom: -1rem;
+  }
+}
 @media screen and (min-width: 767px) {
   #scoreboards-wrapper {
     height: 16rem;
   }
   #scoreboards-wrapper h4 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
 @media screen and (min-width: 1023px) {
@@ -131,7 +193,7 @@ body {
     height: 20rem;
   }
   #scoreboards-wrapper h4 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 #click-to-play-wrapper {
@@ -143,11 +205,12 @@ body {
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;
-  box-shadow: 0 0 0.5rem black;
+  box-shadow: 0 0 0.75rem black;
   margin-left: 1rem;
   margin-right: 1rem;
   height: 14rem;
-  width: 40%;
+  width: 33.333%;
+  max-width: 35rem;
   float: left;
 }
 #click-to-play-wrapper > span {
@@ -165,6 +228,7 @@ body {
 @media screen and (min-width: 767px) {
   #click-to-play-wrapper {
     height: 16rem;
+    width: 40%;
   }
   #click-to-play-wrapper > span {
     font-size: 2rem;
