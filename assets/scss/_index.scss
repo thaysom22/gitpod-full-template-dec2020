@@ -4,10 +4,11 @@
 // ------------- layout 
 
 .section-wrapper{
-    padding: 0 0.2rem;
+    margin: base.$section-margins;
 }
 
 // center all content vertically in viewport
+
 body{
     min-height: 100vh;
     width: 100%;
@@ -25,7 +26,7 @@ body{
     font-family: base.$body-font;
 }
 
-// ------------------------- desktop
+// ------------------------- desktop  layout
 // use grid layout for whole page on desktop viewport
 
 @media screen and (min-width: 1023px){

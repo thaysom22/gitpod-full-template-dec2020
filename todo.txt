@@ -10,11 +10,12 @@ RUNNING TASKS (commit after each)
 3. Add layout styles for footer for mobile x
 3. Create mix-in for flexbox css styles x 
 * Make layout responsive on tablet viewports x
-* Make layout responsive on desktop viewports
-* refactor scss to create variables for values reused across viewport sizes?
+* Make layout responsive on desktop viewports x
+* refactor scss to create variables for values reused across viewport sizes? x
 * Add border effects and styling to click to play section 
 * Add border effects and styling to scoreboard section 
 * Choose new body font(s)? (more readable)
+* Add gridlines to gameboard
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
 * Create markup for welcome modal

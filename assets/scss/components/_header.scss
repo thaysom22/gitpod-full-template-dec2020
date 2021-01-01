@@ -7,7 +7,6 @@
 #header-wrapper{
     @include base.make-flexbox($justify: space-between);
     height: 8rem;
-    padding: 0.5rem 0;
 }
 
 #main-heading{

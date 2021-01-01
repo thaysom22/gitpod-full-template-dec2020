@@ -23,15 +23,30 @@ $yellow: #fee440;
 $blue: #00bbf9;
 $green: #00f5d4;
 
+// ---------------- layout
+
+$section-margins: 0.5rem 0.2rem;
 
 
 // -------------------- mix-ins
 
 @mixin make-flexbox($direction: row, $justify: center, $align: center) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin elliptical-border($style: ridge, $color: black, $width: 0.25rem, $radius: 50%){
+    border-style: $style;
+    border-color: $color;
+    border-width: $width;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($blur-radius: 0.5rem, $color: black){
+    box-shadow: 0 0 $blur-radius $color;
+
 }
 
 // ------------- global resets 
