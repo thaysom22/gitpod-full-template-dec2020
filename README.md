@@ -119,10 +119,8 @@ As a teacher...
 Information architecture
 
 * Modals instead of separate pages were used for welcome and game over user sub-interfaces to avoid page reload and provide a soother more coherent UX.
-
-Design approach
-
-* A desktop first approach was considered as the main use of the application will be in classrooms where users will have larger screen sizes. However, in order to ensure the application is accessible and performant for all users on mobile (and those outside a classroom environment), a mobile first approach was chosen with an aim to optimize the experience for tablet/desktop screen sizes as much as possible.
+* Welcome modal displayed when url is first requested. Button to close modal and show main gameboard only. 
+* Game over modal displayed at end of game. Button to close modal to main gamebaord only or close modal and open welcome modal.
 
 Colors:
 
@@ -148,6 +146,7 @@ Layout:
 * The gameboard is much taller and narrower on mobile viewport so player scores and 'click to play' elements are always visible fixed to top of viewport when scrolling down page.
 * 767px chosen for 'tablet' breakpoint as it is just below popular tablet device size of 768px and ensures tablet layout is displayed on most popular tablet devices. Dev tools used during implementation to confirm this viewport width is large enough to accommodate 4 columns on gameboard section
 * 1023px chosen for 'desktop' breakpoint as it is just below desktop popular device size of 1024px. Dev tools used during implementation to confirm this viewport width is large enough to accommodate horizontally adjacent gameboard and click to play / info components. 
+* A desktop first approach was considered as the main use of the application will be in classrooms where users will have larger screen sizes. However, in order to ensure the application is accessible and performant for all users on mobile (and those outside a classroom environment), a mobile first approach was chosen with an aim to optimize the experience for tablet/desktop screen sizes as much as possible.
 
 **Deviations from wireframes made during implementation**
 

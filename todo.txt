@@ -26,6 +26,8 @@ RUNNING TASKS (commit after each)
 5. Set up basic JS data structures and functions
 6. Set up basic Jasmine tests for JS (read article on best practice)
 
+* Increase number of grid elements to 20?
+
 
 README
 
@@ -35,13 +37,31 @@ TESTING
 
 * On first loading site browser default fonts displayed briefly before webfonts on server load
 * Copyright symbol in footer not centered vertically with text in span
+* Check appearance of site on very large viewport sizes
+
+FEATURES (Priority: P1, P2, P3)
+
+* Countdown timer P2
+* Scoreboard no. turns P1
+* Scoreboard total score P1
+* Scoreboard bonus P2
+* Easier/harder difficulty setting P2
+* Gameboard grid P1
+* Click to play elemetn with random number generator P1
+* Evaluate expression input and validator P1
+* How to play togglable (show / hide) info element P3
+* Welcome modal P3
+* Togglable (show/hide) 'About' footer. P3 
+* Game over modal P3
+
 
 POSSIBLE EXTRA FEATURES
 
+* Facilitate user interaction with keyboard
+* Add media query styling specifically for print view so teachers can print activity for use in lessons
 * Email to teacher input and submit for 'game over' modal
-* Increase number of grid elements to 20
-* Optional settings for time limit per turn and number of turns per game
-* Share on backbook/twitter link on game over page
+* Optional settings for time limit per turn and number of turns per game and number of grid elements
+* Share on facebook/twitter link on game over page
 * High score log for each player name in window/local storage - display on game over page?
 * Audio played as user feedback when clicking on elements of page and at significant points in gameplay
 * Math handwriting recognition API?
@@ -52,7 +72,7 @@ POSSIBLE ADDITIONS TO STYLING
 * Celebration theme icons on game over modal
 * ADVICE FROM MS1: Use box shadow effect to make elements stand out x
 * Torn paper or other border effect
-* Load extra font for body x
+* Load extra font for body?
 
 ACCESSIBILITY CHECKLIST
 
@@ -62,3 +82,36 @@ ACCESSIBILITY CHECKLIST
 QUESTIONS FOR ARNOLD/TUTORING/SLACK
 
 * When initially writing HTML content, should I add id, class and data-* attributions for css/js selection at this point or later onceI know what needs to be selected and how? x
+* Tips for how to work effectively on a project to create MVP more quickly ad add in extra features/styling later?
+
+HIGH LEVEL ARCHITECTURE OF PROGRAM FUNCTIONALITY
+
+*Objects and data
+
+questions (array)
+gameboard (object, .addQuestion())
+scoreboard (object, .updateTurns(), updateTotal())
+timer(.start(), .end())
+randomNumber(.generate())
+
+*Scenes
+
+Welcome
+Main game
+Game over
+
+*Logic
+
+choose expression (function)
+check user input (function)
+calculate score (function)
+endGame(function)
+
+User interaction
+
+click grid element (onClick)
+inout expression value (on click and keyboard input)
+click to play (onClick)
+open info (onClick)
+open about footer (onClick)
+
