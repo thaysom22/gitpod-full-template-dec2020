@@ -1,0 +1,184 @@
+@use "../base";
+
+// ------ modals 
+
+// ----------- modal variables
+
+$modal-dialog-padding-mobile: 3vh 3vw;
+$modal-dialog-padding-tablet: 3vh 3vw;
+$modal-dialog-padding-desktop: 5vh 10vw;
+
+// -----------  mobile
+
+// CREDIT: code copied and modified from: https://github.com/twbs/bootstrap/blob/main/scss/_modal.scss
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
+
+.modal-open {
+  // Kill the scroll on the body
+  overflow: hidden;
+
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+// Container for modal
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+  &.show { 
+      display: block;
+    }
+}
+
+// Shell div to position the modal content
+.modal-dialog {
+  @include base.make-flexbox();
+  width: 100%;
+  height: 100%;
+  padding: $modal-dialog-padding-mobile;
+}
+
+// Actual modal
+.modal-content {
+  @include base.make-flexbox($direction: column, $align: stretch, $justify: space-between);
+  border: 1rem solid base.$blue;
+  @include base.box-shadow($color: base.$blue);
+  border-radius: 3rem;
+  // Ensure `.modal-content` extends the full width and height of the parent `.modal-dialog`
+  height: 100%;
+  width: 100%; 
+  outline: 0; // Remove focus outline from opened modal
+  background-color: #fff;
+}
+
+// Modal backdrop
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background-color: base.$yellow;
+  opacity: 1;
+  display: none;
+    &.show { 
+      display: block;
+    }
+}
+
+// -------- Welcome modal
+
+#welcome-input-form-wrapper{
+    form{
+        @include base.make-flexbox($direction: column);
+    }
+    .player-name-wrapper{
+        width: 75%;
+        max-width: 30rem;
+        height: 10rem;
+        margin-top: 1rem;
+        @include base.make-flexbox($direction: column);
+        @include base.elliptical-border();
+        @include base.box-shadow();
+        label{
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        input{
+            font-size: 1rem;
+        }
+    }
+    input{
+        text-align: center;
+    }
+    span{
+        margin-top: 2rem;
+        font-size: 2rem;
+    }
+    .choose-difficulty-wrapper{
+
+        width: 75%;
+        height: 6rem;
+        margin-top: -1rem;
+        @include base.make-flexbox();
+        label{
+            padding: 0.75rem;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+// --------- tablet
+@media screen and (min-width: 767px){
+    .modal-dialog {
+    padding: $modal-dialog-padding-tablet;
+    }
+}
+
+#welcome-input-form-wrapper{
+    .player-name-wrapper{
+        label{
+            
+            font-size: 3rem;
+        }
+        input{
+            font-size: 1.5rem;
+        }
+    }
+    span{
+        font-size: 3rem;
+    }
+    .choose-difficulty-wrapper{
+        label{
+            padding: 0.75rem;
+            font-size: 2rem;
+        }
+    }
+}
+
+
+
+// -------- desktop
+
+@media screen and (min-width: 1023px){
+    .modal-dialog {
+    padding: $modal-dialog-padding-desktop;
+    }
+
+    #welcome-input-form-wrapper{
+        .player-name-wrapper{
+            height: 15rem;
+            margin-top: 3rem;
+            label{
+                
+                font-size: 4rem;
+            }
+            input{
+                font-size: 2rem;
+            }
+        }
+        span{
+            font-size: 4rem;
+        }
+        .choose-difficulty-wrapper{
+            label{
+                padding: 1rem;
+                font-size: 3rem;
+            }
+        }
+    }
+}

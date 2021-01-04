@@ -155,7 +155,8 @@ Layout:
 * Scoreboard of current player will be highlighted during turn
 * Footer mobile viewport wireframe layout replicated on tablet and desktop viewports because it looks good and because footer display is toggle on/off there is no need to conserve vertical space
 * Layout on desktop viewport changed significantly: header made consistent with mobile and tablet viewports so that info icon remains at top right of viewport. Scoreboard is displayed on left of gameboard below 'click-to-play' component. 
-
+* Info component on welcome modal changed to be togglable icon adjacent to header (consistent with header layout on main page for mobile/tablet viewports) instead of being separate below header
+* Welcome modal layout made consistent on all viewport sizes. Padding of modal increased on larfer viewports to maintain the vertical mobile layout.
 
 ## 2. Features
 
@@ -216,7 +217,8 @@ Layout:
 
 **Code**
 
-* CREDIT: WebDevSimplifed YouTube channel for practice of using these reset styles
+* [WebDevSimplifed YouTube channel](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) for idea for using global reset styles
+* [Bootstrap GitHub repository](https://github.com/twbs/bootstrap) for CSS and JavaScript used to create welcome and game-over modals.
 
 ### 6.2 Acknowledgements
 

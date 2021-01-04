@@ -45,7 +45,161 @@ body {
     grid-template-areas: "heading heading heading heading" "click-to-play gameboard gameboard gameboard" "scoreboard gameboard gameboard gameboard" "foot foot foot foot";
   }
 }
-#header-wrapper {
+.modal-open {
+  overflow: hidden;
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+.modal.show {
+  display: block;
+}
+
+.modal-dialog {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 3vh 3vw;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  border: 1rem solid #00bbf9;
+  box-shadow: 0 0 0.5rem #00bbf9;
+  border-radius: 3rem;
+  height: 100%;
+  width: 100%;
+  outline: 0;
+  background-color: #fff;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fee440;
+  opacity: 1;
+  display: none;
+}
+.modal-backdrop.show {
+  display: block;
+}
+
+#welcome-input-form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-input-form-wrapper .player-name-wrapper {
+  width: 75%;
+  max-width: 30rem;
+  height: 10rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: ridge;
+  border-color: black;
+  border-width: 0.25rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.5rem black;
+}
+#welcome-input-form-wrapper .player-name-wrapper label {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+#welcome-input-form-wrapper .player-name-wrapper input {
+  font-size: 1rem;
+}
+#welcome-input-form-wrapper input {
+  text-align: center;
+}
+#welcome-input-form-wrapper span {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+#welcome-input-form-wrapper .choose-difficulty-wrapper {
+  width: 75%;
+  height: 6rem;
+  margin-top: -1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-input-form-wrapper .choose-difficulty-wrapper label {
+  padding: 0.75rem;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 767px) {
+  .modal-dialog {
+    padding: 3vh 3vw;
+  }
+}
+#welcome-input-form-wrapper .player-name-wrapper label {
+  font-size: 3rem;
+}
+#welcome-input-form-wrapper .player-name-wrapper input {
+  font-size: 1.5rem;
+}
+#welcome-input-form-wrapper span {
+  font-size: 3rem;
+}
+#welcome-input-form-wrapper .choose-difficulty-wrapper label {
+  padding: 0.75rem;
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 1023px) {
+  .modal-dialog {
+    padding: 5vh 10vw;
+  }
+
+  #welcome-input-form-wrapper .player-name-wrapper {
+    height: 15rem;
+    margin-top: 3rem;
+  }
+  #welcome-input-form-wrapper .player-name-wrapper label {
+    font-size: 4rem;
+  }
+  #welcome-input-form-wrapper .player-name-wrapper input {
+    font-size: 2rem;
+  }
+  #welcome-input-form-wrapper span {
+    font-size: 4rem;
+  }
+  #welcome-input-form-wrapper .choose-difficulty-wrapper label {
+    padding: 1rem;
+    font-size: 3rem;
+  }
+}
+#header-wrapper,
+#modal-header-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,38 +207,46 @@ body {
   height: 8rem;
 }
 
-#main-heading {
+#main-heading,
+#modal-main-heading {
   font-family: "arbeiBerry", sans-serif;
   flex-grow: 3;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 
-#header-info-wrapper {
+#header-info-wrapper,
+#modal-header-info-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
 }
-#header-info-wrapper i {
+#header-info-wrapper i,
+#modal-header-info-wrapper i {
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
 }
-#header-info-wrapper span {
+#header-info-wrapper span,
+#modal-header-info-wrapper span {
   font-size: 1.5rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 767px) {
-  #main-heading {
+  #main-heading,
+#modal-main-heading {
     font-size: 3.5rem;
     flex-grow: 4;
   }
 
-  #header-info-wrapper i {
+  #header-info-wrapper i,
+#modal-header-info-wrapper i {
     font-size: 3rem;
   }
-  #header-info-wrapper span {
+  #header-info-wrapper span,
+#modal-header-info-wrapper span {
     font-size: 1.75rem;
   }
 }
@@ -298,7 +460,8 @@ body {
     font-size: 2.5rem;
   }
 }
-#footer-wrapper {
+#footer-wrapper,
+#modal-footer-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -320,7 +483,8 @@ body {
   padding: 0 0.5rem;
 }
 
-#about-content-wrapper {
+#about-content-wrapper,
+#modal-about-content-wrapper {
   display: grid;
   grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
   width: 100%;
@@ -328,35 +492,48 @@ body {
   border-top: solid black 0.1rem;
   padding-top: 0.5rem;
 }
-#about-content-wrapper i {
+#about-content-wrapper i,
+#modal-about-content-wrapper i {
   font-size: 2rem;
   padding: 0.4rem 0;
 }
-#about-content-wrapper span:not(.sr-only) {
+#about-content-wrapper span:not(.sr-only),
+#modal-about-content-wrapper span:not(.sr-only) {
   font-size: 1.25rem;
 }
-#about-content-wrapper a {
+#about-content-wrapper a,
+#modal-about-content-wrapper a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-#about-content-wrapper #dev-portfolio-wrapper {
+#about-content-wrapper #dev-portfolio-wrapper,
+#about-content-wrapper #modal-dev-portfolio-wrapper,
+#modal-about-content-wrapper #dev-portfolio-wrapper,
+#modal-about-content-wrapper #modal-dev-portfolio-wrapper {
   grid-area: dev-portfolio;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#about-content-wrapper #github-repo-wrapper {
+#about-content-wrapper #github-repo-wrapper,
+#about-content-wrapper #modal-github-repo-wrapper,
+#modal-about-content-wrapper #github-repo-wrapper,
+#modal-about-content-wrapper #modal-github-repo-wrapper {
   grid-area: github-repo;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#about-content-wrapper #copyright-wrapper {
+#about-content-wrapper #copyright-wrapper,
+#about-content-wrapper #modal-copyright-wrapper,
+#modal-about-content-wrapper #copyright-wrapper,
+#modal-about-content-wrapper #modal-copyright-wrapper {
   order: 1;
+  padding-top: 1rem;
   grid-area: copyright;
   display: flex;
   flex-direction: column;
@@ -376,21 +553,25 @@ body {
     padding: 0 0.5rem;
   }
 
-  #about-content-wrapper {
+  #about-content-wrapper,
+#modal-about-content-wrapper {
     height: 12rem;
     border-top: solid black 0.2rem;
     padding-top: 0.5rem;
   }
-  #about-content-wrapper i {
+  #about-content-wrapper i,
+#modal-about-content-wrapper i {
     font-size: 2.5rem;
     padding: 0.5rem 0;
   }
-  #about-content-wrapper span:not(.sr-only) {
+  #about-content-wrapper span:not(.sr-only),
+#modal-about-content-wrapper span:not(.sr-only) {
     font-size: 1.5rem;
   }
 }
 @media screen and (min-width: 1023px) {
-  #footer-wrapper {
+  #footer-wrapper,
+#modal-footer-wrapper {
     grid-area: foot;
     width: 100%;
   }
@@ -399,11 +580,13 @@ body {
     font-size: 2rem;
   }
 
-  #about-content-wrapper {
+  #about-content-wrapper,
+#modal-about-content-wrapper {
     height: 15rem;
     border-top: solid black 0.3rem;
   }
-  #about-content-wrapper span:not(.sr-only) {
+  #about-content-wrapper span:not(.sr-only),
+#modal-about-content-wrapper span:not(.sr-only) {
     font-size: 2rem;
   }
 }

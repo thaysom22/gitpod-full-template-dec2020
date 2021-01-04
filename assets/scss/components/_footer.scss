@@ -4,7 +4,8 @@
 
 // --------------------- mobile 
 
-#footer-wrapper{
+#footer-wrapper,
+#modal-footer-wrapper{
     @include base.make-flexbox($direction: column);
 }
 
@@ -20,7 +21,8 @@
     }
 }
 
-#about-content-wrapper{
+#about-content-wrapper,
+#modal-about-content-wrapper{
     display: grid;
     grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
     width: 100%;
@@ -37,17 +39,21 @@
     a{
         @include base.make-flexbox($direction: column, $justify: space-around);
     }
-    #dev-portfolio-wrapper{
+    #dev-portfolio-wrapper,
+    #modal-dev-portfolio-wrapper{
         grid-area: dev-portfolio;
         @include base.make-flexbox($direction: column);
     }
-    #github-repo-wrapper{
+    #github-repo-wrapper,
+    #modal-github-repo-wrapper{
         grid-area: github-repo;
         @include base.make-flexbox($direction: column);
     }
-    #copyright-wrapper{
+    #copyright-wrapper,
+    #modal-copyright-wrapper{
         // display copyright notice at end of about container on mobile view
         order: 1;
+        padding-top: 1rem;
         grid-area: copyright;
         @include base.make-flexbox($direction: column);
     }
@@ -68,7 +74,8 @@
         }
     }
 
-    #about-content-wrapper{
+    #about-content-wrapper,
+    #modal-about-content-wrapper{
         height: 12rem;
         border-top: solid black .2rem;
         padding-top: .5rem;
@@ -85,7 +92,8 @@
 // ------------------------ desktop
 
 @media screen and (min-width: 1023px){
-    #footer-wrapper{
+    #footer-wrapper,
+    #modal-footer-wrapper{
         grid-area: foot;
         width: 100%;
     }
@@ -96,7 +104,8 @@
         }
     }
 
-    #about-content-wrapper{
+    #about-content-wrapper,
+    #modal-about-content-wrapper{
         height: 15rem;
         border-top: solid black .3rem;
         span:not(.sr-only){
