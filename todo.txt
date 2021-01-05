@@ -32,12 +32,7 @@ RUNNING TASKS (commit after each)
 README
 
 * Implement internal links in TOC to relevant sections
-
-TESTING
-
-* On first loading site browser default fonts displayed briefly before webfonts on server load
-* Copyright symbol in footer not centered vertically with text in span
-* Check appearance of site on very large viewport sizes
+* Reflections section
 
 FEATURES (Priority: P1, P2, P3)
 

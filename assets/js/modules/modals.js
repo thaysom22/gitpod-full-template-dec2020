@@ -9,7 +9,7 @@ const body = document.querySelector("body"),
 
 // startGame function to verify user name input, create variables for player names and variable for chosen difficulty
 function startGame(event) {
-    // prevent default submission of form in welcome modal
+    // prevent reload of page on form submission
     event.preventDefault();
 
     // verify form playerNames input
