@@ -3,7 +3,7 @@ export { startGame };
 
 /* modal DOM element references */
 const body = document.querySelector("body"),
-    modal = document.querySelector("#welcomeModal"),
+    welcomeModal = document.querySelector("#welcomeModal"),
     modalBackdrop = document.querySelector("#modal-backdrop");
 
 
@@ -16,8 +16,8 @@ function startGame(event) {
 
     // hide welcome modal
     body.classList.remove("modal-open");
-    modal.classList.remove("show");
+    welcomeModal.classList.remove("show");
     modalBackdrop.classList.remove("show");
 
-    // save form values to session storage
+    // save form values
 }

@@ -184,7 +184,7 @@ Layout:
 * [cdnjs](https://cdnjs.com/libraries/jasmine) content distribution network for Jasmine framework files.
 * [jsdelivr](https://www.jsdelivr.com/package/npm/jasmine-jquery) content distribution network for Jasmine-jQuery files.
 * [SASS](https://sass-lang.com/) CSS pre-processor used to effectively modularize styles and for practice as this is the first time I have used SASS.
-*
+* [jQuery](https://jquery.com/) used for DOM manipulation and DOM representation with Jasmine specs (slim build delivered).
 *
 *
 *
