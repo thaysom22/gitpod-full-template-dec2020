@@ -16,7 +16,9 @@
 
 5. [Testing](./TESTING.md)
 
-6. Acknowledgements and credits
+6. Evaluation of project
+
+7. Acknowledgements and credits
 
 ## 1. UX
 
@@ -205,9 +207,11 @@ Layout:
 
 * Found in separate [TESTING.md](./TESTING.md) file.
 
-## 6. Acknowledgements and Credits
+## 6. Evaluation of project as a learning exercise
 
-### 6.1 Credits
+## 7. Acknowledgements and Credits
+
+### 7.1 Credits
 
 **Content**
 
@@ -220,12 +224,12 @@ Layout:
 * [WebDevSimplifed YouTube channel](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) for idea for using global reset styles
 * [Bootstrap GitHub repository](https://github.com/twbs/bootstrap) for CSS and JavaScript used to create welcome and game-over modals.
 
-### 6.2 Acknowledgements
+### 7.2 Acknowledgements
 
 * [itnext.io article](https://itnext.io/structuring-your-sass-projects-c8d41fa55ed4) about directory structure for SCSS files
 * [hobo-web article](https://www.hobo-web.co.uk/best-screen-size/) about choosing breakpoints for responsive design
 *
 
-### 6.3 Disclaimer
+### 7.3 Disclaimer
 
 The content of this website is for educational purposes of developer only. The project was created for the assessment requirements of the 'Code Institute Full Stack Diploma in Software Development' and the developer has no commercial purposes for this project.

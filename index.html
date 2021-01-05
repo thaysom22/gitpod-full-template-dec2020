@@ -12,7 +12,7 @@
     <!-- JS for Font Awesome -->
     <script src="https://kit.fontawesome.com/623db69bf7.js" crossorigin="anonymous"></script>
     <!-- Local JS -->
-    <script src="assets/js/script.js" type="text/javascript" defer></script>
+    <script src="assets/js/main.js" type="module" defer></script>
 </head>
 <body class="modal-open">
 
@@ -145,7 +145,7 @@
 
         <!-- Input and submit in modal -->
         <div id="welcome-input-form-wrapper">
-            <form>
+            <form id="welcomeModalForm">
                 <div class="player-name-wrapper">
                     <label for="player1Name">Player 1</label>
                     <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="10">
@@ -162,7 +162,7 @@
                     <label for="harder">Harder</label>
                 </div>
                 <div id="start-game-button-wrapper">
-                    <input type="submit" value="Start Game">
+                    <input id="start-game-button" type="submit" value="Start Game">
                 </div>
             </form>
         </div>
@@ -195,6 +195,6 @@
   </div>
 </div>  
 <!-- modal-backdrop layer for modals -->
-<div class="modal-backdrop show"></div>
+<div id="modal-backdrop" class="modal-backdrop show"></div>
 </body>
 </html>

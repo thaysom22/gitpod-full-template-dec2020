@@ -18,8 +18,8 @@ RUNNING TASKS (commit after each)
 * Add gridlines to gameboard
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
-* Create markup for welcome modal
-* layout styling for welcome modal
+* Create markup for welcome modal x
+* layout styling for welcome modal x
 * Create markup for gameover modal
 * layout styling for gameover modal
 
