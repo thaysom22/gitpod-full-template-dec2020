@@ -1,18 +1,22 @@
-// // set path for loading fixtures to pwd
-// Jasmine.getFixtures().fixturesPath = './';
+// test
+console.log("spec.js module has run");
+
+// imports
+import * as modals from "../js/modules/modals.js";
+
+jasmine.getFixtures().fixturesPath = './fixtures';
+
 
 /* Tests for welcome modal form */
 
 describe("Welcome modal form", function(){
     
-    // load before each spec so that all specs are independent
-    // load entire index.html document so that effects between components can be tested properly
-    beforeEach(() => {
-        loadFixtures("../../index.html");
-    });
+    // DOES NOT WORK! How to I recreate DOM to test js functions are manipulating it correctly!!!???
+    loadFixtures("welcomeModalFixture.html");
+    
 
     it("startGame function should be defined", function() {
-        expect(startGame).toBeDefined();
+        expect(modals.startGame).toBeDefined();
     });
 
     it("player name fields should be empty when document loads", function() {

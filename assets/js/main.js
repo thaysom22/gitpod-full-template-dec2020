@@ -1,3 +1,6 @@
+// test
+console.log("main.js module has run");
+
 // imports
 import { startGame } from "./modules/modals.js";
 

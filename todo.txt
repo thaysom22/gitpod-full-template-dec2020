@@ -78,6 +78,7 @@ QUESTIONS FOR ARNOLD/TUTORING/SLACK
 
 * When initially writing HTML content, should I add id, class and data-* attributions for css/js selection at this point or later onceI know what needs to be selected and how? x
 * Tips for how to work effectively on a project to create MVP more quickly ad add in extra features/styling later?
+* When loading fixtures into Jasmine tests to test DOM manipulation I could not find a way to get loadFixtures() function to work with index.html file
 
 HIGH LEVEL ARCHITECTURE OF PROGRAM FUNCTIONALITY
 
