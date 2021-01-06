@@ -75,22 +75,11 @@ describe("Welcome modal form", function(){
         `)
     });
 
-    
-    it("startGame function should be defined", function() {
-        expect(modals.startGame).toBeDefined();
-    });
-
-    it("player name fields should be empty when document loads", function() { 
-        expect($('#welcomeModalForm #player1Name')).toHaveValue(""); 
-        expect($('#welcomeModalForm #player2Name')).toHaveValue("");
-    });
-
-    it("neither difficulty level option should be selected when document loads", function() {
-
-    });
-
-    it("should not sumbit with an empty player name field and should notify user", function() {
-
+    it("should notify user with any empty player name field ", function() {
+        $('player1Name').val("");
+        $('player2Name').val("");
+        modals.startGame(new Event('submit'));
+        expect()
     });
 
     it("should not submit with a player name greater than 10 characters and should notify user", function() {
@@ -101,11 +90,15 @@ describe("Welcome modal form", function(){
 
     });
 
-    it("should close welcome modal when correctly submitted", function() {
+    it("should toggle classes to close welcome modal when form is correctly submitted", function() {
 
     });
 
-    it("should store player names enteredand difficulty level selected", function() {
+    it("should store player names entered and difficulty level selected when correctly submitted", function() {
 
-    })
+    });
+
+    it("should toggle classes to display 'how to play' info element when icon is clicked", function() {
+
+    });
 });
