@@ -14,17 +14,16 @@ RUNNING TASKS (commit after each)
 * refactor scss to create variables for values reused across viewport sizes? x
 * Add border effects and styling to click to play section x
 * Add border effects and styling to scoreboard section x
+* Create markup for welcome modal x
+* layout styling for welcome modal x
 * Choose new body font(s)? (more readable)
 * Add gridlines to gameboard
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
-* Create markup for welcome modal x
-* layout styling for welcome modal x
 * Create markup for gameover modal
 * layout styling for gameover modal
+* create tests for welcome modal - use beforeEach{setFixtures()} 
 
-5. Set up basic JS data structures and functions
-6. Set up basic Jasmine tests for JS (read article on best practice)
 
 * Increase number of grid elements to 20?
 

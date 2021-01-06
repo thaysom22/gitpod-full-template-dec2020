@@ -185,8 +185,8 @@ Layout:
 * [jsdelivr](https://www.jsdelivr.com/package/npm/jasmine-jquery) content distribution network for Jasmine-jQuery files.
 * [SASS](https://sass-lang.com/) CSS pre-processor used to effectively modularize styles and for practice as this is the first time I have used SASS.
 * [jQuery](https://jquery.com/) used for DOM manipulation and DOM representation with Jasmine specs (slim build delivered).
-*
-*
+* [Jasmine]
+* [jasmine-jquery]
 *
 *
 
@@ -210,7 +210,8 @@ Layout:
 
 ## 6. Evaluation of project as a learning exercise
 
-
+* Need to use custom jQuery Jasmine matchers when selecting with jQuery **because a jQuery object wrapping DOM references is returned.**
+* In future projects I would like to use specific "js-*" classes or "data-*" attributes for selection by Javascript; however since this project is relatively small scale and I was already quite far through the project when I realized this I decided it was not enough of a priority to be worthwhile refactoring HTML, JS and fixture strings.
 
 ## 7. Acknowledgements and Credits
 

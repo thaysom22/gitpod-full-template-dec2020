@@ -8,4 +8,4 @@ import { startGame } from "./modules/modals.js";
 const welcomeModalForm = $("#welcomeModalForm");
 
 // add event listeners
-welcomeModalForm.click(startGame);
+welcomeModalForm.submit(startGame);
