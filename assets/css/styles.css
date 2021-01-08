@@ -16,6 +16,11 @@ html {
   font-size: 0.625rem;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .section-wrapper {
   margin: 0.5rem 0.2rem;
 }
@@ -75,7 +80,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 3vh 3vw;
+  padding: 1rem;
 }
 
 .modal-content {
@@ -107,6 +112,10 @@ body {
   display: block;
 }
 
+.modal-content {
+  max-width: 65rem;
+}
+
 #welcome-input-form-wrapper form {
   display: flex;
   flex-direction: column;
@@ -115,7 +124,7 @@ body {
 }
 #welcome-input-form-wrapper .player-name-wrapper {
   width: 75%;
-  max-width: 30rem;
+  max-width: 25rem;
   height: 10rem;
   margin-top: 1rem;
   display: flex;
@@ -144,7 +153,7 @@ body {
 }
 #welcome-input-form-wrapper .choose-difficulty-wrapper {
   width: 75%;
-  height: 6rem;
+  height: 8rem;
   margin-top: -1rem;
   display: flex;
   flex-direction: row;
@@ -155,47 +164,33 @@ body {
   padding: 0.75rem;
   font-size: 1.5rem;
 }
+#welcome-input-form-wrapper #start-game-button {
+  background-color: #00bbf9;
+  padding: 1.25rem;
+  color: #fee440;
+  font-family: "arbeiBerry", sans-serif;
+  font-size: 1.75rem;
+  border-style: ridge;
+  border-color: #fee440;
+  border-width: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 3rem #fee440;
+  margin-bottom: 1rem;
+}
 
 @media screen and (min-width: 767px) {
-  .modal-dialog {
-    padding: 3vh 3vw;
-  }
-}
-#welcome-input-form-wrapper .player-name-wrapper label {
-  font-size: 3rem;
-}
-#welcome-input-form-wrapper .player-name-wrapper input {
-  font-size: 1.5rem;
-}
-#welcome-input-form-wrapper span {
-  font-size: 3rem;
-}
-#welcome-input-form-wrapper .choose-difficulty-wrapper label {
-  padding: 0.75rem;
-  font-size: 2rem;
-}
-
-@media screen and (min-width: 1023px) {
-  .modal-dialog {
-    padding: 5vh 10vw;
-  }
-
-  #welcome-input-form-wrapper .player-name-wrapper {
-    height: 15rem;
-    margin-top: 3rem;
-  }
   #welcome-input-form-wrapper .player-name-wrapper label {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   #welcome-input-form-wrapper .player-name-wrapper input {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #welcome-input-form-wrapper span {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   #welcome-input-form-wrapper .choose-difficulty-wrapper label {
-    padding: 1rem;
-    font-size: 3rem;
+    padding: 0.75rem;
+    font-size: 2rem;
   }
 }
 #header-wrapper,
@@ -205,6 +200,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 8rem;
+  padding-top: 0.5rem;
 }
 
 #main-heading,
@@ -234,6 +230,21 @@ body {
   text-align: center;
 }
 
+@media screen and (min-width: 380px) {
+  #main-heading,
+#modal-main-heading {
+    font-size: 2.5rem;
+  }
+
+  #header-info-wrapper i,
+#modal-header-info-wrapper i {
+    font-size: 2.75rem;
+  }
+  #header-info-wrapper span,
+#modal-header-info-wrapper span {
+    font-size: 1.75rem;
+  }
+}
 @media screen and (min-width: 767px) {
   #main-heading,
 #modal-main-heading {
@@ -580,13 +591,11 @@ body {
     font-size: 2rem;
   }
 
-  #about-content-wrapper,
-#modal-about-content-wrapper {
+  #about-content-wrapper {
     height: 15rem;
     border-top: solid black 0.3rem;
   }
-  #about-content-wrapper span:not(.sr-only),
-#modal-about-content-wrapper span:not(.sr-only) {
+  #about-content-wrapper span:not(.sr-only) {
     font-size: 2rem;
   }
 }

@@ -16,17 +16,18 @@ RUNNING TASKS (commit after each)
 * Add border effects and styling to scoreboard section x
 * Create markup for welcome modal x
 * layout styling for welcome modal x
-* Choose new body font(s)? (more readable)
+* create tests for welcome modal x
+
+* Make modal scrollable (see bootstrap)
 * Add gridlines to gameboard
+* create tests for gameboard
+* write JS for gameboard
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
 * Create markup for gameover modal
 * layout styling for gameover modal
+* Choose new body font(s)? (more readable)
 
-* create tests for welcome modal - test startGame() function effects on DOM and data storage. (add clickStartGame wrapper function with checks and event.preventDefaut())
-
-
-* Increase number of grid elements to 20?
 
 
 README
@@ -60,7 +61,8 @@ POSSIBLE EXTRA FEATURES
 * High score log for each player name in window/local storage - display on game over page?
 * Audio played as user feedback when clicking on elements of page and at significant points in gameplay
 * Math handwriting recognition API?
-* Insert error messages into HTML instead of triggering browser alert 
+* Insert error messages into HTML 
+* Increase number of grid elements to 20
 
     POSSIBLE ADDITIONS TO STYLING
 

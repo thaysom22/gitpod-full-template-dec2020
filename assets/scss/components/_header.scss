@@ -2,12 +2,13 @@
 
 // ------ header 
 
-// -------------------- mobile
+// -------------------- mobile (xs)
 
 #header-wrapper,
 #modal-header-wrapper{
     @include base.make-flexbox($justify: space-between);
     height: 8rem;
+    padding-top: 0.5rem;
 }
 
 #main-heading,
@@ -31,6 +32,27 @@
         text-align: center;
     }
 }
+
+// for most mobiles
+@media screen and (min-width: 380px){
+    #main-heading,
+    #modal-main-heading{
+        font-size: 2.5rem;
+    }
+
+    #header-info-wrapper,
+    #modal-header-info-wrapper{
+        i{
+            font-size: 2.75rem;
+            
+        }
+        span{
+            font-size: 1.75rem;
+            
+        }
+    }
+}
+
 
 // ------------------------ tablet
 

@@ -4,12 +4,6 @@
 
 // --------- all modals
 
-// ----------- modal variables
-
-$modal-dialog-padding-mobile: 3vh 3vw;
-$modal-dialog-padding-tablet: 3vh 3vw;
-$modal-dialog-padding-desktop: 5vh 10vw;
-
 // -----------  mobile
 
 // CREDIT: code copied and modified from: https://github.com/twbs/bootstrap/blob/main/scss/_modal.scss
@@ -50,10 +44,9 @@ $modal-dialog-padding-desktop: 5vh 10vw;
   @include base.make-flexbox();
   width: 100%;
   height: 100%;
-  padding: $modal-dialog-padding-mobile;
+  padding: 1rem;
 }
 
-// Actual modal
 .modal-content {
   @include base.make-flexbox($direction: column, $align: stretch, $justify: space-between);
   border: 1rem solid base.$blue;
@@ -66,7 +59,6 @@ $modal-dialog-padding-desktop: 5vh 10vw;
   background-color: #fff;
 }
 
-// Modal backdrop
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -84,13 +76,17 @@ $modal-dialog-padding-desktop: 5vh 10vw;
 
 // -------- Welcome modal
 
+.modal-content{
+    max-width: 65rem;
+}
+
 #welcome-input-form-wrapper{
     form{
         @include base.make-flexbox($direction: column);
     }
     .player-name-wrapper{
         width: 75%;
-        max-width: 30rem;
+        max-width: 25rem;
         height: 10rem;
         margin-top: 1rem;
         @include base.make-flexbox($direction: column);
@@ -114,7 +110,7 @@ $modal-dialog-padding-desktop: 5vh 10vw;
     .choose-difficulty-wrapper{
 
         width: 75%;
-        height: 6rem;
+        height: 8rem;
         margin-top: -1rem;
         @include base.make-flexbox();
         label{
@@ -122,32 +118,39 @@ $modal-dialog-padding-desktop: 5vh 10vw;
             font-size: 1.5rem;
         }
     }
+    #start-game-button{
+        background-color: base.$blue;
+        padding: 1.25rem;
+        color: base.$yellow;
+        font-family: base.$title-font;
+        font-size: 1.75rem;
+        @include base.elliptical-border($color: base.$yellow, $width: 0.5rem,);
+        @include base.box-shadow($blur-radius: 3rem, $color: base.$yellow);
+        margin-bottom: 1rem;
+    }
 }
 
 // --------- tablet
 @media screen and (min-width: 767px){
-    .modal-dialog {
-    padding: $modal-dialog-padding-tablet;
-    }
-}
 
-#welcome-input-form-wrapper{
-    .player-name-wrapper{
-        label{
-            
+    #welcome-input-form-wrapper{
+        .player-name-wrapper{
+            label{
+                
+                font-size: 3rem;
+            }
+            input{
+                font-size: 1.5rem;
+            }
+        }
+        span{
             font-size: 3rem;
         }
-        input{
-            font-size: 1.5rem;
-        }
-    }
-    span{
-        font-size: 3rem;
-    }
-    .choose-difficulty-wrapper{
-        label{
-            padding: 0.75rem;
-            font-size: 2rem;
+        .choose-difficulty-wrapper{
+            label{
+                padding: 0.75rem;
+                font-size: 2rem;
+            }
         }
     }
 }
@@ -155,32 +158,3 @@ $modal-dialog-padding-desktop: 5vh 10vw;
 
 
 // -------- desktop
-
-@media screen and (min-width: 1023px){
-    .modal-dialog {
-    padding: $modal-dialog-padding-desktop;
-    }
-
-    #welcome-input-form-wrapper{
-        .player-name-wrapper{
-            height: 15rem;
-            margin-top: 3rem;
-            label{
-                
-                font-size: 4rem;
-            }
-            input{
-                font-size: 2rem;
-            }
-        }
-        span{
-            font-size: 4rem;
-        }
-        .choose-difficulty-wrapper{
-            label{
-                padding: 1rem;
-                font-size: 3rem;
-            }
-        }
-    }
-}
