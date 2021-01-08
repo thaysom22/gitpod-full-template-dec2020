@@ -22,7 +22,8 @@ RUNNING TASKS (commit after each)
 * layout styling for how to play 'pop up'
 * Create markup for gameover modal
 * layout styling for gameover modal
-* create tests for welcome modal - use beforeEach{setFixtures()} 
+
+* create tests for welcome modal - test startGame() function effects on DOM and data storage. (add clickStartGame wrapper function with checks and event.preventDefaut())
 
 
 * Increase number of grid elements to 20?
@@ -59,8 +60,9 @@ POSSIBLE EXTRA FEATURES
 * High score log for each player name in window/local storage - display on game over page?
 * Audio played as user feedback when clicking on elements of page and at significant points in gameplay
 * Math handwriting recognition API?
+* Insert error messages into HTML instead of triggering browser alert 
 
-POSSIBLE ADDITIONS TO STYLING
+    POSSIBLE ADDITIONS TO STYLING
 
 * Combat theme icons on welcome modal
 * Celebration theme icons on game over modal

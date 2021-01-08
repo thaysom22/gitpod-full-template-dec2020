@@ -1,11 +1,5 @@
-// test
-console.log("main.js module has run");
-
 // imports
-import { startGame } from "./modules/modals.js";
+import { ModalsObject } from "./modules/modals.js";
 
-// global DOM element references
-const welcomeModalForm = $("#welcomeModalForm");
-
-// add event listeners
-welcomeModalForm.submit(startGame);
+// add event listener to welcome modal form submit input element
+$("#welcomeModalForm").submit(ModalsObject.submitWelcomeForm);

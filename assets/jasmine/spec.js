@@ -1,104 +1,100 @@
 // imports
-import * as modals from "../js/modules/modals.js";
+import { ModalsObject } from "../js/modules/modals.js";
+
 
 /* Tests for welcome modal form */
 describe("Welcome modal form", function(){
-    
+
+    // create simplified version of welcome modal with form in DOM for testing before each spec
     beforeEach(() => {
         setFixtures(`
-<div class="modal show" id="welcomeModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="Welcome-to-the-game" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <!-- Main heading section within modal -->
-        <header id="modal-header-wrapper" class="section-wrapper">
-            <h1 id="modal-main-heading" class="heading">Substitution Skirmish!</h1>
-            <div id="modal-header-info-wrapper" class="trigger-wrapper" aria-label="Click to view instructions on how to play">
-                <!-- CREDIT: Font Awesome -->
-                <i aria-hidden="true" class="fas fa-info-circle" title="How to Play"></i>
-                <span>How to Play</span>
-            </div>
-        </header>
-
-        <!-- Input and submit in modal -->
-        <div id="welcome-input-form-wrapper">
-            <form id="welcomeModalForm">
-                <div class="player-name-wrapper">
-                    <label for="player1Name">Player 1</label>
-                    <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="10">
-                </div>
-                <div class="player-name-wrapper">
-                    <label for="player2Name">Player 2</label>
-                    <input type="text" id="player2Name" name="player2Name" placeholder="Enter Name" size="10">
-                </div>
-                <span>Choose difficulty level:</span>
-                <div class="choose-difficulty-wrapper">
-                    <input type="radio" id="easier" name="difficultyLevel" value="easier">
-                    <label for="easier">Easier</label>
-                    <input type="radio" id="harder" name="difficultyLevel" value="harder">
-                    <label for="harder">Harder</label>
-                </div>
-                <div id="start-game-button-wrapper">
-                    <input id="start-game-button" type="submit" value="Start Game">
-                </div>
-            </form>
-        </div>
-
-        <!-- Footer section in modal -->
-        <footer id="modal-footer-wrapper" class="section-wrapper">
-           <!-- ABOUT section always visible on welcome modal -->
-            <div id="modal-about-content-wrapper" class="section-wrapper">
-                <div id="modal-dev-portfolio-wrapper">
-                    <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
-                    <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>
-                    <span>thaysom22</span>
-                    <span>Developer Portfolio</span>
-                    </a>
-                </div>
-                <div id="modal-copyright-wrapper">
-                    <span>For eductional purposes only</span>
-                    <span>&copy; Thomas Haysom 2020</span>
-                </div>
-                <div id="modal-github-repo-wrapper">
-                    <a href="https://github.com/thaysom22/maths-substitution-game" target="_blank" aria-label="Click to open GitHub repo for this site" title="GitHub Repo: maths-substitution-game">
-                    <i class="fab fa-github-square" aria-hidden="true" title="Click to open GitHub repo for this site"></i>
-                    <span>Code for this site</span>
-                    <span>Suggestions welcome!</span>
-                    </a>
+            <div class="modal show" id="welcomeModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id="welcome-input-form-wrapper">
+                        <form id="welcomeModalForm">
+                            <div class="player-name-wrapper">
+                                <label for="player1Name">Player 1</label>
+                                <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="10">
+                            </div>
+                            <div class="player-name-wrapper">
+                                <label for="player2Name">Player 2</label>
+                                <input type="text" id="player2Name" name="player2Name" placeholder="Enter Name" size="10">
+                            </div>
+                            <span>Choose difficulty level:</span>
+                            <div class="choose-difficulty-wrapper">
+                                <input type="radio" id="easier" name="difficultyLevel" value="easier">
+                                <label for="easier">Easier</label>
+                                <input type="radio" id="harder" name="difficultyLevel" value="harder">
+                                <label for="harder">Harder</label>
+                            </div>
+                            <div id="start-game-button-wrapper">
+                                <input id="start-game-button" type="submit" value="Start Game">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
-  </div>
-</div>  
-<!-- modal-backdrop layer for modals -->
-<div id="modal-backdrop" class="modal-backdrop show"></div>
+            </div>  
+            <!-- modal-backdrop layer for modals -->
+            <div id="modal-backdrop" class="modal-backdrop show"></div>
         `)
+        // add 'modal-open' class to body element
+        $('body').addClass("modal-open");
+        
     });
 
-    it("should notify user with any empty player name field ", function() {
-        $('player1Name').val("");
-        $('player2Name').val("");
-        modals.startGame(new Event('submit'));
-        expect()
+    describe("when form is submitted", function() {
+
+        it("should not start game when any empty player name field", function() {
+            var startGameSpy = spyOn(ModalsObject, "startGame");
+            // set input fields as empty strings
+            $('#player1Name').val("");
+            $('#player2Name').val("");
+            // invoke submitWelcomeForm function in 'modals' module with submitEvent parameter to emulate effects of user interaction 
+            ModalsObject.submitWelcomeForm(new Event('submit'));
+            expect(startGameSpy).not.toHaveBeenCalled();
+        });
+
+        it("should not run startGame function when a player name longer than 10 characters is entered", function() {
+            var startGameSpy = spyOn(ModalsObject, "startGame");
+            $('#player1Name').val("Longer than ten characters");
+            $('#player2Name').val("Tom");
+            ModalsObject.submitWelcomeForm(new Event('submit'));
+            expect(startGameSpy).not.toHaveBeenCalled();
+        });
+
+        it("should not run startGame function when no difficulty level is selected", function() {
+            var startGameSpy = spyOn(ModalsObject, "startGame");
+            // set both radio box fields for difficulty as unchecked
+            $("#easier").prop("checked", false);
+            $("#harder").prop("checked", false);
+            ModalsObject.submitWelcomeForm(new Event('submit'));
+            expect(startGameSpy).not.toHaveBeenCalled();
+        });
+
     });
 
-    it("should not submit with a player name greater than 10 characters and should notify user", function() {
+    describe("when game is started", function() {
+
+        it("startGame function called with correct arguments when player names entries are both valid and a difficulty level is selected", function() {
+            var startGameSpy = spyOn(ModalsObject, "startGame");
+            $('#player1Name').val("Sophie");
+            $('#player2Name').val("Harry");
+            $("#easier").prop("checked", true);
+            $("#harder").prop("checked", false);
+            console.dir(ModalsObject);
+            ModalsObject.submitWelcomeForm(new Event('submit'));
+            expect(startGameSpy).toHaveBeenCalledWith("Sophie", "Harry", "Easy");
+        });
+
+        it("should remove classes correctly on DOM elements to close welcome modal ", function() {
+            ModalsObject.startGame("Mark", "Sally", "Hard");
+            expect($('body')).not.toHaveClass('modal-open');
+            expect($('#welcomeModal')).not.toHaveClass('show');
+            expect($('#modal-backdrop')).not.toHaveClass('show');
+        });
 
     });
 
-    it("should not submit without a difficulty level seleced and should notify user", function() {
-
-    });
-
-    it("should toggle classes to close welcome modal when form is correctly submitted", function() {
-
-    });
-
-    it("should store player names entered and difficulty level selected when correctly submitted", function() {
-
-    });
-
-    it("should toggle classes to display 'how to play' info element when icon is clicked", function() {
-
-    });
 });
