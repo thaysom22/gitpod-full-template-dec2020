@@ -1,17 +1,48 @@
 /* modal.js contains functions related to user interaction with welcome and gameover modal interfaces */
-import { initializeScoreboard } from "./scoreboard.js";
-import { initializeGameboard } from "./gameboard.js";
+import { Gameboard } from "./gameboard.js";
 
-export { ModalsObject };
+export { WelcomeModalObject };
 
-// all functions in module are wrapped as static methods in ModalsObject so that they can be spied on by Jasmine
-class ModalsObject {
+
+var WelcomeModalObject = {
+
+    /**
+     * addSubmitEventListener adds event listener to welcome modal form submit input element
+    */
+    addSubmitEventListener: function() {
+        $("#welcomeModalForm").submit(WelcomeModalObject.submitWelcomeForm);
+    },
+
+    /** 
+     * hideWelcomeModal function invoked by startGame function
+     * removes classes from HTML elements to hide welcome modal and display main page content
+    */
+    hideWelcomeModal: function() {
+        $('body').removeClass("modal-open");
+        $('#welcomeModal').removeClass("show");
+        $('#modal-backdrop').removeClass("show");   
+    },
+
+    /** 
+     * startGame function runs when form has passed validation in submitWelcomeForm
+     * takes arguments: player names and variable for chosen difficulty
+     * closes welcome Modal interface
+     */
+    startGame: function(player1Name, player2Name, difficultySetting) {
+        // initialize scoreboard
+        
+        // initialize gameboard
+        var gameboard = new Gameboard(difficultySetting);
+        // hide welcome modal
+        WelcomeModalObject.hideWelcomeModal();
+    },
+
     /** 
      * submitWelcomeForm function runs whenever form on welcome modal page is submitted.
      * Verifies input and displays errors to user if required.
      * Takes submitEvent generated as argument
      */ 
-    static submitWelcomeForm(submitEvent) {
+    submitWelcomeForm: function(submitEvent) {
         // prevent default reloading of page on form submission
         submitEvent.preventDefault();
         // verify player1name and player2name inputs
@@ -35,32 +66,8 @@ class ModalsObject {
 
         let difficultySetting = easySettingCheck ? "Easy" : "Hard";
         // if form passes verification above, invoke startGame function and pass welcomeModalForm inputs as arguments
-        ModalsObject.startGame(player1Name, player2Name, difficultySetting);
-    }
-
-    /** 
-     * startGame function runs when form has passed validation in submitWelcomeForm
-     * takes arguments: player names and variable for chosen difficulty
-     * closes welcome Modal interface
-     */
-    static startGame(player1Name, player2Name, difficultySetting) {
-        // initialize scoreboard
-        initializeScoreboard(player1Name, player2Name);
-        // initialize gameboard
-        initializeGameboard(difficultySetting);
-        // hide welcome modal
-        ModalsObject.hideWelcomeModal();
-    }
-
-    /** 
-     * hideWelcomeModal function invoked by startGame function
-     * removes classes from HTML elements to hide welcome modal and display main page content
-    */
-    static hideWelcomeModal() {
-        $('body').removeClass("modal-open");
-        $('#welcomeModal').removeClass("show");
-        $('#modal-backdrop').removeClass("show");   
-    }
-    
+        WelcomeModalObject.startGame(player1Name, player2Name, difficultySetting);
+    },
+ 
 }
 

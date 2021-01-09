@@ -22,10 +22,15 @@ RUNNING TASKS (commit after each)
 * Add gridlines to gameboard
 * create tests for gameboard
 * write JS for gameboard
+* refactor modals.js
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
+* add tests for how to play 'pop up
+* write js for ho to play pop up
 * Create markup for gameover modal
 * layout styling for gameover modal
+* add tests for gameover modal
+* write js for gameover modal
 * Choose new body font(s)? (more readable)
 
 

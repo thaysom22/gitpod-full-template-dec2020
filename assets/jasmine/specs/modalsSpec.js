@@ -1,12 +1,12 @@
 // imports
-import { ModalsObject } from "../js/modules/modals.js";
+import { WelcomeModalObject } from "../../js/modules/modals.js";
 
 
 /* Tests for welcome modal form */
 describe("Welcome modal form", function(){
 
-    // create simplified version of welcome modal with form in DOM for testing before each spec
     beforeEach(() => {
+        // create simplified version of welcome modal with form in DOM for testing before each spec
         setFixtures(`
             <div class="modal show" id="welcomeModal">
             <div class="modal-dialog">
@@ -38,7 +38,7 @@ describe("Welcome modal form", function(){
             </div>  
             <!-- modal-backdrop layer for modals -->
             <div id="modal-backdrop" class="modal-backdrop show"></div>
-        `)
+        `);
         // add 'modal-open' class to body element
         $('body').addClass("modal-open");
         
@@ -47,29 +47,29 @@ describe("Welcome modal form", function(){
     describe("when form is submitted", function() {
 
         it("should not start game when any empty player name field", function() {
-            var startGameSpy = spyOn(ModalsObject, "startGame");
+            var startGameSpy = spyOn(WelcomeModalObject, "startGame");
             // set input fields as empty strings
             $('#player1Name').val("");
             $('#player2Name').val("");
             // invoke submitWelcomeForm function in 'modals' module with submitEvent parameter to emulate effects of user interaction 
-            ModalsObject.submitWelcomeForm(new Event('submit'));
+            WelcomeModalObject.submitWelcomeForm(new Event('submit'));
             expect(startGameSpy).not.toHaveBeenCalled();
         });
 
         it("should not run startGame function when a player name longer than 10 characters is entered", function() {
-            var startGameSpy = spyOn(ModalsObject, "startGame");
+            var startGameSpy = spyOn(WelcomeModalObject, "startGame");
             $('#player1Name').val("Longer than ten characters");
             $('#player2Name').val("Tom");
-            ModalsObject.submitWelcomeForm(new Event('submit'));
+            WelcomeModalObject.submitWelcomeForm(new Event('submit'));
             expect(startGameSpy).not.toHaveBeenCalled();
         });
 
         it("should not run startGame function when no difficulty level is selected", function() {
-            var startGameSpy = spyOn(ModalsObject, "startGame");
+            var startGameSpy = spyOn(WelcomeModalObject, "startGame");
             // set both radio box fields for difficulty as unchecked
             $("#easier").prop("checked", false);
             $("#harder").prop("checked", false);
-            ModalsObject.submitWelcomeForm(new Event('submit'));
+            WelcomeModalObject.submitWelcomeForm(new Event('submit'));
             expect(startGameSpy).not.toHaveBeenCalled();
         });
 
@@ -78,18 +78,18 @@ describe("Welcome modal form", function(){
     describe("when game is started", function() {
 
         it("startGame function called with correct arguments when player names entries are both valid and a difficulty level is selected", function() {
-            var startGameSpy = spyOn(ModalsObject, "startGame");
+            var startGameSpy = spyOn(WelcomeModalObject, "startGame");
             $('#player1Name').val("Sophie");
             $('#player2Name').val("Harry");
             $("#easier").prop("checked", true);
             $("#harder").prop("checked", false);
-            console.dir(ModalsObject);
-            ModalsObject.submitWelcomeForm(new Event('submit'));
+            console.dir(WelcomeModalObject);
+            WelcomeModalObject.submitWelcomeForm(new Event('submit'));
             expect(startGameSpy).toHaveBeenCalledWith("Sophie", "Harry", "Easy");
         });
 
         it("should remove classes correctly on DOM elements to close welcome modal ", function() {
-            ModalsObject.startGame("Mark", "Sally", "Hard");
+            WelcomeModalObject.startGame("Mark", "Sally", "Hard");
             expect($('body')).not.toHaveClass('modal-open');
             expect($('#welcomeModal')).not.toHaveClass('show');
             expect($('#modal-backdrop')).not.toHaveClass('show');

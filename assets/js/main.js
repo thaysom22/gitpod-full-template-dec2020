@@ -1,5 +1,4 @@
 // imports
-import { ModalsObject } from "./modules/modals.js";
+import { WelcomeModalObject } from "./modules/modals.js";
 
-// add event listener to welcome modal form submit input element
-$("#welcomeModalForm").submit(ModalsObject.submitWelcomeForm);
+WelcomeModalObject.addSubmitEventListener();
