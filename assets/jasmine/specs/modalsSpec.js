@@ -83,7 +83,6 @@ describe("Welcome modal form", function(){
             $('#player2Name').val("Harry");
             $("#easier").prop("checked", true);
             $("#harder").prop("checked", false);
-            console.dir(WelcomeModalObject);
             WelcomeModalObject.submitWelcomeForm(new Event('submit'));
             expect(startGameSpy).toHaveBeenCalledWith("Sophie", "Harry", "Easy");
         });

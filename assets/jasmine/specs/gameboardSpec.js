@@ -1,6 +1,6 @@
 import { Gameboard } from "./../../js/modules/gameboard.js"; 
 
-describe("Gameboard", function() {
+describe("Gameboard object", function() {
     
     beforeEach(() => {
         // create version of gameboard in DOM for testing before each spec
@@ -29,11 +29,12 @@ describe("Gameboard", function() {
         
     });
     
-    describe("when initialized in Easy mode", function() {
+    describe("when initialized with Easy difficulty", function() {
 
+        var gameboard; // declared in scope that both beforeEach() and specs can access
         beforeEach(() => {
             // create new instance of GameBoard class
-            var gameboard = new Gameboard("Easy");
+            gameboard = new Gameboard("Easy");
         });
 
         it("should add questions to HTML of all grid items of gameboard in DOM", function() {
@@ -42,17 +43,24 @@ describe("Gameboard", function() {
             });
         });
 
-        it("should hold an array of question objects each with content, answer and value ranking properties", function() {
-
+        it("should hold an array of 16 question objects each with content(string), evaluate(function) answer(null) and ranking(null) properties", function() {
+            expect(gameboard.questions.length).toEqual(16);
+            gameboard.questions.forEach((question) => {
+                expect(question.content).toBeInstanceOf(String);
+                expect(question.evaluate).toBeInstanceOf(Function);
+                expect(question.answer).toBeDefined();
+                expect(question.ranking).toBeDefined();
+            });
         });
 
     });
 
-        describe("when initialized in Hard mode", function() {
+    describe("when initialized with Hard difficulty", function() {
 
+        var gameboard;
         beforeEach(() => {
             // create new instance of GameBoard class
-            var gameboard = new Gameboard("Hard");
+            gameboard = new Gameboard("Hard");
         });
 
         it("should add questions to HTML of all grid items of gameboard in DOM", function() {
@@ -61,7 +69,7 @@ describe("Gameboard", function() {
             });
         });
 
-        it("should hold an array of question objects each with content, answer and value ranking properties", function() {
+        it("should hold an array of 16 question objects each with content, answer and value ranking properties", function() {
 
         });
 
