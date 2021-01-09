@@ -43,11 +43,11 @@ describe("Gameboard object", function() {
             });
         });
 
-        it("should hold an array of 16 question objects each with content(string), evaluate(function) answer(null) and ranking(null) properties", function() {
+        it("should store an array of 16 question objects each with expression(string), print(string), answer(null) and ranking(null) properties", function() {
             expect(gameboard.questions.length).toEqual(16);
             gameboard.questions.forEach((question) => {
-                expect(question.content).toBeInstanceOf(String);
-                expect(question.evaluate).toBeInstanceOf(Function);
+                expect(question.expression).toBeInstanceOf(String);
+                expect(question.print).toBeInstanceOf(String);
                 expect(question.answer).toBeDefined();
                 expect(question.ranking).toBeDefined();
             });

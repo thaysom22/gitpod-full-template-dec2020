@@ -187,7 +187,7 @@ Layout:
 * [jQuery](https://jquery.com/) used for DOM manipulation and DOM representation with Jasmine specs (slim build delivered).
 * [Jasmine]
 * [jasmine-jquery]
-*
+* [mathjs api](https://api.mathjs.org/) called to evaluate and parse function expressions for Gameboard object
 *
 
 ## 4. Deployment Proceedure
@@ -212,6 +212,7 @@ Layout:
 
 * Need to use custom jQuery Jasmine matchers when selecting with jQuery **because a jQuery object wrapping DOM references is returned.**
 * In future projects I would like to use specific "js-*" classes or "data-*" attributes for selection by Javascript; however since this project is relatively small scale and I was already quite far through the project when I realized this I decided it was not enough of a priority to be worthwhile refactoring HTML, JS and fixture strings.
+* The mathjs api/library is amazing! I can use this to help me create more educational tools and games in the future. I used the api for this project as I wanted to practice using the XMLHttpRequest object and working with JSON data, but in future I would just use the library.
 
 ## 7. Acknowledgements and Credits
 
@@ -227,6 +228,7 @@ Layout:
 
 * [WebDevSimplifed YouTube channel](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) for idea for using global reset styles
 * [Bootstrap GitHub repository](https://github.com/twbs/bootstrap) for CSS and JavaScript used to create welcome and game-over modals.
+* [mathjs docs](https://mathjs.org/docs/index.html)
 
 ### 7.2 Acknowledgements
 
