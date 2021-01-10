@@ -7,8 +7,8 @@ class Gameboard {
         // CREDIT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static
         this.expressions = Gameboard.generateExpressions(difficultySetting); // array of expressions is staved on instance for mathjs XHR request object
         this.questions = this.initializeQuestions(); // initializeQuestions function returns an array of objects
-        console.log(this.expressions); //test
-        console.log(this.questions); //test
+        
+        this.evaluateQuestions(5); //test
         
     };
 
@@ -93,50 +93,16 @@ class Gameboard {
     }
 
     /**
-     * evaluateExpressions instance method makes XHR request to math.js api to calcuate and set answer property for each question object in this.questions array
+     * evaluateExpressions instance method calls math.evaluate method on expression property to set answer property for each question object in this.questions array
      * @param {Integer} variableValue 
      */
-    evaluateExpressions(variableValue) {
-        let requestBody = {};
-        let expressions = this.expressions;
-        expressions.unshift(`X = ${variableValue}`); // unshift is destructive (updates expressions binding)
-        requestBody.expr = expressions; 
+    evaluateQuestions(variableValue) {
+        let questions = this.questions;
+        questions.forEach(function(question){
+            question.answer = math.evaluate(question.expression, { X: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
+        });
         
-        
-        
-        
-        
-        // makeRequest is a helper function that uses promise to call API and then invoke callback
-        // CREDIT: https://gomakethings.com/promise-based-xhr/ 
-        function makeRequest(url, method, requestBody) {
-            let request = new XMLHttpRequest();
-
-            return new Promise(function(resolve, reject) {
-               
-                request.onreadystatechange(function() {
-                    if (request.readyState !== 4) { 
-                        return; // do not run unless request has completed
-                    } 
-
-                    if (request.status >= 200 && request.status < 300) {
-                        resolve(request); // request response received succesfully and request object passed to resolve() callback
-                    } else { 
-                        reject({
-                            status: request.status,
-                            statusText: request.statusText,
-                        }); //request unsuccessful: info passed to reject() callback
-                    }
-                });
-
-                request.open("POST", "http://api.mathjs.org/v4/")
-                // add request body (stringify)
-                // add required request header
-            });
-
-        }
-        
-        
-
+        console.log(questions) // test
         
 
     }

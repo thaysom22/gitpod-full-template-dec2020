@@ -181,13 +181,13 @@ Layout:
 
 ## 3.Technology Stack and Dependencies
 
-* [cdnjs](https://cdnjs.com/libraries/jasmine) content distribution network for Jasmine framework files.
+* [cdnjs](https://cdnjs.com/libraries/jasmine) content distribution network used for Jasmine framework and mathjs library.
 * [jsdelivr](https://www.jsdelivr.com/package/npm/jasmine-jquery) content distribution network for Jasmine-jQuery files.
 * [SASS](https://sass-lang.com/) CSS pre-processor used to effectively modularize styles and for practice as this is the first time I have used SASS.
 * [jQuery](https://jquery.com/) used for DOM manipulation and DOM representation with Jasmine specs (slim build delivered).
 * [Jasmine]
 * [jasmine-jquery]
-* [mathjs api](https://api.mathjs.org/) called to evaluate and parse function expressions for Gameboard object
+* [mathjs library](https://mathjs.org/index.html) linked from cdnjs and used to evaluate function expressions for Gameboard object
 *
 
 ## 4. Deployment Proceedure
@@ -212,7 +212,7 @@ Layout:
 
 * Need to use custom jQuery Jasmine matchers when selecting with jQuery **because a jQuery object wrapping DOM references is returned.**
 * In future projects I would like to use specific "js-*" classes or "data-*" attributes for selection by Javascript; however since this project is relatively small scale and I was already quite far through the project when I realized this I decided it was not enough of a priority to be worthwhile refactoring HTML, JS and fixture strings.
-* The mathjs api/library is amazing! I can use this to help me create more educational tools and games in the future. I used the api for this project as I wanted to practice using the XMLHttpRequest object and working with JSON data, but in future I would just use the library.
+* The mathjs library is amazing! I can use this to help me create more educational tools and games in the future. I tried to use the api for this project (and I wrote function to send XML Request) as I wanted to practice using the XMLHttpRequest object and working with JSON data. However, the REST API is served only over http:// and not https:// so I was getting Mixed Content Error as site is hosted using https://. Thereefore I used the library instead linked in HTML source from CDN.
 
 ## 7. Acknowledgements and Credits
 
