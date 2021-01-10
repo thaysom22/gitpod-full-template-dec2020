@@ -32,7 +32,7 @@ var WelcomeModalObject = {
         // initialize scoreboard
         
         // initialize gameboard
-        var gameboard = new Gameboard(difficultySetting);
+        window.gameboard = new Gameboard(difficultySetting);
         // hide welcome modal
         WelcomeModalObject.hideWelcomeModal();
     },
