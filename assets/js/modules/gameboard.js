@@ -16,8 +16,8 @@ class Gameboard {
             let expressions = generateExpressions(difficultySetting);
             for (let expression of expressions) {
                 let question = {
-                    expression: expression,
-                    print: generatePrint(expression),
+                    expressionString: expression,
+                    TeX: generateTeX(expression),
                     answer: null,
                     ranking: null
                 };
@@ -27,8 +27,8 @@ class Gameboard {
             return questions;
         }
         
-        // generatePrint function 
-        function generatePrint(expression) {
+        // generateTex function convets expression (string) to Tex format to be rendered by mathJax 
+        function generateTeX(expression) {
 
         }
 

@@ -19,6 +19,7 @@ RUNNING TASKS (commit after each)
 * create tests for welcome modal x
 
 
+* write generateTeX function to create TeX from expression strings
 * create tests for gameboard
 * write JS for gameboard
 * refactor modals.js

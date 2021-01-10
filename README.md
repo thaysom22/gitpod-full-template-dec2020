@@ -182,13 +182,13 @@ Layout:
 ## 3.Technology Stack and Dependencies
 
 * [cdnjs](https://cdnjs.com/libraries/jasmine) content distribution network used for Jasmine framework and mathjs library.
-* [jsdelivr](https://www.jsdelivr.com/package/npm/jasmine-jquery) content distribution network for Jasmine-jQuery files.
+* [jsdelivr](https://www.jsdelivr.com/package/npm/jasmine-jquery) content distribution network for Jasmine-jQuery files and mathJax library.
 * [SASS](https://sass-lang.com/) CSS pre-processor used to effectively modularize styles and for practice as this is the first time I have used SASS.
 * [jQuery](https://jquery.com/) used for DOM manipulation and DOM representation with Jasmine specs (slim build delivered).
 * [Jasmine]
 * [jasmine-jquery]
 * [mathjs library](https://mathjs.org/index.html) linked from cdnjs and used to evaluate function expressions for Gameboard object
-*
+* [mathJax library]() linked from jsdelivr cdn and used for rendering mathematical expressions in browser
 
 ## 4. Deployment Proceedure
 
