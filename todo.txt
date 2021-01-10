@@ -18,11 +18,13 @@ RUNNING TASKS (commit after each)
 * layout styling for welcome modal x
 * create tests for welcome modal x
 
-* Make modal scrollable (see bootstrap)
-* Add gridlines to gameboard
+
 * create tests for gameboard
 * write JS for gameboard
 * refactor modals.js
+* refactor gameboard.js (remove this.expressions)
+* Make modal scrollable (see bootstrap)
+* Add gridlines to gameboard
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
 * add tests for how to play 'pop up
