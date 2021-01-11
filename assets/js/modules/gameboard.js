@@ -17,7 +17,7 @@ class Gameboard {
             for (let expression of expressions) {
                 let question = {
                     expressionString: expression,
-                    TeX: generateTeX(expression),
+                    LaTeXString: generateLaTeX(expression),
                     answer: null,
                     ranking: null
                 };
@@ -27,20 +27,36 @@ class Gameboard {
             return questions;
         }
         
-        // generateTex function convets expression (string) to Tex format to be rendered by mathJax 
-        function generateTeX(expression) {
+        // generateLaTex function converts expression (string) to LaTex format, using math.js functions, to be rendered by mathjax in HTML
+        // CREDIT: https://mathjs.org/docs/
+        // CREDIT: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Adding_math_to_LaTeX 
+        function generateLaTeX(expression) {
+            let node;
+            let laTex;
+            expression = expression.replaceAll("*", ""); // remove all occurances of "*" operator from expression for formatting
+            node = math.parse(expression); // parse expression string into mathjs node 'expression tree' object
+            
+            node.forEach((n) => {console.log(n);})
+            
+            // node = node.filter((childNode) => { childNode.type !== "operatorNode" ? true : childNode.op !== "*" }); 
+            // console.log(node); //test
+            // node = new math.ArrayNode(node);
+            
+            laTex = node.toTex();
+            laTex = "\(" + laTex + "\)"; // default delimiters for LaTex inline math in HTML doc: \( ... \)
 
+            return laTex;
         }
 
         // generateExpressions function returns a shuffled array of strings containing expressions with randomized coefficients
         function generateExpressions(difficultySetting) {
             let easyTemplate = [
-                    `${randCoeff("Easy")}*X`,
-                    `${randCoeff("Easy")}*X + ${randCoeff("Easy")}`,
-                    `${randCoeff("Easy")}*X - ${randCoeff("Easy")}`,
-                    `${randCoeff("Easy")} - ${randCoeff("Easy")}*X`,
-                    `${randCoeff("Easy")}*X^2`,
-                    `(${randCoeff("Easy")}*X)^2`,
+                    `${randCoeff("Easy")}*x`,
+                    `${randCoeff("Easy")}*x + ${randCoeff("Easy")}`,
+                    `${randCoeff("Easy")}*x - ${randCoeff("Easy")}`,
+                    `${randCoeff("Easy")} - ${randCoeff("Easy")}*x`,
+                    `${randCoeff("Easy")}*x^2`,
+                    `(${randCoeff("Easy")}*x)^2`,
                     // add more expressions
                 ];
 
@@ -95,7 +111,7 @@ class Gameboard {
     evaluateQuestions(variableValue) {
         let questions = this.questions;
         questions.forEach(function(question){
-            question.answer = math.evaluate(question.expression, { X: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
+            question.answer = math.evaluate(question.expression, { x: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
         });
         
         console.log(questions) // test
