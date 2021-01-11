@@ -6,11 +6,22 @@ class Gameboard {
     constructor(difficultySetting){
         this.difficultySetting = difficultySetting;
         this.questions = initializeQuestions(difficultySetting);
+        initializeGameboardHTML(this.questions);
         
-        console.log(this.questions); // test
         
         
-       // initializeQuestions function returns an array of question objects
+        
+        // initializeGameboardHTML function sets HTML of each grid item to question.LaTexString value
+        // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html
+        function initializeGameboardHTML(questions) {
+            console.log($(".grid-expression"));
+            $(".grid-expression").each((index, span) => {
+                span.textContent = questions[index].LaTeXString; // this binds to current DOM element in .each() loop
+            });
+            MathJax.typeset() // need to call mathjax synchronous .typeset() method as HTML was updated from when document was first rendered 
+        }
+        
+        // initializeQuestions function returns an array of question objects with expressionSring and LaTexString values set 
         function initializeQuestions(difficultySetting) {
             let questions = [];
             let expressions = generateExpressions(difficultySetting);
@@ -36,14 +47,8 @@ class Gameboard {
             expression = expression.replaceAll("*", ""); // remove all occurances of "*" operator from expression for formatting
             node = math.parse(expression); // parse expression string into mathjs node 'expression tree' object
             
-            node.forEach((n) => {console.log(n);})
-            
-            // node = node.filter((childNode) => { childNode.type !== "operatorNode" ? true : childNode.op !== "*" }); 
-            // console.log(node); //test
-            // node = new math.ArrayNode(node);
-            
-            laTex = node.toTex();
-            laTex = "\(" + laTex + "\)"; // default delimiters for LaTex inline math in HTML doc: \( ... \)
+            laTex = node.toTex({implicit: 'hide'}); // do not show multiplication operator in LaTex 
+            laTex = "\\(" + laTex + "\\)"; // default delimiters for LaTex inline math in HTML doc: \( ... \)
 
             return laTex;
         }
@@ -55,9 +60,18 @@ class Gameboard {
                     `${randCoeff("Easy")}*x + ${randCoeff("Easy")}`,
                     `${randCoeff("Easy")}*x - ${randCoeff("Easy")}`,
                     `${randCoeff("Easy")} - ${randCoeff("Easy")}*x`,
+                    `${randCoeff("Easy")} + ${randCoeff("Easy")}*x`,
                     `${randCoeff("Easy")}*x^2`,
                     `(${randCoeff("Easy")}*x)^2`,
-                    // add more expressions
+                    `x^3`,
+                    `${randCoeff("Easy")}x^2 + ${randCoeff("Easy")}`,
+                    `${randCoeff("Easy")} - (${randCoeff("Easy")}x)^2`,
+                    `(${randCoeff("Easy")} + ${randCoeff("Easy")}x)^2`,
+                    `(${randCoeff("Easy")} - ${randCoeff("Easy")}x)^2`,
+                    `x^2`,
+                    `x^2 + ${randCoeff("Easy")}`,
+                    `${randCoeff("Easy")} + x^3`,
+                    `x^2 + ${randCoeff("Easy")}x + ${randCoeff("Easy")}`
                 ];
 
             let hardTemplate = [
@@ -92,17 +106,6 @@ class Gameboard {
         
     };
   
-
-
-    static populateGameboard() {
-        // clear grid-expressions in DOM
-
-        // add new questions to DOM
-    }
-
-    static setEventListeners(){
-
-    }
 
     /**
      * evaluateExpressions instance method calls math.evaluate method on expression property to set answer property for each question object in this.questions array

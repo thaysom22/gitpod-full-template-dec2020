@@ -176,7 +176,7 @@ Layout:
 
 * Add media query styling specifically for print view so teachers can print activity for use in lessons
 * Add restart game button to main page
-*
+* Update expression generation to include expressions involving fractions
 *
 
 ## 3.Technology Stack and Dependencies
