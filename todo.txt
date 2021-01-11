@@ -18,9 +18,9 @@ RUNNING TASKS (commit after each)
 * layout styling for welcome modal x
 * create tests for welcome modal x
 * write generateTeX function to create TeX from expression strings TeX (note may need to move initializeGameboardHTML to be instance method outside of constructor if problems in future...)
+* load libraries in specRunner.html to run initilaization tests for gameboard x
 
-* load libraries in specRunner.html to run initilaization tests for gameboard
-* add tests for gameboard functionality ....
+* add tests for gameboard interactive functionality ....
 * write JS for gameboard
 * refactor modals.js
 * refactor gameboard.js (remove this.expressions)

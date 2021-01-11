@@ -14,9 +14,8 @@ class Gameboard {
         // initializeGameboardHTML function sets HTML of each grid item to question.LaTexString value
         // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html
         function initializeGameboardHTML(questions) {
-            console.log($(".grid-expression"));
             $(".grid-expression").each((index, span) => {
-                span.textContent = questions[index].LaTeXString; // this binds to current DOM element in .each() loop
+                span.textContent = questions[index].latexString; // this binds to current DOM element in .each() loop
             });
             MathJax.typeset() // need to call mathjax synchronous .typeset() method as HTML was updated from when document was first rendered 
         }
@@ -28,7 +27,7 @@ class Gameboard {
             for (let expression of expressions) {
                 let question = {
                     expressionString: expression,
-                    LaTeXString: generateLaTeX(expression),
+                    latexString: generateLatex(expression),
                     answer: null,
                     ranking: null
                 };
@@ -38,10 +37,10 @@ class Gameboard {
             return questions;
         }
         
-        // generateLaTex function converts expression (string) to LaTex format, using math.js functions, to be rendered by mathjax in HTML
+        // generateLatex function converts expression (string) to LaTex format, using math.js functions, to be rendered by mathjax in HTML
         // CREDIT: https://mathjs.org/docs/
         // CREDIT: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Adding_math_to_LaTeX 
-        function generateLaTeX(expression) {
+        function generateLatex(expression) {
             let node;
             let laTex;
             expression = expression.replaceAll("*", ""); // remove all occurances of "*" operator from expression for formatting

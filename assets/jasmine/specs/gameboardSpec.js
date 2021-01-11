@@ -37,17 +37,17 @@ describe("Gameboard object", function() {
             gameboard = new Gameboard("Easy");
         });
 
-        it("should add questions to HTML of all grid items of gameboard in DOM", function() {
-            $('.gameboard-grid-item grid-expression').each((gridExp) => {
-                expect(gridExp).not.toBeEmpty();
+        it("should add questions to HTML of all grid item span elements of gameboard in DOM", function() {
+            $(".grid-expression").each((index, elem) => {
+                expect($(elem)).toContainElement('mjx-container');
             });
         });
 
         it("should store an array of 16 question objects each with expression(string), print(string), answer(null) and ranking(null) properties", function() {
             expect(gameboard.questions.length).toEqual(16);
             gameboard.questions.forEach((question) => {
-                expect(question.expression).toBeInstanceOf(String);
-                expect(question.print).toBeInstanceOf(String);
+                expect(question.expressionString).toBeInstanceOf(String);
+                expect(question.latexString).toBeInstanceOf(String);
                 expect(question.answer).toBeDefined();
                 expect(question.ranking).toBeDefined();
             });
@@ -64,13 +64,19 @@ describe("Gameboard object", function() {
         });
 
         it("should add questions to HTML of all grid items of gameboard in DOM", function() {
-            $('.gameboard-grid-item grid-expression').each((gridExp) => {
-                expect(gridExp).not.toBeEmpty();
+            $(".grid-expression").each((index, elem) => {
+                expect($(elem)).toContainElement('mjx-container');
             });
         });
 
         it("should hold an array of 16 question objects each with content, answer and value ranking properties", function() {
-
+            expect(gameboard.questions.length).toEqual(16);
+            gameboard.questions.forEach((question) => {
+                expect(question.expressionString).toBeInstanceOf(String);
+                expect(question.latexString).toBeInstanceOf(String);
+                expect(question.answer).toBeDefined();
+                expect(question.ranking).toBeDefined();
+            });
         });
 
     });
