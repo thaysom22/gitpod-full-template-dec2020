@@ -128,7 +128,7 @@ class Gameboard {
      */
     evaluateQuestions(variableValue) {
         this.questions.forEach(function(question){
-            question.answer = math.evaluate(question.expression, { x: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
+            question.answer = math.evaluate(question.expressionString, { x: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
         });
     }
 

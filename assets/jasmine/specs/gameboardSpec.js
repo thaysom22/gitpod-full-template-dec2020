@@ -90,13 +90,18 @@ describe("Gameboard object", function() {
         });
 
         it("should populate answer property value in question objects correctly", function() {
-            const firstQuestion = gameboard.questions[0];
-            const secondQuestion = gameboard.questions[1];
-            firstQuestion.expressionString = "3*x - 2"; // manually reset expressions for first and second questions so they can be tested
-            firstQuestion.expressionString = "-2*x^2 + 2x";
+        
+
+            console.log(gameboard.questions[0]); // test
+
+            gameboard.questions[0].expressionString = "3*x - 2"; // manually reset expressions for first and second questions so they can be tested
+            gameboard.questions[1].expressionString = "-2*x^2 + 2x";
             gameboard.evaluateQuestions(6); 
-            expect(firstQuestion.answer).toBe(16);
-            expect(secondQuestion.answer).toBe(-60);
+
+            console.log(gameboard); // test
+
+            expect(gameboard.questions[0].answer).toBe(16);
+            expect(gameboard.questions[1].answer).toBe(-60);
         });
 
         it("should populate ranking property value in question objects correctly", function() {
