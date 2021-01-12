@@ -127,13 +127,17 @@ class Gameboard {
      * @param {Integer} variableValue generated from 'click to play' component
      */
     evaluateQuestions(variableValue) {
-        let questions = this.questions;
-        questions.forEach(function(question){
+        this.questions.forEach(function(question){
             question.answer = math.evaluate(question.expression, { x: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
         });
-        
-        console.log(questions) // test
+    }
 
+    /**
+     * rankQuestions instance method orders questions by descending value of question answer property
+     * rankQuestions must be invoked AFTER evaluate expressions method so that question.answer !== null
+     */
+    rankQuestions() {
+        
     }
 
      

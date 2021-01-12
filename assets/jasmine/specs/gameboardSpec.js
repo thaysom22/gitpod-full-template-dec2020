@@ -81,4 +81,35 @@ describe("Gameboard object", function() {
 
     });
 
+    describe("when a random value for variable x in expressions is generated", function() {
+
+        var gameboard;
+        beforeEach(() => {
+            let randomDifficulty = ["Easy", "Hard"][Math.round(Math.random())]; // randomize difficultySetting for Gameboard instance
+            gameboard = new Gameboard(randomDifficulty); 
+        });
+
+        it("should populate answer property value in question objects correctly", function() {
+            const firstQuestion = gameboard.questions[0];
+            const secondQuestion = gameboard.questions[1];
+            firstQuestion.expressionString = "3*x - 2"; // manually reset expressions for first and second questions so they can be tested
+            firstQuestion.expressionString = "-2*x^2 + 2x";
+            gameboard.evaluateQuestions(6); 
+            expect(firstQuestion.answer).toBe(16);
+            expect(secondQuestion.answer).toBe(-60);
+        });
+
+        it("should populate ranking property value in question objects correctly", function() {
+            gameboard.evaluateQuestions(3);
+            gameboard.rankQuestions();
+            gameboard.questions.forEach(function(question, index) {
+                expect(question.answer).toBeGreaterThanOrEqual(gameboard.questions[index+1].answer); // expect answer property for current question in loop to have a value greater than or equal to corresponding value for consecutive question
+            })
+        });
+    });
+
+    describe("when a grid item (expression) on gameboard is clicked during a player's turn", function() {
+
+    })
+
 });
