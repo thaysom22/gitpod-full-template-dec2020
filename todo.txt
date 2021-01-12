@@ -23,7 +23,7 @@ RUNNING TASKS (commit after each)
 * add tests for gameboard interactive functionality ....
 * write JS for gameboard
 * refactor modals.js
-* refactor gameboard.js (remove this.expressions)
+* refactor gameboard.js :invoke single initializeGameboard() func in constructor
 * Make modal scrollable (see bootstrap)
 * Add gridlines to gameboard
 * Create markup for how to play 'pop up'
@@ -35,6 +35,7 @@ RUNNING TASKS (commit after each)
 * add tests for gameover modal
 * write js for gameover modal
 * Choose new body font(s)? (more readable)
+* make footer collapsable in modals
 
 
 
