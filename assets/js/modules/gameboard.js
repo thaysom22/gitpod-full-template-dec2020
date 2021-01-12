@@ -4,8 +4,8 @@ export { Gameboard };
 
 class Gameboard {
     constructor(difficultySetting){
-        this.questions = initializeGameboard(difficultySetting);
-        
+        this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
+    
         // initializeGameboard function calls initializeQuestions and uses returned array to set HTML of each grid item to question.LaTexString value
         // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html
         function initializeGameboard(difficultySetting) {
@@ -17,21 +17,21 @@ class Gameboard {
             MathJax.typeset() // need to call mathjax synchronous .typeset() method as HTML was updated from when document was first rendered 
             return questions;
         }
-
         
         // initializeQuestions function returns an array of question objects with expressionSring and LaTexString values set 
         function initializeQuestions(difficultySetting) {
             let questions = [];
             let expressions = generateExpressions(difficultySetting);
-            for (let expression of expressions) {
+            expressions.forEach(function(expression, index) {
                 let question = {
+                    id: index, // id [0 - 15]
                     expressionString: expression,
                     latexString: generateLatex(expression),
                     answer: null,
-                    ranking: null
+                    ranking: null // ranking [0 - 15] by descending answer value
                 };
                 questions.push(question);
-            }
+            });
 
             return questions;
         }
@@ -86,11 +86,11 @@ class Gameboard {
                 `x^2 + ${randCoeff("Hard")}*x`,
                 `${randCoeff("Hard")} - x^3`,
                 `x^2 + ${randCoeff("Hard")}*x + ${randCoeff("Hard")}`,
-                `${randCoeff("Hard")}*x^3 - ${randCoeff("Hard")}*x^2 - ${randCoeff("Hard")}`,
+                `${randCoeff("Hard")}*x^3 + ${randCoeff("Hard")}*x^2 - ${randCoeff("Hard")}`,
                 `(${randCoeff("Hard")} - ${randCoeff("Hard")}*x)^2`,
-                `-(${randCoeff("Hard")}*x^2) + ${randCoeff("Hard")}`,
-                `(-${randCoeff("Hard")}*x)^2 - ${randCoeff("Hard")}`,
-                `${randCoeff("Hard")} - ${randCoeff("Hard")}*x + ${randCoeff("Hard")}*x^2 - ${randCoeff("Hard")}*x^3`
+                `(${randCoeff("Hard")}*x^2) + ${randCoeff("Hard")}`,
+                `(${randCoeff("Hard")}*x)^2 - ${randCoeff("Hard")}`,
+                `${randCoeff("Hard")}*x^2 + ${randCoeff("Hard")}*x^3`
             ];
 
             hardTemplate = hardTemplate.map((exp) => exp.replaceAll("1*x", "x"));
@@ -103,9 +103,7 @@ class Gameboard {
                 unshuffledExpressions = hardTemplate;
             }
 
-            console.log(unshuffledExpressions);
             let shuffledExpressions = unshuffledExpressions.sort(() => Math.random() - 0.5);  // shuffle array order CREDIT: https://flaviocopes.com/how-to-shuffle-array-javascript/
-            console.log(shuffledExpressions);
             return shuffledExpressions;
         }
 
@@ -133,11 +131,26 @@ class Gameboard {
     }
 
     /**
-     * rankQuestions instance method orders questions by descending value of question answer property
+     * rankQuestions instance method assigns ranking to questions by descending value of question answer property
      * rankQuestions must be invoked AFTER evaluate expressions method so that question.answer !== null
      */
     rankQuestions() {
-        
+        let answersWithIdArray = []; // create temp array for sorting
+        this.questions.forEach(function(question) {
+            answersWithIdArray.push([question.answer, question.id]); // temp array stores [answer, Id] pairs
+        })
+
+        answersWithIdArray.sort(function(a, b) {return b[0] - a[0];});
+        var self = this; // create self binding that refers to gameboard instance so that this.questions can be updated within callback scope
+
+        // console.log(answersWithIdArray); // test
+
+        answersWithIdArray.forEach(function(answerWithId, ranking) {
+            self.questions[answerWithId[1]].ranking = ranking;
+
+            // console.log(self.questions[answerWithId[1]]); // test
+        })
+
     }
 
      

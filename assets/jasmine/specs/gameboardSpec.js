@@ -90,16 +90,9 @@ describe("Gameboard object", function() {
         });
 
         it("should populate answer property value in question objects correctly", function() {
-        
-
-            console.log(gameboard.questions[0]); // test
-
             gameboard.questions[0].expressionString = "3*x - 2"; // manually reset expressions for first and second questions so they can be tested
             gameboard.questions[1].expressionString = "-2*x^2 + 2x";
             gameboard.evaluateQuestions(6); 
-
-            console.log(gameboard); // test
-
             expect(gameboard.questions[0].answer).toBe(16);
             expect(gameboard.questions[1].answer).toBe(-60);
         });
@@ -107,9 +100,18 @@ describe("Gameboard object", function() {
         it("should populate ranking property value in question objects correctly", function() {
             gameboard.evaluateQuestions(3);
             gameboard.rankQuestions();
+
+            console.log(gameboard); // test
+            
+            gameboard.questions.sort((a, b) => b.answer - a.answer); // sort gameboad.questions inplace by descending answer value
             gameboard.questions.forEach(function(question, index) {
-                expect(question.answer).toBeGreaterThanOrEqual(gameboard.questions[index+1].answer); // expect answer property for current question in loop to have a value greater than or equal to corresponding value for consecutive question
+                expect(question.ranking).toBe(index);
             })
+            
+
+
+                
+            
         });
     });
 
