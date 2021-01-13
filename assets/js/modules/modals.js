@@ -43,8 +43,9 @@ var WelcomeModalObject = {
      * Takes submitEvent generated as argument
      */ 
     submitWelcomeForm: function(submitEvent) {
-        // prevent default reloading of page on form submission
-        submitEvent.preventDefault();
+        submitEvent.preventDefault(); // prevent default reloading of page on form submission
+        submitEvent.stopPropagation();
+        console.log("Modal submitEvent stopPropogation invoked");
         // verify player1name and player2name inputs
         let player1Name = $('#player1Name').val();
         let player2Name = $('#player2Name').val();

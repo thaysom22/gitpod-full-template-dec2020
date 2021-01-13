@@ -5,13 +5,18 @@ export { Gameboard };
 class Gameboard {
     constructor(difficultySetting){
         this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
-    
+        this.currentQuestion = null;
+
+        this.addAllGridItemEventListeners();
+        console.log("event listeners added for test");
+
         // initializeGameboard function calls initializeQuestions and uses returned array to set HTML of each grid item to question.LaTexString value
         // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html
         function initializeGameboard(difficultySetting) {
             let questions = initializeQuestions(difficultySetting);
             $(".grid-expression").each((index, span) => {
                 span.textContent = questions[index].latexString; // this binds to current DOM element in .each() loop
+                span.parentElement.questionObject = questions[index]; // creates a DOM property questionObject which stores corresponding question object on grid-item parent 
             });
 
             MathJax.typeset() // need to call mathjax synchronous .typeset() method as HTML was updated from when document was first rendered 
@@ -158,9 +163,23 @@ class Gameboard {
     }
 
     /**
-     * 
+     * adds event listener to every grid item on gameboard with this.showGameboardOverlay method as callback
      */
     addAllGridItemEventListeners() {
+        $('.gameboard-grid-item').click(this.showGameboardOverlay); // adds handler to all grid expression CONTAINERS
+    };
+
+
+    /**
+     * displays gameboard overlay element on page
+     * adds selected question as currentQuestion property of gameboard
+     * @param {object} clickEvent 
+     */
+    showGameboardOverlay(clickEvent) {
+        clickEvent.preventDefault();
+        clickEvent.stopPropagation();
+        $('#gameboard-overlay').removeClass('hide');
+        console.log(clickEvent.currentTarget, "event target test");
 
     }
 

@@ -8,33 +8,31 @@ describe("Gameboard object", function() {
         // create version of gameboard in DOM for testing before each spec
         setFixtures(`
             <section id="gameboard-wrapper" class="section-wrapper">
+                <!-- gameboard overlay is hidden until grid item is clicked during a player turn --> 
+                <div id="gameboard-overlay" class="hide"></div>
                 <div id="gameboard-grid-container">
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression">Grid expression</span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
                 </div>
             </section>
         `);
 
-        
-        beforeEach(() => {
-            let randomDifficulty = ["Easy", "Hard"][Math.round(Math.random())];
-            randomGameboard = new Gameboard(randomDifficulty); // instantiate a new gameboard object with random difficulty before every sepc
-        });
-        
+        let randomDifficulty = ["Easy", "Hard"][Math.round(Math.random())];
+        randomGameboard = new Gameboard(randomDifficulty); // instantiate a new gameboard object with random difficulty before every spec
     });
     
     describe("when initialized with Easy difficulty", function() {
@@ -60,13 +58,10 @@ describe("Gameboard object", function() {
             });
         });
 
-        it("should add event listeners to all grid items in gameboard", function() {
-            easyGameboard.addAllGridItemEventListeners();
-            $(".grid-expression").each(function() {
-                // CREDIT: https://stackoverflow.com/questions/2518421/jquery-find-events-handlers-registered-with-an-object 
-                expect($._data(this, "events")).toBeDefined(); // expect every grid item DOM to have an event listener stored on it 
-            });
+        it("should  create a new DOM property (questionObject) which stores corresponding question object from array", function() {
+
         });
+
 
     });
 
@@ -95,7 +90,7 @@ describe("Gameboard object", function() {
 
     });
 
-    describe("when a random value for variable x in expressions is generated", function() {
+    describe("evaluateQuestions method", function() {
 
         
         beforeEach(() => { 
@@ -122,30 +117,41 @@ describe("Gameboard object", function() {
         });
     });
 
+    describe("when addAllGridItemEventListeners method is called", function() {
 
-
-    describe("when a grid item (expression) on gameboard is selected during a player's turn", function() {
-
-        it("should invoke gameboard.showGameboardOverlay() method with selected question as argument if question is not a member of disabledQuestions array", function() {
-            var showGameboardOverlaySpy = spyOn(randomGameboard, "showGameboardOverlay");
-            WelcomeModalObject.submitWelcomeForm(new Event('submit'));
-
+        beforeEach(() => {
+            randomGameboard.addAllGridItemEventListeners();
         });
 
-        it("should not invoke gameboard.showGameboardOverlay() method if question is not a member of disabledQuestions array", function() {
-
+        it("should add event listeners to all grid items in gameboard", function() {
+            $(".gameboard-grid-item").each(function() {
+                console.log(this, "grid-item test");
+                // CREDIT: https://stackoverflow.com/questions/2518421/jquery-find-events-handlers-registered-with-an-object 
+                expect(Object.keys($._data(this, "events"))).toContain("click"); // expect every grid item in DOM to have an event listener stored on it 
+            });
         });
 
-        it("should add .show class to gameboard overlay DOM element", function() {
+    })
 
+
+
+    describe("when showGameboardOverlay method is called", function() {
+
+        beforeEach(() => {
+            randomGameboard.addAllGridItemEventListeners();
+            randomGameboard.showGameboardOverlay(new Event("click"));
         });
 
-        it("should add selected question as CurrentQuestion property of gameboard", function() {
+        it("should remove .hide class to gameboard overlay DOM element", function() {
+            expect($('#gameboard-overlay')).not.toHaveClass('hide');
+        });
 
+        it("should add selected question as currentQuestion property of gameboard", function() {
+            expect(randomGameboard.currentQuestion).not.toBeNull()
         });
 
         it("should add mathJAx rendered LaTeX string to HTML in gameboard overlay element", function() {
-
+            expect($('#gameboard-overlay')).toContainElement('.gameboard-active-question');
         });
 
     });
