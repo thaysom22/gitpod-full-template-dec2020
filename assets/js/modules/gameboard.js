@@ -137,18 +137,23 @@ class Gameboard {
     rankQuestions() {
         let answersWithIdArray = []; // create temp array for sorting
         this.questions.forEach(function(question) {
-            answersWithIdArray.push([question.answer, question.id]); // temp array stores [answer, Id] pairs
+            answersWithIdArray.push([question.answer, question.id]); // temp array stores [answer, Id] pairs (Id is the index of question in this.questions array)
         })
 
-        answersWithIdArray.sort(function(a, b) {return b[0] - a[0];});
+        answersWithIdArray.sort(function(a, b) {return b[0] - a[0];}); // sort [answer, Id] pairs array by descending values of answer
+    
         var self = this; // create self binding that refers to gameboard instance so that this.questions can be updated within callback scope
-
-        // console.log(answersWithIdArray); // test
-
+        let prevAnswer = null;
+        let sameRankingsCounter = 0; // tracks questions that have been assigned same ranking value (since answer values are equal)
         answersWithIdArray.forEach(function(answerWithId, ranking) {
-            self.questions[answerWithId[1]].ranking = ranking;
-
-            // console.log(self.questions[answerWithId[1]]); // test
+            if (answerWithId[0] === prevAnswer) {
+                self.questions[answerWithId[1]].ranking = ranking - 1 - sameRankingsCounter; // if next item in sorted answersWithIdArray have same value at index 0 then assign same ranking as previous item
+                sameRankingsCounter += 1;
+            } else {
+                self.questions[answerWithId[1]].ranking = ranking - sameRankingsCounter;
+            }
+            
+            prevAnswer = answerWithId[0];
         })
 
     }

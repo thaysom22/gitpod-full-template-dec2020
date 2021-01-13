@@ -87,31 +87,26 @@ describe("Gameboard object", function() {
         beforeEach(() => {
             let randomDifficulty = ["Easy", "Hard"][Math.round(Math.random())]; // randomize difficultySetting for Gameboard instance
             gameboard = new Gameboard(randomDifficulty); 
+            gameboard.questions[0].expressionString = "3*x - 2"; // manually set expressions for first and second questions so they can be tested
+            gameboard.questions[1].expressionString = "-2*x^2 + 2x";
+            gameboard.questions[2].expressionString = "x + 10"; 
+            gameboard.questions[3].expressionString = "x^3";
         });
 
         it("should populate answer property value in question objects correctly", function() {
-            gameboard.questions[0].expressionString = "3*x - 2"; // manually reset expressions for first and second questions so they can be tested
-            gameboard.questions[1].expressionString = "-2*x^2 + 2x";
             gameboard.evaluateQuestions(6); 
             expect(gameboard.questions[0].answer).toBe(16);
             expect(gameboard.questions[1].answer).toBe(-60);
+            expect(gameboard.questions[2].answer).toBe(16);
+            expect(gameboard.questions[3].answer).toBe(216);
         });
 
         it("should populate ranking property value in question objects correctly", function() {
-            gameboard.evaluateQuestions(3);
+            gameboard.evaluateQuestions(6);
             gameboard.rankQuestions();
-
-            console.log(gameboard); // test
-            
-            gameboard.questions.sort((a, b) => b.answer - a.answer); // sort gameboad.questions inplace by descending answer value
-            gameboard.questions.forEach(function(question, index) {
-                expect(question.ranking).toBe(index);
-            })
-            
-
-
-                
-            
+            expect(gameboard.questions[3].ranking).toBeLessThan(gameboard.questions[0].ranking);
+            expect(gameboard.questions[0].ranking).toBe(gameboard.questions[2].ranking); // expect questions with same answer to have equal rankings
+            expect(gameboard.questions[2].ranking).toBeLessThan(gameboard.questions[1].ranking);
         });
     });
 
