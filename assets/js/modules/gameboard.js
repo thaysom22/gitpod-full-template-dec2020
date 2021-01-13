@@ -180,7 +180,6 @@ class Gameboard {
         clickEvent.stopPropagation();
         $('#gameboard-overlay').removeClass('hide');
         console.log(clickEvent.currentTarget, "event target test");
-
     }
 
      
