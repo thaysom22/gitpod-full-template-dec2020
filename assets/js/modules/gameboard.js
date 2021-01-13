@@ -155,6 +155,12 @@ class Gameboard {
             
             prevAnswer = answerWithId[0];
         })
+    }
+
+    /**
+     * 
+     */
+    addAllGridItemEventListeners() {
 
     }
 
