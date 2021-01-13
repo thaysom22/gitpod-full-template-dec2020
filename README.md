@@ -150,7 +150,7 @@ Layout:
 * 1023px chosen for 'desktop' breakpoint as it is just below desktop popular device size of 1024px. Dev tools used during implementation to confirm this viewport width is large enough to accommodate horizontally adjacent gameboard and click to play / info components. 
 * A desktop first approach was considered as the main use of the application will be in classrooms where users will have larger screen sizes. However, in order to ensure the application is accessible and performant for all users on mobile (and those outside a classroom environment), a mobile first approach was chosen with an aim to optimize the experience for tablet/desktop screen sizes as much as possible.
 
-**Deviations from wireframes made during implementation**
+**Deviations from wireframes and original plan made during implementation**
 
 * 'Click to Play' section: player name removed and 'click to play' instruction displayed above '?' icon
 * 'Click to Play' section moved to left of scoreboard section on mobile view for consistent positioning of key interactive component of application across viewport sizes
@@ -159,6 +159,7 @@ Layout:
 * Layout on desktop viewport changed significantly: header made consistent with mobile and tablet viewports so that info icon remains at top right of viewport. Scoreboard is displayed on left of gameboard below 'click-to-play' component. 
 * Info component on welcome modal changed to be togglable icon adjacent to header (consistent with header layout on main page for mobile/tablet viewports) instead of being separate below header
 * Welcome modal layout made consistent on all viewport sizes. Padding of modal increased on larfer viewports to maintain the vertical mobile layout.
+* Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
 
 ## 2. Features
 

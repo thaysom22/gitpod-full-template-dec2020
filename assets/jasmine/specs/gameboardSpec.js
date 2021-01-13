@@ -63,9 +63,9 @@ describe("Gameboard object", function() {
             gameboard = new Gameboard("Hard");
         });
 
-        it("should add questions to HTML of all grid items of gameboard in DOM", function() {
-            $(".grid-expression").each((index, elem) => {
-                expect($(elem)).toContainElement('mjx-container');
+        it("should add mathJAx rendered LaTeX string to all grid items span of gameboard in DOM", function() {
+            $(".grid-expression").each(function() {
+                expect($(this)).toContainElement('mjx-container');
             });
         });
 
@@ -110,8 +110,66 @@ describe("Gameboard object", function() {
         });
     });
 
-    describe("when a grid item (expression) on gameboard is clicked during a player's turn", function() {
+    describe("when a grid item (expression) on gameboard is selected during a player's turn", function() {
 
-    })
+        it("should add .show class to gameboard overlay DOM element", function() {
+
+        });
+
+        it("should add selected question as CurrentQuestion property of gameboard", function() {
+
+        });
+
+        it("should add mathJAx rendered LaTeX string to HTML in gameboard overlay element", function() {
+
+        });
+
+    });
+
+    describe("when gameboard overlay is displayed and 'choose a different expression' button is clicked", function() {
+
+        it("should remove .show class from gameboard overlay DOM element", function() {
+
+        });
+
+        it("should remove mathJAx rendered LaTeX string from HTML in gameboard overlay element", function() {
+
+        });
+
+        it("should remove selected question as currentQuestion property of gameboard", function() {
+
+        });
+
+    });    
+
+    describe("when a correct value is entered and confirmed by user to gameboard overlay input element", function() {
+
+        it("should invoke gameboard.checkUserAnswer() callback with value passed as argument", function() {
+
+        });
+
+        it("should add .correctUserAnswer class to gameboard overlay element", function() {
+
+        });
+
+        it("should remove .show class from gameboard overlay DOM element AFTER 2 SECONDS DELAY", function() {
+
+        });
+
+        it("should remove selected question as currentQuestion property of gameboard", function() {
+
+        });
+
+        it("should add selected question as array item in disabledQuestions property of gameboard", function() {
+
+        });
+
+        it("should add .disabledQuestion class to grid item containing the question just answered by user", function() {
+
+        });
+
+    });
+
+
 
 });
