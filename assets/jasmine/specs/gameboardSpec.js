@@ -9,7 +9,11 @@ describe("Gameboard object", function() {
         setFixtures(`
             <section id="gameboard-wrapper" class="section-wrapper">
                 <!-- gameboard overlay is hidden until grid item is clicked during a player turn --> 
-                <div id="gameboard-overlay" class="hide"></div>
+                <div id="gameboard-overlay" class="hide">
+                    <div id="gameboard-active-question">
+                        <span></span>
+                    </div>
+                </div>
                 <div id="gameboard-grid-container">
                     <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
                     <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
@@ -44,7 +48,8 @@ describe("Gameboard object", function() {
 
         it("should add mathJAx rendered LaTeX string to all grid items span of gameboard in DOM", function() {
             $(".grid-expression").each(function() {
-                expect($(this)).toContainElement('mjx-container');
+                console.log($(this), "test");
+                expect($(this)).toContainElement($('.MathJax'));
             });
         });
 
@@ -59,10 +64,11 @@ describe("Gameboard object", function() {
             });
         });
 
-        it("should create a new DOM property (questionObject) which stores corresponding question by id from array", function() {
-            expect($(".grid-expression")[0].questionId).toBe(0);
-            expect($(".grid-expression")[6].questionId).toBe(6);
-            expect($(".grid-expression")[15].questionId).toBe(15);
+        it("should create a new DOM property (questionId) which stores corresponding question by id from array", function() {
+            console.log($(".grid-expression")[0], "test")
+            expect($(".gameboard-grid-item")[0].questionId).toBe(0);
+            expect($(".gameboard-grid-item")[6].questionId).toBe(6);
+            expect($(".gameboard-grid-item")[15].questionId).toBe(15);
         });
 
     });
@@ -76,7 +82,7 @@ describe("Gameboard object", function() {
 
         it("should add mathJAx rendered LaTeX string to all grid items span of gameboard in DOM", function() {
             $(".grid-expression").each(function() {
-                expect($(this)).toContainElement('mjx-container');
+                expect($(this)).toContainElement('.MathJax');
             });
         });
 
@@ -139,7 +145,9 @@ describe("Gameboard object", function() {
 
         beforeEach(() => {
             randomGameboard.addAllGridItemEventListeners();
-            randomGameboard.showGameboardOverlay(new Event("click"));
+            var clickEvent = new Event("click");
+            Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[0]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            randomGameboard.showGameboardOverlay(clickEvent);
         });
 
         it("should remove .hide class to gameboard overlay DOM element", function() {
@@ -151,7 +159,7 @@ describe("Gameboard object", function() {
         });
 
         it("should add mathJAx rendered LaTeX string to HTML in gameboard overlay element", function() {
-            expect($('#gameboard-overlay')).toContainElement('.gameboard-active-question');
+            expect($('#gameboard-active-question span')[0]).toContainElement($('.MathJax'));
         });
 
     });

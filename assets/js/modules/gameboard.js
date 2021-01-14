@@ -5,7 +5,7 @@ export { Gameboard };
 class Gameboard {
     constructor(difficultySetting){
         this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
-        this.currentQuestion = null;
+        this.currentQuestionId = null;
 
         this.addAllGridItemEventListeners();
         console.log("event listeners added at gameboard instantiation for test");
@@ -173,13 +173,18 @@ class Gameboard {
     /**
      * displays gameboard overlay element on page
      * adds selected question as currentQuestion property of gameboard
+     * adds mjx-container element from selected DOM element to gameboard overlay
      * @param {object} clickEvent 
      */
     showGameboardOverlay(clickEvent) {
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
         $('#gameboard-overlay').removeClass('hide');
-        console.log(clickEvent.currentTarget, "event target test");
+        this.currentQuestionId = clickEvent.currentTarget.questionId; // store id of selected question as property on instance
+        let cloneMjx = clickEvent.currentTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content so that it remains on gameboard when appended to gameboard overlay
+        $('#gameboard-active-question span').append(cloneMjx); //adds mjx-container element from selected DOM element
+
+        
     }
 
      
