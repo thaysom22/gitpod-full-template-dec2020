@@ -55,13 +55,15 @@ describe("Gameboard object", function() {
                 expect(question.latexString).toBeInstanceOf(String);
                 expect(question.answer).toBeDefined();
                 expect(question.ranking).toBeDefined();
+                expect(question.id).toBeDefined();
             });
         });
 
-        it("should  create a new DOM property (questionObject) which stores corresponding question object from array", function() {
-
+        it("should create a new DOM property (questionObject) which stores corresponding question by id from array", function() {
+            expect($(".grid-expression")[0].questionId).toBe(0);
+            expect($(".grid-expression")[6].questionId).toBe(6);
+            expect($(".grid-expression")[15].questionId).toBe(15);
         });
-
 
     });
 
@@ -133,8 +135,6 @@ describe("Gameboard object", function() {
 
     })
 
-
-
     describe("when showGameboardOverlay method is called", function() {
 
         beforeEach(() => {
@@ -156,7 +156,7 @@ describe("Gameboard object", function() {
 
     });
 
-    describe("when gameboard overlay is displayed and 'choose a different expression' button is clicked", function() {
+    describe("when hideGameBoardOverlay method is called", function() {
 
         it("should remove .show class from gameboard overlay DOM element", function() {
 

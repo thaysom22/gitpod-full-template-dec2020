@@ -1,4 +1,4 @@
 // imports
-import { WelcomeModalObject } from "./modules/modals.js";
+import { WelcomeModal } from "./modules/modals.js";
 
-WelcomeModalObject.addSubmitEventListener();
+window.welcomeModal = new WelcomeModal(); // instantiate new welcomeModal as global property in browser

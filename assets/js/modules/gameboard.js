@@ -16,7 +16,7 @@ class Gameboard {
             let questions = initializeQuestions(difficultySetting);
             $(".grid-expression").each((index, span) => {
                 span.textContent = questions[index].latexString; // this binds to current DOM element in .each() loop
-                span.parentElement.questionObject = questions[index]; // creates a DOM property questionObject which stores corresponding question object on grid-item parent 
+                span.parentElement.questionId = questions[index].id; // creates a DOM property questionId which stores corresponding question object id value on grid-item parent 
             });
 
             MathJax.typeset() // need to call mathjax synchronous .typeset() method as HTML was updated from when document was first rendered 
