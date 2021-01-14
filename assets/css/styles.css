@@ -60,27 +60,19 @@ body {
 
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  outline: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 100;
   display: none;
-  width: 100%;
+  width: 70rem;
   height: 100%;
-  overflow: hidden;
-  outline: 0;
+  max-width: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
 }
 .modal.show {
   display: block;
-}
-
-.modal-dialog {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
 }
 
 .modal-content {
@@ -92,9 +84,10 @@ body {
   box-shadow: 0 0 0.5rem #00bbf9;
   border-radius: 3rem;
   height: 100%;
+  max-height: calc(100vh - 2rem);
   width: 100%;
-  outline: 0;
   background-color: #fff;
+  overflow: auto;
 }
 
 .modal-backdrop {
@@ -112,10 +105,6 @@ body {
   display: block;
 }
 
-.modal-content {
-  max-width: 65rem;
-}
-
 #welcome-input-form-wrapper form {
   display: flex;
   flex-direction: column;
@@ -131,7 +120,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-style: ridge;
+  border-style: solid;
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;
@@ -166,16 +155,18 @@ body {
 }
 #welcome-input-form-wrapper #start-game-button {
   background-color: #00bbf9;
-  padding: 1.25rem;
+  padding: 1.5rem;
   color: #fee440;
   font-family: "arbeiBerry", sans-serif;
-  font-size: 1.75rem;
-  border-style: ridge;
+  font-size: 2rem;
+  font-weight: bold;
+  border-style: solid;
   border-color: #fee440;
-  border-width: 0.5rem;
+  border-width: 0.3rem;
   border-radius: 50%;
-  box-shadow: 0 0 3rem #fee440;
+  box-shadow: 0 0 1rem black;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 767px) {
@@ -200,7 +191,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 8rem;
-  padding-top: 0.5rem;
+  padding: 1rem 0.5rem;
 }
 
 #main-heading,
@@ -299,7 +290,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-style: ridge;
+  border-style: solid;
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;
@@ -374,7 +365,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-style: ridge;
+  border-style: solid;
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;

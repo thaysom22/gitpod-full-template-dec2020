@@ -8,7 +8,7 @@ class Gameboard {
         this.currentQuestion = null;
 
         this.addAllGridItemEventListeners();
-        console.log("event listeners added for test");
+        console.log("event listeners added at gameboard instantiation for test");
 
         // initializeGameboard function calls initializeQuestions and uses returned array to set HTML of each grid item to question.LaTexString value
         // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html

@@ -8,7 +8,7 @@
 #modal-header-wrapper{
     @include base.make-flexbox($justify: space-between);
     height: 8rem;
-    padding-top: 0.5rem;
+    padding: 1rem 0.5rem;
 }
 
 #main-heading,

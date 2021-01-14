@@ -158,7 +158,8 @@ Layout:
 * Footer mobile viewport wireframe layout replicated on tablet and desktop viewports because it looks good and because footer display is toggle on/off there is no need to conserve vertical space
 * Layout on desktop viewport changed significantly: header made consistent with mobile and tablet viewports so that info icon remains at top right of viewport. Scoreboard is displayed on left of gameboard below 'click-to-play' component. 
 * Info component on welcome modal changed to be togglable icon adjacent to header (consistent with header layout on main page for mobile/tablet viewports) instead of being separate below header
-* Welcome modal layout made consistent on all viewport sizes. Padding of modal increased on larfer viewports to maintain the vertical mobile layout.
+* Welcome modal layout made consistent on all viewport sizes. Max width set for larger viewports to maintain the vertical mobile layout.
+* Content of modal made scrollable once height is larger than container.
 * Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
 
 ## 2. Features
@@ -228,14 +229,13 @@ Layout:
 **Code**
 
 * [WebDevSimplifed YouTube channel](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) for idea for using global reset styles
-* [Bootstrap GitHub repository](https://github.com/twbs/bootstrap) for CSS and JavaScript used to create welcome and game-over modals.
 * [mathjs docs](https://mathjs.org/docs/index.html)
 
 ### 7.2 Acknowledgements
 
 * [itnext.io article](https://itnext.io/structuring-your-sass-projects-c8d41fa55ed4) about directory structure for SCSS files
 * [hobo-web article](https://www.hobo-web.co.uk/best-screen-size/) about choosing breakpoints for responsive design
-*
+* [Bootstrap GitHub repository](https://github.com/twbs/bootstrap) for CSS and JavaScript used to help create welcome and game-over modals.
 
 ### 7.3 Disclaimer
 

@@ -2,19 +2,11 @@
 
 // ------ modals 
 
-// --------- all modals
+// ----------- all modals
 
 // -----------  mobile
 
-// CREDIT: code copied and modified from: https://github.com/twbs/bootstrap/blob/main/scss/_modal.scss
-
-// .modal-open      - body class for killing the scroll
-// .modal           - container to scroll within
-// .modal-dialog    - positioning shell for the actual modal
-// .modal-content   - actual modal w/ bg and corners and stuff
-
 .modal-open {
-  // Kill the scroll on the body
   overflow: hidden;
 
   .modal {
@@ -23,28 +15,24 @@
   }
 }
 
+// CREDIT: https://medium.com/@ResearchNowEng/making-perfectly-sized-centered-scrollable-modals-a36da09b68e6 
+
 // Container for modal
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  outline: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 100;
   display: none;
-  width: 100%;
+  width: 70rem;
   height: 100%;
-  overflow: hidden;
-  outline: 0;
+  max-width: calc(100% - 2rem); 
+  max-height: calc(100% - 2rem); 
   &.show { 
       display: block;
     }
-}
-
-// Shell div to position the modal content
-.modal-dialog {
-  @include base.make-flexbox();
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
 }
 
 .modal-content {
@@ -52,11 +40,11 @@
   border: 1rem solid base.$blue;
   @include base.box-shadow($color: base.$blue);
   border-radius: 3rem;
-  // Ensure `.modal-content` extends the full width and height of the parent `.modal-dialog`
   height: 100%;
+  max-height:calc(100vh - 2rem);
   width: 100%; 
-  outline: 0; // Remove focus outline from opened modal
   background-color: #fff;
+  overflow:auto;
 }
 
 .modal-backdrop {
@@ -75,10 +63,6 @@
 }
 
 // -------- Welcome modal
-
-.modal-content{
-    max-width: 65rem;
-}
 
 #welcome-input-form-wrapper{
     form{
@@ -120,13 +104,15 @@
     }
     #start-game-button{
         background-color: base.$blue;
-        padding: 1.25rem;
+        padding: 1.5rem;
         color: base.$yellow;
         font-family: base.$title-font;
-        font-size: 1.75rem;
-        @include base.elliptical-border($color: base.$yellow, $width: 0.5rem,);
-        @include base.box-shadow($blur-radius: 3rem, $color: base.$yellow);
+        font-size: 2rem;
+        font-weight: bold;
+        @include base.elliptical-border($color: base.$yellow, $width: 0.3rem);
+        @include base.box-shadow($blur-radius: 1rem,);
         margin-bottom: 1rem;
+        cursor: pointer;
     }
 }
 
