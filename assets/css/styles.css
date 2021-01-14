@@ -98,7 +98,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #fee440;
-  opacity: 1;
+  opacity: 0.9;
   display: none;
 }
 .modal-backdrop.show {
@@ -438,6 +438,54 @@ body {
 }
 .gameboard-grid-item span {
   font-size: 1.75rem;
+}
+
+#gameboard-wrapper {
+  position: relative;
+}
+
+#gameboard-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: #9b5de5;
+}
+#gameboard-overlay.hide {
+  display: none;
+}
+
+#gameboard-overlay-content {
+  background-color: #00bbf9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  max-height: 40rem;
+  width: calc(100% - 4rem);
+  max-width: 50rem;
+  margin: 1rem auto;
+}
+#gameboard-overlay-content h3 {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
+#gameboard-overlay-content #gameboard-active-question span {
+  font-size: 3rem;
+  padding: 1rem 0.5rem;
+}
+#gameboard-overlay-content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+#gameboard-overlay-content form input, #gameboard-overlay-content form button {
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 @media screen and (min-width: 767px) {

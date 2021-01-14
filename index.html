@@ -77,10 +77,18 @@
 
     <!-- Main gameboard section -->
     <section id="gameboard-wrapper" class="section-wrapper">
-        <!-- gameboard overlay is hidden until grid item is clicked during a player turn --> 
+        <!-- gameboard overlay - hidden until grid item is clicked during a player turn --> 
         <div id="gameboard-overlay" class="hide">
-            <div id="gameboard-active-question">
-                <span></span>
+            <div id="gameboard-overlay-content">
+                <div id="gameboard-active-question">
+                    <span></span>
+                </div>
+                <h3>Evaluate when x = <span></span></h3>
+                <form>
+                    <input type="text" id="player-answer" name="playerAnswer" size="4" >
+                    <button type="submit">Enter</button>
+                    <button type="button">Choose again</button>
+                </form>
             </div>
         </div>
         <div id="gameboard-grid-container">

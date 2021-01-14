@@ -181,7 +181,7 @@ class Gameboard {
         clickEvent.stopPropagation();
         $('#gameboard-overlay').removeClass('hide');
         this.currentQuestionId = clickEvent.currentTarget.questionId; // store id of selected question as property on instance
-        let cloneMjx = clickEvent.currentTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content so that it remains on gameboard when appended to gameboard overlay
+        let cloneMjx = clickEvent.currentTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
         $('#gameboard-active-question span').append(cloneMjx); //adds mjx-container element from selected DOM element
 
         
