@@ -25,8 +25,11 @@ RUNNING TASKS (commit after each)
 * Add gridlines to gameboard x
 * refactor modals.js to make class for welcomeModal x
 
-* add tests for gameboard interactive functionality ....
-* write JS for gameboard
+* implement hideGameboardOverlay()
+* write tests and implement Scoreboard class
+* write tests and implement click to play class
+* 
+
 * replace +- and -+ and -- in gameboard expressions
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'

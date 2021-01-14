@@ -143,6 +143,7 @@ describe("Gameboard object", function() {
 
     describe("when showGameboardOverlay method is called", function() {
 
+        // mock selection of a question from gameboard with click event containing currentTarget property 
         beforeEach(() => {
             randomGameboard.addAllGridItemEventListeners();
             var clickEvent = new Event("click");
@@ -166,16 +167,26 @@ describe("Gameboard object", function() {
 
     describe("when hideGameBoardOverlay method is called", function() {
 
-        it("should remove .show class from gameboard overlay DOM element", function() {
+        // mock selection of a question from gameboard and then click event on 'choose again' button in gameboard overlay
+        beforeEach(() => {
+            randomGameboard.addAllGridItemEventListeners();
+            var clickEvent1 = new Event("click");
+            var clickEvent2 = new Event("click");
+            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[0]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            randomGameboard.showGameboardOverlay(clickEvent1);
+            randomGameboard.hideGameboardOverlay(clickEvent2);
+        });
 
+        it("should remove .show class from gameboard overlay DOM element", function() {
+            expect($('#gameboard-overlay')).toHaveClass('hide');
         });
 
         it("should remove mathJAx rendered LaTeX string from HTML in gameboard overlay element", function() {
-
+            expect($('#gameboard-active-question span')[0]).not.toContainElement($('.MathJax'));
         });
 
         it("should remove selected question as currentQuestion property of gameboard", function() {
-
+            expect(randomGameboard.currentQuestion).toBeNull()
         });
 
     });    
