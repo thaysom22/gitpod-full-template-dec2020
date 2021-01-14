@@ -9,11 +9,12 @@
     margin: 2rem 0;
     width: 100%;
     grid-template: repeat(8, 8rem) / 1fr 1fr;
-    grid-gap: .5rem;
+    grid-gap: .2rem;
 }
 
 .gameboard-grid-item{
     @include base.make-flexbox();
+    border: solid 0.2rem black;
     span{
         font-size: 1.75rem;
     }
