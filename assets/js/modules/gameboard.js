@@ -7,7 +7,7 @@ class Gameboard {
         this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
         this.currentQuestionId = null;
 
-        this.addAllGridItemEventListeners();
+        this.addAllEventListeners();
         console.log("event listeners added at gameboard instantiation for test");
 
         // initializeGameboard function calls initializeQuestions and uses returned array to set HTML of each grid item to question.LaTexString value
@@ -33,7 +33,8 @@ class Gameboard {
                     expressionString: expression,
                     latexString: generateLatex(expression),
                     answer: null,
-                    ranking: null // ranking [0 - 15] by descending answer value
+                    ranking: null, // ranking [0 - 15] by descending answer value
+                    disabled: false,
                 };
                 questions.push(question);
             });
@@ -165,17 +166,17 @@ class Gameboard {
     /**
      * adds event listener to every grid item on gameboard with this.showGameboardOverlay method as callback
      */
-    addAllGridItemEventListeners() {
+    addAllEventListeners() {
         $('.gameboard-grid-item').click(this.showGameboardOverlay); // adds handler to all grid expression CONTAINERS
-        $('#choose-again-button').click(this.hideGameboardOverlay); // attach event listener to close gameboard overlay
+        $('#choose-again-button').click(this.hideGameboardOverlay); // attach event listener to close gameboard overlay when 'choose again' button is clicked
+        $('#submit-player-answer-button').click(this.checkUserAnswer); // attach event listener to check User answer when 'Enter' button is clicked
     };
-
 
     /**
      * displays gameboard overlay element on page
      * adds selected question as currentQuestion property of gameboard
      * adds mjx-container element from selected DOM element to gameboard overlay
-     * @param {object} clickEvent 
+     * @param {Event object} clickEvent 
      */
     showGameboardOverlay(clickEvent) {
         clickEvent.preventDefault();
@@ -187,6 +188,12 @@ class Gameboard {
         
     }
 
+    /**
+     * hides gameboard overlay element on page
+     * removes selected question as currentQuestion property of gameboard
+     * removes mjx-container element from gameboard overlay
+     * @param {Event object} clickEvent 
+     */
     hideGameboardOverlay(clickEvent) {
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
@@ -195,6 +202,9 @@ class Gameboard {
         $('#gameboard-active-question span').children().remove();
     }
 
+    checkUserAnswer(clickEvent) {
+
+    }
      
 
 }

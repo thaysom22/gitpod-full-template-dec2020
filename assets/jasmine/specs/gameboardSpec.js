@@ -7,32 +7,42 @@ describe("Gameboard object", function() {
     beforeEach(() => {
         // create version of gameboard in DOM for testing before each spec
         setFixtures(`
-            <section id="gameboard-wrapper" class="section-wrapper">
-                <!-- gameboard overlay is hidden until grid item is clicked during a player turn --> 
-                <div id="gameboard-overlay" class="hide">
-                    <div id="gameboard-active-question">
-                        <span></span>
+            <!-- Main gameboard section -->
+                <section id="gameboard-wrapper" class="section-wrapper">
+                    <!-- gameboard overlay - hidden until grid item is clicked during a player turn --> 
+                    <div id="gameboard-overlay" class="hide">
+                        <div id="gameboard-overlay-content">
+                            <div id="gameboard-active-question">
+                                <span></span>
+                            </div>
+                            <h3>Evaluate when x = <span></span></h3>
+                            <form>
+                                <input type="text" id="player-answer" name="playerAnswer" size="4" >
+                                <span id="player-answer-error-message"></span>
+                                <button type="submit">Enter</button>
+                                <button id="choose-again-button" type="button">Choose again</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div id="gameboard-grid-container">
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                    <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
-                </div>
-            </section>
+                    <div id="gameboard-grid-container">
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                        <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
+                    </div>
+                </section>
         `);
 
         let randomDifficulty = ["Easy", "Hard"][Math.round(Math.random())];
@@ -125,10 +135,10 @@ describe("Gameboard object", function() {
         });
     });
 
-    describe("when addAllGridItemEventListeners method is called", function() {
+    describe("when addAllEventListeners method is called", function() {
 
         beforeEach(() => {
-            randomGameboard.addAllGridItemEventListeners();
+            randomGameboard.addAllEventListeners();
         });
 
         it("should add event listeners to all grid items in gameboard", function() {
@@ -145,7 +155,7 @@ describe("Gameboard object", function() {
 
         // mock selection of a question from gameboard with click event containing currentTarget property 
         beforeEach(() => {
-            randomGameboard.addAllGridItemEventListeners();
+            randomGameboard.addAllEventListeners();
             var clickEvent = new Event("click");
             Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[0]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
             randomGameboard.showGameboardOverlay(clickEvent);
@@ -156,7 +166,7 @@ describe("Gameboard object", function() {
         });
 
         it("should add selected question as currentQuestion property of gameboard", function() {
-            expect(randomGameboard.currentQuestionId).not.toBeNull()
+            expect(randomGameboard.currentQuestionId).toBe(0);
         });
 
         it("should add mathJAx rendered LaTeX string to HTML in gameboard overlay element", function() {
@@ -169,7 +179,7 @@ describe("Gameboard object", function() {
 
         // mock selection of a question from gameboard and then click event on 'choose again' button in gameboard overlay
         beforeEach(() => {
-            randomGameboard.addAllGridItemEventListeners();
+            randomGameboard.addAllEventListeners();
             var clickEvent1 = new Event("click");
             var clickEvent2 = new Event("click");
             Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[0]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
@@ -177,7 +187,7 @@ describe("Gameboard object", function() {
             randomGameboard.hideGameboardOverlay(clickEvent2);
         });
 
-        it("should remove .show class from gameboard overlay DOM element", function() {
+        it("should add .hide class from gameboard overlay DOM element", function() {
             expect($('#gameboard-overlay')).toHaveClass('hide');
         });
 
@@ -189,64 +199,138 @@ describe("Gameboard object", function() {
             expect(randomGameboard.currentQuestionId).toBeNull()
         });
 
-    });    
-
-    describe("when a correct value is entered and confirmed by user to gameboard overlay input element", function() {
-
-        it("should invoke gameboard.checkUserAnswer() method with value passed as argument", function() {
-
+        it("should remove any .correctUserAnswer or .incorrectUserAnswer  class from gameboard overlay content element", function() {
+            expect($('#gameboard-overlay-content')).not.toHaveClass('correctUserAnswer');
+            expect($('#gameboard-overlay-content')).not.toHaveClass('incorrectUserAnswer');
         });
 
-        it("should add .correctUserAnswer class to gameboard overlay element", function() {
+    });
+    
+    describe("checkUserAnswer method is called with no answer entered", function() {
 
+        // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
+        beforeEach(() => {
+            randomGameboard.addAllEventListeners();
+            var clickEvent1 = new Event("click");
+            var clickEvent2 = new Event("click");
+            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            randomGameboard.showGameboardOverlay(clickEvent1);
+            $('#player-answer').val(""); // set input on gameboard overlay input to empty
+            randomGameboard.checkUserAnswer(clickEvent2); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
 
-        it("should remove .show class from gameboard overlay DOM element AFTER 2 SECONDS DELAY", function() {
-
+        it("should not add .hide class to gameboard overlay element", function() {
+            expect($('#gameboard-overlay')).not.toHaveClass('hide');
         });
 
-        it("should remove selected question as currentQuestion property of gameboard", function() {
-
+        it("should add 'Enter a value!' error message to page", function() {
+            expect($('#player-answer-error-message')).toContainText("Enter a valid value!");
         });
 
-        it("should add selected question as array item in disabledQuestions property of gameboard", function() {
+        it("should not remove selected question as currentQuestion property of gameboard", function() {
+            expect(randomGameboard.currentQuestionId).toBe(5);
+        });
 
+    });
+
+    describe("checkUserAnswer method is called with invalid answer entered", function() {
+
+        // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
+        beforeEach(() => {
+            randomGameboard.addAllEventListeners();
+            var clickEvent1 = new Event("click");
+            var clickEvent2 = new Event("click");
+            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            randomGameboard.showGameboardOverlay(clickEvent1);
+            $('#player-answer').val("abcd"); // set input on gameboard overlay input to non-numeric
+            randomGameboard.checkUserAnswer(clickEvent2); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
+        });
+
+        it("should not add .hide class to gameboard overlay element", function() {
+            expect($('#gameboard-overlay')).not.toHaveClass('hide');
+        });
+
+        it("should add 'Enter a value!' error message to page", function() {
+            expect($('#player-answer-error-message')).toContainText("Enter a valid value!");
+        });
+
+        it("should not remove selected question as currentQuestion property of gameboard", function() {
+            expect(randomGameboard.currentQuestionId).toBe(5);
+        });
+        
+    });
+
+    describe("checkUserAnswer method is called with correct answer entered", function() {
+
+        // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
+        beforeEach(() => {
+            randomGameboard.questions[5].answer = 10; // set answer property of question for testing
+            randomGameboard.addAllEventListeners();
+            var clickEvent1 = new Event("click");
+            var clickEvent2 = new Event("click");
+            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            randomGameboard.showGameboardOverlay(clickEvent1);
+            $('#player-answer').val("10"); // set input on gameboard overlay input to equal to answer property of question
+            randomGameboard.checkUserAnswer(clickEvent2); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
+        });
+
+        it("should add .correctUserAnswer class to gameboard overlay content element", function() {
+            expect($('#gameboard-overlay-content')).toHaveClass('correctUserAnswer');
+        });
+
+        it("should add .hide class to gameboard overlay DOM element", function() {
+            expect($('#gameboard-overlay')).toHaveClass('hide');
+        });
+
+        it("should remove selected questionId as currentQuestionId property of gameboard", function() {
+            expect(randomGameboard.currentQuestionId).toBeNull();
+        });
+
+        it("should set answered question's disabled property to true", function() {
+            expect(randomGameboard.questions[5].disabled).toBeTrue();
         });
 
         it("should add .disabledQuestion class to grid item containing the question just answered by user", function() {
-
+            expect($($('.gameboard-grid-item')[5])).toHaveClass("disabled");
         });
+
 
     });
 
-    describe("when an incorrect value is entered and confirmed by user to gameboard overlay input element", function() {
+    describe("checkUserAnswer method is called with incorrect answer entered", function() {
 
-        it("should invoke gameboard.checkUserAnswer() method with value passed as argument", function() {
-
+        // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
+        beforeEach(() => {
+            randomGameboard.questions[10].answer = 15; // set answer property of question for testing
+            randomGameboard.addAllEventListeners();
+            var clickEvent1 = new Event("click");
+            var clickEvent2 = new Event("click");
+            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[10]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            randomGameboard.showGameboardOverlay(clickEvent1);
+            $('#player-answer').val("20"); // set input on gameboard overlay input to not equal to answer property of question
+            randomGameboard.checkUserAnswer(clickEvent2); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
 
-        it("should add .incorrectUserAnswer class to gameboard overlay element", function() {
-
+        it("should add .incorrectUserAnswer class to gameboard overlay content element", function() {
+            expect($('#gameboard-overlay-content')).toHaveClass('incorrectUserAnswer');
         });
 
-        it("should remove .show class from gameboard overlay DOM element AFTER 2 SECONDS DELAY", function() {
-
+        it("should add .hide class to gameboard overlay DOM element", function() {
+            expect($('#gameboard-overlay')).toHaveClass('hide');
         });
 
         it("should remove selected question as currentQuestion property of gameboard", function() {
-
+            expect(randomGameboard.currentQuestionId).toBeNull();
         });
 
-        it("should NOT add selected question as array item in disabledQuestions property of gameboard", function() {
-
+        it("should NOT set answered question's disabled property to true", function() {
+            expect(randomGameboard.questions[10].disabled).toBeFalse();
         });
 
-        it("should add NOT .disabledQuestion class to grid item containing the question just answered by user", function() {
-
+        it("should NOT add .disabledQuestion class to grid item containing the question just answered by user", function() {
+            expect($($('.gameboard-grid-item')[10])).not.toHaveClass("disabled");
         });
 
     });
-
-
 
 });
