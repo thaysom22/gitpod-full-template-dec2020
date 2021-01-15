@@ -167,8 +167,8 @@ class Gameboard {
 
     /**
      * adds event listener to every grid item on gameboard with this.showGameboardOverlay method as callback
-     * .bind() used to preserve this in context of handler callback CREDIT: https://stackoverflow.com/questions/36489579/this-within-es6-class-method 
      */
+    // .bind() used to preserve this in context of handler callback CREDIT: https://stackoverflow.com/questions/36489579/this-within-es6-class-method 
     addAllEventListeners() {
         $('.gameboard-grid-item').click(this.showGameboardOverlay.bind(this)); // adds handler to all grid expression CONTAINERS
         $('#choose-again-button').click(this.hideGameboardOverlay.bind(this)); // attach event listener to close gameboard overlay when 'choose again' button is clicked
@@ -186,6 +186,7 @@ class Gameboard {
         clickEvent.stopPropagation();
         $('#gameboard-overlay-content').removeClass("correct-user-answer"); // remove correct-user-answer or incorrect-user answer class from gameboard overlay before displaying
         $('#gameboard-overlay-content').removeClass("incorrect-user-answer");
+        $('#player-answer').val(""); // empty input field
         $('#gameboard-overlay').removeClass('hide');
         this.currentQuestionId = clickEvent.currentTarget.questionId; // store id of selected question as property on instance
         let cloneMjx = clickEvent.currentTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
@@ -208,6 +209,7 @@ class Gameboard {
     }
 
     checkUserAnswer(submitEvent) {
+
         submitEvent.preventDefault();
         submitEvent.stopPropagation();
          
@@ -220,22 +222,29 @@ class Gameboard {
 
         if (userAnswerString.match(userAnswerRegex)) { // check valid answer entered by user
             if (userAnswerNumber === correctAnswer) { 
-                setTimeout(this.hideGameboardOverlay, 1000); // delay hiding overlay for user feedback background color change
-                disableQuestion(questionId).bind(this); 
+                $('#gameboard-overlay-content').addClass("correct-user-answer");
+                disableQuestion(questionId, this);  
                 this.currentQuestionId = null;
+                setTimeout(this.hideGameboardOverlay(submitEvent), 1000); // delay hiding overlay for user feedback background color change
             } else {
-
+                $('#gameboard-overlay-content').addClass("incorrect-user-answer");
+                setTimeout(this.hideGameboardOverlay(submitEvent), 1000);
             }
 
         } else {
-            $('#player-answer-error-message').text("Enter a valid value!"); // display error message on gamebaord overlay
+            $('#player-answer-error-message').text("Enter a valid value!"); // display error message on gamebaord overlay for 2 seconds
+            setTimeout(() => {
+                $('#player-answer-error-message').text("");
+            }, 1500);
         }
 
-        function disableQuestion(questionId) {
-            this.questions[questionId].disabled = true;
+        // pass this of checkUserAnswer to disableQuestion scope as context parameter
+        function disableQuestion(questionId, context) {
+            console.log(context, "disable question context test");
+            context.questions[questionId].disabled = true;
             $($('.gameboard-grid-item')[questionId]).addClass("disabled");
-            $($('.gameboard-grid-item')[questionId]).unbind("click", this.showGameboardOverlay); // deattach event listener from disabled grid item
-            this.currentQuestionId = null;
+            $($('.gameboard-grid-item')[questionId]).unbind("click", context.showGameboardOverlay); // detach event listener from disabled grid item
+            context.currentQuestionId = null;
         }
         
 

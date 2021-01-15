@@ -211,11 +211,11 @@ describe("Gameboard object", function() {
         // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
         beforeEach(() => {
             randomGameboard.addAllEventListeners();
-            var clickEvent1 = new Event("click");
+            var clickEvent = new Event("click");
             var submitEvent = new Event("submit");
-            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
             Object.defineProperty(submitEvent, 'currentTarget', {writable: false, value: $("#gameboard-overlay-content form")});
-            randomGameboard.showGameboardOverlay(clickEvent1);
+            randomGameboard.showGameboardOverlay(clickEvent);
             $('#player-answer').val(""); // set input on gameboard overlay input to empty
             randomGameboard.checkUserAnswer(submitEvent); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
@@ -239,10 +239,11 @@ describe("Gameboard object", function() {
         // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
         beforeEach(() => {
             randomGameboard.addAllEventListeners();
-            var clickEvent1 = new Event("click");
+            var clickEvent = new Event("click");
             var submitEvent = new Event("submit");
-            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
             Object.defineProperty(submitEvent, 'currentTarget', {writable: false, value: $("#gameboard-overlay-content form")});
+            randomGameboard.showGameboardOverlay(clickEvent);
             $('#player-answer').val("abcd"); // set input on gameboard overlay input to non-numeric
             randomGameboard.checkUserAnswer(submitEvent); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
@@ -263,14 +264,15 @@ describe("Gameboard object", function() {
 
     describe("checkUserAnswer method is called with correct answer entered", function() {
 
-        // mock selection of a question from gameboard,  correct user answer then click event on 'enter' button in gameboard overlay
+        // mock selection of a question from gameboard, correct user answer then click event on 'enter' button in gameboard overlay
         beforeEach(() => {
             randomGameboard.questions[5].answer = 10; // set answer property of question for testing
             randomGameboard.addAllEventListeners();
-            var clickEvent1 = new Event("click");
+            var clickEvent = new Event("click");
             var submitEvent = new Event("submit");
-            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
             Object.defineProperty(submitEvent, 'currentTarget', {writable: false, value: $("#gameboard-overlay-content form")});
+            randomGameboard.showGameboardOverlay(clickEvent);
             $('#player-answer').val("10"); // set input on gameboard overlay input to equal to answer property of question
             randomGameboard.checkUserAnswer(submitEvent); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
@@ -304,10 +306,11 @@ describe("Gameboard object", function() {
         beforeEach(() => {
             randomGameboard.questions[10].answer = 15; // set answer property of question for testing
             randomGameboard.addAllEventListeners();
-            var clickEvent1 = new Event("click");
+            var clickEvent = new Event("click");
             var submitEvent = new Event("submit");
-            Object.defineProperty(clickEvent1, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[5]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
+            Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[10]}); // hack to set properties on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
             Object.defineProperty(submitEvent, 'currentTarget', {writable: false, value: $("#gameboard-overlay-content form")});
+            randomGameboard.showGameboardOverlay(clickEvent);
             $('#player-answer').val("20"); // set input on gameboard overlay input to not equal to answer property of question
             randomGameboard.checkUserAnswer(submitEvent); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });

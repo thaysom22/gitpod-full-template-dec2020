@@ -493,6 +493,12 @@ body {
   margin: 0.5rem;
   padding: 0.5rem;
 }
+#gameboard-overlay-content.correct-user-answer {
+  background-color: green;
+}
+#gameboard-overlay-content.incorrect-user-answer {
+  background-color: red;
+}
 
 @media screen and (min-width: 767px) {
   #gameboard-grid-container {
