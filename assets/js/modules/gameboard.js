@@ -202,7 +202,23 @@ class Gameboard {
         $('#gameboard-active-question span').children().remove();
     }
 
-    checkUserAnswer(clickEvent) {
+    checkUserAnswer(submitEvent) {
+        submitEvent.preventDefault();
+        submitEvent.stopPropagation();
+        
+        let userAnswerString = $('#player-answer').val();
+        let userAnswerNumber = Number(userAnswerString);
+        let correctAnswer = this.questions[currentQuestionId].answer;
+        // CREDIT: https://regexone.com/problem/matching_decimal_numbers 
+        let userAnswerRegex = /^-?\d+(\.\d+)?$/g // regex matches only valid (positive and negative) numerical (including decimal) user inputs without letters or other characters
+
+        if (userAnswerString.match(userAnswerRegex)) { // check valid answer entered
+            if (userAnswerNumber === correctAnswer) {
+                
+            } // check user answer is equal to correct answer for question 
+
+        }  
+        
 
     }
      
