@@ -156,7 +156,7 @@ describe("Gameboard object", function() {
         });
 
         it("should add selected question as currentQuestion property of gameboard", function() {
-            expect(randomGameboard.currentQuestion).not.toBeNull()
+            expect(randomGameboard.currentQuestionId).not.toBeNull()
         });
 
         it("should add mathJAx rendered LaTeX string to HTML in gameboard overlay element", function() {
@@ -186,7 +186,7 @@ describe("Gameboard object", function() {
         });
 
         it("should remove selected question as currentQuestion property of gameboard", function() {
-            expect(randomGameboard.currentQuestion).toBeNull()
+            expect(randomGameboard.currentQuestionId).toBeNull()
         });
 
     });    

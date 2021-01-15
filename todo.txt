@@ -28,8 +28,6 @@ RUNNING TASKS (commit after each)
 * implement hideGameboardOverlay()
 * write tests and implement Scoreboard class
 * write tests and implement click to play class
-* 
-
 * replace +- and -+ and -- in gameboard expressions
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'

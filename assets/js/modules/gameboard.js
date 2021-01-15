@@ -167,6 +167,7 @@ class Gameboard {
      */
     addAllGridItemEventListeners() {
         $('.gameboard-grid-item').click(this.showGameboardOverlay); // adds handler to all grid expression CONTAINERS
+        $('#choose-again-button').click(this.hideGameboardOverlay); // attach event listener to close gameboard overlay
     };
 
 
@@ -182,9 +183,16 @@ class Gameboard {
         $('#gameboard-overlay').removeClass('hide');
         this.currentQuestionId = clickEvent.currentTarget.questionId; // store id of selected question as property on instance
         let cloneMjx = clickEvent.currentTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
-        $('#gameboard-active-question span').append(cloneMjx); //adds mjx-container element from selected DOM element
-
+        $('#gameboard-active-question span').prepend(cloneMjx); //adds mjx-container element from selected DOM element
         
+    }
+
+    hideGameboardOverlay(clickEvent) {
+        clickEvent.preventDefault();
+        clickEvent.stopPropagation();
+        $('#gameboard-overlay').addClass('hide');
+        this.currentQuestionId = null; // reset currentQuestionId of gameboard instance to null
+        $('#gameboard-active-question span').children().remove();
     }
 
      
