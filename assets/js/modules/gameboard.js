@@ -7,6 +7,7 @@ class Gameboard {
         this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
         this.currentQuestionId = null;
 
+        //test
         this.addAllEventListeners();
         console.log("event listeners added at gameboard instantiation for test");
 
@@ -131,6 +132,7 @@ class Gameboard {
      * @param {Integer} variableValue generated from 'click to play' component
      */
     evaluateQuestions(variableValue) {
+        console.log(this, "evaluateQuestions 'this' test");
         this.questions.forEach(function(question){
             question.answer = math.evaluate(question.expressionString, { x: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
         });
@@ -165,11 +167,12 @@ class Gameboard {
 
     /**
      * adds event listener to every grid item on gameboard with this.showGameboardOverlay method as callback
+     * .bind() used to preserve this in context of handler callback CREDIT: https://stackoverflow.com/questions/36489579/this-within-es6-class-method 
      */
     addAllEventListeners() {
-        $('.gameboard-grid-item').click(this.showGameboardOverlay); // adds handler to all grid expression CONTAINERS
-        $('#choose-again-button').click(this.hideGameboardOverlay); // attach event listener to close gameboard overlay when 'choose again' button is clicked
-        $('#submit-player-answer-button').click(this.checkUserAnswer); // attach event listener to check User answer when 'Enter' button is clicked
+        $('.gameboard-grid-item').click(this.showGameboardOverlay.bind(this)); // adds handler to all grid expression CONTAINERS
+        $('#choose-again-button').click(this.hideGameboardOverlay.bind(this)); // attach event listener to close gameboard overlay when 'choose again' button is clicked
+        $('#submit-player-answer-button').click(this.checkUserAnswer.bind(this)); // attach event listener to check User answer when 'Enter' button is clicked
     };
 
     /**
@@ -181,6 +184,8 @@ class Gameboard {
     showGameboardOverlay(clickEvent) {
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
+        $('#gameboard-overlay-content').removeClass("correct-user-answer"); // remove correct-user-answer or incorrect-user answer class from gameboard overlay before displaying
+        $('#gameboard-overlay-content').removeClass("incorrect-user-answer");
         $('#gameboard-overlay').removeClass('hide');
         this.currentQuestionId = clickEvent.currentTarget.questionId; // store id of selected question as property on instance
         let cloneMjx = clickEvent.currentTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
@@ -205,19 +210,33 @@ class Gameboard {
     checkUserAnswer(submitEvent) {
         submitEvent.preventDefault();
         submitEvent.stopPropagation();
-        
+         
+        let questionId = this.currentQuestionId;
         let userAnswerString = $('#player-answer').val();
         let userAnswerNumber = Number(userAnswerString);
-        let correctAnswer = this.questions[currentQuestionId].answer;
+        let correctAnswer = this.questions[questionId].answer;
         // CREDIT: https://regexone.com/problem/matching_decimal_numbers 
         let userAnswerRegex = /^-?\d+(\.\d+)?$/g // regex matches only valid (positive and negative) numerical (including decimal) user inputs without letters or other characters
 
-        if (userAnswerString.match(userAnswerRegex)) { // check valid answer entered
-            if (userAnswerNumber === correctAnswer) {
-                
-            } // check user answer is equal to correct answer for question 
+        if (userAnswerString.match(userAnswerRegex)) { // check valid answer entered by user
+            if (userAnswerNumber === correctAnswer) { 
+                setTimeout(this.hideGameboardOverlay, 1000); // delay hiding overlay for user feedback background color change
+                disableQuestion(questionId).bind(this); 
+                this.currentQuestionId = null;
+            } else {
 
-        }  
+            }
+
+        } else {
+            $('#player-answer-error-message').text("Enter a valid value!"); // display error message on gamebaord overlay
+        }
+
+        function disableQuestion(questionId) {
+            this.questions[questionId].disabled = true;
+            $($('.gameboard-grid-item')[questionId]).addClass("disabled");
+            $($('.gameboard-grid-item')[questionId]).unbind("click", this.showGameboardOverlay); // deattach event listener from disabled grid item
+            this.currentQuestionId = null;
+        }
         
 
     }

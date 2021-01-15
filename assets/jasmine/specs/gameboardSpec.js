@@ -199,9 +199,9 @@ describe("Gameboard object", function() {
             expect(randomGameboard.currentQuestionId).toBeNull()
         });
 
-        it("should remove any .correctUserAnswer or .incorrectUserAnswer  class from gameboard overlay content element", function() {
-            expect($('#gameboard-overlay-content')).not.toHaveClass('correctUserAnswer');
-            expect($('#gameboard-overlay-content')).not.toHaveClass('incorrectUserAnswer');
+        it("should remove any .correct-user-answer or .incorrect-user-answer  class from gameboard overlay content element", function() {
+            expect($('#gameboard-overlay-content')).not.toHaveClass('correct-user-answer');
+            expect($('#gameboard-overlay-content')).not.toHaveClass('incorrect-user-answer');
         });
 
     });
@@ -275,8 +275,8 @@ describe("Gameboard object", function() {
             randomGameboard.checkUserAnswer(submitEvent); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
 
-        it("should add .correctUserAnswer class to gameboard overlay content element", function() {
-            expect($('#gameboard-overlay-content')).toHaveClass('correctUserAnswer');
+        it("should add .correct-user-answer class to gameboard overlay content element", function() {
+            expect($('#gameboard-overlay-content')).toHaveClass('correct-user-answer');
         });
 
         it("should add .hide class to gameboard overlay DOM element", function() {
@@ -312,8 +312,8 @@ describe("Gameboard object", function() {
             randomGameboard.checkUserAnswer(submitEvent); // checkUserAnswer is invoked when 'enter' is clicked on gameboard overlay
         });
 
-        it("should add .incorrectUserAnswer class to gameboard overlay content element", function() {
-            expect($('#gameboard-overlay-content')).toHaveClass('incorrectUserAnswer');
+        it("should add .incorrect-user-answer class to gameboard overlay content element", function() {
+            expect($('#gameboard-overlay-content')).toHaveClass('incorrect-user-answer');
         });
 
         it("should add .hide class to gameboard overlay DOM element", function() {
