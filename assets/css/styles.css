@@ -311,11 +311,6 @@ body {
   position: relative;
   top: -1rem;
 }
-.player-scoreboard .score-bonus {
-  align-self: flex-end;
-  position: relative;
-  bottom: -1rem;
-}
 
 @media screen and (min-width: 450px) {
   .player-scoreboard {
@@ -335,11 +330,6 @@ body {
     align-self: flex-start;
     position: relative;
     top: -1rem;
-  }
-  .player-scoreboard .score-bonus {
-    align-self: flex-end;
-    position: relative;
-    bottom: -1rem;
   }
 }
 @media screen and (min-width: 767px) {

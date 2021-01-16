@@ -25,9 +25,10 @@ RUNNING TASKS (commit after each)
 * Add gridlines to gameboard x
 * refactor modals.js to make class for welcomeModal x
 * implement hideGameboardOverlay() x
+* need to find a way to reference gameboard instance from content of event listener x
+* finish implementing checkUserAnswer x
 
-* need to find a way to reference gameboard instance from content of event listener
-* finish implementing checkUserAnswer
+
 * write tests and implement Scoreboard class
 * write tests and implement click to play class
 * replace +- and -+ and -- in gameboard expressions

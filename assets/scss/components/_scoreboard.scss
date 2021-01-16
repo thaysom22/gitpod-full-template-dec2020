@@ -40,11 +40,6 @@
         position: relative;
         top: -1rem;
     }
-    .score-bonus{
-        align-self: flex-end;
-        position: relative;
-        bottom: -1rem;
-    }
 }
 
 // ------------------------ larger mobile
@@ -69,11 +64,6 @@
             align-self: flex-start;
             position: relative;
             top: -1rem;
-        }
-        .score-bonus{
-            align-self: flex-end;
-            position: relative;
-            bottom: -1rem;
         }
     }
 }

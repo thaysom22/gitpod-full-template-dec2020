@@ -161,6 +161,7 @@ Layout:
 * Welcome modal layout made consistent on all viewport sizes. Max width set for larger viewports to maintain the vertical mobile layout.
 * Content of modal made scrollable once height is larger than container.
 * Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
+* Time bonus component not implemented for scoreboard. The bonus score element remove from HTML and now player score depends only on the ranking of the question selected. 
 
 ## 2. Features
 
@@ -179,7 +180,8 @@ Layout:
 * Add media query styling specifically for print view so teachers can print activity for use in lessons
 * Add restart game button to main page
 * Update expression generation and evaluation to include expressions involving fractions
-* Add timeout delays to displaying/hiding of elements on page to improve user experience
+* Add animation effects to displaying/hiding of elements on page to improve user experience and feedback
+* Implement time bonus component to scoreboard which rewards players for answering quickly
 
 ## 3.Technology Stack and Dependencies
 
