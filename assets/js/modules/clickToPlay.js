@@ -9,8 +9,12 @@ class ClickToPlay{
         this.difficultySetting = difficultySetting; 
         this.activePlayer = player1Name; // game starts with player 1
         this.updateCurrentPlayerInDOM(this.activePlayer);
-        this.addClickToPlayEventListener(); // when game is started it is begiining of player turn so click to play is clickable
+        this.addClickToPlayEventListener(); // when game is started it is beginning of player turn so click event listener is bound
         
+    }
+
+    generateVariableValue(difficultySetting){
+
     }
 
     updateVariableInDOM(variableValue){
@@ -26,6 +30,20 @@ class ClickToPlay{
     }
 
     addClickToPlayEventListener(){
-        $('#random-number-wrapper').click(this.beginTurn.bind(this)); // keep object context inside event handler
+        $('#random-number-wrapper').click(this.beginPlayerTurn.bind(this)); // keep object context inside event handler
+    }
+
+    removeClickToPlayEventListener(){
+        $('#random-number-wrapper').unbind("click", this.beginPlayerTurn); 
+    }
+
+    beginPlayerTurn(){
+
+        // after delay for random number generation, 
+        
+        // add event listeners to all non-disabled gameboard grid items
+        
+        this.startCountdownTimer(this.difficultySetting); // start countdown timer
+        this.removeClickToPlayEventListener(); // remove event listener from #random-number-wrapper element
     }
 }

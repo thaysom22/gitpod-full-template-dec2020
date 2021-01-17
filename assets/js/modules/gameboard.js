@@ -7,10 +7,6 @@ class Gameboard {
         this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
         this.currentQuestionId = null;
 
-        //test
-        this.addAllEventListeners();
-        console.log("event listeners added at gameboard instantiation for test");
-
         // initializeGameboard function calls initializeQuestions and uses returned array to set HTML of each grid item to question.LaTexString value
         // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html
         function initializeGameboard(difficultySetting) {
@@ -170,7 +166,7 @@ class Gameboard {
      */
     // .bind() used to preserve this in context of handler callback CREDIT: https://stackoverflow.com/questions/36489579/this-within-es6-class-method 
     addAllEventListeners() {
-        $('.gameboard-grid-item').click(this.showGameboardOverlay.bind(this)); // adds handler to all grid expression CONTAINERS
+        $('.gameboard-grid-item:not(.disabled)').click(this.showGameboardOverlay.bind(this)); // adds handler to all grid expression CONTAINERS that DO NOT HAVE .disabled class
         $('#choose-again-button').click(this.hideGameboardOverlay.bind(this)); // attach event listener to close gameboard overlay when 'choose again' button is clicked
         $('#submit-player-answer-button').click(this.checkUserAnswer.bind(this)); // attach event listener to check User answer when 'Enter' button is clicked
     };
@@ -225,7 +221,6 @@ class Gameboard {
                 $('#gameboard-overlay-content').addClass("correct-user-answer");
                 disableQuestion(questionId, this);  
                 this.currentQuestionId = null;
-                scoreboard
                 setTimeout(this.hideGameboardOverlay(submitEvent), 1000); // delay hiding overlay for user feedback background color change
             } else {
                 $('#gameboard-overlay-content').addClass("incorrect-user-answer");
@@ -241,11 +236,8 @@ class Gameboard {
 
         // pass 'this' of checkUserAnswer to disableQuestion scope as argument
         function disableQuestion(questionId, context) {
-            console.log(context, "disable question context test");
             context.questions[questionId].disabled = true;
             $($('.gameboard-grid-item')[questionId]).addClass("disabled");
-            $($('.gameboard-grid-item')[questionId]).unbind("click", context.showGameboardOverlay); // detach event listener from disabled grid item
-            context.currentQuestionId = null;
         }
         
 

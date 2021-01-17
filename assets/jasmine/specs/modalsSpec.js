@@ -50,8 +50,10 @@ describe("Welcome modal form", function(){
             $('#player1Name').val("Tom");
             $('#player2Name').val("Sally");
             $('#welcomeModalForm #easier').prop("checked", true);
-
+            jasmine.clock().install(); 
             welcomeModal.submitWelcomeForm(new Event("submit"));
+            jasmine.clock().tick(1001); // tick clock forward, running queued Timeouts CREDIT: https://jasmine.github.io/api/3.6/Clock.html 
+            
         });        
 
         it("should remove classes correctly on DOM elements to close welcome modal ", function() {
@@ -59,6 +61,7 @@ describe("Welcome modal form", function(){
             expect($('body')).not.toHaveClass('modal-open');
             expect($('#welcomeModal')).not.toHaveClass('show');
             expect($('#modal-backdrop')).not.toHaveClass('show');
+            jasmine.clock().uninstall();
         });
 
     });

@@ -27,10 +27,10 @@ RUNNING TASKS (commit after each)
 * implement hideGameboardOverlay() x
 * need to find a way to reference gameboard instance from content of event listener x
 * finish implementing checkUserAnswer x
+* write tests and implement Scoreboard class (implement method to calcuate score after a question is answered) x
 
 
-* write tests and implement Scoreboard class (implement method to calcuate score after a question is answered)
-* write tests and implement click to play class
+* write tests and implement click to play class - implement beginPlayerTurn abstraction and write tests and implement it's inner functions
 * replace +- and -+ and -- in gameboard expressions
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'

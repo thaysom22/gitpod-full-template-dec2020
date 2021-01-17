@@ -163,7 +163,7 @@ Layout:
 * Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
 * Time bonus component not implemented for scoreboard. The bonus score element remove from HTML and now player score depends only on the ranking of the question selected. 
 * Easy and difficult settings have 2 minutes and 1 minutes allowed per turn respectively.
-* Layout and content of 'Click to Play' element changed to include curent player's name above random number genrator and 'click to play' instruction in pace of timer between active player turns.
+* 
 
 ## 2. Features
 
@@ -185,6 +185,7 @@ Layout:
 * Add animation effects to displaying/hiding of elements on page to improve user experience and feedback
 * Implement time bonus component to scoreboard which rewards players for answering quickly
 * Add feature to welcome modal which allows user to select amount of time allowed per question
+* Add a popup instruction that appears only on each player's first turn after they generate a random number: 'select the expression that gives the highest value when x= '
 
 ## 3.Technology Stack and Dependencies
 
