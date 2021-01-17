@@ -103,7 +103,7 @@ describe("Scoreboard object functions", function() {
             expect(scoreboard.calculateTurnScore(false, 8)).toBe(-50);
             expect(scoreboard.calculateTurnScore(false, 2)).toBe(-50);
         });
-        
+      
 
     });
 

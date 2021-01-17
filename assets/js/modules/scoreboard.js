@@ -55,8 +55,19 @@ class Scoreboard {
         return;
     }
 
+    /**
+     * returns the score for a player's turn: -50 points for an incorrect answer, 200 points for a correct answer to the highest value question, 150 points to 10 points for other correct answers depending on ranking of selected question
+     * @param {Boolean} responseCorrect 
+     * @param {*Integer} questionRanking 
+     */
     calculateTurnScore(responseCorrect, questionRanking){
-        
+        if (!responseCorrect) {
+            return -50;
+        } else if (questionRanking === 0) {
+            return 200;
+        } else {
+            return (-10*questionRanking + 160);
+        }
     }
 
 }

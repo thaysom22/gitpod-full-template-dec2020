@@ -225,6 +225,7 @@ class Gameboard {
                 $('#gameboard-overlay-content').addClass("correct-user-answer");
                 disableQuestion(questionId, this);  
                 this.currentQuestionId = null;
+                scoreboard
                 setTimeout(this.hideGameboardOverlay(submitEvent), 1000); // delay hiding overlay for user feedback background color change
             } else {
                 $('#gameboard-overlay-content').addClass("incorrect-user-answer");
@@ -238,7 +239,7 @@ class Gameboard {
             }, 1500);
         }
 
-        // pass this of checkUserAnswer to disableQuestion scope as context parameter
+        // pass 'this' of checkUserAnswer to disableQuestion scope as argument
         function disableQuestion(questionId, context) {
             console.log(context, "disable question context test");
             context.questions[questionId].disabled = true;

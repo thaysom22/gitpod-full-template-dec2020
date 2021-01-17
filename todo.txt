@@ -29,7 +29,7 @@ RUNNING TASKS (commit after each)
 * finish implementing checkUserAnswer x
 
 
-* write tests and implement Scoreboard class
+* write tests and implement Scoreboard class (implement method to calcuate score after a question is answered)
 * write tests and implement click to play class
 * replace +- and -+ and -- in gameboard expressions
 * Create markup for how to play 'pop up'

@@ -1,7 +1,7 @@
 export { WelcomeModal };
 
 import { Gameboard } from "./gameboard.js";
-
+import { Scoreboard } from "./scoreboard.js";
 
 class WelcomeModal {
     constructor(){
@@ -14,8 +14,7 @@ class WelcomeModal {
     }
 
     /**
-     * instance method
-     * verifies input then displays errors to user or invokes startGame function
+     * verifies user input then displays errors to user or invokes startGame function
      * @param {Object} submitEvent - event object triggered when form is submitted
      */ 
     submitWelcomeForm(submitEvent) {
@@ -54,11 +53,9 @@ class WelcomeModal {
 
         // instantiates gameboard as global property in browser and hides welcome modal   
         function startGame(player1Name, player2Name, difficultySetting) {
-            
-            // ADD HERE: initialize scoreboard
-            
-            window.gameboard = new Gameboard(difficultySetting);
-            hideWelcomeModal();
+            window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); // initialize scoreboard as global object in browser 
+            window.gameboard = new Gameboard(difficultySetting); // global object
+            setTimeout(hideWelcomeModal, 1000);
         };
         
     }      
