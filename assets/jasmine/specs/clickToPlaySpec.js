@@ -14,6 +14,7 @@ describe("ClickToPlay object functions", function() {
                 <div id="random-number-wrapper" class="trigger-wrapper" aria-label="Click to generate random number">
                     <!-- CREDIT: Font Awesome -->
                     <i aria-hidden="true" class="fas fa-question"  title="Click to Play"></i>
+                    <span id="variable-value"></span>
                 </div>
                 <div id="counttimer-wrapper" class="trigger-wrapper">
                     <p id="countdown-timer">Click to Play!</p>
@@ -21,7 +22,7 @@ describe("ClickToPlay object functions", function() {
             </section>
         `);
 
-        clickToPlay = new ClickToPlay("Hard"); // instantiate a new ClickToPlay object before each spec
+        clickToPlay = new ClickToPlay("James", "Claire", "Easy"); // instantiate a new ClickToPlay object before each spec
     });
 
     describe("when clickToPlay is initialized", function() {
@@ -51,6 +52,7 @@ describe("ClickToPlay object functions", function() {
             window.gameboard = new Gameboard("Easy"); // instantiate global gameboard to spy on it's method calls
             spyOn(window.gameboard, "addAllEventListeners");
             spyOn(clickToPlay, "startCountdownTimer");
+            spyOn(clickToPlay, "generateVariableValue");
             clickToPlay.beginPlayerTurn()
         });
 
@@ -66,16 +68,57 @@ describe("ClickToPlay object functions", function() {
             expect(clickToPlay.startCountdownTimer).toHaveBeenCalledWith("Easy");
         });
 
-        it("clickToPlay.variableValue property should be set to return value of startCountdownTimer method", function() {
-            let variableValue = clickToPlay.startCountdownTimer("Easy");
-            expect(clickToPlay.variableValue).toBe(variableValue);
+        it("should call clickToPlay.generateVariableValue method", function() {
+            expect(clickToPlay.generateVariableValue).toHaveBeenCalledWith("Easy");
         });
 
+    });
 
+    describe("when generateVariableValue is called", function() {
 
+        let variableValueReturn;
+        let clickToPlay2 = new ClickToPlay("Mark", "Julia", "Easy"); // keep same object for specs in this describe
+        beforeAll(() => {
+            jasmine.clock().install();
+            spyOn(clickToPlay2, "updateVariableInDOM");
+            variableValueReturn = clickToPlay2.generateVariableValue("Easy");
+        });
+
+        afterAll(() => {
+            jasmine.clock().uninstall();
+        });
+
+        it("should call clickToPlay.updateVariableInDOM method 3 times per second", function() {
+            jasmine.clock().tick(400); // expect 1 call after 0.333 seconds
+            expect(clickToPlay2.updateVariableInDOM).toHaveBeenCalledTimes(1);
+        });
+
+        it("should call clickToPlay.updateVariableInDOM method between 9 times in 3 seconds", function() {
+            jasmine.clock().tick(2601); // expect 9 calls after 3 seconds
+            expect(clickToPlay2.updateVariableInDOM).toHaveBeenCalledTimes(9);
+        });
+
+        it("it's return value should be set as clickToPlay object's variableValue property", function() {
+            expect(clickToPlay2.variableValue).toBe(variableValueReturn);
+        });
 
     });
-    
-    
+
+    describe("when updateVariableInDOM is called with non-null value", function() {
+
+        beforeEach(() => {
+            clickToPlay.updateVariableInDOM(5);
+        });
+
+        it("should display value of argument passed in non-hidden variable-value element", function() {
+            expect($('#variable-value')).not.toHaveClass($('hide'));
+            expect($('#variable-value')).toContainText($('5'));
+        });
+
+        it("should add .hide class to font awesome icon", function() {
+            expect($('.fas.fa-question')).toHaveClass('hide');
+        });
+
+    });
 
 });
