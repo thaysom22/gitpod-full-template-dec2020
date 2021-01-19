@@ -1,9 +1,9 @@
 import { ClickToPlay } from "./../../js/modules/clickToPlay.js"; 
-import { Gameboard } from "../../js/modules/gameboard.js";
+import { Gameboard } from "./../../js/modules/gameboard.js";
 
-describe("ClickToPlay object functions", function() {
+describe("ClickToPlay object", function() {
 
-    var clickToPlay; // declared in scope that both all specs can access
+    let clickToPlay; // declared in scope that both all specs can access
     
     beforeEach(() => {
         // create version of clickToPlay component in DOM for testing before each spec
@@ -47,7 +47,6 @@ describe("ClickToPlay object functions", function() {
 
     describe("when beginPlayerTurn method is called", function(){
 
-        let gameboard;
         beforeEach(() => {
             window.gameboard = new Gameboard("Easy"); // instantiate global gameboard to spy on it's method calls
             spyOn(window.gameboard, "addAllEventListeners");
@@ -57,7 +56,7 @@ describe("ClickToPlay object functions", function() {
         });
 
         it("should remove the click event listener on #random-number-wrapper element", function() {
-            expect(Object.keys($._data($('#random-number-wrapper')[0], "events"))).not.toContain("click");
+            expect(Object.keys($._data($('#random-number-wrapper')[0]), "events")).not.toContain("click");
         });
 
         it("should call Gameboard.addAllEventListeners method", function() {
@@ -72,16 +71,20 @@ describe("ClickToPlay object functions", function() {
             expect(clickToPlay.generateVariableValue).toHaveBeenCalledWith("Easy");
         });
 
+        it("clickToPlay object's variableValue property should be not null", function() {
+            expect(clickToPlay.variableValue).not.toBeNull();
+        });
+
     });
 
     describe("when generateVariableValue is called", function() {
 
-        let variableValueReturn;
-        let clickToPlay2 = new ClickToPlay("Mark", "Julia", "Easy"); // keep same object for specs in this describe
+        let clickToPlay2;
         beforeAll(() => {
+            clickToPlay2 = new ClickToPlay("Mark", "Julia", "Easy"); // keep same object for specs in this describe
             jasmine.clock().install();
             spyOn(clickToPlay2, "updateVariableInDOM");
-            variableValueReturn = clickToPlay2.generateVariableValue("Easy");
+            clickToPlay2.generateVariableValue("Easy");
         });
 
         afterAll(() => {
@@ -98,10 +101,6 @@ describe("ClickToPlay object functions", function() {
             expect(clickToPlay2.updateVariableInDOM).toHaveBeenCalledTimes(9);
         });
 
-        it("it's return value should be set as clickToPlay object's variableValue property", function() {
-            expect(clickToPlay2.variableValue).toBe(variableValueReturn);
-        });
-
     });
 
     describe("when updateVariableInDOM is called with non-null value", function() {
@@ -112,7 +111,7 @@ describe("ClickToPlay object functions", function() {
 
         it("should display value of argument passed in non-hidden variable-value element", function() {
             expect($('#variable-value')).not.toHaveClass($('hide'));
-            expect($('#variable-value')).toContainText($('5'));
+            expect($('#variable-value')).toContainText('5');
         });
 
         it("should add .hide class to font awesome icon", function() {

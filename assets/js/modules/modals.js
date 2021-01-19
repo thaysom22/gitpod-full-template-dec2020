@@ -2,6 +2,7 @@ export { WelcomeModal };
 
 import { Gameboard } from "./gameboard.js";
 import { Scoreboard } from "./scoreboard.js";
+import { ClickToPlay } from "./clickToPlay.js";
 
 class WelcomeModal {
     constructor(){
@@ -51,11 +52,12 @@ class WelcomeModal {
             $('#modal-backdrop').removeClass("show");  
         };
 
-        // instantiates gameboard as global property in browser and hides welcome modal   
+        // instantiates compoentsn as global properties in browser and hides welcome modal   
         function startGame(player1Name, player2Name, difficultySetting) {
             window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); // initialize scoreboard as global object in browser 
             window.gameboard = new Gameboard(difficultySetting); // global object
-            setTimeout(hideWelcomeModal, 1000);
+            window.clickToPLay = new ClickToPlay(player1Name, player2Name, difficultySetting);
+            setTimeout(hideWelcomeModal, 500);
         };
         
     }      

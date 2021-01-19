@@ -367,12 +367,25 @@ body {
   max-width: 35rem;
   float: left;
 }
-#click-to-play-wrapper > span {
+#click-to-play-wrapper #currentPlayerName {
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
 }
+#click-to-play-wrapper #random-number-wrapper {
+  height: 5rem;
+}
 #click-to-play-wrapper i {
-  font-size: 4rem;
+  font-size: 5rem;
+  cursor: pointer;
+}
+#click-to-play-wrapper i.hide {
+  display: none;
+}
+#click-to-play-wrapper #variable-value {
+  font-size: 5rem;
+}
+#click-to-play-wrapper #variable-value.hide {
+  display: none;
 }
 #click-to-play-wrapper p {
   font-size: 1.5rem;
@@ -385,7 +398,7 @@ body {
     width: 40%;
     margin-left: 2rem;
   }
-  #click-to-play-wrapper > span {
+  #click-to-play-wrapper #currentPlayerName {
     font-size: 2rem;
   }
   #click-to-play-wrapper i {
@@ -401,7 +414,7 @@ body {
     height: 20rem;
     width: 100%;
   }
-  #click-to-play-wrapper > span {
+  #click-to-play-wrapper #currentPlayerName {
     font-size: 3rem;
   }
   #click-to-play-wrapper i {

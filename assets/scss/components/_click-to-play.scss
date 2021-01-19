@@ -14,18 +14,37 @@
     width: 33.333%;
     max-width: 35rem;
     float: left;
-    >span{
+    #currentPlayerName{
         font-size: 1.5rem;
         padding: 1rem .5rem;
     }
+    #random-number-wrapper{
+        height: 5rem;
+    }
     i{
-        font-size: 4rem;
+        font-size: 5rem; 
+        cursor: pointer;
+        
+        &.hide{
+            display: none;
+        }
+    }
+    #variable-value{
+        font-size: 5rem;
+        
+        &.hide{
+            display: none;
+        }
     }
     p{
         font-size: 1.5rem;
         padding: 1rem .5rem;
     }
 }
+
+
+
+
 
 // ------------------------ tablet
 
@@ -35,7 +54,7 @@
         width: 40%;
         margin-left: 2rem;
         
-        >span{
+        #currentPlayerName{
             font-size: 2rem;
         }
         i{
@@ -55,7 +74,7 @@
         grid-area: click-to-play;
         height: 20rem;
         width: 100%;
-        >span{
+        #currentPlayerName{
             font-size: 3rem;
         }
         i{

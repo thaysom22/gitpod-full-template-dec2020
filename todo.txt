@@ -30,8 +30,9 @@ RUNNING TASKS (commit after each)
 * write tests and implement Scoreboard class (implement method to calcuate score after a question is answered) x
 
 
-* write tests and implement click to play class - implement beginPlayerTurn abstraction and write tests and implement it's inner functions
+* write tests and implement click to play class - implement beginPlayerTurn abstraction and write tests and implement it's inner functions, tests and implementation for countdown timer
 * replace +- and -+ and -- in gameboard expressions
+* post on slack for advice on writing unit tests and TDD workflow advice
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
 * add tests for how to play 'pop up

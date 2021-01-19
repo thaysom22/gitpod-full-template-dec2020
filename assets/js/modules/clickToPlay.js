@@ -1,4 +1,4 @@
-import { getRandomRange } from "./helpers";
+import { getRandomRange } from "./helpers.js";
 
 export { ClickToPlay };
 
@@ -9,8 +9,8 @@ class ClickToPlay{
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         this.difficultySetting = difficultySetting; 
-        this.activePlayer = player1Name; // game starts with player 1
-        this.updateCurrentPlayerInDOM(this.activePlayer);
+        this.activePlayerName = player1Name; // game starts with player 1
+        this.updateCurrentPlayerInDOM(this.activePlayerName, player1Name, player2Name);
         this.addClickToPlayEventListener(); // when game is started it is beginning of player turn so click event listener is bound
         
     }
@@ -57,14 +57,19 @@ class ClickToPlay{
             $('#variable-value').text(variableValue);
             $('#variable-value').removeClass("hide");
         }
-
     }
 
     startCountdownTimer(difficultySetting){
 
     }
 
-    updateCurrentPlayerInDOM(activePlayer){
+    updateCurrentPlayerInDOM(activePlayerName, player1Name, player2Name){
+        $('#currentPlayerName').text(activePlayerName);
+        if (activePlayerName === player1Name ) {
+            this.activePlayerName = player2Name;
+        } else {
+            this.activePlayerName = player1Name;
+        }
 
     }
 
@@ -73,7 +78,7 @@ class ClickToPlay{
     }
 
     removeClickToPlayEventListener(){
-        $('#random-number-wrapper').unbind("click", this.beginPlayerTurn); 
+        $('#random-number-wrapper').off("click"); 
     }
 
     beginPlayerTurn(){
@@ -81,5 +86,9 @@ class ClickToPlay{
         this.variableValue = this.generateVariableValue(this.difficultySetting);// delay for random number generation. variableValue set to return value of generateVariableValue method
         window.gameboard.addAllEventListeners();// add event listeners to all non-disabled gameboard grid items
         this.startCountdownTimer(this.difficultySetting); // start countdown timer
+    }
+
+    endPlayerTurn(){
+
     }
 }
