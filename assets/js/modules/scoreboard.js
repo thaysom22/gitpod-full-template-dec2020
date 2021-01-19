@@ -70,4 +70,10 @@ class Scoreboard {
         }
     }
 
+    endPlayerTurn(responseCorrect, questionRanking) {
+        // add check to invoke end game modal
+        let PlayerTurnScore = this.calculateTurnScore(responseCorrect, questionRanking);
+        this.updateScoreboardData(PlayerTurnScore);
+    }
+
 }

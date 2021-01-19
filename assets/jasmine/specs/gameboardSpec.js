@@ -15,7 +15,7 @@ describe("Gameboard object", function() {
                             <div id="gameboard-active-question">
                                 <span></span>
                             </div>
-                            <h3>Evaluate when x = <span></span></h3>
+                            <h3>Evaluate when x = <span id="variable-value-overlay"></span></h3>
                             <form>
                                 <input type="text" id="player-answer" name="playerAnswer" size="4" >
                                 <span id="player-answer-error-message"></span>
@@ -109,17 +109,16 @@ describe("Gameboard object", function() {
     });
 
     describe("when evaluateQuestions method is called", function() {
-
         
         beforeEach(() => { 
             randomGameboard.questions[0].expressionString = "3*x - 2"; // manually set expressions for first and second questions so they can be tested
             randomGameboard.questions[1].expressionString = "-2*x^2 + 2x";
             randomGameboard.questions[2].expressionString = "x + 10"; 
             randomGameboard.questions[3].expressionString = "x^3";
+            randomGameboard.evaluateQuestions(6); 
         });
 
         it("should populate answer property value in question objects correctly", function() {
-            randomGameboard.evaluateQuestions(6); 
             expect(randomGameboard.questions[0].answer).toBe(16);
             expect(randomGameboard.questions[1].answer).toBe(-60);
             expect(randomGameboard.questions[2].answer).toBe(16);
@@ -127,11 +126,14 @@ describe("Gameboard object", function() {
         });
 
         it("should populate ranking property value in question objects correctly", function() {
-            randomGameboard.evaluateQuestions(6);
             randomGameboard.rankQuestions();
             expect(randomGameboard.questions[3].ranking).toBeLessThan(randomGameboard.questions[0].ranking);
             expect(randomGameboard.questions[0].ranking).toBe(randomGameboard.questions[2].ranking); // expect questions with same answer to have equal rankings
             expect(randomGameboard.questions[2].ranking).toBeLessThan(randomGameboard.questions[1].ranking);
+        });
+
+        it("should add the value of the argument to #variable-value-overlay element text", function() {
+            expect($('#variable-value-overlay')).toContainText("6");
         });
     });
 

@@ -15,19 +15,20 @@ class ClickToPlay{
         
     }
 
-    generateVariableValue(difficultySetting){
-        let finalVariable;
+    generateVariableValue(difficultySetting) {
+        let finalVariable = numberGenerator(difficultySetting); // generate and store return value before waiting for set interval to execute
         let count = 0;
         let intervalID = setInterval(() => {
-            let intermediateVariable = numberGenerator(difficultySetting);
-            this.updateVariableInDOM(intermediateVariable);
-            count += 1; 
             if (count === 9){
+                this.updateVariableInDOM(finalVariable);
                 clearInterval(intervalID);
-                finalVariable = intermediateVariable;
-            }
-        }, 333);
-
+            } else {
+                let intermediateVariable = numberGenerator(difficultySetting);
+                this.updateVariableInDOM(intermediateVariable);
+                count += 1; 
+            }   
+        }, 200);
+        
         return finalVariable;
         
         // callback used for for window.setInterval method
@@ -84,11 +85,23 @@ class ClickToPlay{
     beginPlayerTurn(){
         this.removeClickToPlayEventListener(); // remove event listener from #random-number-wrapper element
         this.variableValue = this.generateVariableValue(this.difficultySetting);// delay for random number generation. variableValue set to return value of generateVariableValue method
-        window.gameboard.addAllEventListeners();// add event listeners to all non-disabled gameboard grid items
-        this.startCountdownTimer(this.difficultySetting); // start countdown timer
+        // delay execution of following methods for 2000ms whilst generateVariableValue executes on call stack
+        setTimeout(() => {
+            this.startCountdownTimer(this.difficultySetting); // start countdown timer
+            window.gameboard.addGridEventListeners();// add event listeners to all non-disabled gameboard grid items
+            window.gameboard.evaluateQuestions(this.variableValue); // add answer values for all gameboard questions
+            window.gameboard.rankQuestions();
+        }, 2000);
+        
     }
 
+    /**
+     * Higher order function to abstract functionality of clickToPlay by grouping other method calls
+     */
     endPlayerTurn(){
-
+        this.updateCurrentPlayerInDOM(this.activePlayerName, this.player1Name, this.player2Name);
+        this.variableValue = null;
+        this.updateVariableInDOM(this.variableValue);
+        this.addClickToPlayEventListener();
     }
 }

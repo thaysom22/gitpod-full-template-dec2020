@@ -9,12 +9,12 @@ describe("ClickToPlay object", function() {
         // create version of clickToPlay component in DOM for testing before each spec
         setFixtures(`
             <!-- Click to play section -->
-            <section id="click-to-play-wrapper" class="section-wrapper">  
-            <span id="currentPlayerName"></span>    
+            <section id="click-to-play-wrapper" class="section-wrapper">
+                <span id="currentPlayerName"></span>
                 <div id="random-number-wrapper" class="trigger-wrapper" aria-label="Click to generate random number">
                     <!-- CREDIT: Font Awesome -->
                     <i aria-hidden="true" class="fas fa-question"  title="Click to Play"></i>
-                    <span id="variable-value"></span>
+                    <span id="variable-value" class="hide"></span>
                 </div>
                 <div id="counttimer-wrapper" class="trigger-wrapper">
                     <p id="countdown-timer">Click to Play!</p>
@@ -45,60 +45,37 @@ describe("ClickToPlay object", function() {
 
     });
 
-    describe("when beginPlayerTurn method is called", function(){
 
-        beforeEach(() => {
-            window.gameboard = new Gameboard("Easy"); // instantiate global gameboard to spy on it's method calls
-            spyOn(window.gameboard, "addAllEventListeners");
-            spyOn(clickToPlay, "startCountdownTimer");
-            spyOn(clickToPlay, "generateVariableValue");
-            clickToPlay.beginPlayerTurn()
-        });
-
-        it("should remove the click event listener on #random-number-wrapper element", function() {
-            expect(Object.keys($._data($('#random-number-wrapper')[0]), "events")).not.toContain("click");
-        });
-
-        it("should call Gameboard.addAllEventListeners method", function() {
-            expect(window.gameboard.addAllEventListeners).toHaveBeenCalled();
-        });
-
-        it("should call clickToPlay.startCountdownTimer method", function() {
-            expect(clickToPlay.startCountdownTimer).toHaveBeenCalledWith("Easy");
-        });
-
-        it("should call clickToPlay.generateVariableValue method", function() {
-            expect(clickToPlay.generateVariableValue).toHaveBeenCalledWith("Easy");
-        });
-
-        it("clickToPlay object's variableValue property should be not null", function() {
-            expect(clickToPlay.variableValue).not.toBeNull();
-        });
-
-    });
-
-    describe("when generateVariableValue is called", function() {
+    describe("when generateVariableValue is called with Easy difficulty", function() {
 
         let clickToPlay2;
-        beforeAll(() => {
-            clickToPlay2 = new ClickToPlay("Mark", "Julia", "Easy"); // keep same object for specs in this describe
-            jasmine.clock().install();
-            spyOn(clickToPlay2, "updateVariableInDOM");
-            clickToPlay2.generateVariableValue("Easy");
-        });
+        let returnValue;
 
-        afterAll(() => {
+        beforeEach(() => {
+            jasmine.clock().install();
+            clickToPlay2 = new ClickToPlay("Mark", "Julia", "Easy"); // keep same object for specs in this describe
+            spyOn(clickToPlay2, "updateVariableInDOM");
+            returnValue = clickToPlay2.generateVariableValue("Easy");
+        })
+
+        afterEach(() => {
             jasmine.clock().uninstall();
-        });
+        })
 
         it("should call clickToPlay.updateVariableInDOM method 3 times per second", function() {
-            jasmine.clock().tick(400); // expect 1 call after 0.333 seconds
+            jasmine.clock().tick(200); // expect 1 call after 0.2 seconds
             expect(clickToPlay2.updateVariableInDOM).toHaveBeenCalledTimes(1);
         });
 
         it("should call clickToPlay.updateVariableInDOM method between 9 times in 3 seconds", function() {
-            jasmine.clock().tick(2601); // expect 9 calls after 3 seconds
-            expect(clickToPlay2.updateVariableInDOM).toHaveBeenCalledTimes(9);
+            jasmine.clock().tick(2000); // expect 10 calls after 2 seconds
+            expect(clickToPlay2.updateVariableInDOM).toHaveBeenCalledTimes(10);
+        });
+
+        it("should return a number type value between 1 and 10", function() {
+            expect(returnValue).toBeInstanceOf(Number);
+            expect(returnValue).toBeGreaterThanOrEqual(1);
+            expect(returnValue).toBeLessThanOrEqual(10);
         });
 
     });
@@ -116,6 +93,23 @@ describe("ClickToPlay object", function() {
 
         it("should add .hide class to font awesome icon", function() {
             expect($('.fas.fa-question')).toHaveClass('hide');
+        });
+
+    });
+
+     describe("when updateVariableInDOM is called with NULL value", function() {
+
+        beforeEach(() => {
+            clickToPlay.updateVariableInDOM(null);
+        });
+
+        it("should remove text from and add .hide class to variable-value element", function() {
+            expect($('#variable-value')).toHaveClass('hide');
+            expect($('#variable-value')).toContainText(''); // checks previous variable value has been removed
+        });
+
+        it("should remove .hide class to font awesome icon", function() {
+            expect($('.fas.fa-question')).not.toHaveClass('hide');
         });
 
     });

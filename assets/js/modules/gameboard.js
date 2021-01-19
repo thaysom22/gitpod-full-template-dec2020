@@ -128,9 +128,11 @@ class Gameboard {
      * @param {Integer} variableValue generated from 'click to play' component
      */
     evaluateQuestions(variableValue) {
-        console.log(this, "evaluateQuestions 'this' test");
+        console.log(variableValue, "evaluate questions variableValue");
+        $('#variable-value-overlay').text(variableValue); // update variable value displayed in gameboard overlay text
         this.questions.forEach(function(question){
-            question.answer = math.evaluate(question.expressionString, { x: variableValue }) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
+            let context = { x: variableValue };
+            question.answer = math.evaluate(question.expressionString, context) // note: Gameboard class is exported to modals.js then to main.js namespace where math object is available
         });
     }
 
@@ -161,15 +163,27 @@ class Gameboard {
         })
     }
 
-    /**
-     * adds event listener to every grid item on gameboard with this.showGameboardOverlay method as callback
-     */
+    
     // .bind() used to preserve this in context of handler callback CREDIT: https://stackoverflow.com/questions/36489579/this-within-es6-class-method 
-    addAllEventListeners() {
+    addGridEventListeners() {
         $('.gameboard-grid-item:not(.disabled)').click(this.showGameboardOverlay.bind(this)); // adds handler to all grid expression CONTAINERS that DO NOT HAVE .disabled class
+    };
+
+    removeGridEventListeners() {
+        $('.gameboard-grid-item').off("click"); 
+    };
+
+    addOverlayEventListeners() {
         $('#choose-again-button').click(this.hideGameboardOverlay.bind(this)); // attach event listener to close gameboard overlay when 'choose again' button is clicked
         $('#submit-player-answer-button').click(this.checkUserAnswer.bind(this)); // attach event listener to check User answer when 'Enter' button is clicked
     };
+
+    removeOverlayEventListeners() {
+        $('#choose-again-button').off("click"); // attach event listener to close gameboard overlay when 'choose again' button is clicked
+        $('#submit-player-answer-button').off("click"); // attach event listener to check User answer when 'Enter' button is clicked
+    };
+
+
 
     /**
      * displays gameboard overlay element on page
@@ -180,6 +194,7 @@ class Gameboard {
     showGameboardOverlay(clickEvent) {
         clickEvent.preventDefault();
         clickEvent.stopPropagation();
+        this.addOverlayEventListeners(); // enable listener on buttons in overlay
         $('#gameboard-overlay-content').removeClass("correct-user-answer"); // remove correct-user-answer or incorrect-user answer class from gameboard overlay before displaying
         $('#gameboard-overlay-content').removeClass("incorrect-user-answer");
         $('#player-answer').val(""); // empty input field
@@ -201,7 +216,7 @@ class Gameboard {
         clickEvent.stopPropagation();
         $('#gameboard-overlay').addClass('hide');
         this.currentQuestionId = null; // reset currentQuestionId of gameboard instance to null
-        $('#gameboard-active-question span').children().remove();
+        $('#gameboard-active-question span').children().remove(); 
     }
 
     checkUserAnswer(submitEvent) {
@@ -215,17 +230,27 @@ class Gameboard {
         let correctAnswer = this.questions[questionId].answer;
         // CREDIT: https://regexone.com/problem/matching_decimal_numbers 
         let userAnswerRegex = /^-?\d+(\.\d+)?$/g // regex matches only valid (positive and negative) numerical (including decimal) user inputs without letters or other characters
+        let correctBool;
 
         if (userAnswerString.match(userAnswerRegex)) { // check valid answer entered by user
             if (userAnswerNumber === correctAnswer) { 
+                correctBool = true;
                 $('#gameboard-overlay-content').addClass("correct-user-answer");
                 disableQuestion(questionId, this);  
-                this.currentQuestionId = null;
-                setTimeout(this.hideGameboardOverlay(submitEvent), 1000); // delay hiding overlay for user feedback background color change
             } else {
+                correctBool = false;
                 $('#gameboard-overlay-content').addClass("incorrect-user-answer");
-                setTimeout(this.hideGameboardOverlay(submitEvent), 1000);
             }
+            // turn is over
+            this.removeOverlayEventListeners(); // remove listeners on buttons in overlay
+            
+            setTimeout(() => {
+                this.hideGameboardOverlay(submitEvent); // delay hiding overlay for user feedback background color change
+            });
+            
+            window.scoreboard.endPlayerTurn(correctBool, this.questions[questionId].ranking); // call scoreboard endplayerturn method as pass: question correct boolean abd question ranking
+            window.clickToPlay.endPlayerTurn(); // call clickToPlay endplayerturn method
+            this.currentQuestionId = null; 
 
         } else {
             $('#player-answer-error-message').text("Enter a valid value!"); // display error message on gamebaord overlay for 2 seconds

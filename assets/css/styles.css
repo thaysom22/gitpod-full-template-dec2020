@@ -446,7 +446,7 @@ body {
   font-size: 1.75rem;
 }
 .gameboard-grid-item.disabled {
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 #gameboard-wrapper {
