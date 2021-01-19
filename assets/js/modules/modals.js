@@ -56,7 +56,7 @@ class WelcomeModal {
         function startGame(player1Name, player2Name, difficultySetting) {
             window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); // initialize scoreboard as global object in browser 
             window.gameboard = new Gameboard(difficultySetting); // global object
-            window.clickToPLay = new ClickToPlay(player1Name, player2Name, difficultySetting);
+            window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
             setTimeout(hideWelcomeModal, 500);
         };
         
