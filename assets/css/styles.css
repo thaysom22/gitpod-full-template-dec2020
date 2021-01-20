@@ -277,7 +277,7 @@ body {
   height: 14rem;
 }
 #scoreboards-wrapper h4 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 1rem;
   text-align: center;
 }
@@ -337,7 +337,7 @@ body {
     height: 16rem;
   }
   #scoreboards-wrapper h4 {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
 }
 @media screen and (min-width: 1023px) {
@@ -347,7 +347,7 @@ body {
     height: 20rem;
   }
   #scoreboards-wrapper h4 {
-    font-size: 2rem;
+    font-size: 2.75rem;
   }
 }
 #click-to-play-wrapper {

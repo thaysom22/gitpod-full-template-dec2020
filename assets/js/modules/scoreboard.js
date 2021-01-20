@@ -6,7 +6,7 @@ class Scoreboard {
             playerName: player1Name,
             playerScore: 0,
             playerTurns: 8, // turns remaining
-            active: true
+            active: true // player1 starts
         };
         this.player2Board = {
             playerName: player2Name,
@@ -16,15 +16,14 @@ class Scoreboard {
         };
 
         initializeScoreboardDOM(this.player1Board, this.player2Board); // initialize player data on scoreboard in DOM
-        this.beginPlayerTurn(); // start player turn on construction
 
         function initializeScoreboardDOM(player1, player2) {
             $('#player1-scoreboard .scoreboard-title').text(player1.playerName);
             $('#player2-scoreboard .scoreboard-title').text(player2.playerName);
-            $('#player1-scoreboard .main-score>span').text(this.player1.playerScore);
-            $('#player2-scoreboard .main-score>span').text(this.player2.playerScore);
-            $('#player1-scoreboard .score-turns>span').text(this.player1.playerTurns);
-            $('#player2-scoreboard .score-turns>span').text(this.player2.playerTurns);
+            $('#player1-scoreboard .main-score>span').text(player1.playerScore);
+            $('#player2-scoreboard .main-score>span').text(player2.playerScore);
+            $('#player1-scoreboard .score-turns>span').text(player1.playerTurns);
+            $('#player2-scoreboard .score-turns>span').text(player2.playerTurns);
 
             return;
         }   
@@ -93,17 +92,5 @@ class Scoreboard {
 
 
     }
-
-    /**
-     * adds class to animate current player scoreboard element in DOM until user interaction with clickToPlay starts turn
-     */
-    beginPlayerTurn() {
-        if (this.player1Board.active === true) {
-            // **** add hover.css class to player1 scoreboard in DOM
-        } else {
-            // **** add hover.css class to player1 scoreboard in DOM
-        }
-    }
-    
 
 }

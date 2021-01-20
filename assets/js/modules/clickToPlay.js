@@ -2,17 +2,40 @@ import { getRandomRange } from "./helpers.js";
 
 export { ClickToPlay };
 
-// ClickToPlay component has a random value generator which is passed to gameboard each player turn and a countdown timer which causes turn to end with incorrect answer when it runs to 0
 class ClickToPlay{
     constructor(player1Name, player2Name, difficultySetting) {
         this.variableValue = null;
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         this.difficultySetting = difficultySetting; 
-        this.activePlayerName = player1Name; // game starts with player 1
-        this.updateCurrentPlayerInDOM(this.activePlayerName, player1Name, player2Name);
-        this.addClickToPlayEventListener(); // when game is started it is beginning of player turn so click event listener is bound
+        this.activePlayer = 1; 
         
+        this.beginPlayerTurn(); // when game is initially loaded it is beginning of player turn
+
+    }
+
+    beginPlayerTurn(){
+
+        // **** add class for pulse effect for ? element
+
+        updateCurrentPlayerInDOM().bind(this); // display active player's name in #current-player-name element in DOM
+        addClickToPlayEventListener().bind(this); // turn on event listener for ? element
+
+        function addClickToPlayEventListener(){
+            $('#random-number-wrapper').click(clickToPlayHandler.bind(this)); // bind 'this' context inside event handler
+        }
+
+        function updateCurrentPlayerInDOM(){
+            if (this.activePlayer === 1) {
+                $('#current-player-name').text(player1Name);
+            } else {
+                $('#current-player-name').text(player2Name);
+            }
+        }
+    }
+
+    endPlayerTurn(){
+        // ***** switch current player number in data
     }
 
     generateVariableValue(difficultySetting) {
@@ -64,19 +87,9 @@ class ClickToPlay{
 
     }
 
-    updateCurrentPlayerInDOM(activePlayerName, player1Name, player2Name){
-        $('#currentPlayerName').text(activePlayerName);
-        if (activePlayerName === player1Name ) {
-            this.activePlayerName = player2Name;
-        } else {
-            this.activePlayerName = player1Name;
-        }
+    
 
-    }
-
-    addClickToPlayEventListener(){
-        $('#random-number-wrapper').click(this.beginPlayerTurn.bind(this)); // keep object context inside event handler
-    }
+    
 
     removeClickToPlayEventListener(){
         $('#random-number-wrapper').off("click"); 
@@ -102,6 +115,6 @@ class ClickToPlay{
         this.updateCurrentPlayerInDOM(this.activePlayerName, this.player1Name, this.player2Name);
         this.variableValue = null;
         this.updateVariableInDOM(this.variableValue);
-        this.addClickToPlayEventListener();
+        
     }
 }
