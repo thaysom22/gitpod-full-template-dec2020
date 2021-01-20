@@ -16,6 +16,7 @@ class Scoreboard {
         };
 
         initializeScoreboardDOM(this.player1Board, this.player2Board); // initialize player data on scoreboard in DOM
+        this.beginPlayerTurn(); // start player turn on construction
 
         function initializeScoreboardDOM(player1, player2) {
             $('#player1-scoreboard .scoreboard-title').text(player1.playerName);
@@ -29,12 +30,18 @@ class Scoreboard {
         }   
     }
 
+    /**
+     * calculates score for player turn based on arguments, updates playerScore and playerTurns data stored on instance, updates scoreboard content in DOM
+     * invokes endGameModal if players are out of turns
+     * @param {Boolean} responseCorrect 
+     * @param {*Number} questionRanking 
+     */
     endPlayerTurn(responseCorrect, questionRanking) {
 
         let playerTurnScore = calculateTurnScore(responseCorrect, questionRanking);
         updateScoreboardData(playerTurnScore).bind(this);
         updateScoreboardDOM().bind(this);
-        endGameCheck();
+        endGameCheck().bind(this);
 
         // returns the score for a player's turn
         function calculateTurnScore(responseCorrect, questionRanking){
@@ -77,7 +84,7 @@ class Scoreboard {
         function endGameCheck(){
             if (this.player2Board.playerTurns === 0) { // once player2 runs out of turns
 
-                // launch endGameModal(player1Name, player1Score, player2Name, player2Score)
+                // **** launch endGameModal(player1Name, player1Score, player2Name, player2Score)
 
             }
 
@@ -85,6 +92,17 @@ class Scoreboard {
         }
 
 
+    }
+
+    /**
+     * adds class to animate current player scoreboard element in DOM until user interaction with clickToPlay starts turn
+     */
+    beginPlayerTurn() {
+        if (this.player1Board.active === true) {
+            // **** add hover.css class to player1 scoreboard in DOM
+        } else {
+            // **** add hover.css class to player1 scoreboard in DOM
+        }
     }
     
 
