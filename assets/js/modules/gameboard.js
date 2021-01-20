@@ -6,6 +6,7 @@ class Gameboard {
     constructor(difficultySetting){
         this.questions = initializeGameboard(difficultySetting); // set expressionString and latexString properties when initializing
         this.currentQuestionId = null;
+        this.difficultySetting = difficultySetting;
 
         // initializeGameboard function calls initializeQuestions and uses returned array to set HTML of each grid item to question.LaTexString value
         // CREDIT: https://docs.mathjax.org/en/latest/advanced/typeset.html
