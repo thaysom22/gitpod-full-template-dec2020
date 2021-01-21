@@ -236,8 +236,8 @@ Layout:
 **Code**
 
 * [WebDevSimplifed YouTube channel](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) for idea for using global reset styles
-* [mathjs docs](https://mathjs.org/docs/index.html)
-* [Stack Overflow](https://stackoverflow.com/questions/36489579/this-within-es6-class-method) .bind() used thoughout JavaScript to preserve this in context 
+* [mathjs docs](https://mathjs.org/docs/index.html) for using API for math.js library
+* [Stack Overflow](https://stackoverflow.com/questions/36489579/this-within-es6-class-method) for .bind() used thoughout JavaScript to preserve this in context 
 
 ### 7.2 Acknowledgements
 
