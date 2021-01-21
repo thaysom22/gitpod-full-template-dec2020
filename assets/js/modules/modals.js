@@ -54,8 +54,8 @@ class WelcomeModal {
 
         // instantiates compoentsn as global properties in browser and hides welcome modal   
         function startGame(player1Name, player2Name, difficultySetting) {
-            window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); // initialize scoreboard as global object in browser 
-            window.gameboard = new Gameboard(difficultySetting); // global object
+            window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
+            window.gameboard = new Gameboard(difficultySetting); 
             window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
             setTimeout(hideWelcomeModal, 500);
         };

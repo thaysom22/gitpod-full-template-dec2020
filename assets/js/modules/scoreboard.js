@@ -30,7 +30,7 @@ class Scoreboard {
     }
 
     /**
-     * calculates score for player turn based on arguments, updates playerScore and playerTurns data stored on instance, updates scoreboard content in DOM
+     * calculates score for player turn, updates playerScore and playerTurns data stored on instance, updates scoreboard content in DOM
      * invokes endGameModal if players are out of turns
      * @param {Boolean} responseCorrect 
      * @param {*Number} questionRanking 
