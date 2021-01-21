@@ -179,6 +179,7 @@ Layout:
 
 ### 2.2 Features left to implement
 
+* Add sound effects triggered by user interactions with game
 * Add media query styling specifically for print view so teachers can print activity for use in lessons
 * Add restart game button to main page
 * Update expression generation and evaluation to include expressions involving fractions

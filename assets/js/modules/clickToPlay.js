@@ -30,10 +30,10 @@ class ClickToPlay{
         function updateActivePlayer(){
             if (this.activePlayer === null || this.activePlayer == 2) {
                 this.activePlayer = 1;
-                $('#current-player-name').text(player1Name);
+                $('#current-player-name').text(this.player1Name);
             } else if (this.activePlayer === 1) {
                 this.activePlayer = 2;
-                $('#current-player-name').text(player2Name);
+                $('#current-player-name').text(this.player2Name);
             }
         }
 
@@ -51,14 +51,14 @@ class ClickToPlay{
         // EVENT LISTENER FOR ? ELEMENT
         function clickToPlayHandler(clickEvent) {
             clickEvent.preventDefault();
-            clickEvent.stopPropogation();
+            clickEvent.stopPropagation();
             $('#random-number-wrapper').off("click"); // remove event listener once player clicks ? element
-            $('#click-to-play-instruction').text("Click the expression with the highest value..."); // update instruction once player clicks ? element
             // returns value for this.variableValue and animates changing number in DOM by calls to updateVariableInDOM 
             this.variableValue = generateVariableValue(this.difficultySetting);
             // delay for completion of animated changing random number
             setTimeout(() => {
-                window.gameboard.setupNewTurn(this.variableValue); 
+                window.gameboard.setupNewTurn(this.variableValue);
+                $('#click-to-play-instruction').text("Click the expression with the highest value..."); // update instruction  
             }, 2000);
 
             function generateVariableValue(difficultySetting) {
