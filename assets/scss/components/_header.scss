@@ -5,14 +5,14 @@
 // -------------------- mobile (xs)
 
 #header-wrapper,
-#modal-header-wrapper{
+.modal-header-wrapper{
     @include base.make-flexbox($justify: space-between);
     height: 8rem;
     padding: 1rem 0.5rem;
 }
 
 #main-heading,
-#modal-main-heading{
+.modal-main-heading{
     font-family: base.$title-font;
     flex-grow: 3;
     font-size: 2rem;
@@ -20,7 +20,7 @@
 }
 
 #header-info-wrapper,
-#modal-header-info-wrapper{
+.modal-header-info-wrapper{
     @include base.make-flexbox($direction: column);
     flex-grow: 1;
     i{
@@ -36,12 +36,12 @@
 // for most mobiles
 @media screen and (min-width: 380px){
     #main-heading,
-    #modal-main-heading{
+    .modal-main-heading{
         font-size: 2.5rem;
     }
 
     #header-info-wrapper,
-    #modal-header-info-wrapper{
+    .modal-header-info-wrapper{
         i{
             font-size: 2.75rem;
             
@@ -58,13 +58,13 @@
 
 @media screen and (min-width: 767px){
     #main-heading,
-    #modal-main-heading{
+    .modal-main-heading{
         font-size: 3.5rem;
         flex-grow: 4;
     }
 
     #header-info-wrapper,
-    #modal-header-info-wrapper{
+    .modal-header-info-wrapper{
         i{
             font-size: 3rem;
         }

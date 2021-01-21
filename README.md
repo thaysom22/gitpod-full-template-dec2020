@@ -163,7 +163,7 @@ Layout:
 * Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
 * Time bonus component not implemented for scoreboard. The bonus score element remove from HTML and now player score depends only on the ranking of the question selected. 
 * Countdown timer not implemented (not essential to game)
-* 
+* Reduced number of player turns to 5 to avoid trivial selections at end of game
 
 ## 2. Features
 
@@ -230,7 +230,7 @@ Layout:
 
 **Content**
 
-* [Font Awesome](url) used for font icons and docs for accessibility best practices.
+* [Font Awesome](url) used for font icons and docs for accessibility best practice info.
 
 **Media**
 

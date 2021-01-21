@@ -133,21 +133,18 @@
                 <span>Suggestions welcome!</span>
                 </a>
             </div>
-
         </div>
-
     </footer>
-
 </div> 
 
 <!-- MODALS -->
 <!-- Welcome modal - open when document is loaded in browser -->
-<div class="modal show" id="welcomeModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="Welcome-to-the-game" aria-hidden="true">
+<div class="modal" id="welcome-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="Welcome-to-the-game" aria-hidden="true">
     <div class="modal-content">
         <!-- Main heading section within modal -->
-        <header id="modal-header-wrapper" class="section-wrapper">
-            <h1 id="modal-main-heading" class="heading">Substitution Skirmish!</h1>
-            <div id="modal-header-info-wrapper" class="trigger-wrapper" aria-label="Click to view instructions on how to play">
+        <header class="section-wrapper modal-header-wrapper">
+            <h1 class="heading modal-main-heading">Substitution Skirmish!</h1>
+            <div class="trigger-wrapper modal-header-info-wrapper" aria-label="Click to view instructions on how to play">
                 <!-- CREDIT: Font Awesome -->
                 <i aria-hidden="true" class="fas fa-info-circle" title="How to Play"></i>
                 <span>How to Play</span>
@@ -156,7 +153,7 @@
 
         <!-- Input and submit in modal -->
         <div id="welcome-input-form-wrapper">
-            <form id="welcomeModalForm" autocomplete="off">
+            <form id="welcome-modal-form" autocomplete="off">
                 <div class="player-name-wrapper">
                     <label for="player1Name">Player 1</label>
                     <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="10">
@@ -179,21 +176,73 @@
         </div>
 
         <!-- Footer section in modal -->
-        <footer id="modal-footer-wrapper" class="section-wrapper">
+        <footer class="section-wrapper modal-footer-wrapper">
            <!-- ABOUT section always visible on welcome modal -->
-            <div id="modal-about-content-wrapper" class="section-wrapper">
-                <div id="modal-dev-portfolio-wrapper">
+            <div id="" class="section-wrapper modal-about-content-wrapper">
+                <div class="modal-dev-portfolio-wrapper">
                     <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
                     <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>
                     <span>thaysom22</span>
                     <span>Developer Portfolio</span>
                     </a>
                 </div>
-                <div id="modal-copyright-wrapper">
+                <div class="modal-copyright-wrapper">
                     <span>For eductional purposes only</span>
                     <span>&copy; Thomas Haysom 2020</span>
                 </div>
-                <div id="modal-github-repo-wrapper">
+                <div class="modal-github-repo-wrapper">
+                    <a href="https://github.com/thaysom22/maths-substitution-game" target="_blank" aria-label="Click to open GitHub repo for this site" title="GitHub Repo: maths-substitution-game">
+                    <i class="fab fa-github-square" aria-hidden="true" title="Click to open GitHub repo for this site"></i>
+                    <span>Code for this site</span>
+                    <span>Suggestions welcome!</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>  
+
+<!-- Gameover modal - open when document is loaded in browser -->
+<div class="modal hide" id="gameover-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="gameover-modal" aria-hidden="true">
+    <div class="modal-content">
+        <!-- Main heading section within modal -->
+        <header class="modal-header-wrapper section-wrapper">
+            <h1 class="modal-main-heading heading">Substitution Skirmish!</h1>
+        </header>
+        <!-- Results section of gameover modal-->
+        <div id="final-results-wrapper" class="section-wrapper">
+            <div id="winner-result" class="player-result">
+
+            </div>
+            <div id="loser-result" class="player-result">
+
+            </div>
+        </div>
+        <!-- Buttons section of gameover modal -->
+        <div id="gameover-buttons-wrapper" class="section-wrapper">
+            <button id="restart-game-button" class="gameover-button">
+
+            </button>
+            <button id="new-game-button" class="gameover-button">
+
+            </button>
+        </div>
+        <!-- Footer section in modal -->
+        <footer class="section-wrapper modal-footer-wrapper">
+           <!-- ABOUT section always visible on gameover modal -->
+            <div id="" class="section-wrapper modal-about-content-wrapper">
+                <div class="modal-dev-portfolio-wrapper">
+                    <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
+                    <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>
+                    <span>thaysom22</span>
+                    <span>Developer Portfolio</span>
+                    </a>
+                </div>
+                <div class="modal-copyright-wrapper">
+                    <span>For eductional purposes only</span>
+                    <span>&copy; Thomas Haysom 2020</span>
+                </div>
+                <div class="modal-github-repo-wrapper">
                     <a href="https://github.com/thaysom22/maths-substitution-game" target="_blank" aria-label="Click to open GitHub repo for this site" title="GitHub Repo: maths-substitution-game">
                     <i class="fab fa-github-square" aria-hidden="true" title="Click to open GitHub repo for this site"></i>
                     <span>Code for this site</span>
@@ -205,6 +254,6 @@
     </div>
 </div>  
 <!-- modal-backdrop layer for modals -->
-<div id="modal-backdrop" class="modal-backdrop show"></div>
+<div id="modal-backdrop hide" class="modal-backdrop show"></div>
 </body>
 </html>

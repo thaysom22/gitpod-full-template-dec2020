@@ -82,9 +82,9 @@ class ClickToPlay{
                 function numberGenerator(difficultySetting){
                     var randomVariable;
                     if (difficultySetting == "Easy") {
-                        randomVariable = getRandomRange(1, 10);
+                        randomVariable = getRandomRange(0, 5);
                     } else { // difficultySetting === "Hard"
-                        randomVariable = getRandomRange(-10, 10);
+                        randomVariable = getRandomRange(-5, 5);
                     }
 
                     return randomVariable;

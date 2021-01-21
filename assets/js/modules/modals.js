@@ -1,4 +1,4 @@
-export { WelcomeModal };
+export { WelcomeModal, GameoverModal };
 
 import { Gameboard } from "./gameboard.js";
 import { Scoreboard } from "./scoreboard.js";
@@ -10,7 +10,7 @@ class WelcomeModal {
 
         // addSubmitEventListener adds event listener to welcome modal form submit input element
         function addSubmitEventListener(handler) {
-            $("#welcomeModalForm").submit(handler);
+            $("#welcome-modal-form").submit(handler);
         };   
     }
 
@@ -34,8 +34,8 @@ class WelcomeModal {
         }
 
         // verify one difficulty level has been selected (no need to check both have not been selected since radio input type used in HTML)
-        let easySettingCheck = $('#welcomeModalForm #easier').prop("checked");
-        let hardSettingCheck = $('#welcomeModalForm #harder').prop("checked");
+        let easySettingCheck = $('#welcome-modal-form #easier').prop("checked");
+        let hardSettingCheck = $('#welcome-modal-form #harder').prop("checked");
         if (!(easySettingCheck || hardSettingCheck)) {
             // add error message
             return;
@@ -48,8 +48,8 @@ class WelcomeModal {
         // removes classes from HTML elements to hide welcome modal and display main page content
         function hideWelcomeModal() {
             $('body').removeClass("modal-open");
-            $('#welcomeModal').removeClass("show");
-            $('#modal-backdrop').removeClass("show");  
+            $('#welcome-modal').addClass("hide");
+            $('#modal-backdrop').addClass("hide");  
         };
 
         // instantiates compoentsn as global properties in browser and hides welcome modal   
@@ -62,5 +62,44 @@ class WelcomeModal {
         
     }      
  
+}
+
+class GameoverModal{
+    constructor(player1Name, player1Score, player2Name, player2Score){
+        this.player1Name = player1Name;
+        this.player2Name = player2Name;
+        this.player1Score = player1Score;
+        this.player2Score = player2Score;
+
+        let result = calculateWinner(this.player1Score, this.player1Score); // return the winner of the game
+        setGameoverModalContentInDOM(result); // set DOM content based upon winner
+
+        
+        function calculateWinner(player1Score, player2Score){
+            if (player1Score > player2Score){
+                return 1;
+            } else if (player2Score > player1Score){
+                return 2;
+            } else{
+                return 0; // TIE
+            }
+        }
+        
+        function setGameoverModalContentInDOM(result){
+            
+
+        
+        }
+
+        function addGameoverModalEventListeners(){
+
+        }
+        
+        function showGameoverModal(){
+            $('body').addClass("modal-open");
+            $('#gameover-modal').removeClass("hide");
+            $('#modal-backdrop').removeClass("hide"); 
+        }
+    }
 }
 

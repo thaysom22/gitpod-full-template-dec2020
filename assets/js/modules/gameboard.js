@@ -96,7 +96,7 @@ class Gameboard {
                 // returns a random number in required range using imported getRandomRange function
                 function randCoeff(difficultySetting) {
                     if (difficultySetting === "Easy") {
-                        return getRandomRange(1, 10); 
+                        return getRandomRange(-3, 3); 
                     } else if (difficultySetting === "Hard") {
                         let hardOutput = getRandomRange(-10, 10);
                         return hardOutput === 0 ? randCoeff("Hard") : hardOutput; // conditional recursive call to randCoeff function to avoid returning 0

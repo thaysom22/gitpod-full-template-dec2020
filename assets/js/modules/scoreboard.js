@@ -1,17 +1,18 @@
 export { Scoreboard };
+import { GameoverModal } from "./modals.js";
 
 class Scoreboard {
     constructor(player1Name, player2Name){
         this.player1Board = {
             playerName: player1Name,
             playerScore: 0,
-            playerTurns: 8, // turns remaining
+            playerTurns: 5, // turns remaining
             active: true // player1 starts
         };
         this.player2Board = {
             playerName: player2Name,
             playerScore: 0,
-            playerTurns: 8, // when player2Board.playerTurns === 0, game ends
+            playerTurns: 5, // when player2Board.playerTurns === 0, game ends
             active: false
         };
 
@@ -24,7 +25,6 @@ class Scoreboard {
             $('#player2-scoreboard .main-score>span').text(player2.playerScore);
             $('#player1-scoreboard .score-turns>span').text(player1.playerTurns);
             $('#player2-scoreboard .score-turns>span').text(player2.playerTurns);
-
             return;
         }   
     }
@@ -43,13 +43,16 @@ class Scoreboard {
         endGameCheck.bind(this)();
 
         // returns the score for a player's turn
+        // highest: 10 points, 2nd: 5, 3rd: 4, 4th: 3, 5th: 2, 6th: 1, other: 0, incorrect: -1
         function calculateTurnScore(responseCorrect, questionRanking){
             if (!responseCorrect) {
-                return -50;
+                return -1;
             } else if (questionRanking === 0) {
-                return 200;
+                return 10;
+            } else if (questionRanking > 0 && questionRanking < 6) {
+                return (-1*questionRanking + 6);
             } else {
-                return (-10*questionRanking + 160);
+                return 0;
             }
         }
 
@@ -66,7 +69,6 @@ class Scoreboard {
                 this.player2Board.active = false;
                 this.player1Board.active = true;
             }
-
             return;
         }
         
@@ -76,21 +78,15 @@ class Scoreboard {
             $('#player2-scoreboard .main-score>span').text(this.player2Board.playerScore);
             $('#player1-scoreboard .score-turns>span').text(this.player1Board.playerTurns);
             $('#player2-scoreboard .score-turns>span').text(this.player2Board.playerTurns);
-            
             return;
         }
 
+        // check at end of every turn: when player2 runs out of turns instatiate GameOverModal as global object to end game
         function endGameCheck(){
-            if (this.player2Board.playerTurns === 0) { // once player2 runs out of turns
-
-                // **** launch endGameModal(player1Name, player1Score, player2Name, player2Score)
-
+            if (this.player2Board.playerTurns === 0) { 
+                window.gameoverModal = new GameOverModal(this.player1Board.playerName, this.player1Board.playerScore, this.this.player2Board.playerName, this.this.player2Board.playerScore);
             }
-
             return;
         }
-
-
     }
-
 }
