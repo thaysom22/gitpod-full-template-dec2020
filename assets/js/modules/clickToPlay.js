@@ -18,9 +18,9 @@ class ClickToPlay{
      */
     setupNewTurn(){
         this.variableValue = null; // reset variableValue property
-        updateVariableinDOM(this.variableValue); // sets #random-number-wrapper element content in DOM to ?
-        updateActivePlayer().bind(this); // update activePlayer property and display active player's name in #current-player-name element
-        addClickToPlayEventListener().bind(this); // turn on event listener for #random-number-wrapper element
+        updateVariableInDOM(this.variableValue); // sets #random-number-wrapper element content in DOM to ?
+        updateActivePlayer.bind(this)(); // update activePlayer property and display active player's name in #current-player-name element
+        addClickToPlayEventListener.bind(this)(); // turn on event listener for #random-number-wrapper element
         $('#click-to-play-instruction').text("Click to Play!"); // reset instruction
 
         function addClickToPlayEventListener(){

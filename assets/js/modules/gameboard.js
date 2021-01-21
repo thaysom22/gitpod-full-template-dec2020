@@ -127,9 +127,9 @@ class Gameboard {
      */
     setUpNewTurn(variableValue){
         this.questions = filterQuestions(this.questions); // remove disabled questions
-        evaluateQuestions(variableValue).bind(this); // sets answer property for each question object in questions array
-        rankQuestions().bind(this); // assigns ranking to questions by descending value of question answer property
-        addGridEventListeners().bind(this); // turn on event listener for all .gameboard-grid-item:not(.disabled) elements in DOM
+        evaluateQuestions.bind(this)(variableValue); // sets answer property for each question object in questions array
+        rankQuestions.bind(this)(); // assigns ranking to questions by descending value of question answer property
+        addGridEventListeners.bind(this)(); // turn on event listener for all .gameboard-grid-item:not(.disabled) elements in DOM
         setupOverlay(variableValue); // updates variable value in overlay text
 
         function filterQuestions(questionsArray){
@@ -182,7 +182,7 @@ class Gameboard {
                 let currentEventTarget = clickEvent.currentTarget; 
                 this.currentQuestionId = currentEventTarget.questionId; 
                 let cloneMjx = currentEventTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
-                showOverlay(cloneMjx).bind(this); // unhides overlay to user, sets overlay content, turns on overlay event listeners
+                showOverlay.bind(this)(cloneMjx); // unhides overlay to user, sets overlay content, turns on overlay event listeners
 
                 function showOverlay(mjxContent){
                     $('#player-answer').val(""); // empties #player-answer input field
@@ -208,7 +208,7 @@ class Gameboard {
                         clickEvent.preventDefault();
                         clickEvent.stopPropagation();
                         this.currentQuestionId = null; 
-                        hideGameboardOverlay().bind(this);
+                        hideGameboardOverlay.bind(this)();
                     }
                     
                     // EVENT LISTENER FOR ##submit-player-answer-button ELEMENT
@@ -232,9 +232,9 @@ class Gameboard {
                                 $('#gameboard-overlay-content').addClass("incorrect-user-answer");
                             }
                             
-                            disableQuestion(questionId).bind(this); // if a valid user attempt has been made, disable question
+                            disableQuestion.bind(this)(questionId); // if a valid user attempt has been made, disable question
                             this.currentQuestionId = null; 
-                            hideGameboardOverlay().bind(this); 
+                            hideGameboardOverlay.bind(this)(); 
                             $('.gameboard-grid-item').off("click"); // remove event listeners
                             // set up window component for new turn and update scoreboard for end of turn
                             window.scoreboard.endPlayerTurn(correctBool, this.questions[questionId].ranking); 

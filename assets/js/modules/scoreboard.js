@@ -38,9 +38,9 @@ class Scoreboard {
     endPlayerTurn(responseCorrect, questionRanking) {
 
         let playerTurnScore = calculateTurnScore(responseCorrect, questionRanking);
-        updateScoreboardData(playerTurnScore).bind(this);
-        updateScoreboardDOM().bind(this);
-        endGameCheck().bind(this);
+        updateScoreboardData.bind(this)(playerTurnScore);
+        updateScoreboardDOM.bind(this)();
+        endGameCheck.bind(this)();
 
         // returns the score for a player's turn
         function calculateTurnScore(responseCorrect, questionRanking){
