@@ -11,11 +11,12 @@ class ClickToPlay{
         this.activePlayer = null; 
         
         this.setupNewTurn(); // when game is initially loaded it is beginning of player turn
-
     }
 
+    /**
+     * resets content and sets event listener on #random-number-wrapper element, updates active player and instruction in clickToPlay element in DOM 
+     */
     setupNewTurn(){
-
         this.variableValue = null; // reset variableValue property
         updateVariableinDOM(this.variableValue); // sets #random-number-wrapper element content in DOM to ?
         updateActivePlayer().bind(this); // update activePlayer property and display active player's name in #current-player-name element
@@ -47,6 +48,7 @@ class ClickToPlay{
             }
         }
 
+        // EVENT LISTENER FOR ? ELEMENT
         function clickToPlayHandler(clickEvent) {
             clickEvent.preventDefault();
             clickEvent.stopPropogation();
@@ -56,7 +58,7 @@ class ClickToPlay{
             this.variableValue = generateVariableValue(this.difficultySetting);
             // delay for completion of animated changing random number
             setTimeout(() => {
-                window.gameboard.setupNewTurn(this.variableValue);// add event listeners to all non-disabled gameboard grid items
+                window.gameboard.setupNewTurn(this.variableValue); 
             }, 2000);
 
             function generateVariableValue(difficultySetting) {
