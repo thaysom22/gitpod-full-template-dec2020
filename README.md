@@ -162,7 +162,7 @@ Layout:
 * Content of modal made scrollable once height is larger than container.
 * Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
 * Time bonus component not implemented for scoreboard. The bonus score element remove from HTML and now player score depends only on the ranking of the question selected. 
-* Easy and difficult settings have 2 minutes and 1 minutes allowed per turn respectively.
+* Countdown timer not implemented (not essential to game)
 * 
 
 ## 2. Features
@@ -183,7 +183,8 @@ Layout:
 * Add restart game button to main page
 * Update expression generation and evaluation to include expressions involving fractions
 * Add animation effects to displaying/hiding of elements on page to improve user experience and feedback
-* Implement time bonus component to scoreboard which rewards players for answering quickly
+* Add a countdown timer to the click to play component that runs once a player clicks ? 
+* Implement time bonus component (calculated from countdown timer value at end of turn) to scoreboard which rewards players for answering quickly
 * Add feature to welcome modal which allows user to select amount of time allowed per question
 * Add a popup instruction that appears only on each player's first turn after they generate a random number: 'select the expression that gives the highest value when x= '
 
