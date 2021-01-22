@@ -58,7 +58,7 @@ class ClickToPlay{
             // delay for completion of animated changing random number
             setTimeout(() => {
                 window.gameboard.setupNewTurn(this.variableValue);
-                $('#click-to-play-instruction').text("Click the expression with the highest value..."); // update instruction  
+                $('#click-to-play-instruction').text("Choose an expression..."); // update instruction  
             }, 2000);
 
             function generateVariableValue(difficultySetting) {

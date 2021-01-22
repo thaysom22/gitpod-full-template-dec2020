@@ -163,7 +163,8 @@ Layout:
 * Once a question is selected and a user makes an answer attempt, the question is removed from the board and cannot be selected again by either player (this avoids players copy each other's choices!)
 * Time bonus component not implemented for scoreboard. The bonus score element remove from HTML and now player score depends only on the ranking of the question selected. 
 * Countdown timer not implemented (not essential to game)
-* Reduced number of player turns to 5 to avoid trivial selections at end of game
+* Reduced number of player turns to 5 to avoid more trivial selections at end of game
+* Changed layout and content of gameover modal to display the winner's name in large and both players name's and scores below in smaller ovals - this layout also works for a tied game result.
 
 ## 2. Features
 

@@ -73,7 +73,7 @@ class GameoverModal{
 
         let result = calculateWinner(this.player1Score, this.player1Score); // return the winner of the game
         setGameoverModalContentInDOM(result); // set DOM content based upon winner
-
+        showGameoverModal(); // remove .hide classes from gameover modal and modal backdrop
         
         function calculateWinner(player1Score, player2Score){
             if (player1Score > player2Score){

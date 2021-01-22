@@ -6,13 +6,13 @@ class Scoreboard {
         this.player1Board = {
             playerName: player1Name,
             playerScore: 0,
-            playerTurns: 5, // turns remaining
+            playerTurns: 1, // turns remaining
             active: true // player1 starts
         };
         this.player2Board = {
             playerName: player2Name,
             playerScore: 0,
-            playerTurns: 5, // when player2Board.playerTurns === 0, game ends
+            playerTurns: 1, // when player2Board.playerTurns === 0, game ends
             active: false
         };
 
@@ -21,10 +21,10 @@ class Scoreboard {
         function initializeScoreboardDOM(player1, player2) {
             $('#player1-scoreboard .scoreboard-title').text(player1.playerName);
             $('#player2-scoreboard .scoreboard-title').text(player2.playerName);
-            $('#player1-scoreboard .main-score>span').text(player1.playerScore);
-            $('#player2-scoreboard .main-score>span').text(player2.playerScore);
-            $('#player1-scoreboard .score-turns>span').text(player1.playerTurns);
-            $('#player2-scoreboard .score-turns>span').text(player2.playerTurns);
+            $('#player1-scoreboard .main-score .value').text(player1.playerScore);
+            $('#player2-scoreboard .main-score .value').text(player2.playerScore);
+            $('#player1-scoreboard .score-turns .value').text(player1.playerTurns);
+            $('#player2-scoreboard .score-turns .value').text(player2.playerTurns);
             return;
         }   
     }
@@ -84,7 +84,7 @@ class Scoreboard {
         // check at end of every turn: when player2 runs out of turns instatiate GameOverModal as global object to end game
         function endGameCheck(){
             if (this.player2Board.playerTurns === 0) { 
-                window.gameoverModal = new GameOverModal(this.player1Board.playerName, this.player1Board.playerScore, this.this.player2Board.playerName, this.this.player2Board.playerScore);
+                window.gameoverModal = new GameoverModal(this.player1Board.playerName, this.player1Board.playerScore, this.player2Board.playerName, this.player2Board.playerScore);
             }
             return;
         }

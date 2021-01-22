@@ -4,6 +4,10 @@
 
 // -------------------- mobile (xs)
 
+.heading{
+    font-family: base.$title-font;
+}
+
 #header-wrapper,
 .modal-header-wrapper{
     @include base.make-flexbox($justify: space-between);
@@ -13,7 +17,6 @@
 
 #main-heading,
 .modal-main-heading{
-    font-family: base.$title-font;
     flex-grow: 3;
     font-size: 2rem;
     text-align: center;
