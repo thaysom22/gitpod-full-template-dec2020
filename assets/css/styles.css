@@ -184,6 +184,25 @@ body {
     font-size: 2rem;
   }
 }
+#gameover-modal .modal-content {
+  justify-content: flex-start;
+}
+#gameover-modal #final-results-wrapper {
+  align-self: center;
+}
+#gameover-modal #gameover-buttons-wrapper {
+  align-self: center;
+  margin: 2rem 1rem;
+}
+#gameover-modal #gameover-buttons-wrapper button {
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+#gameover-modal #gameover-header {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+}
+
 .heading {
   font-family: "arbeiBerry", sans-serif;
 }
@@ -287,10 +306,38 @@ body {
 
 .player-scoreboard {
   margin: 1rem 1.25rem;
-}
-.player-scoreboard div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.player-scoreboard .main-score {
+  border-style: solid;
+  border-color: black;
+  border-width: 0.25rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.5rem black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  width: 7rem;
+  background-color: #00bbf9;
+}
+.player-scoreboard .main-score > .value {
+  font-size: 4rem;
+  position: relative;
+  top: -2rem;
+}
+.player-scoreboard .main-score > .label {
+  font-size: 1.5rem;
+  position: relative;
+  top: -2rem;
+}
+.player-scoreboard .score-turns {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-style: solid;
@@ -298,39 +345,20 @@ body {
   border-width: 0.25rem;
   border-radius: 50%;
   box-shadow: 0 0 0.5rem black;
-}
-.player-scoreboard .main-score {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 7rem;
-  width: 7rem;
-}
-.player-scoreboard .main-score .value {
-  font-size: 3rem;
-}
-.player-scoreboard .main-score .label {
-  font-size: 1.5rem;
-}
-.player-scoreboard .score-turns {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   align-self: flex-start;
   position: relative;
-  top: 0.5rem;
-  left: 2.5rem;
+  top: -1rem;
+  left: -2rem;
   height: 4rem;
-  width: 4rem;
+  width: 5rem;
   z-index: 1;
+  background-color: #f15bb5;
 }
 .player-scoreboard .score-turns .value {
   font-size: 1.75rem;
 }
 .player-scoreboard .score-turns .label {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 @media screen and (min-width: 450px) {
@@ -384,11 +412,11 @@ body {
   width: 33.333%;
   max-width: 35rem;
   float: left;
+  background-color: #fee440;
 }
 #click-to-play-wrapper #current-player-name {
   font-size: 2rem;
   padding: 1rem 1rem 0 1rem;
-  margin-bottom: -1rem;
 }
 #click-to-play-wrapper #random-number-wrapper {
   height: 6.5rem;
@@ -413,6 +441,7 @@ body {
 #click-to-play-wrapper p {
   font-size: 1.5rem;
   padding: 0rem 1rem 1rem 1rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 767px) {

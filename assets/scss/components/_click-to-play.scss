@@ -14,11 +14,12 @@
     width: 33.333%;
     max-width: 35rem;
     float: left;
+    background-color: base.$yellow;
     
     #current-player-name{
         font-size: 2rem;
         padding: 1rem 1rem 0 1rem;
-        margin-bottom: -1rem;
+        
     }
 
     #random-number-wrapper{
@@ -29,6 +30,7 @@
     i{
         font-size: 4rem; 
         cursor: pointer;
+        
         
         &.hide{
             display: none;
@@ -44,6 +46,7 @@
     p{
         font-size: 1.5rem;
         padding: 0rem 1rem 1rem 1rem;
+        text-align: center;
     }
 }
 

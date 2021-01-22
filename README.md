@@ -165,6 +165,7 @@ Layout:
 * Countdown timer not implemented (not essential to game)
 * Reduced number of player turns to 5 to avoid more trivial selections at end of game
 * Changed layout and content of gameover modal to display the winner's name in large and both players name's and scores below in smaller ovals - this layout also works for a tied game result.
+* Added labels to player score and player turn components on scorebaord
 
 ## 2. Features
 

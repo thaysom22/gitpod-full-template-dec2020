@@ -20,41 +20,48 @@
 .player-scoreboard{
     
     margin: 1rem 1.25rem;
-    div{
-        @include base.make-flexbox();
+    @include base.make-flexbox($direction:column);
+    
+    .main-score{
         @include base.elliptical-border();
         @include base.box-shadow();
-    }
-    .main-score{
         @include base.make-flexbox($direction:column);
-        height: 7rem;
+        height: 10rem;
         width: 7rem;
+        background-color: base.$blue;
 
-        .value{
-            font-size: 3rem;
+        >.value{
+            font-size: 4rem;
+            position: relative;
+            top: -2rem;
         }
 
-        .label{
+        >.label{
             font-size: 1.5rem;
+            position: relative;
+            top: -2rem;
         }
     }
     
     .score-turns{
         @include base.make-flexbox($direction:column);
+        @include base.elliptical-border();
+        @include base.box-shadow();
         align-self: flex-start;
         position: relative;
-        top: 0.5rem;
-        left: 2.5rem;
+        top: -1rem;
+        left: -2rem;
         height: 4rem;
-        width: 4rem;
+        width: 5rem;
         z-index: 1;
+        background-color: base.$pink;
 
         .value{
             font-size: 1.75rem;
         }
 
         .label{
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
     }
 }

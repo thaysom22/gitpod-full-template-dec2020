@@ -142,3 +142,44 @@
 
 
 // -------- desktop
+
+
+
+
+
+// ---------- gameover modal
+
+// --------------- mobile
+
+#gameover-modal{
+
+    .modal-content{
+        justify-content: flex-start;
+    }
+
+    #final-results-wrapper{
+        align-self: center;
+
+    }
+
+    #gameover-buttons-wrapper{
+        align-self: center;
+        margin: 2rem 1rem;
+
+        button{
+            padding: .5rem;
+            margin: .5rem;
+        }
+    }
+
+    #gameover-header{
+        font-size: 5rem;
+        margin-bottom: 3rem;
+        
+    }
+
+    
+    
+
+
+}

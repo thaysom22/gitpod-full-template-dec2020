@@ -21,10 +21,10 @@ class Scoreboard {
         function initializeScoreboardDOM(player1, player2) {
             $('#player1-scoreboard .scoreboard-title').text(player1.playerName);
             $('#player2-scoreboard .scoreboard-title').text(player2.playerName);
-            $('#player1-scoreboard .main-score .value').text(player1.playerScore);
-            $('#player2-scoreboard .main-score .value').text(player2.playerScore);
-            $('#player1-scoreboard .score-turns .value').text(player1.playerTurns);
-            $('#player2-scoreboard .score-turns .value').text(player2.playerTurns);
+            $('#player1-scoreboard .main-score>.value').text(player1.playerScore);
+            $('#player2-scoreboard .main-score>.value').text(player2.playerScore);
+            $('#player1-scoreboard .score-turns>.value').text(player1.playerTurns);
+            $('#player2-scoreboard .score-turns>.value').text(player2.playerTurns);
             return;
         }   
     }
@@ -74,10 +74,10 @@ class Scoreboard {
         
         // updates scoreboard in DOM
         function updateScoreboardDOM() {    
-            $('#player1-scoreboard .main-score>span').text(this.player1Board.playerScore);
-            $('#player2-scoreboard .main-score>span').text(this.player2Board.playerScore);
-            $('#player1-scoreboard .score-turns>span').text(this.player1Board.playerTurns);
-            $('#player2-scoreboard .score-turns>span').text(this.player2Board.playerTurns);
+            $('#player1-scoreboard .main-score>.value').text(this.player1Board.playerScore);
+            $('#player2-scoreboard .main-score>.value').text(this.player2Board.playerScore);
+            $('#player1-scoreboard .score-turns>.value').text(this.player1Board.playerTurns);
+            $('#player2-scoreboard .score-turns>.value').text(this.player2Board.playerTurns);
             return;
         }
 
