@@ -65,15 +65,17 @@ class WelcomeModal {
 }
 
 class GameoverModal{
-    constructor(player1Name, player1Score, player2Name, player2Score){
+    constructor(player1Name, player1Score, player2Name, player2Score, difficultySetting){
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         this.player1Score = player1Score;
         this.player2Score = player2Score;
+        this.difficultySetting = difficultySetting;
 
         let result = calculateWinner(this.player1Score, this.player1Score); // return the winner of the game
-        setGameoverModalContentInDOM(result); // set DOM content based upon winner
-        showGameoverModal(); // remove .hide classes from gameover modal and modal backdrop
+        setGameoverModalContentInDOM.bind(this)(result); // set DOM content based upon winner
+        addGameoverModalEventListener(this.player1Name, this.player2Name, this.difficultySetting); // add event listener to restart button
+        showGameoverModal(); // finally, remove .hide classes from gameover modal and modal backdrop
         
         function calculateWinner(player1Score, player2Score){
             if (player1Score > player2Score){
@@ -86,19 +88,64 @@ class GameoverModal{
         }
         
         function setGameoverModalContentInDOM(result){
-            
-
-        
+            if (result === 0){
+                $('#winner-result span').text(`The game is a DRAW!`);
+            } else{
+                let winnerName;
+                if (result === 1){
+                    winnerName = this.player1Name;
+                } else{
+                    winnerName = this.player2Name;
+                }
+                $('#winner-result span').text(`${winnerName} is the winner!`);
+            }
+            // display final player scoreboards
+            $('player1-result .name').text(this.player1Name);
+            $('player1-result .score').text(this.player1Score);
+            $('player2-result .name').text(this.player2Name);
+            $('player2-result .score').text(this.player2Score);
         }
 
-        function addGameoverModalEventListeners(){
+        function addGameoverModalEventListener(player1Name, player2Name, difficultySetting){
 
+            $('#restart-game-button').click(restartGameHandler);
+
+            function restartGameHandler(clickEvent){
+                clickEvent.preventDefault();
+                clickEvent.stopPropagation();
+
+                // overwrite global objects with fresh instances
+                window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
+                window.gameboard = new Gameboard(difficultySetting); 
+                window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
+
+                resetGameboardDOM();
+                resetScoreboardDOM();
+
+                // short delay
+                hideGameoverModal();
+
+
+                function resetScoreboardDOM(){
+                    // set both player scores and turns back to starting values
+                }
+
+                function resetGameboardDOM(){
+                    // remove .disabled class from all grid items
+                }
+            }
         }
         
         function showGameoverModal(){
             $('body').addClass("modal-open");
             $('#gameover-modal').removeClass("hide");
             $('#modal-backdrop').removeClass("hide"); 
+        }
+
+        function hideGameoverModal(){
+            $('body').removeClass("modal-open");
+            $('#gameover-modal').addClass("hide");
+            $('#modal-backdrop').addClass("hide"); 
         }
     }
 }

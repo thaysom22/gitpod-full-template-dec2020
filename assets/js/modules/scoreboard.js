@@ -2,7 +2,7 @@ export { Scoreboard };
 import { GameoverModal } from "./modals.js";
 
 class Scoreboard {
-    constructor(player1Name, player2Name){
+    constructor(player1Name, player2Name, difficultySetting){
         this.player1Board = {
             playerName: player1Name,
             playerScore: 0,
@@ -15,6 +15,7 @@ class Scoreboard {
             playerTurns: 1, // when player2Board.playerTurns === 0, game ends
             active: false
         };
+        this.difficultySetting = difficultySetting;
 
         initializeScoreboardDOM(this.player1Board, this.player2Board); // initialize player data on scoreboard in DOM
 
@@ -84,7 +85,7 @@ class Scoreboard {
         // check at end of every turn: when player2 runs out of turns instatiate GameOverModal as global object to end game
         function endGameCheck(){
             if (this.player2Board.playerTurns === 0) { 
-                window.gameoverModal = new GameoverModal(this.player1Board.playerName, this.player1Board.playerScore, this.player2Board.playerName, this.player2Board.playerScore);
+                window.gameoverModal = new GameoverModal(this.player1Board.playerName, this.player1Board.playerScore, this.player2Board.playerName, this.player2Board.playerScore, this.difficultySetting);
             }
             return;
         }
