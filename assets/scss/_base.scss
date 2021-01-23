@@ -56,6 +56,11 @@ $section-margins: 0.5rem 0.2rem;
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    outline: none;
+}
+
+*:focus{
+    outline: none;
 }
 
 html{

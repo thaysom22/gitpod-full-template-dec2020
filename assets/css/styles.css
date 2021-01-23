@@ -10,6 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 html {
@@ -167,6 +172,10 @@ body {
   box-shadow: 0 0 1rem black;
   margin-bottom: 1rem;
   cursor: pointer;
+  outline: none;
+}
+#welcome-input-form-wrapper #start-game-button:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 767px) {
@@ -188,19 +197,69 @@ body {
   justify-content: flex-start;
 }
 #gameover-modal #final-results-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   align-self: center;
+}
+#gameover-modal #final-results-wrapper #winner-result {
+  width: 100%;
+  margin: 1rem 0.5rem 2rem 0.5rem;
+  padding: 5rem 2rem;
+}
+#gameover-modal #final-results-wrapper #winner-result span {
+  font-size: 3rem;
+}
+#gameover-modal #final-results-wrapper .player-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.25rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.5rem black;
+}
+#gameover-modal #final-results-wrapper #player1-result, #gameover-modal #final-results-wrapper #player2-result {
+  padding: 3rem 2.5rem;
+  margin: 0.5rem;
+}
+#gameover-modal #final-results-wrapper #player1-result .name, #gameover-modal #final-results-wrapper #player2-result .name {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+#gameover-modal #final-results-wrapper #player1-result .score, #gameover-modal #final-results-wrapper #player2-result .score {
+  font-size: 3rem;
 }
 #gameover-modal #gameover-buttons-wrapper {
   align-self: center;
   margin: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #gameover-modal #gameover-buttons-wrapper button {
-  padding: 0.5rem;
-  margin: 0.5rem;
+  padding: 1.25rem;
+  background-color: #00bbf9;
+  cursor: pointer;
+  color: #fee440;
+  margin: 1rem;
+  font-family: "arbeiBerry", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  border-style: solid;
+  border-color: #fee440;
+  border-width: 0.3rem;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem black;
 }
 #gameover-modal #gameover-header {
-  font-size: 5rem;
-  margin-bottom: 3rem;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 .heading {

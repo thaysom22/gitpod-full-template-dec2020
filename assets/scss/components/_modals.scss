@@ -111,6 +111,10 @@
         @include base.box-shadow($blur-radius: 1rem,);
         margin-bottom: 1rem;
         cursor: pointer;
+        outline: none;
+    }
+    #start-game-button:focus{
+        outline: none;
     }
 }
 
@@ -158,23 +162,67 @@
     }
 
     #final-results-wrapper{
+        @include base.make-flexbox($justify: center);
+        flex-wrap: wrap;
         align-self: center;
+
+        #winner-result{
+            width: 100%;
+            margin: 1rem .5rem 2rem .5rem;
+            padding: 5rem 2rem;
+
+            span{
+                font-size: 3rem;
+            }
+            
+        }
+
+        .player-result{
+            @include base.make-flexbox($direction: column);
+            @include base.elliptical-border();
+            @include base.box-shadow();
+        }
+
+        #player1-result,#player2-result{
+            padding: 3rem 2.5rem;
+            margin: .5rem;
+
+            .name{
+                font-size: 2rem;
+                margin-bottom: .5rem;
+            }
+
+            .score{
+                font-size: 3rem;
+            }
+        
+        }
+            
 
     }
 
     #gameover-buttons-wrapper{
         align-self: center;
         margin: 2rem 1rem;
+        @include base.make-flexbox($direction: column);
 
         button{
-            padding: .5rem;
-            margin: .5rem;
+            padding: 1.25rem;
+            background-color: base.$blue;
+            cursor: pointer;
+            color: base.$yellow;
+            margin: 1rem;
+            font-family: base.$title-font;
+            font-size: 2rem;
+            font-weight: bold;
+            @include base.elliptical-border($color: base.$yellow, $width: 0.3rem);
+            @include base.box-shadow($blur-radius: 1rem,);
         }
     }
 
     #gameover-header{
-        font-size: 5rem;
-        margin-bottom: 3rem;
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
         
     }
 
