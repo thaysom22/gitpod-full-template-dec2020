@@ -72,12 +72,17 @@ class GameoverModal{
         this.player2Score = player2Score;
         this.difficultySetting = difficultySetting;
 
-        let result = calculateWinner(this.player1Score, this.player1Score); // return the winner of the game
+        let result = calculateWinner(this.player1Score, this.player2Score); // return the winner of the game
         setGameoverModalContentInDOM.bind(this)(result); // set DOM content based upon winner
         addGameoverModalEventListener(this.player1Name, this.player2Name, this.difficultySetting); // add event listener to restart button
-        showGameoverModal(); // finally, remove .hide classes from gameover modal and modal backdrop
+        setTimeout(showGameoverModal, 500); // delay to allow feedback on user answer for final player2 turn
         
+        
+
         function calculateWinner(player1Score, player2Score){
+
+            console.log(player1Score, player2Score)
+
             if (player1Score > player2Score){
                 return 1;
             } else if (player2Score > player1Score){
@@ -100,10 +105,12 @@ class GameoverModal{
                 $('#winner-result span').text(`${winnerName} is the winner!`);
             }
             // display final player scoreboards
-            $('player1-result .name').text(this.player1Name);
-            $('player1-result .score').text(this.player1Score);
-            $('player2-result .name').text(this.player2Name);
-            $('player2-result .score').text(this.player2Score);
+            $('#player1-result .name').text(this.player1Name);
+            $('#player1-result .score').text(this.player1Score);
+            $('#player2-result .name').text(this.player2Name);
+            $('#player2-result .score').text(this.player2Score);
+
+            $('#gameover-buttons-wrapper a').css("pointer-events", "auto"); // activates pointer events on 'new game' link
         }
 
         function addGameoverModalEventListener(player1Name, player2Name, difficultySetting){
@@ -113,6 +120,7 @@ class GameoverModal{
             function restartGameHandler(clickEvent){
                 clickEvent.preventDefault();
                 clickEvent.stopPropagation();
+                $('#restart-game-button').off("click"); // remove event listener
 
                 // overwrite global objects with fresh instances
                 window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
@@ -121,17 +129,22 @@ class GameoverModal{
 
                 resetGameboardDOM();
                 resetScoreboardDOM();
+                $('#gameover-buttons-wrapper a').css("pointer-events", "none"); // deactivates pointer events on 'new game' link
 
-                // short delay
-                hideGameoverModal();
+                setTimeout(hideGameoverModal, 200); // allow short delay for new scorebaord, gamebaord, clickToPlay to be created in memory and DOM
+                
 
-
+                // reset both player scores and turns back to starting values
                 function resetScoreboardDOM(){
-                    // set both player scores and turns back to starting values
+                    $('#player1-scoreboard .main-score>.value').text(0);
+                    $('#player2-scoreboard .main-score>.value').text(0);
+                    $('#player1-scoreboard .score-turns>.value').text(5);
+                    $('#player2-scoreboard .score-turns>.value').text(5);
                 }
 
+                // remove .disabled class from all grid items
                 function resetGameboardDOM(){
-                    // remove .disabled class from all grid items
+                    $('.gameboard-grid-item').removeClass('disabled');
                 }
             }
         }

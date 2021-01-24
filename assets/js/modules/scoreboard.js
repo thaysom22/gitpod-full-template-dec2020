@@ -50,10 +50,10 @@ class Scoreboard {
                 return -1;
             } else if (questionRanking === 0) {
                 return 10;
-            } else if (questionRanking > 0 && questionRanking < 6) {
+            } else if (questionRanking > 0 && questionRanking < 5) {
                 return (-1*questionRanking + 6);
             } else {
-                return 0;
+                return 1;
             }
         }
 

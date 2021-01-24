@@ -77,10 +77,15 @@
     }
 
     &.correct-user-answer{
-        background-color: green;
+        background-color: rgb(10, 233, 10);
     }
     &.incorrect-user-answer{
-        background-color: red;
+        background-color: rgb(248, 4, 4);
+    }
+
+    #player-answer-error-message{
+        font-size: 2rem;
+
     }
 }
 

@@ -142,8 +142,6 @@ class Gameboard {
                 question.answer = math.evaluate(question.expressionString, context) // math object is available in global namespace
             });
 
-            console.log(variableValue, this.questions, "evaluatequestions test");
-
             return;
         }
 
@@ -154,8 +152,6 @@ class Gameboard {
             });
 
             answersWithIdArray.sort(function(a, b) {return b[0] - a[0];}); // sort by descending values of answer
-
-            console.log(answersWithIdArray, "answerswitnID test");
 
             let prevAnswer = null;
             let sameRankingsCounter = 0; // tracks number of questions that have been assigned same ranking value
