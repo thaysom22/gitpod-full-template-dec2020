@@ -9,7 +9,9 @@
     @include base.make-flexbox($direction: column);
 }
 
-#about-trigger-wrapper{
+#about-trigger-wrapper,
+.modal-about-trigger-wrapper{
+    cursor: pointer;
     @include base.make-flexbox();
     padding-bottom: 0.1rem;
     i{
@@ -23,6 +25,11 @@
 
 #about-content-wrapper,
 .modal-about-content-wrapper{
+
+    &.hide{
+        display: none;
+    }
+
     display: grid;
     grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
     width: 100%;

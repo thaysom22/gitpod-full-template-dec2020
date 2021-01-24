@@ -116,7 +116,7 @@
             <!-- CREDIT: Font Awesome -->
             <i aria-hidden="true" class="fas fa-plus-square"  title="Click to view ABOUT section"></i>   
         </div>
-        <div id="about-content-wrapper" class="section-wrapper">
+        <div id="about-content-wrapper" class="section-wrapper hide">
             <div id="dev-portfolio-wrapper">
                 <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
                 <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>
@@ -181,8 +181,12 @@
 
         <!-- Footer section in modal -->
         <footer class="section-wrapper modal-footer-wrapper">
-           <!-- ABOUT section always visible on welcome modal -->
-            <div id="" class="section-wrapper modal-about-content-wrapper">
+           <div class="modal-about-trigger-wrapper trigger-wrapper" aria-label="Click to view ABOUT section content">
+                <span>ABOUT</span>
+                <!-- CREDIT: Font Awesome -->
+                <i aria-hidden="true" class="fas fa-plus-square"  title="Click to view ABOUT section"></i>   
+            </div>
+            <div class="section-wrapper modal-about-content-wrapper hide">
                 <div class="modal-dev-portfolio-wrapper">
                     <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
                     <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>
@@ -217,15 +221,15 @@
         <div id="final-results-wrapper" class="section-wrapper">
             <div id="winner-result" class="player-result">
                 <h2 id="gameover-header" class="heading">GAME OVER!</h2>
-                <span>Player 1 is the winner!</span>
+                <span></span>
             </div>
             <div id="player1-result" class="player-result">
-                <span class="name">Player 1</span>
-                <span class="score">35</span>
+                <span class="name"></span>
+                <span class="score"></span>
             </div>
             <div id="player2-result" class="player-result">
-                <span class="name">Player 2</span>
-                <span class="score">20</span>
+                <span class="name"></span>
+                <span class="score"></span>
             </div>
         </div>
         <!-- Buttons section of gameover modal -->
@@ -238,8 +242,12 @@
         </div>
         <!-- Footer section in modal -->
         <footer class="section-wrapper modal-footer-wrapper">
-           <!-- ABOUT section always visible on gameover modal -->
-            <div id="" class="section-wrapper modal-about-content-wrapper">
+            <div class="modal-about-trigger-wrapper trigger-wrapper" aria-label="Click to view ABOUT section content">
+                <span>ABOUT</span>
+                <!-- CREDIT: Font Awesome -->
+                <i aria-hidden="true" class="fas fa-plus-square"  title="Click to view ABOUT section"></i>   
+            </div>
+            <div class="section-wrapper modal-about-content-wrapper hide">
                 <div class="modal-dev-portfolio-wrapper">
                     <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
                     <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>

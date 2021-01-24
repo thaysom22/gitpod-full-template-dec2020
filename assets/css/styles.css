@@ -608,10 +608,13 @@ body {
   padding: 0.5rem;
 }
 #gameboard-overlay-content.correct-user-answer {
-  background-color: green;
+  background-color: #0ae90a;
 }
 #gameboard-overlay-content.incorrect-user-answer {
-  background-color: red;
+  background-color: #f80404;
+}
+#gameboard-overlay-content #player-answer-error-message {
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 767px) {
@@ -645,17 +648,21 @@ body {
   align-items: center;
 }
 
-#about-trigger-wrapper {
+#about-trigger-wrapper,
+.modal-about-trigger-wrapper {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding-bottom: 0.1rem;
 }
-#about-trigger-wrapper i {
+#about-trigger-wrapper i,
+.modal-about-trigger-wrapper i {
   font-size: 2.5rem;
 }
-#about-trigger-wrapper span:not(.sr-only) {
+#about-trigger-wrapper span:not(.sr-only),
+.modal-about-trigger-wrapper span:not(.sr-only) {
   font-size: 1.5rem;
   padding: 0 0.5rem;
 }
@@ -668,6 +675,10 @@ body {
   height: 10rem;
   border-top: solid black 0.1rem;
   padding-top: 0.5rem;
+}
+#about-content-wrapper.hide,
+.modal-about-content-wrapper.hide {
+  display: none;
 }
 #about-content-wrapper i,
 .modal-about-content-wrapper i {

@@ -80,9 +80,6 @@ class GameoverModal{
         
 
         function calculateWinner(player1Score, player2Score){
-
-            console.log(player1Score, player2Score)
-
             if (player1Score > player2Score){
                 return 1;
             } else if (player2Score > player1Score){
