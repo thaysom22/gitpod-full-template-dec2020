@@ -198,11 +198,11 @@ class Gameboard {
                     function hideGameboardOverlay() {
                         $('#choose-again-button').off("click"); // turn off event overlay listeners
                         $('#submit-player-answer-button').off("click");
-                        // delay hiding of overlay by 500ms
+                        // delay hiding of overlay by 4 seconds
                         setTimeout(() => {
                             $('#gameboard-overlay').addClass('hide');
                             $('#gameboard-active-question span').children().remove(); 
-                        }, 500);
+                        }, 4000);
                     }
                     
                     // EVENT LISTENER FOR #choose-again-button ELEMENT
@@ -236,11 +236,19 @@ class Gameboard {
                             
                             disableQuestion.bind(this)(questionId); // if a valid user attempt has been made, disable question
                             this.currentQuestionId = null; 
-                            hideGameboardOverlay.bind(this)(); 
+                            hideGameboardOverlay.bind(this)(); // 4 second delay
+
+                            // store ranking of current question and calculate the score for turn 
+                            let activeQuestionRanking = this.questions.find(question => question.id === questionId).ranking; // get the ranking of the active question
+                            let playerTurnScore = calculateTurnScore(correctBool, activeQuestionRanking); // calculate the score based on user input and active question ranking
+
+
+                            // **** Add function to display feedback to player after response submitted 
+
                             $('.gameboard-grid-item').off("click"); // remove event listeners
                             $('.gameboard-grid-item').removeClass("cursor");
                             // set up window component for new turn and update scoreboard for end of turn
-                            window.scoreboard.endPlayerTurn(correctBool, this.questions.find(question => question.id === questionId).ranking); 
+                            window.scoreboard.endPlayerTurn(playerTurnScore); 
                             window.clickToPlay.setupNewTurn();      
                         } else {
                             // display error message on gamebaord overlay for 5 seconds
@@ -249,6 +257,20 @@ class Gameboard {
                                 $('#player-answer-error-message').text("");
                             }, 5000);
                         } 
+
+                        // returns the score for a player's turn
+                        // highest: 10 points, 2nd: 5, 3rd: 4, 4th: 3, 5th: 2, 6th: 1, other: 0, incorrect: -1
+                        function calculateTurnScore(responseCorrect, questionRanking){
+                            if (!responseCorrect) {
+                                return -1;
+                            } else if (questionRanking === 0) {
+                                return 10;
+                            } else if (questionRanking > 0 && questionRanking < 5) {
+                                return (-1*questionRanking + 6);
+                            } else {
+                                return 1;
+                            }
+                        }
                         
                         function disableQuestion(questionId){
                             this.questions.find(question => question.id === questionId).disabled = true; // update disabled property to true

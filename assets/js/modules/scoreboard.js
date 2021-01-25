@@ -31,32 +31,17 @@ class Scoreboard {
     }
 
     /**
-     * calculates score for player turn, updates playerScore and playerTurns data stored on instance, updates scoreboard content in DOM
-     * invokes endGameModal if players are out of turns
-     * @param {Boolean} responseCorrect 
-     * @param {*Number} questionRanking 
+     * takes score for player turn as argument, updates playerScore and playerTurns data stored on instance, updates scoreboard content in DOM
+     * invokes endGameModal if players are out of turns (checks each turn)
+     * @param {*Number} playerTurnScore
      */
-    endPlayerTurn(responseCorrect, questionRanking) {
+    endPlayerTurn(playerTurnScore) {
 
-        let playerTurnScore = calculateTurnScore(responseCorrect, questionRanking);
         updateScoreboardData.bind(this)(playerTurnScore);
         updateScoreboardDOM.bind(this)();
         endGameCheck.bind(this)();
 
-        // returns the score for a player's turn
-        // highest: 10 points, 2nd: 5, 3rd: 4, 4th: 3, 5th: 2, 6th: 1, other: 0, incorrect: -1
-        function calculateTurnScore(responseCorrect, questionRanking){
-            if (!responseCorrect) {
-                return -1;
-            } else if (questionRanking === 0) {
-                return 10;
-            } else if (questionRanking > 0 && questionRanking < 5) {
-                return (-1*questionRanking + 6);
-            } else {
-                return 1;
-            }
-        }
-
+        
         // updates player1Board and player2Board objects
         function updateScoreboardData(playerTurnScore) {
             if (this.player1Board.active === true) { // if turn belongs to player1...

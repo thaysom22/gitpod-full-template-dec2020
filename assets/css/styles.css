@@ -115,7 +115,6 @@ body {
   width: 100%;
   background-color: #fff;
   overflow: auto;
-  background-color: #f15bb5;
 }
 
 .modal-backdrop {
@@ -190,7 +189,7 @@ body {
   margin-top: 1rem;
   padding: 1rem;
   text-align: center;
-  color: #fee440;
+  color: red;
   height: 1rem;
 }
 #welcome-input-form-wrapper #welcome-modal-error-message1 {
@@ -676,6 +675,11 @@ body {
 
 #gameboard-overlay-content {
   background-color: #00bbf9;
+  box-shadow: 0 0 0.5rem black;
+  border-style: solid;
+  border-color: #fee440;
+  border-width: 0.75rem;
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;

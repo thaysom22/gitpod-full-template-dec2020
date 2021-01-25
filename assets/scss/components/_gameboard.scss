@@ -61,7 +61,8 @@
 #gameboard-overlay-content{
     
     background-color: base.$blue;
-    
+    @include base.box-shadow();
+    @include base.elliptical-border($color: base.$yellow, $width: 0.75rem);
     @include base.make-flexbox($direction: column);
     height: 70%;
     max-height: 40rem;

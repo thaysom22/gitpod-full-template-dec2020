@@ -112,9 +112,9 @@ As a teacher...
 
 ### 1.3 Wireframes and design choices
 
-* Wireframes were created using [Balsamiq](url)
+* Wireframes were created using [Balsamiq](https://balsamiq.com/):
 
-[Link to wireframes stored locally on server](url)
+[Link to wireframes pdf](./images/maths-substitution-game-wireframes.pdf)
 
 **Design choices**
 
@@ -127,7 +127,7 @@ Information architecture
 Colors:
 
 * A colorful, vibrant color palette was selected using the 'trending' feature from [coolors.co](https://coolors.co/palettes/trending). The contrast in the palette makes the game board and interactive elements easy to see and navigate for younger users. The bright colors and contrast are used to aid the experience of user interaction by making it easier to understand how to play the game and see feedback.
-![color palette](url)
+![color palette](./images/color-scheme-1.png)
 * Strong and striking color contrasts were chosen for various togglable display/hide elements of the page to guide users' attention on a busy user interface.
 
 
