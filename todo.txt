@@ -38,13 +38,15 @@ RUNNING TASKS (commit after each)
 * layout styling for how to play 'pop up'
 * add sumbit error messages to welcome modal
 * add static colours to all elements
+* add cursor:pointer to gameboard items when event listeners are active
+* add pulsing to ? icon and restart game button
 
 * style buttons, error message and calculate score message in gameboard overlay
 * Choose new body font(s)? (more readable)
 * add user feedback visual effects to elements (hover, click)
-* add cursor:pointer to gameboard items when event listeners are active
 * fix gameboard grid horizontal margins
-* add pulsing to ? icon and restart game button
+* deploy site
+* Facilitate user interaction with keyboard
 * implement responsiveness of all element sizes, positioning and readability
   - main page: 
     * increase clicktoplay margin
@@ -55,6 +57,7 @@ RUNNING TASKS (commit after each)
     * decrease button sizes on mobile
     * put buttons side by side on >=tablet sizes
 * post on slack for advice on writing unit tests and TDD workflow advice
+* reset game turns to 5
 
 README
 
@@ -79,24 +82,15 @@ FEATURES (Priority: P1, P2, P3)
 
 POSSIBLE EXTRA FEATURES
 
-* Facilitate user interaction with keyboard
+
 * Add media query styling specifically for print view so teachers can print activity for use in lessons
-* Email to teacher input and submit for 'game over' modal
+* Create a log of player responses and include option to Email to teacher on 'game over' modal
 * Optional settings for time limit per turn and number of turns per game and number of grid elements
 * Share on facebook/twitter link on game over page
-* High score log for each player name in window/local storage - display on game over page?
 * Audio played as user feedback when clicking on elements of page and at significant points in gameplay
-* Math handwriting recognition API?
 * Insert error messages into HTML 
 * Increase number of grid elements to 20
-
-    POSSIBLE ADDITIONS TO STYLING
-
-* Combat theme icons on welcome modal
-* Celebration theme icons on game over modal
-* ADVICE FROM MS1: Use box shadow effect to make elements stand out x
-* Torn paper or other border effect
-* Load extra font for body?
+* Store top scores for each player in local storage so when restart game is clicked, player performance can be measured across multiple games. 
 
 ACCESSIBILITY CHECKLIST
 
