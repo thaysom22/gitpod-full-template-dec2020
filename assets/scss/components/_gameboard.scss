@@ -26,10 +26,14 @@
     @include base.box-shadow();
     border: base.$green 0.25rem solid;
     background-color: base.$yellow;
+    
+    &.cursor{
+        cursor: pointer;
+    }
 
     span{
         font-size: 3rem;
-        color: base.$blue;
+        color: black;
         
     }
 

@@ -174,6 +174,7 @@ class Gameboard {
 
         function addGridEventListeners(){
             $('.gameboard-grid-item:not(.disabled)').click(activateGameboardOverlay.bind(this)); // adds handler to all grid expression CONTAINERS that DO NOT HAVE .disabled class
+            $('.gameboard-grid-item:not(.disabled)').addClass("cursor");
 
             // EVENT LISTENER FOR .gameboard-grid-item ELEMENTS
             function activateGameboardOverlay(clickEvent) {
@@ -237,6 +238,7 @@ class Gameboard {
                             this.currentQuestionId = null; 
                             hideGameboardOverlay.bind(this)(); 
                             $('.gameboard-grid-item').off("click"); // remove event listeners
+                            $('.gameboard-grid-item').removeClass("cursor");
                             // set up window component for new turn and update scoreboard for end of turn
                             window.scoreboard.endPlayerTurn(correctBool, this.questions.find(question => question.id === questionId).ranking); 
                             window.clickToPlay.setupNewTurn();      

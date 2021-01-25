@@ -37,13 +37,12 @@ RUNNING TASKS (commit after each)
 * Create markup for how to play 'pop up'
 * layout styling for how to play 'pop up'
 * add sumbit error messages to welcome modal
-
-
-* Choose new body font(s)? (more readable)
 * add static colours to all elements
+
+* style buttons, error message and calculate score message in gameboard overlay
+* Choose new body font(s)? (more readable)
 * add user feedback visual effects to elements (hover, click)
 * add cursor:pointer to gameboard items when event listeners are active
-* add calculate score result to gamebaord overlay and increase hide delay
 * fix gameboard grid horizontal margins
 * add pulsing to ? icon and restart game button
 * implement responsiveness of all element sizes, positioning and readability

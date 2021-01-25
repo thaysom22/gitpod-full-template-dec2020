@@ -49,6 +49,26 @@ $section-margins: 0.5rem 0.2rem;
 
 }
 
+// pulse effect
+
+// CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css
+
+@mixin pulse{
+
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+}
+
 // ------------- global resets 
 // CREDIT: WebDevSimplifed YouTube channel for example of using these reset styles
 
@@ -71,5 +91,6 @@ a {
     text-decoration: none;
     color: black;
 }
+
 
 

@@ -38,7 +38,8 @@ class ClickToPlay{
         }
 
         function updateVariableInDOM(variableValue){
-            if (variableValue === null) {
+            if (variableValue === null) { // start of turn
+                $('#random-number-wrapper').addClass("pulse")
                 $('.fas.fa-question').removeClass("hide");
                 $('#variable-value').addClass("hide");
             } else {             
@@ -58,6 +59,7 @@ class ClickToPlay{
             // delay for completion of animated changing random number
             setTimeout(() => {
                 window.gameboard.setupNewTurn(this.variableValue);
+                $('#random-number-wrapper').removeClass("pulse"); // stop random number element pulsing
                 $('#click-to-play-instruction').text("Choose an expression..."); // update instruction  
             }, 2000);
 
