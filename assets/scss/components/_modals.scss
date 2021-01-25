@@ -43,6 +43,7 @@
   width: 100%; 
   background-color: #fff;
   overflow:auto;
+  background-color: base.$pink;
 
 }
 
@@ -78,8 +79,9 @@
         height: 10rem;
         margin-top: 1rem;
         @include base.make-flexbox($direction: column);
-        @include base.elliptical-border();
+        @include base.elliptical-border($color: base.$blue);
         @include base.box-shadow();
+        background-color: base.$green;
         label{
             margin-bottom: 0.5rem;
             font-size: 2.5rem;
@@ -112,7 +114,7 @@
         margin-top: 1rem;
         padding: 1rem;
         text-align: center;
-        color: red;
+        color: base.$yellow;
         height: 1rem; 
     }
 
@@ -191,11 +193,13 @@
         @include base.make-flexbox($justify: center);
         flex-wrap: wrap;
         align-self: center;
+        
 
         #winner-result{
             width: 100%;
             margin: 1rem .5rem 2rem .5rem;
             padding: 5rem 2rem;
+            background-color: base.$green;
 
             span{
                 font-size: 3rem;
@@ -205,8 +209,10 @@
 
         .player-result{
             @include base.make-flexbox($direction: column);
-            @include base.elliptical-border();
+            @include base.elliptical-border($color: base.$purple);
             @include base.box-shadow();
+            background-color: base.$yellow;
+            color: base.$blue;
         }
 
         #player1-result,#player2-result{

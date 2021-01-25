@@ -30,6 +30,7 @@
     @include base.make-flexbox($direction: column);
     flex-grow: 1;
     i{
+        color: base.$purple;
         font-size: 2.5rem;
         padding-bottom: .5rem;
     }

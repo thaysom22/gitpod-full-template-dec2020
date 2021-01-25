@@ -56,6 +56,7 @@ body {
   }
 }
 .info-contents {
+  color: #fee440;
   position: absolute;
   width: 80%;
   max-width: 50rem;
@@ -114,6 +115,7 @@ body {
   width: 100%;
   background-color: #fff;
   overflow: auto;
+  background-color: #f15bb5;
 }
 
 .modal-backdrop {
@@ -150,10 +152,11 @@ body {
   justify-content: center;
   align-items: center;
   border-style: solid;
-  border-color: black;
+  border-color: #00bbf9;
   border-width: 0.25rem;
   border-radius: 50%;
   box-shadow: 0 0 0.5rem black;
+  background-color: #00f5d4;
 }
 #welcome-input-form-wrapper .player-name-wrapper label {
   margin-bottom: 0.5rem;
@@ -187,7 +190,7 @@ body {
   margin-top: 1rem;
   padding: 1rem;
   text-align: center;
-  color: red;
+  color: #fee440;
   height: 1rem;
 }
 #welcome-input-form-wrapper #welcome-modal-error-message1 {
@@ -248,6 +251,7 @@ body {
   width: 100%;
   margin: 1rem 0.5rem 2rem 0.5rem;
   padding: 5rem 2rem;
+  background-color: #00f5d4;
 }
 #gameover-modal #final-results-wrapper #winner-result span {
   font-size: 3rem;
@@ -258,10 +262,12 @@ body {
   justify-content: center;
   align-items: center;
   border-style: solid;
-  border-color: black;
+  border-color: #9b5de5;
   border-width: 0.25rem;
   border-radius: 50%;
   box-shadow: 0 0 0.5rem black;
+  background-color: #fee440;
+  color: #00bbf9;
 }
 #gameover-modal #final-results-wrapper #player1-result, #gameover-modal #final-results-wrapper #player2-result {
   padding: 3rem 2.5rem;
@@ -335,6 +341,7 @@ body {
 }
 #header-info-wrapper i,
 .modal-header-info-wrapper i {
+  color: #9b5de5;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
 }
@@ -427,7 +434,7 @@ body {
   align-items: center;
   height: 10rem;
   width: 7rem;
-  background-color: #00bbf9;
+  background-color: #00f5d4;
 }
 .player-scoreboard .main-score > .value {
   font-size: 4rem;
@@ -516,7 +523,7 @@ body {
   width: 33.333%;
   max-width: 35rem;
   float: left;
-  background-color: #fee440;
+  background-color: #9b5de5;
 }
 #click-to-play-wrapper.hide {
   visibility: hidden;
@@ -531,6 +538,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #f15bb5;
 }
 #click-to-play-wrapper i {
   font-size: 4rem;
@@ -603,9 +611,13 @@ body {
   border: solid 0.2rem black;
   max-width: 25rem;
   width: 100%;
+  box-shadow: 0 0 0.5rem black;
+  border: #00f5d4 0.25rem solid;
+  background-color: #fee440;
 }
 .gameboard-grid-item span {
-  font-size: 1.75rem;
+  font-size: 3rem;
+  color: #00bbf9;
 }
 .gameboard-grid-item.disabled {
   background-color: rgba(0, 0, 0, 0.2);

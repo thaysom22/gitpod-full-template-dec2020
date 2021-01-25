@@ -33,7 +33,7 @@
         @include base.make-flexbox($direction:column);
         height: 10rem;
         width: 7rem;
-        background-color: base.$blue;
+        background-color: base.$green;
 
         >.value{
             font-size: 4rem;

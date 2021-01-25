@@ -23,9 +23,14 @@
     border: solid 0.2rem black;
     max-width: 25rem;
     width: 100%;
+    @include base.box-shadow();
+    border: base.$green 0.25rem solid;
+    background-color: base.$yellow;
 
     span{
-        font-size: 1.75rem;
+        font-size: 3rem;
+        color: base.$blue;
+        
     }
 
     &.disabled{
