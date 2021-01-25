@@ -28,25 +28,35 @@ RUNNING TASKS (commit after each)
 * need to find a way to reference gameboard instance from content of event listener x
 * finish implementing checkUserAnswer x
 * write tests and implement Scoreboard class (implement method to calcuate score after a question is answered) x
-
-
 * write tests and implement click to play class - implement beginPlayerTurn abstraction and write tests and implement it's inner functions, tests and implementation for countdown timer
 * replace +- and -+ and -- in gameboard expressions
-* post on slack for advice on writing unit tests and TDD workflow advice
-* Create markup for how to play 'pop up'
-* layout styling for how to play 'pop up'
-* add tests for how to play 'pop up
-* write js for how to play pop up
 * Create markup for gameover modal
 * layout styling for gameover modal
 * add tests for gameover modal
 * write js for gameover modal
+
+
+
+* Create markup for how to play 'pop up'
+* layout styling for how to play 'pop up'
 * Choose new body font(s)? (more readable)
-* add tests for collapsable footer
-* write js for  collapsable footer
-* add static colours to page
+* add static colours to all elements
 * add user feedback visual effects to elements (hover, click)
-* fix horizontal padding and scrolling in welcome modal and gameboard views
+* add cursor:pointer to gameboard items when event listeners are active
+* add calculate score result to gamebaord overlay and increase hide delay
+* fix gameboard grid horizontal margins
+* add pulsing to ? icon and restart game button
+* add sumbit error messages to welcome modal
+* implement responsiveness of all element sizes, positioning and readability
+  - main page: 
+    * increase clicktoplay margin
+    * increase playerName size and bottom margin in clicktoplay
+    * increase size of scoreboard circles 
+    * fix grid layout on mobile 
+  - gameover modal
+    * decrease button sizes on mobile
+    * put buttons side by side on >=tablet sizes
+* post on slack for advice on writing unit tests and TDD workflow advice
 
 README
 

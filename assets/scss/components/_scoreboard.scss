@@ -8,6 +8,11 @@
 #scoreboards-wrapper{
     @include base.make-flexbox();
     height: 16rem;
+
+    &.hide{
+        visibility: hidden; // keep space on page
+    }
+    
     
     
     .scoreboard-title{

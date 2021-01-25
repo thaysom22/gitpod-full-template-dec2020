@@ -43,6 +43,7 @@
   width: 100%; 
   background-color: #fff;
   overflow:auto;
+
 }
 
 .modal-backdrop {
@@ -63,6 +64,11 @@
 // -------- Welcome modal
 
 #welcome-input-form-wrapper{
+
+    &.hide{
+        display: none;     
+    }
+
     form{
         @include base.make-flexbox($direction: column);
     }

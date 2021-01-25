@@ -41,3 +41,25 @@ body{
             "foot foot foot foot";
     }
 }
+
+// how to play info contents
+
+.info-contents{
+
+    position: absolute;
+    width: 80%;
+    max-width: 50rem;
+    z-index: 150;
+    font-size: 1.5rem;
+    left: 50%;
+    top: 50%;
+    padding: 8rem 5rem;
+    transform: translate(-50%,-50%);
+    background-color: base.$purple;
+    @include base.elliptical-border();
+    @include base.box-shadow($blur-radius: 1.5rem);
+
+    &.hide{
+        display: none;     
+    }
+}

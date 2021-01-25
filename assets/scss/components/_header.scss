@@ -13,6 +13,7 @@
     @include base.make-flexbox($justify: space-between);
     height: 8rem;
     padding: 1rem 0.5rem;
+
 }
 
 #main-heading,
@@ -24,6 +25,8 @@
 
 #header-info-wrapper,
 .modal-header-info-wrapper{
+    cursor: pointer;
+    position: relative;
     @include base.make-flexbox($direction: column);
     flex-grow: 1;
     i{
@@ -34,6 +37,7 @@
         font-size: 1.5rem;
         text-align: center;
     }
+
 }
 
 // for most mobiles

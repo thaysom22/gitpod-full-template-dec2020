@@ -15,6 +15,10 @@
     max-width: 35rem;
     float: left;
     background-color: base.$yellow;
+
+    &.hide{
+        visibility: hidden; // keep space on page
+    }
     
     #current-player-name{
         font-size: 2rem;

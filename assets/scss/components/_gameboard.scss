@@ -11,6 +11,11 @@
     grid-template: repeat(8, 8rem) / 1fr 1fr;
     grid-gap: .2rem;
     justify-items: center;
+
+    &.hide{
+        visibility: hidden; // keep space on page
+    }
+    
 }
 
 .gameboard-grid-item{

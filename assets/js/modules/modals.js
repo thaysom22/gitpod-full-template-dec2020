@@ -139,9 +139,11 @@ class GameoverModal{
                     $('#player2-scoreboard .score-turns>.value').text(5);
                 }
 
-                // remove .disabled class from all grid items
+                // remove .disabled class from all grid items and reset overlay content
                 function resetGameboardDOM(){
                     $('.gameboard-grid-item').removeClass('disabled');
+                    $('#variable-value-overlay').text("");
+                    $('#gameboard-active-question span').children().remove(); 
                 }
             }
         }
