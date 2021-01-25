@@ -25,19 +25,29 @@ class WelcomeModal {
         // verify player1name and player2name inputs
         let player1Name = $('#player1Name').val();
         let player2Name = $('#player2Name').val();
-        if (!player1Name || !player2Name) {
-            // add error message
-            return;
-        } else if (player1Name.length > 10 || player2Name.length > 10) {
-            // add error message
-            return;
-        }
+        var errorString1 = "";
+        var errorString2 = "";
+        var error = false;
+        if (!player1Name || !player2Name || player1Name.length > 10 || player2Name.length > 10) {
+            errorString1 = "Enter player names between 1 and 10 characters"; 
+            error = true;  
+        } 
 
         // verify one difficulty level has been selected (no need to check both have not been selected since radio input type used in HTML)
         let easySettingCheck = $('#welcome-modal-form #easier').prop("checked");
         let hardSettingCheck = $('#welcome-modal-form #harder').prop("checked");
         if (!(easySettingCheck || hardSettingCheck)) {
-            // add error message
+            errorString2 = "Choose a difficulty setting!";
+            error = true;
+        }
+
+        if (error){
+            $('#welcome-modal-error-message1').text(errorString1);
+            $('#welcome-modal-error-message2').text(errorString2);
+            setTimeout(() => {
+                $('#welcome-modal-error-message1').text("");
+                $('#welcome-modal-error-message2').text("");
+            }, 5000);
             return;
         }
 

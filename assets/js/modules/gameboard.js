@@ -241,11 +241,11 @@ class Gameboard {
                             window.scoreboard.endPlayerTurn(correctBool, this.questions.find(question => question.id === questionId).ranking); 
                             window.clickToPlay.setupNewTurn();      
                         } else {
-                            // display error message on gamebaord overlay for 1 second
+                            // display error message on gamebaord overlay for 5 seconds
                             $('#player-answer-error-message').text("Enter a valid value!"); 
                             setTimeout(() => {
                                 $('#player-answer-error-message').text("");
-                            }, 1000);
+                            }, 5000);
                         } 
                         
                         function disableQuestion(questionId){
