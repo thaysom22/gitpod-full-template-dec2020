@@ -42,7 +42,7 @@ RUNNING TASKS (commit after each)
 * add pulsing to ? icon and restart game button
 * added calculate score message in gameboard overlay
 
-* Fix bug where question appears twice in overlay on first turn after game is restarted (add to BUG LOG)
+
 * style buttons, error message in gameboard overlay
 * Choose new body font(s)? (more readable)
 * add user feedback visual effects to all interactive elements (hover, click)
@@ -93,6 +93,7 @@ POSSIBLE EXTRA FEATURES
 * Insert error messages into HTML 
 * Increase number of grid elements to 20
 * Store top scores for each player in local storage so when restart game is clicked, player performance can be measured across multiple games. 
+* Add click event listener to body so that user can bring manually invoke the start of next turn once they have read feedback from gameboard overlay.
 
 ACCESSIBILITY CHECKLIST
 

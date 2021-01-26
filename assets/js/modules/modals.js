@@ -131,7 +131,6 @@ class GameoverModal{
 
                 // reset redidual DOM effects of last game
                 resetGameboardDOM();
-                resetScoreboardDOM();
                 resetClickToPlayDOM();
 
                 // overwrite global objects with fresh instances
@@ -140,14 +139,6 @@ class GameoverModal{
                 window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
                 $('#gameover-buttons-wrapper a').css("pointer-events", "none"); // deactivates pointer events on 'new game' link
                 setTimeout(hideGameoverModal, 200); // allow short delay for new scorebaord, gamebaord, clickToPlay to be created in memory and DOM
-                
-                // reset both player scores and turns back to starting values
-                function resetScoreboardDOM(){
-                    $('#player1-scoreboard .main-score>.value').text(0);
-                    $('#player2-scoreboard .main-score>.value').text(0);
-                    $('#player1-scoreboard .score-turns>.value').text(5);
-                    $('#player2-scoreboard .score-turns>.value').text(5);
-                }
 
                 // remove .disabled class from all grid items and reset overlay content
                 function resetGameboardDOM(){

@@ -225,6 +225,8 @@ Layout:
 * Need to use custom jQuery Jasmine matchers when selecting with jQuery **because a jQuery object wrapping DOM references is returned.**
 * In future projects I would like to use specific "js-*" classes or "data-*" attributes for selection by Javascript; however since this project is relatively small scale and I was already quite far through the project when I realized this I decided it was not enough of a priority to be worthwhile refactoring HTML, JS and fixture strings.
 * The mathjs library is amazing! I can use this to help me create more educational tools and games in the future. I tried to use the api for this project (and I wrote function to send XML Request) as I wanted to practice using the XMLHttpRequest object and working with JSON data. However, the REST API is served only over http:// and not https:// so I was getting Mixed Content Error as site is hosted using https://. Thereefore I used the library instead linked in HTML source from CDN.
+* Try to use variables for reused values like delay for setTimeout calls so that these can be updated throughout codebase simultaneously. Having them hardcoded means that all must be found and changed and leaving one can break the application or compromise the intended user experience. 
+
 
 ## 7. Acknowledgements and Credits
 

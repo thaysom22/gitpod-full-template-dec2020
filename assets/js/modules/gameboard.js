@@ -263,9 +263,12 @@ class Gameboard {
 
                             $('.gameboard-grid-item').off("click"); // remove event listeners from gameboard grid
                             $('.gameboard-grid-item').removeClass("cursor");
-                            // set up window component for new turn and update scoreboard for end of turn
-                            window.scoreboard.endPlayerTurn(playerTurnScore); 
-                            window.clickToPlay.setupNewTurn();      
+                            // set up clickToPlay component for new turn and update scoreboard for end of turn
+                            // delay for gameboard overlay feedback to display equal to overlay hide delay
+                            setTimeout(() => {
+                                window.scoreboard.endPlayerTurn(playerTurnScore); 
+                                window.clickToPlay.setupNewTurn();  
+                            }, 4000);    
                         } else {
                             // display error message on gamebaord overlay for 5 seconds
                             $('#player-answer-error-message').text("Enter a valid value!"); 

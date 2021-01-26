@@ -137,13 +137,12 @@ Testing of all client stories from README.md file:
 
 
 
-* welcome modal content height greater than modal container on larger aspect ratio viewports - fix "_modals.scss"
-* On first loading site browser default fonts displayed briefly before webfonts on server load
-* Copyright symbol in footer not centered vertically with text in span
-* Check appearance of site on very large viewport sizes
+
 
 **Bugs Fixed**
 
-* On final player2 turn the gameover modal was displaying before the user could see the background color change to indicate a correct/incorrect response. Corrected by adding a delay to the showGameoverModal function in the GameoverModal constructor
-* Gameover modal always displaying 'this is a draw'. Fixed by correcting arguments passed to cacluateScore function to player1Score and player2Score.
-* When restart game is clicked and player1 first choses an expression, the chosen expression is displayed twice in gameboard overlay. Fix: removed event listener from click to play ? element in DOM before gameover modal is closed when game restarted
+* On final player2 turn the gameover modal was displaying before the user could see the background color change to indicate a correct/incorrect response. Fix: corrected by adding a delay equal to the delay for gameboard overlay feedback to the showGameoverModal function in the GameoverModal constructor
+* Gameover modal always displaying 'this is a draw'. Fix: by corrected arguments passed to calculateScore function to player1Score and player2Score.
+* When restart game is clicked and player1 first choses an expression, the chosen expression is displayed twice in gameboard overlay. Fix: removed event listener from click to play ? element in DOM before gameover modal is closed when game restarted.
+* After a valid answer is submitted in gameboard overlay input, the event listener and pulse effect on the ? click to play element is activated before the gameboard is visible. This is confusing to users and interupts the flow of the game. Fix: a delay equal to the time the gameboard overlay shows for was added before the event listner and pulse effect are added. 
+* MathJax content not rendering as intended after HTML is updated by javascript (prompted by user interactions). Fix: added a call to  MathJax.typeset() function to render updated html content after expressions for questions have been generated during gameboard setup.
