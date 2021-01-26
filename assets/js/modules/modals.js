@@ -85,7 +85,7 @@ class GameoverModal{
         let result = calculateWinner(this.player1Score, this.player2Score); // return the winner of the game
         setGameoverModalContentInDOM.bind(this)(result); // set DOM content based upon winner
         addGameoverModalEventListener(this.player1Name, this.player2Name, this.difficultySetting); // add event listener to restart button
-        setTimeout(showGameoverModal, 5000); // delay to allow feedback on user answer for final player2 turn
+        setTimeout(showGameoverModal, 4000); // delay to allow feedback on user answer for final player2 turn
         
         
 
@@ -127,22 +127,20 @@ class GameoverModal{
             function restartGameHandler(clickEvent){
                 clickEvent.preventDefault();
                 clickEvent.stopPropagation();
-                $('#restart-game-button').off("click"); // remove event listener
+                $('#restart-game-button').off("click"); // remove this event listener
+
+                // reset redidual DOM effects of last game
+                resetGameboardDOM();
+                resetScoreboardDOM();
+                resetClickToPlayDOM();
 
                 // overwrite global objects with fresh instances
                 window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
                 window.gameboard = new Gameboard(difficultySetting); 
                 window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
-
-                resetGameboardDOM();
-                resetScoreboardDOM();
-                resetClickToPlayDOM();
-                
                 $('#gameover-buttons-wrapper a').css("pointer-events", "none"); // deactivates pointer events on 'new game' link
-
                 setTimeout(hideGameoverModal, 200); // allow short delay for new scorebaord, gamebaord, clickToPlay to be created in memory and DOM
                 
-
                 // reset both player scores and turns back to starting values
                 function resetScoreboardDOM(){
                     $('#player1-scoreboard .main-score>.value').text(0);

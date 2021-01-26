@@ -249,7 +249,7 @@ class Gameboard {
                             
                             disableQuestion.bind(this)(questionId); // if a valid user attempt has been made, disable question
                             this.currentQuestionId = null; 
-                            hideGameboardOverlay.bind(this)(5000); // 5 second delay for answer feedback
+                            hideGameboardOverlay.bind(this)(4000); // 4 second delay for answer feedback
 
                             // store ranking of current question and calculate the score for turn 
                             let activeQuestionRanking = this.questions.find(question => question.id === questionId).ranking; // get the ranking of the active question
