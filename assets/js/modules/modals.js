@@ -85,7 +85,7 @@ class GameoverModal{
         let result = calculateWinner(this.player1Score, this.player2Score); // return the winner of the game
         setGameoverModalContentInDOM.bind(this)(result); // set DOM content based upon winner
         addGameoverModalEventListener(this.player1Name, this.player2Name, this.difficultySetting); // add event listener to restart button
-        setTimeout(showGameoverModal, 500); // delay to allow feedback on user answer for final player2 turn
+        setTimeout(showGameoverModal, 5000); // delay to allow feedback on user answer for final player2 turn
         
         
 
@@ -136,6 +136,8 @@ class GameoverModal{
 
                 resetGameboardDOM();
                 resetScoreboardDOM();
+                resetClickToPlayDOM();
+                
                 $('#gameover-buttons-wrapper a').css("pointer-events", "none"); // deactivates pointer events on 'new game' link
 
                 setTimeout(hideGameoverModal, 200); // allow short delay for new scorebaord, gamebaord, clickToPlay to be created in memory and DOM
@@ -154,6 +156,14 @@ class GameoverModal{
                     $('.gameboard-grid-item').removeClass('disabled');
                     $('#variable-value-overlay').text("");
                     $('#gameboard-active-question span').children().remove(); 
+                    $('#choose-again-button').off("click"); // turn off event overlay listeners
+                    $('#submit-player-answer-button').off("click");
+                    $('.gameboard-grid-item').off("click"); // remove event listeners from gameboard grid items
+                    $('.gameboard-grid-item').removeClass("cursor");
+                }
+
+                function resetClickToPlayDOM(){
+                     $('#random-number-wrapper').off("click"); // turn off event listener for ? icon
                 }
             }
         }

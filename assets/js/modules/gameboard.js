@@ -130,7 +130,7 @@ class Gameboard {
         evaluateQuestions.bind(this)(variableValue); // sets answer property for each question object in questions array
         rankQuestions.bind(this)(); // assigns ranking to questions by descending value of question answer property
         addGridEventListeners.bind(this)(); // turn on event listener for all .gameboard-grid-item:not(.disabled) elements in DOM
-        setupOverlay(variableValue); // updates variable value in overlay text
+        setupOverlay(variableValue); // resets overlay from last answer submission
 
         function filterQuestions(questionsArray){
             return questionsArray.filter(question => !question.disabled)
@@ -170,6 +170,13 @@ class Gameboard {
 
         function setupOverlay(variableValue){
             $('#variable-value-overlay').text(variableValue); 
+            $('#gameboard-overlay-content form').removeClass("hide");
+            $('answer-feedback').addClass('hide');
+            $('#gameboard-overlay-content').removeClass("correct-user-answer").removeClass("incorrect-user-answer"); 
+            $('#answer-feedback i').removeClass();
+            $('#answer-feedback .feedback1').text("");
+            $('#answer-feedback .feedback2').text("");
+            $('#answer-feedback .feedback3').text("");
         }
 
         function addGridEventListeners(){
@@ -184,25 +191,27 @@ class Gameboard {
                 let currentEventTarget = clickEvent.currentTarget; 
                 this.currentQuestionId = currentEventTarget.questionId; 
                 let cloneMjx = currentEventTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
+                
+                console.log(cloneMjx, "test");
+                
                 showOverlay.bind(this)(cloneMjx); // unhides overlay to user, sets overlay content, turns on overlay event listeners
 
                 function showOverlay(mjxContent){
                     $('#player-answer').val(""); // empties #player-answer input field
-                    $('#gameboard-overlay-content').removeClass("correct-user-answer").removeClass("incorrect-user-answer"); // remove classes before unhiding
                     $('#gameboard-active-question span').prepend(mjxContent); //adds mjx-container element from selected DOM element to overlay
                     $('#choose-again-button').click(chooseAgainHandler.bind(this)); // turn on event listeners for overlay buttons
                     $('#submit-player-answer-button').click(userAnswerSubmitHandler.bind(this)); 
                     $('#gameboard-overlay').removeClass('hide'); // finally, unhide
 
                     // called by both chooseAgainHandler and userAnswerSubmitHandler
-                    function hideGameboardOverlay() {
+                    function hideGameboardOverlay(delay) {
                         $('#choose-again-button').off("click"); // turn off event overlay listeners
                         $('#submit-player-answer-button').off("click");
                         // delay hiding of overlay by 4 seconds
                         setTimeout(() => {
                             $('#gameboard-overlay').addClass('hide');
                             $('#gameboard-active-question span').children().remove(); 
-                        }, 4000);
+                        }, delay);
                     }
                     
                     // EVENT LISTENER FOR #choose-again-button ELEMENT
@@ -210,10 +219,10 @@ class Gameboard {
                         clickEvent.preventDefault();
                         clickEvent.stopPropagation();
                         this.currentQuestionId = null; 
-                        hideGameboardOverlay.bind(this)();
+                        hideGameboardOverlay.bind(this)(200);
                     }
                     
-                    // EVENT LISTENER FOR ##submit-player-answer-button ELEMENT
+                    // EVENT LISTENER FOR #submit-player-answer-button ELEMENT
                     function userAnswerSubmitHandler(submitEvent) {
                         submitEvent.preventDefault();
                         submitEvent.stopPropagation();
@@ -229,23 +238,30 @@ class Gameboard {
                             if (userAnswerNumber === correctAnswer) { 
                                 correctBool = true;
                                 $('#gameboard-overlay-content').addClass("correct-user-answer");
+                                $('#answer-feedback i').addClass("fas fa-check-circle"); // CREDIT: https://fontawesome.com/
+                                $('#answer-feedback .feedback1').text("Correct!");
                             } else {
                                 correctBool = false;
                                 $('#gameboard-overlay-content').addClass("incorrect-user-answer");
+                                $('#answer-feedback i').addClass("fas fa-times-circle"); // CREDIT: https://fontawesome.com/ 
+                                $('#answer-feedback .feedback1').text(`Incorrect, the correct answer is: ${correctAnswer}`);
                             }
                             
                             disableQuestion.bind(this)(questionId); // if a valid user attempt has been made, disable question
                             this.currentQuestionId = null; 
-                            hideGameboardOverlay.bind(this)(); // 4 second delay
+                            hideGameboardOverlay.bind(this)(5000); // 5 second delay for answer feedback
 
                             // store ranking of current question and calculate the score for turn 
                             let activeQuestionRanking = this.questions.find(question => question.id === questionId).ranking; // get the ranking of the active question
                             let playerTurnScore = calculateTurnScore(correctBool, activeQuestionRanking); // calculate the score based on user input and active question ranking
 
 
-                            // **** Add function to display feedback to player after response submitted 
+                            $('#answer-feedback .feedback2').text(`Chosen question value ranking: ${activeQuestionRanking+1}`); // adjust ranking to be 1-indexed for user
+                            $('#answer-feedback .feedback3').text(`Score for your turn: ${playerTurnScore}`);
+                            $('#gameboard-overlay-content form').addClass("hide");
+                            $('#answer-feedback').removeClass('hide');
 
-                            $('.gameboard-grid-item').off("click"); // remove event listeners
+                            $('.gameboard-grid-item').off("click"); // remove event listeners from gameboard grid
                             $('.gameboard-grid-item').removeClass("cursor");
                             // set up window component for new turn and update scoreboard for end of turn
                             window.scoreboard.endPlayerTurn(playerTurnScore); 
@@ -259,12 +275,12 @@ class Gameboard {
                         } 
 
                         // returns the score for a player's turn
-                        // highest: 10 points, 2nd: 5, 3rd: 4, 4th: 3, 5th: 2, 6th: 1, other: 0, incorrect: -1
+                        // highest: 6 points, 2nd: 5, 3rd: 4, 4th: 3, 5th: 2, other: 1 incorrect: -1
                         function calculateTurnScore(responseCorrect, questionRanking){
                             if (!responseCorrect) {
                                 return -1;
                             } else if (questionRanking === 0) {
-                                return 10;
+                                return 6;
                             } else if (questionRanking > 0 && questionRanking < 5) {
                                 return (-1*questionRanking + 6);
                             } else {

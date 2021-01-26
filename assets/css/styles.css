@@ -270,8 +270,9 @@ body {
   color: #00bbf9;
 }
 #gameover-modal #final-results-wrapper #player1-result, #gameover-modal #final-results-wrapper #player2-result {
-  padding: 3rem 2.5rem;
-  margin: 0.5rem;
+  padding: 3rem;
+  margin: 0.5rem 1rem;
+  width: 40%;
 }
 #gameover-modal #final-results-wrapper #player1-result .name, #gameover-modal #final-results-wrapper #player2-result .name {
   font-size: 2rem;
@@ -692,7 +693,7 @@ body {
 }
 #gameboard-overlay-content h3 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 1rem 0.5rem;
 }
 #gameboard-overlay-content #gameboard-active-question span {
@@ -706,9 +707,27 @@ body {
   align-items: center;
   padding: 1rem 0.5rem;
 }
+#gameboard-overlay-content form.hide {
+  display: none;
+}
 #gameboard-overlay-content form input, #gameboard-overlay-content form button {
   margin: 0.5rem;
   padding: 0.5rem;
+}
+#gameboard-overlay-content #answer-feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#gameboard-overlay-content #answer-feedback i {
+  font-size: 3rem;
+  padding: 0.5rem;
+}
+#gameboard-overlay-content #answer-feedback span {
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  text-align: center;
 }
 #gameboard-overlay-content.correct-user-answer {
   background-color: #0ae90a;
