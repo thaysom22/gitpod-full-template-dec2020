@@ -58,20 +58,22 @@ body {
 }
 .info-contents {
   color: #fee440;
+  font-family: "arbeiBerry", sans-serif;
   position: absolute;
   width: 80%;
   max-width: 50rem;
   z-index: 150;
   font-size: 1.5rem;
+  text-align: center;
   left: 50%;
   top: 50%;
-  padding: 8rem 5rem;
+  padding: 3rem;
+  border-style: solid;
+  border-color: #fee440;
+  border-width: 0.25rem;
+  border-radius: 2rem;
   transform: translate(-50%, -50%);
   background-color: #9b5de5;
-  border-style: solid;
-  border-color: black;
-  border-width: 0.25rem;
-  border-radius: 50%;
   box-shadow: 0 0 1.5rem black;
 }
 .info-contents.hide {
@@ -697,8 +699,9 @@ body {
 }
 #gameboard-overlay-content h3 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   padding: 1rem 0.5rem;
+  font-family: "arbeiBerry", sans-serif;
 }
 #gameboard-overlay-content #gameboard-active-question span {
   font-size: 3rem;
@@ -741,6 +744,9 @@ body {
 }
 #gameboard-overlay-content #player-answer-error-message {
   font-size: 2rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  color: red;
 }
 
 @media screen and (min-width: 767px) {

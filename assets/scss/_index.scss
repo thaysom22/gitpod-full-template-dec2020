@@ -47,17 +47,19 @@ body{
 
 .info-contents{
     color: base.$yellow;
+    font-family: base.$title-font;
     position: absolute;
     width: 80%;
     max-width: 50rem;
     z-index: 150;
     font-size: 1.5rem;
+    text-align: center;
     left: 50%;
     top: 50%;
-    padding: 8rem 5rem;
+    padding: 3rem;
+    @include base.elliptical-border($color: base.$yellow, $radius: 2rem);
     transform: translate(-50%,-50%);
     background-color: base.$purple;
-    @include base.elliptical-border();
     @include base.box-shadow($blur-radius: 1.5rem);
 
     &.hide{

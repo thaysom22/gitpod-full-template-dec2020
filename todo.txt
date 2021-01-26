@@ -41,12 +41,13 @@ RUNNING TASKS (commit after each)
 * add cursor:pointer to gameboard items when event listeners are active
 * add pulsing to ? icon and restart game button
 * added calculate score message in gameboard overlay
-
-
-* style buttons, error message in gameboard overlay
-* Choose new body font(s)? (more readable)
-* add user feedback visual effects to all interactive elements (hover, click)
 * fix gameboard grid horizontal margins
+
+* perform full manual testing on all elements of page of layout, sizing on different screen sizes
+* Perform full manual testing of functionality of game
+* style buttons in gameboard overlay
+* add user feedback visual effects to all interactive elements (hover, click)
+
 * deploy site
 * Facilitate user interaction with keyboard
 * implement responsiveness of all element sizes, positioning and readability
