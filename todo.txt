@@ -48,6 +48,8 @@ RUNNING TASKS (commit after each)
 * style buttons in gameboard overlay
 * add user feedback visual effects to all interactive elements (hover, click)
 
+
+* confirm no error messages or log messages in console
 * deploy site
 * Facilitate user interaction with keyboard
 * implement responsiveness of all element sizes, positioning and readability

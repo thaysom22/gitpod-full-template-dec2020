@@ -41,11 +41,14 @@ body {
 
 #grid-container-body {
   width: 100%;
-  padding: 1rem;
 }
 
 body {
   font-family: "reallyFree", cursive;
+}
+
+#grid-container-body {
+  padding: 0.25rem;
 }
 
 @media screen and (min-width: 1023px) {
@@ -135,6 +138,9 @@ body {
   display: none;
 }
 
+#welcome-input-form-wrapper {
+  margin-bottom: 2rem;
+}
 #welcome-input-form-wrapper.hide {
   display: none;
 }
@@ -165,14 +171,14 @@ body {
   font-size: 2.5rem;
 }
 #welcome-input-form-wrapper .player-name-wrapper input {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 #welcome-input-form-wrapper input {
   text-align: center;
 }
 #welcome-input-form-wrapper span {
   margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 #welcome-input-form-wrapper .choose-difficulty-wrapper {
   width: 75%;
@@ -185,7 +191,7 @@ body {
 }
 #welcome-input-form-wrapper .choose-difficulty-wrapper label {
   padding: 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 #welcome-input-form-wrapper #welcome-modal-error-message1,
 #welcome-input-form-wrapper #welcome-modal-error-message2 {
@@ -218,20 +224,39 @@ body {
   margin-top: 1rem;
   cursor: pointer;
   outline: none;
+  /* Grow Rotate  CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css  */
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
 }
-#welcome-input-form-wrapper #start-game-button:focus {
+#welcome-input-form-wrapper #start-game-button:focus, #welcome-input-form-wrapper #start-game-button:hover {
   outline: none;
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+}
+#welcome-input-form-wrapper #start-game-button:active {
+  outline: none;
+  -webkit-transform: scale(0.9) rotate(4deg);
+  transform: scale(0.9) rotate(4deg);
 }
 
 @media screen and (min-width: 767px) {
+  #welcome-input-form-wrapper .player-name-wrapper {
+    height: 15rem;
+  }
   #welcome-input-form-wrapper .player-name-wrapper label {
     font-size: 3rem;
   }
   #welcome-input-form-wrapper .player-name-wrapper input {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   #welcome-input-form-wrapper span {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   #welcome-input-form-wrapper .choose-difficulty-wrapper label {
     padding: 0.75rem;
@@ -629,8 +654,6 @@ body {
 }
 #gameboard-wrapper {
   position: relative;
-  margin-left: 1rem;
-  margin-right: 1rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -752,6 +775,8 @@ body {
 @media screen and (min-width: 767px) {
   #gameboard-grid-container {
     grid-template: repeat(4, 10rem)/repeat(4, 1fr);
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .gameboard-grid-item span {
@@ -862,14 +887,17 @@ body {
 }
 
 @media screen and (min-width: 767px) {
-  #about-trigger-wrapper {
+  #about-trigger-wrapper,
+.modal-about-trigger-wrapper {
     padding-bottom: 0.2rem;
   }
-  #about-trigger-wrapper i {
-    font-size: 2.75rem;
+  #about-trigger-wrapper i,
+.modal-about-trigger-wrapper i {
+    font-size: 3.5rem;
   }
-  #about-trigger-wrapper span:not(.sr-only) {
-    font-size: 1.75rem;
+  #about-trigger-wrapper span:not(.sr-only),
+.modal-about-trigger-wrapper span:not(.sr-only) {
+    font-size: 2.5rem;
     padding: 0 0.5rem;
   }
 

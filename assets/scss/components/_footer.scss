@@ -69,14 +69,15 @@
 // ---------------------- tablet
 
 @media screen and (min-width: 767px){
-    #about-trigger-wrapper{
+    #about-trigger-wrapper,
+    .modal-about-trigger-wrapper{
         padding-bottom: 0.2rem;
         
         i{
-            font-size: 2.75rem;
+            font-size: 3.5rem;
         }
         span:not(.sr-only){
-            font-size: 1.75rem;
+            font-size: 2.5rem;
             padding: 0 .5rem;
         }
     }

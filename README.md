@@ -243,6 +243,7 @@ Layout:
 * [WebDevSimplifed YouTube channel](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) for idea for using global reset styles
 * [mathjs docs](https://mathjs.org/docs/index.html) for using API for math.js library
 * [Stack Overflow](https://stackoverflow.com/questions/36489579/this-within-es6-class-method) for .bind() used thoughout JavaScript to preserve this in context 
+* [hover.css](https://ianlunn.github.io/Hover/) used for animation effects on interactive elements of application
 
 ### 7.2 Acknowledgements
 

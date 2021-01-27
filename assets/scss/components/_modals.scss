@@ -65,6 +65,8 @@
 
 #welcome-input-form-wrapper{
 
+    margin-bottom: 2rem;
+
     &.hide{
         display: none;     
     }
@@ -86,7 +88,7 @@
             font-size: 2.5rem;
         }
         input{
-            font-size: 1rem;
+            font-size: 1.5rem;
         }
     }
     input{
@@ -94,7 +96,7 @@
     }
     span{
         margin-top: 2rem;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     .choose-difficulty-wrapper{
 
@@ -104,7 +106,7 @@
         @include base.make-flexbox();
         label{
             padding: 0.75rem;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
         }
     }
 
@@ -139,9 +141,28 @@
         margin-top: 1rem;
         cursor: pointer;
         outline: none;
+
+        /* Grow Rotate  CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css  */
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
     }
-    #start-game-button:focus{
+
+    #start-game-button:focus,#start-game-button:hover{
         outline: none;
+        -webkit-transform: scale(1.1) rotate(4deg);
+        transform: scale(1.1) rotate(4deg);
+    }
+
+    #start-game-button:active{
+        outline: none;
+        -webkit-transform: scale(0.9) rotate(4deg);
+        transform: scale(0.9) rotate(4deg);
     }
 }
 
@@ -150,16 +171,19 @@
 
     #welcome-input-form-wrapper{
         .player-name-wrapper{
+            height: 15rem;
+
             label{
                 
                 font-size: 3rem;
             }
             input{
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
         }
+
         span{
-            font-size: 3rem;
+            font-size: 3.5rem;
         }
         .choose-difficulty-wrapper{
             label{

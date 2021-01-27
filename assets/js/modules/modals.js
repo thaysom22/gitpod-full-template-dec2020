@@ -22,6 +22,9 @@ class WelcomeModal {
         submitEvent.preventDefault(); // prevent default reloading of page on form submission
         submitEvent.stopPropagation(); // prevent form input being appended to url
         
+        
+        $('#start-game-button')[0].blur();
+        
         // verify player1name and player2name inputs
         let player1Name = $('#player1Name').val();
         let player2Name = $('#player2Name').val();
@@ -62,7 +65,7 @@ class WelcomeModal {
             $('#modal-backdrop').addClass("hide");  
         };
 
-        // instantiates compoentsn as global properties in browser and hides welcome modal   
+        // instantiates components as global properties in browser and hides welcome modal   
         function startGame(player1Name, player2Name, difficultySetting) {
             window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
             window.gameboard = new Gameboard(difficultySetting); 

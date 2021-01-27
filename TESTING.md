@@ -123,12 +123,35 @@ Testing of all client stories from README.md file:
     * Total player scores and remaining turns are displayed so players can measure their performance against each other and see improvement over multiple games.
     * Final scores for each player and the winner the game are displayed at the end of the game so players can track their performance over multiple games
 
+## 2. Manual testing
+
+Testing of display and functionality of all components of the application:
+
+### 1. Welcome modal
+
+**Main functions**
+
+* When url of site is loaded, the welcome modal displays with an overlay covering the main game behind.
+* When the modal is viewed on mobile screen, all content is positioned correctly and text is readable and fits comfortably on smaller screen.
+* When the modal is viewed on mobile screen and the content height exceed viewport height, the modal content scrolls and modal frame itself remains vertically centered.
+* When the modal is viewed on a tablet screen, font sizes are readable and elements are positioned correctly and sized proportionally.
+* When viewed on a desktop screen and above, modal content is centered horizontally and maintains structure by remaining at maximum width.
+* When url of site is loaded, player name inputs are blank and display placeholder text. No difficulty level is selected. 
+* When characters are input to player name inputs and/or a difficulty level radio button is selected and the page is refreshed without clicking 'start game', then page displays exactly as originally loaded.
+* When either player name is left blank and 'start game' button is clicked - error message is displayed and modal remains visible and unchanged.
+* When either player name is longer than 10 characters and 'start game' button is clicked - error message is displayed and modal remains visible and unchanged.
+* When neither difficulty level is selected and 'start game' button is clicked - error message is displayed and modal remains visible and unchanged.
+* When either player name is left blank AND neither difficulty level is selected, when 'start game' button is clicked - two error messages are displayed and modal remains visible and unchanged.
+* When player names between 1 and 10 characters are entered and a difficulty leve is selected, when 'start game' button is clicked, the welcome modal hides with no error messages and the main gamebaord is visible.
+* When start game button is hovered over with mouse or focussed with keyboard it exhibits a grow-rotate effect and a shrink effect when move/keyboard is pressed.
+
+**Info popover**
 
 
 
 
 
-
+**Modal footer**
 
 
 
@@ -148,3 +171,6 @@ Testing of all client stories from README.md file:
 * MathJax content not rendering as intended after HTML is updated by javascript (prompted by user interactions). Fix: added a call to  MathJax.typeset() function to render updated html content after expressions for questions have been generated during gameboard setup.
 * Gameboard grid element has uneven horizontal space either side and is pushed up against the right edge of viewport. Fix: removed margins from grid item and added padding to main wrapper for page.
 * Info (how to play) content not easily readable on mobile. Fix: changed font to title font and changed shape of element to more rectangular so it is less cramped on screen.
+* Player name boxes too wide in welcome modal. Fix: decreased value of 'characters' attribute of these input elements from 10 to 8.
+* Error messages in welcome modal overlap about footer trigger on tablet screen. Fix: added margin bottom to welcome input form wrapper. 
+* Start game button hover grow-rotate effect remains after button is clicked and no longer being hovered over. Fix: added call to .blur() DOM method on this element during click event handler.
