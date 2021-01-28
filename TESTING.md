@@ -129,7 +129,7 @@ Testing of display and functionality of all components of the application:
 
 ### 1. Welcome modal
 
-**Main functions**
+**Main functions and layout**
 
 * When url of site is loaded, the welcome modal displays with an overlay covering the main game behind.
 * When the modal is viewed on mobile screen, all content is positioned correctly and text is readable and fits comfortably on smaller screen.

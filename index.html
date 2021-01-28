@@ -25,13 +25,13 @@
     <!-- Main heading section -->
     <header id="header-wrapper" class="section-wrapper">
         <h1 id="main-heading" class="heading">Substitution Skirmish!</h1>
-        <div id="header-info-wrapper" class="trigger-wrapper" aria-label="Click to view instructions on how to play">
+        <div id="header-info-wrapper" class="trigger-wrapper" title="How to Play" aria-label="Click to view instructions on how to play">
             <!-- CREDIT: Font Awesome -->
-            <i aria-hidden="true" class="fas fa-info-circle" title="How to Play"></i>
+            <i aria-hidden="true" class="fas fa-info-circle"></i>
             <span>How to Play</span>
         </div>
     </header>
-    <div class="hide info-contents" aria-label="Instructions on how to play">
+    <div class="hide info-contents" aria-label="Instructions on how to play" title="Instructions">
         <ol>
             <li>Enter names for both players and choose a difficulty level</li>
             <li>Player 1 clicks on ? icon to generate a random number for the value of x</li>
@@ -47,10 +47,10 @@
     <!-- Click to play section -->
     <section id="click-to-play-wrapper" class="section-wrapper">
         <span id="current-player-name"></span>
-        <div id="random-number-wrapper" class="trigger-wrapper" aria-label="Click to generate random number">
+        <div id="random-number-wrapper" class="trigger-wrapper" aria-label="Click to play" title="Click to play">
             <!-- CREDIT: Font Awesome -->
-            <i aria-hidden="true" class="fas fa-question"  title="Click to Play"></i>
-            <span id="variable-value" class="hide"></span>
+            <i aria-hidden="true" class="fas fa-question" aria-label="Click to start turn"></i>
+            <span id="variable-value" class="hide" aria-label="Random number"></span>
         </div>
         <div id="counttimer-wrapper" class="trigger-wrapper">
             <p id="click-to-play-instruction">Click to Play!</p>
@@ -59,7 +59,7 @@
 
     <!-- Scoreboard section -->
     <section id="scoreboards-wrapper" class="section-wrapper">
-        <div id="player1-scoreboard" class="player-scoreboard">
+        <div id="player1-scoreboard" class="player-scoreboard" title="player 1 scoreboard" aria-label="player 1 scoreboard">
             <h4 class="scoreboard-title">player1Name</h4>
             <div class="main-score">
                 <div class="score-turns">
@@ -70,7 +70,7 @@
                 <span class="label">SCORE</span>
             </div>   
         </div>
-        <div id="player2-scoreboard" class="player-scoreboard">
+        <div id="player2-scoreboard" class="player-scoreboard" title="player 2 scoreboard" aria-label="player 2 scoreboard">
             <h4 class="scoreboard-title">player2Name</h4>
             <div class="main-score">
                 <div class="score-turns">
@@ -86,19 +86,19 @@
     <!-- Main gameboard section -->
     <section id="gameboard-wrapper" class="section-wrapper">
         <!-- gameboard overlay - hidden until grid item is clicked during a player turn --> 
-        <div id="gameboard-overlay" class="hide">
+        <div id="gameboard-overlay" class="hide" aria-label="gameboard anwser question">
             <div id="gameboard-overlay-content">
                 <div id="gameboard-active-question">
-                    <span></span>
+                    <span aria-label="chosen mathematical expression" title="chosen mathematical expression"></span>
                 </div>
                 <h3>Evaluate when x = <span id="variable-value-overlay"></span></h3>
                 <form>
-                    <input type="text" id="player-answer" name="playerAnswer" size="4" >
-                    <span id="player-answer-error-message"></span>
-                    <button id="submit-player-answer-button" type="submit">Enter</button>
-                    <button id="choose-again-button" type="button">Choose again</button>
+                    <input type="text" id="player-answer" name="playerAnswer" size="4" aria-label="Enter answer here" title="Enter answer here">
+                    <span id="player-answer-error-message" aria-label="Answer error message" title="Answer error message"></span>
+                    <button id="submit-player-answer-button" type="submit" title="Submit answer" aria-label="submit answer">Enter</button>
+                    <button id="choose-again-button" type="button" title="Choose again" aria-label="Choose again">Choose again</button>
                 </form>
-                <div id="answer-feedback" class="hide">
+                <div id="answer-feedback" class="hide" aria-label="feedback on answer">
                     <i></i>
                     <span class="feedback1"></span>
                     <span class="feedback2"></span>
@@ -129,10 +129,10 @@
     <!-- Footer section -->
     <footer id="footer-wrapper" class="section-wrapper">
         <!-- On page load about-trigger has plus icon and footer content is not visible  -->
-        <div id="about-trigger-wrapper" class="trigger-wrapper" aria-label="Click to view ABOUT section content">
+        <div id="about-trigger-wrapper" class="trigger-wrapper" aria-label="view ABOUT section content" title="view ABOUT section content">
             <span>ABOUT</span>
             <!-- CREDIT: Font Awesome -->
-            <i aria-hidden="true" class="fas fa-plus-square"  title="Click to view ABOUT section"></i>   
+            <i aria-hidden="true" class="fas fa-plus-square"></i>   
         </div>
         <div id="about-content-wrapper" class="section-wrapper hide">
             <div id="dev-portfolio-wrapper">
@@ -161,18 +161,18 @@
 
 <!-- MODALS -->
 <!-- Welcome modal - open when document is loaded in browser -->
-<div class="modal" id="welcome-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="Welcome-to-the-game" aria-hidden="true">
+<div class="modal" id="welcome-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="Welcome modal" aria-hidden="true">
     <div class="modal-content">
         <!-- Main heading section within modal -->
         <header class="section-wrapper modal-header-wrapper">
             <h1 class="heading modal-main-heading">Substitution Skirmish!</h1>
-            <div class="trigger-wrapper modal-header-info-wrapper" aria-label="Click to view instructions on how to play">
+            <div class="trigger-wrapper modal-header-info-wrapper" title="How to Play" aria-label="instructions on how to play">
                 <!-- CREDIT: Font Awesome -->
-                <i aria-hidden="true" class="fas fa-info-circle" title="How to Play"></i>
+                <i aria-hidden="true" class="fas fa-info-circle"></i>
                 <span>How to Play</span>
             </div>
         </header>
-        <div class="hide info-contents" aria-label="Instructions on how to play">
+        <div class="hide info-contents" title="Instructions" aria-label="Instructions on how to play">
             <ol>
                 <li>Enter names for both players and choose a difficulty level</li>
                 <li>Player 1 clicks on ? icon to generate a random number for the value of x</li>
@@ -190,38 +190,38 @@
             <form id="welcome-modal-form" autocomplete="off">
                 <div class="player-name-wrapper">
                     <label for="player1Name">Player 1</label>
-                    <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="8">
+                    <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="8" title="player 1 name" aria-label="Enter player 1 name">
                 </div>
                 <div class="player-name-wrapper">
                     <label for="player2Name">Player 2</label>
-                    <input type="text" id="player2Name" name="player2Name" placeholder="Enter Name" size="8">
+                    <input type="text" id="player2Name" name="player2Name" placeholder="Enter Name" size="8" title="player 2 name" aria-label="Enter player 2 name">
                 </div>
                 <span>Choose difficulty level:</span>
                 <div class="choose-difficulty-wrapper">
-                    <input type="radio" id="easier" name="difficultyLevel" value="easier">
+                    <input type="radio" id="easier" name="difficultyLevel" value="easier" title="Easier difficulty" aria-label="Easier difficulty">
                     <label for="easier">Easier</label>
-                    <input type="radio" id="harder" name="difficultyLevel" value="harder">
+                    <input type="radio" id="harder" name="difficultyLevel" value="harder" title="Harder difficulty" aria-label="Harder difficulty">
                     <label for="harder">Harder</label>
                 </div>
                 <div id="start-game-button-wrapper">
-                    <input id="start-game-button" type="submit" value="Start Game">
+                    <input id="start-game-button" type="submit" value="Start Game" title="Start game" aria-label="Click to start game">
                 </div>
-                <span id="welcome-modal-error-message1"></span>
-                <span id="welcome-modal-error-message2"></span>
+                <span id="welcome-modal-error-message1" title="Player name error" aria-label="player name error message"></span>
+                <span id="welcome-modal-error-message2" title="Choose a difficulty error" aria-label="difficulty error message"></span>
             </form>
         </div>
 
         <!-- Footer section in modal -->
         <footer class="section-wrapper modal-footer-wrapper">
-           <div class="modal-about-trigger-wrapper trigger-wrapper" aria-label="Click to view ABOUT section content">
+           <div class="modal-about-trigger-wrapper trigger-wrapper" title="View ABOUT section" aria-label="View ABOUT section content">
                 <span>ABOUT</span>
                 <!-- CREDIT: Font Awesome -->
-                <i aria-hidden="true" class="fas fa-plus-square"  title="Click to view ABOUT section"></i>   
+                <i aria-hidden="true" class="fas fa-plus-square"></i>   
             </div>
             <div class="section-wrapper modal-about-content-wrapper hide">
                 <div class="modal-dev-portfolio-wrapper">
                     <a href="https://thaysom22.github.io/portfolio_project/" target="_blank" aria-label="Click to open Thomas Haysom Developer Portfolio" title="Thomas Haysom - Developer Portfolio">
-                    <i class="far fa-file" aria-hidden="true" title="Click to open developer portfolio"></i>
+                    <i class="far fa-file" aria-hidden="true" title="Link to developer portfolio" aria-label="Link to developer portfolio"></i>
                     <span>thaysom22</span>
                     <span>Developer Portfolio</span>
                     </a>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="modal-github-repo-wrapper">
                     <a href="https://github.com/thaysom22/maths-substitution-game" target="_blank" aria-label="Click to open GitHub repo for this site" title="GitHub Repo: maths-substitution-game">
-                    <i class="fab fa-github-square" aria-hidden="true" title="Click to open GitHub repo for this site"></i>
+                    <i class="fab fa-github-square" aria-hidden="true" title="Link to GitHub repo for this site" aria-label="Link to GitHub repo for this site"></i>
                     <span>Code for this site</span>
                     <span>Suggestions welcome!</span>
                     </a>
@@ -267,17 +267,17 @@
         <!-- Buttons section of gameover modal -->
         <div id="gameover-buttons-wrapper" class="section-wrapper">
             
-            <button id="restart-game-button" class="gameover-button">Restart</button>
+            <button id="restart-game-button" class="gameover-button" title="restart game" aria-label="restart game">Restart</button>
             <a href="." target="_self">
-                <button id="new-game-button" class="gameover-button">New Game</button>
+                <button id="new-game-button" class="gameover-button" title="new game" aria-label="new game">New Game</button>
             </a>
         </div>
         <!-- Footer section in modal -->
         <footer class="section-wrapper modal-footer-wrapper">
-            <div class="modal-about-trigger-wrapper trigger-wrapper" aria-label="Click to view ABOUT section content">
+            <div class="modal-about-trigger-wrapper trigger-wrapper" title="View ABOUT section" aria-label="View ABOUT section content">
                 <span>ABOUT</span>
                 <!-- CREDIT: Font Awesome -->
-                <i aria-hidden="true" class="fas fa-plus-square"  title="Click to view ABOUT section"></i>   
+                <i aria-hidden="true" class="fas fa-plus-square"></i>   
             </div>
             <div class="section-wrapper modal-about-content-wrapper hide">
                 <div class="modal-dev-portfolio-wrapper">
