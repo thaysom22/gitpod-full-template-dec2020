@@ -81,19 +81,38 @@
     #gameboard-active-question span{
         font-size: 3rem;
         padding: 1rem 0.5rem;
+        margin-top: 1rem;
     }
 
     form{
-        @include base.make-flexbox($direction: column);
+        @include base.make-flexbox($direction: column,);
+        justify-items: flex-start;
         padding: 1rem 0.5rem;
 
         &.hide{
             display: none;
         }
 
-        input,button{
+        input{
             margin: 0.5rem;
             padding: 0.5rem;
+            font-size: 2rem;
+        }
+
+        button{
+            background-color: base.$blue;
+            padding: 1rem;
+            color: base.$yellow;
+            font-family: base.$title-font;
+            font-size: 1.5rem;
+            font-weight: bold;
+            @include base.elliptical-border($color: base.$yellow, $width: 0.3rem);
+            @include base.box-shadow($blur-radius: 1rem,);
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            outline: none;
+            @include base.grow;
         }
     }
 

@@ -143,15 +143,17 @@ Testing of display and functionality of all components of the application:
 * When neither difficulty level is selected and 'start game' button is clicked - error message is displayed and modal remains visible and unchanged.
 * When either player name is left blank AND neither difficulty level is selected, when 'start game' button is clicked - two error messages are displayed and modal remains visible and unchanged.
 * When player names between 1 and 10 characters are entered and a difficulty leve is selected, when 'start game' button is clicked, the welcome modal hides with no error messages and the main gamebaord is visible.
-* When start game button is hovered over with mouse or focussed with keyboard it exhibits a grow-rotate effect and a shrink effect when move/keyboard is pressed.
+* When start game button is hovered over with mouse or focussed with keyboard it exhibits a grow effect and a shrink effect when mousee/keyboard is pressed.
+* When mouse cursor is hovered over all elements of welcome modal, the appropriate tool tip appears for user accessibility. 
 
 **Info popover**
 
-
-
-
+* When info button is pressed, a pop over containing instructions appears clearly on page, is readable on all device sizes and scrollable and the info button is still visible.
+* When info button is pressed again, the popover closes and the welcome modal is visible exactly as before popover was opened.
 
 **Modal footer**
+
+* 
 
 
 
@@ -173,4 +175,6 @@ Testing of display and functionality of all components of the application:
 * Info (how to play) content not easily readable on mobile. Fix: changed font to title font and changed shape of element to more rectangular so it is less cramped on screen.
 * Player name boxes too wide in welcome modal. Fix: decreased value of 'characters' attribute of these input elements from 10 to 8.
 * Error messages in welcome modal overlap about footer trigger on tablet screen. Fix: added margin bottom to welcome input form wrapper. 
-* Start game button hover grow-rotate effect remains after button is clicked and no longer being hovered over. Fix: added call to .blur() DOM method on this element during click event handler.
+* Start game button hover grow effect remains after button is clicked and no longer being hovered over. Fix: added call to .blur() DOM method on this element during click event handler.
+* Start game button hover grow effect STILL remains after button is pressed on mobile until screen is pressed elsewhere. Fix: added CSS4 'hover' media query. CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/
+* On smaller mobile screens, info popover covered button in header. Fix: font size reduced on mobile and max height set using viewport height units.

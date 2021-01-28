@@ -49,6 +49,37 @@ $section-margins: 0.5rem 0.2rem;
 
 }
 
+@mixin grow {
+    /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    
+    /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
+    // hover effect not applied for touchscreen devices to avoi sticky hover effect
+    @media (hover: hover){
+        &:hover{
+            outline: none;
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+    }
+
+    &:focus{
+        outline: none;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    &:active{
+        outline: none;
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }  
+}
+
 // pulse effect
 
 // CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css

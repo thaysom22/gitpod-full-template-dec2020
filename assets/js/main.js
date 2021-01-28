@@ -5,6 +5,7 @@ window.welcomeModal = new WelcomeModal(); // global property in browser
 addAboutSectionListener(); // add event listeners to 'about' triggers in modals
 addModalInfoListener();
 addMainInfoListener();
+$('button,.trigger-wrapper').on("touchend", function(){this.blur()}); // remove focus after interaction on mobile
 
 // footer .hide toggle 
 function addAboutSectionListener(){

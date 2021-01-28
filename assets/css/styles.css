@@ -65,8 +65,9 @@ body {
   position: absolute;
   width: 80%;
   max-width: 50rem;
+  max-height: 60vh;
   z-index: 150;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
   left: 50%;
   top: 50%;
@@ -200,6 +201,7 @@ body {
   text-align: center;
   color: red;
   height: 1rem;
+  font-size: 1.5rem;
 }
 #welcome-input-form-wrapper #welcome-modal-error-message1 {
   margin-top: -0.5rem;
@@ -224,25 +226,30 @@ body {
   margin-top: 1rem;
   cursor: pointer;
   outline: none;
-  /* Grow Rotate  CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css  */
-  display: inline-block;
+  /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
-#welcome-input-form-wrapper #start-game-button:focus, #welcome-input-form-wrapper #start-game-button:hover {
+@media (hover: hover) {
+  #welcome-input-form-wrapper #start-game-button:hover {
+    outline: none;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#welcome-input-form-wrapper #start-game-button:focus {
   outline: none;
-  -webkit-transform: scale(1.1) rotate(4deg);
-  transform: scale(1.1) rotate(4deg);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 #welcome-input-form-wrapper #start-game-button:active {
   outline: none;
-  -webkit-transform: scale(0.9) rotate(4deg);
-  transform: scale(0.9) rotate(4deg);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 @media screen and (min-width: 767px) {
@@ -331,6 +338,30 @@ body {
   border-width: 0.3rem;
   border-radius: 50%;
   box-shadow: 0 0 1rem black;
+  /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
+}
+@media (hover: hover) {
+  #gameover-modal #gameover-buttons-wrapper button:hover {
+    outline: none;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#gameover-modal #gameover-buttons-wrapper button:focus {
+  outline: none;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#gameover-modal #gameover-buttons-wrapper button:active {
+  outline: none;
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #gameover-modal #gameover-header {
   font-size: 4rem;
@@ -367,6 +398,33 @@ body {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
+}
+@media (hover: hover) {
+  #header-info-wrapper:hover,
+.modal-header-info-wrapper:hover {
+    outline: none;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#header-info-wrapper:focus,
+.modal-header-info-wrapper:focus {
+  outline: none;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#header-info-wrapper:active,
+.modal-header-info-wrapper:active {
+  outline: none;
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #header-info-wrapper i,
 .modal-header-info-wrapper i {
@@ -729,20 +787,64 @@ body {
 #gameboard-overlay-content #gameboard-active-question span {
   font-size: 3rem;
   padding: 1rem 0.5rem;
+  margin-top: 1rem;
 }
 #gameboard-overlay-content form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-items: flex-start;
   padding: 1rem 0.5rem;
 }
 #gameboard-overlay-content form.hide {
   display: none;
 }
-#gameboard-overlay-content form input, #gameboard-overlay-content form button {
+#gameboard-overlay-content form input {
   margin: 0.5rem;
   padding: 0.5rem;
+  font-size: 2rem;
+}
+#gameboard-overlay-content form button {
+  background-color: #00bbf9;
+  padding: 1rem;
+  color: #fee440;
+  font-family: "arbeiBerry", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-style: solid;
+  border-color: #fee440;
+  border-width: 0.3rem;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem black;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  outline: none;
+  /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
+}
+@media (hover: hover) {
+  #gameboard-overlay-content form button:hover {
+    outline: none;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#gameboard-overlay-content form button:focus {
+  outline: none;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#gameboard-overlay-content form button:active {
+  outline: none;
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #gameboard-overlay-content #answer-feedback {
   display: flex;
@@ -813,6 +915,33 @@ body {
   justify-content: center;
   align-items: center;
   padding-bottom: 0.1rem;
+  /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
+}
+@media (hover: hover) {
+  #about-trigger-wrapper:hover,
+.modal-about-trigger-wrapper:hover {
+    outline: none;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#about-trigger-wrapper:focus,
+.modal-about-trigger-wrapper:focus {
+  outline: none;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#about-trigger-wrapper:active,
+.modal-about-trigger-wrapper:active {
+  outline: none;
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #about-trigger-wrapper i,
 .modal-about-trigger-wrapper i {

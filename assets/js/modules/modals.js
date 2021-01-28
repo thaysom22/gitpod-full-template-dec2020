@@ -24,7 +24,7 @@ class WelcomeModal {
         
         
         $('#start-game-button')[0].blur();
-        
+    
         // verify player1name and player2name inputs
         let player1Name = $('#player1Name').val();
         let player2Name = $('#player2Name').val();
