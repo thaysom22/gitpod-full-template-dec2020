@@ -13,8 +13,6 @@
         visibility: hidden; // keep space on page
     }
     
-    
-    
     .scoreboard-title{
         font-size: 2rem;
         margin: 1rem;
@@ -24,7 +22,7 @@
 
 .player-scoreboard{
     
-    margin: 1rem 1.25rem;
+    margin: 1rem;
     @include base.make-flexbox($direction:column);
     
     .main-score{
@@ -71,25 +69,24 @@
     }
 }
 
-// ------------------------ larger mobile
+// ------------------------ larger mobile/small tablet
 // extra breakpoint added to accommodate scoreboard on smaller viewports
 
-@media screen and (min-width: 450px){
+@media screen and (min-width: 500px){
     .player-scoreboard{
-        
-        margin: 1rem 3rem;
+       
         
         .main-score{
-            height: 9rem;
-            width: 9rem;
+            height: 11rem;
+            width: 11rem;
         }
         
         .score-turns{
             align-self: flex-start;
             position: relative;
             top: -1rem;
-            height: 4rem;
-            width: 4rem;
+            height: 5rem;
+            width: 6rem;
             z-index: 1;
         }
     }
@@ -103,10 +100,36 @@
     #scoreboards-wrapper{
     height: 16rem;
 
-    h4{
-        font-size: 2.5rem;
+        .scoreboard-title{
+            font-size: 3rem;
+        }
     }
-}
+    .player-scoreboard{
+        .main-score{
+            height: 13rem;
+            width: 12rem;
+
+            >.value{
+                font-size: 6rem;
+            }
+
+            >.label{
+                font-size: 2rem;
+            }
+        }
+        .score-turns{
+            height: 6rem;
+            width: 7rem;
+
+            >.value{
+                font-size: 2rem;
+            }
+
+            >.label{
+                font-size: 1.75rem;
+            }
+        }
+    }
 
 }
 

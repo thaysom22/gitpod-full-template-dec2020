@@ -7,6 +7,10 @@
 #footer-wrapper,
 .modal-footer-wrapper{
     @include base.make-flexbox($direction: column);
+
+    &.hide{
+        display: none;
+    }
 }
 
 #about-trigger-wrapper,
@@ -75,10 +79,10 @@
         padding-bottom: 0.2rem;
         
         i{
-            font-size: 3.5rem;
+            font-size: 4rem;
         }
         span:not(.sr-only){
-            font-size: 2.5rem;
+            font-size: 3rem;
             padding: 0 .5rem;
         }
     }

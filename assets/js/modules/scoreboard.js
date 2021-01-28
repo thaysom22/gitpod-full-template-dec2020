@@ -37,9 +37,9 @@ class Scoreboard {
      */
     endPlayerTurn(playerTurnScore) {
 
-        endGameCheck.bind(this)();
         updateScoreboardData.bind(this)(playerTurnScore);
         updateScoreboardDOM.bind(this)();
+        endGameCheck.bind(this)();
         
 
         

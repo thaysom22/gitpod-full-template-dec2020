@@ -7,10 +7,9 @@
 ## Contents
 
 1. Client stories testing
-2. Manual Testing
+2. Manual Testing (with bugs fixed)
 3. Automated testing 
-4. Bugs log
-5. Other testing
+4. Other testing
 
 ## 1. Client stories testing
 
@@ -143,28 +142,74 @@ Testing of display and functionality of all components of the application:
 * When neither difficulty level is selected and 'start game' button is clicked - error message is displayed and modal remains visible and unchanged.
 * When either player name is left blank AND neither difficulty level is selected, when 'start game' button is clicked - two error messages are displayed and modal remains visible and unchanged.
 * When player names between 1 and 10 characters are entered and a difficulty leve is selected, when 'start game' button is clicked, the welcome modal hides with no error messages and the main gamebaord is visible.
-* When start game button is hovered over with mouse or focussed with keyboard it exhibits a grow effect and a shrink effect when mousee/keyboard is pressed.
+* When start game button is hovered over with mouse or focussed with keyboard it exhibits a grow effect and a shrink effect when mouse/keyboard is pressed. On a touch screen a shrink effect is observed while pressed.
 * When mouse cursor is hovered over all elements of welcome modal, the appropriate tool tip appears for user accessibility. 
 
 **Info popover**
 
 * When info button is pressed, a pop over containing instructions appears clearly on page, is readable on all device sizes and scrollable and the info button is still visible.
+* While info popover is open, all other elements of the welcome modal except the heading and info button are hidden and cannot be interacted with. 
 * When info button is pressed again, the popover closes and the welcome modal is visible exactly as before popover was opened.
+* Hover/active grow/shrink effect is observed when button is hovered over, pressed and released on desktop. On a touch screen a shrink effect is observed while pressed.
+
+* TESTS for modal info popover repeated for info popover on main page when modal is closed as form and functionality are very similar.
 
 **Modal footer**
 
-* 
+* When about button at bottom of screen is pressed, footer section is revealed fully without need for scrolling (other content pushed up in viewport). 
+* Hover/active grow/shrink effect is observed when button is hovered over, pressed and released on desktop. On a touch screen a shrink effect is observed while pressed.
+* Links to portfolio and repository direct correctly in a new browser tab. 
+* Hover/active grow/shrink effect is observed when links are hovered over, pressed and released on desktop. On a touch screen a shrink effect is observed while pressed.
+* When footer is visible, all other content on welcome modal can be interacted with as described above.
+* When about button at bottom of screen is pressed while footer is displayed, footer content is hidden and content above moves down.
 
-
-
-
-
-
-
-
-
+* TESTS for modal footer repeated for footer on main page when modal is closed as form and functionality are very similar. 
 
 **Bugs Fixed**
+
+* Info (how to play) content not easily readable on mobile. Fix: changed font to title font and changed shape of element to more rectangular so it is less cramped on screen.
+* Player name boxes too wide in welcome modal. Fix: decreased value of 'characters' attribute of these input elements from 10 to 8.
+* Error messages in welcome modal overlap about footer trigger on tablet screen. Fix: added margin bottom to welcome input form wrapper. 
+* Start game button hover grow effect remains after button is clicked and no longer being hovered over. Fix: added call to .blur() DOM method on this element during click event handler.
+* Start game button hover grow effect STILL remains after button is pressed on mobile until screen is pressed elsewhere. Fix: added CSS4 'hover' media query. CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/
+* On smaller mobile screens, info popover covered button in header. Fix: font size reduced on mobile and max height set using viewport height units.
+* Welcome modal error messages displaying with a large gap between. Fix: removed margins inherited from other styles
+* When info button is pressed with modal footer displayed, the info content covers the footer content. Fix: added javascript to hide all footer content and the footer button when info popover is open.
+
+### 2. Click to play component
+
+* When welcome modal is submitted (with valid player names and a difficulty level selected) and main page is first loaded, click to play component displays with player 1 name, a '?' icon which is pulsing and the text 'click to play' as content.
+* When the ? icon is hovered over the cursor changes to a pointer and pop up text appears. 
+* The click to play compenent content is readable and there is no overlap of elements on all screen sizes. 
+* The position of this component on the main page layout is above the gameboard on mobile and desktop devices and to the left of the gameboard on desktop devices.
+* ? continues to pulse until clicked. When clicked the ? disappears and replaced by a series of random numbers before displaying a final random number and the text 'choose an expression' beneath. The cursor no longer appears as a pointer and nothing now happens if anywhere in the element is clicked.
+* When the gameboard is clicked on and the overlay opened, the content of this component does not change and still nothing happens if it is clicked on. 
+* After the player submits an answer this component remains the same until the gameboard overlay closes. Then the content changes to: player 2 name, pulsing '?' icon and 'click to play!' text.
+* Again, the ? disappears and replaced by a series of random numbers before displaying a final random number and the text 'choose an expression' beneath.
+* This component repeats this pattern of functionality throughout the turns of the game.
+
+### 3. Scoreboard component
+
+* When welcome modal is submitted (with valid player names and a difficulty level selected) and main page is first loaded, scoreboard displays with player 1 name and player 2 name above each sub board. Small cirle has content: 5 turns. Large circle has content: 0 score.
+* The scorebaord is readable and no parts overlap each other or other parts of the page on mobile, tablet and desktop views. 
+* 'player 1 scoreboard' and 'player 2 scoreboard' tooltips appear when respective scoreboards are hovered over. Cursor does not appear as a pointer and nothing happens when scorebaord is clicekd at ANY TIME.
+* After player1 submits a valid answer on gamebaord overlay input and gamebaord overlay hides, the turns remaining on the left subboard (below player 1 name) decreases to 4. If the answer is incorrect, the score decreases by one. If the answer is correct, the score increases by a number between 1 and 5 depending on the ranking of the value of the expression the player chose.
+* After player2 submits a valid answer on gamebaord overlay input and gamebaord overlay hides, the turns remaining on the right subboard (below player 2 name) decreases to 4. If the answer is incorrect, the score decreases by one. If the answer is correct, the score increases by a number between 1 and 5 depending on the ranking of the value of the expression the player chose.
+* After player 1's second turn, the turns remaining on the left subboard (below player 1 name) decreases to 4. If the answer is incorrect, the score decreases by one. If the answer is correct, the score increases by a number between 1 and 5 depending on the ranking of the value of the expression the player chose.
+* The functionality continues thorought the game as above until start of player 2 turn when when player 1 turns = 0 and player 2 turns = 1. Then after player 2 submits valid answer, gameover modal shows: main gameboard, scoreboard and click to play components are hidden and final score are displayed correctly. 
+* When restart game is clicked from gameover modal -scoreboard dispays with same content as when originally displayed after welcome modal submission and all above tests were repeated for scoreboard.
+
+**Bugs fixed**
+
+* Gameover modal does not launch when player 2 turns decrease to zero (game continues). Moved calls to endGameCheck() function to after call to updateScoreboardDOM() function so that when check on player2turns === 0 is performed the scorebaord object is up to date. Also removed setTimeout wrapper from showGameoverModal function so gameover modal is displayed immediately after gameboard overlay is closed.
+
+### Gameboard component
+
+
+
+
+
+
 
 * On final player2 turn the gameover modal was displaying before the user could see the background color change to indicate a correct/incorrect response. Fix: corrected by adding a delay equal to the delay for gameboard overlay feedback to the showGameoverModal function in the GameoverModal constructor
 * Gameover modal always displaying 'this is a draw'. Fix: by corrected arguments passed to calculateScore function to player1Score and player2Score.
@@ -172,9 +217,4 @@ Testing of display and functionality of all components of the application:
 * After a valid answer is submitted in gameboard overlay input, the event listener and pulse effect on the ? click to play element is activated before the gameboard is visible. This is confusing to users and interupts the flow of the game. Fix: a delay equal to the time the gameboard overlay shows for was added before the event listner and pulse effect are added. 
 * MathJax content not rendering as intended after HTML is updated by javascript (prompted by user interactions). Fix: added a call to  MathJax.typeset() function to render updated html content after expressions for questions have been generated during gameboard setup.
 * Gameboard grid element has uneven horizontal space either side and is pushed up against the right edge of viewport. Fix: removed margins from grid item and added padding to main wrapper for page.
-* Info (how to play) content not easily readable on mobile. Fix: changed font to title font and changed shape of element to more rectangular so it is less cramped on screen.
-* Player name boxes too wide in welcome modal. Fix: decreased value of 'characters' attribute of these input elements from 10 to 8.
-* Error messages in welcome modal overlap about footer trigger on tablet screen. Fix: added margin bottom to welcome input form wrapper. 
-* Start game button hover grow effect remains after button is clicked and no longer being hovered over. Fix: added call to .blur() DOM method on this element during click event handler.
-* Start game button hover grow effect STILL remains after button is pressed on mobile until screen is pressed elsewhere. Fix: added CSS4 'hover' media query. CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/
-* On smaller mobile screens, info popover covered button in header. Fix: font size reduced on mobile and max height set using viewport height units.
+

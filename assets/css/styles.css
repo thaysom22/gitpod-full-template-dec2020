@@ -84,6 +84,16 @@ body {
   display: none;
 }
 
+@media screen and (min-width: 767px) {
+  .info-contents {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1023px) {
+  .info-contents {
+    font-size: 1.8rem;
+  }
+}
 .modal-open {
   overflow: hidden;
 }
@@ -151,11 +161,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+#welcome-input-form-wrapper #player-names-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #welcome-input-form-wrapper .player-name-wrapper {
   width: 75%;
   max-width: 25rem;
-  height: 10rem;
-  margin-top: 1rem;
+  height: 12rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -196,7 +213,6 @@ body {
 }
 #welcome-input-form-wrapper #welcome-modal-error-message1,
 #welcome-input-form-wrapper #welcome-modal-error-message2 {
-  margin-top: 1rem;
   padding: 1rem;
   text-align: center;
   color: red;
@@ -205,10 +221,10 @@ body {
 }
 #welcome-input-form-wrapper #welcome-modal-error-message1 {
   margin-top: -0.5rem;
-  margin-bottom: 1rem;
 }
 #welcome-input-form-wrapper #welcome-modal-error-message2 {
   margin-bottom: 2rem;
+  margin-top: 0;
 }
 #welcome-input-form-wrapper #start-game-button {
   background-color: #00bbf9;
@@ -253,11 +269,15 @@ body {
 }
 
 @media screen and (min-width: 767px) {
+  #welcome-input-form-wrapper #player-names-container {
+    flex-direction: row;
+  }
   #welcome-input-form-wrapper .player-name-wrapper {
-    height: 15rem;
+    height: 20rem;
+    margin: 1rem 2rem;
   }
   #welcome-input-form-wrapper .player-name-wrapper label {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   #welcome-input-form-wrapper .player-name-wrapper input {
     font-size: 2rem;
@@ -266,8 +286,13 @@ body {
     font-size: 3.5rem;
   }
   #welcome-input-form-wrapper .choose-difficulty-wrapper label {
-    padding: 0.75rem;
-    font-size: 2rem;
+    padding: 1rem;
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1023px) {
+  #welcome-input-form-wrapper .player-name-wrapper {
+    margin: 2rem;
   }
 }
 #gameover-modal .modal-content {
@@ -453,25 +478,31 @@ body {
   }
 }
 @media screen and (min-width: 767px) {
+  #header-wrapper,
+.modal-header-wrapper {
+    margin-top: 2rem;
+  }
+
   #main-heading,
 .modal-main-heading {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     flex-grow: 4;
   }
 
   #header-info-wrapper i,
 .modal-header-info-wrapper i {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   #header-info-wrapper span,
 .modal-header-info-wrapper span {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
 }
 @media screen and (min-width: 1023px) {
   #header-wrapper {
     grid-area: heading;
     width: 100%;
+    margin-bottom: 3rem;
   }
 
   #main-heading {
@@ -479,10 +510,10 @@ body {
   }
 
   #header-info-wrapper i {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
   #header-info-wrapper span {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 #scoreboards-wrapper {
@@ -502,7 +533,7 @@ body {
 }
 
 .player-scoreboard {
-  margin: 1rem 1.25rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -558,20 +589,17 @@ body {
   font-size: 1.25rem;
 }
 
-@media screen and (min-width: 450px) {
-  .player-scoreboard {
-    margin: 1rem 3rem;
-  }
+@media screen and (min-width: 500px) {
   .player-scoreboard .main-score {
-    height: 9rem;
-    width: 9rem;
+    height: 11rem;
+    width: 11rem;
   }
   .player-scoreboard .score-turns {
     align-self: flex-start;
     position: relative;
     top: -1rem;
-    height: 4rem;
-    width: 4rem;
+    height: 5rem;
+    width: 6rem;
     z-index: 1;
   }
 }
@@ -579,8 +607,29 @@ body {
   #scoreboards-wrapper {
     height: 16rem;
   }
-  #scoreboards-wrapper h4 {
-    font-size: 2.5rem;
+  #scoreboards-wrapper .scoreboard-title {
+    font-size: 3rem;
+  }
+
+  .player-scoreboard .main-score {
+    height: 13rem;
+    width: 12rem;
+  }
+  .player-scoreboard .main-score > .value {
+    font-size: 6rem;
+  }
+  .player-scoreboard .main-score > .label {
+    font-size: 2rem;
+  }
+  .player-scoreboard .score-turns {
+    height: 6rem;
+    width: 7rem;
+  }
+  .player-scoreboard .score-turns > .value {
+    font-size: 2rem;
+  }
+  .player-scoreboard .score-turns > .label {
+    font-size: 1.75rem;
   }
 }
 @media screen and (min-width: 1023px) {
@@ -615,7 +664,7 @@ body {
   visibility: hidden;
 }
 #click-to-play-wrapper #current-player-name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 1rem 1rem 0 1rem;
 }
 #click-to-play-wrapper #random-number-wrapper {
@@ -678,11 +727,17 @@ body {
   text-align: center;
 }
 
+@media screen and (min-width: 550px) {
+  #click-to-play-wrapper {
+    margin-left: 2.5rem;
+  }
+}
 @media screen and (min-width: 767px) {
   #click-to-play-wrapper {
-    height: 16rem;
+    height: 18rem;
     width: 40%;
     margin-left: 2rem;
+    margin-bottom: 2rem;
   }
   #click-to-play-wrapper #currentPlayerName {
     font-size: 2rem;
@@ -702,6 +757,7 @@ body {
   }
   #click-to-play-wrapper #currentPlayerName {
     font-size: 3rem;
+    padding: 1rem;
   }
   #click-to-play-wrapper i {
     font-size: 6rem;
@@ -906,6 +962,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+#footer-wrapper.hide,
+.modal-footer-wrapper.hide {
+  display: none;
+}
 
 #about-trigger-wrapper,
 .modal-about-trigger-wrapper {
@@ -1022,11 +1082,11 @@ body {
   }
   #about-trigger-wrapper i,
 .modal-about-trigger-wrapper i {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
   #about-trigger-wrapper span:not(.sr-only),
 .modal-about-trigger-wrapper span:not(.sr-only) {
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding: 0 0.5rem;
   }
 

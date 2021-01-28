@@ -192,8 +192,6 @@ class Gameboard {
                 this.currentQuestionId = currentEventTarget.questionId; 
                 let cloneMjx = currentEventTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
                 
-                console.log(cloneMjx, "test");
-                
                 showOverlay.bind(this)(cloneMjx); // unhides overlay to user, sets overlay content, turns on overlay event listeners
 
                 function showOverlay(mjxContent){

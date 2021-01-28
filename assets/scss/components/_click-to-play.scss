@@ -21,7 +21,7 @@
     }
     
     #current-player-name{
-        font-size: 2rem;
+        font-size: 2.5rem;
         padding: 1rem 1rem 0 1rem;
         
     }
@@ -82,6 +82,16 @@
     }
 }
 
+// ------------------------ larger mobile/small tablet
+// extra breakpoint added to accommodate left margin
+
+@media screen and (min-width:550px){
+    #click-to-play-wrapper{
+        margin-left: 2.5rem;
+    }
+
+}
+
 
 
 
@@ -90,9 +100,10 @@
 
 @media screen and (min-width: 767px){
     #click-to-play-wrapper{
-        height: 16rem;
+        height: 18rem;
         width: 40%;
         margin-left: 2rem;
+        margin-bottom: 2rem;
         
         #currentPlayerName{
             font-size: 2rem;
@@ -116,6 +127,7 @@
         width: 100%;
         #currentPlayerName{
             font-size: 3rem;
+            padding: 1rem;
         }
         i{
             font-size: 6rem;

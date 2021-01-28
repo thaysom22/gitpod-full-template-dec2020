@@ -88,7 +88,7 @@ class GameoverModal{
         let result = calculateWinner(this.player1Score, this.player2Score); // return the winner of the game
         setGameoverModalContentInDOM.bind(this)(result); // set DOM content based upon winner
         addGameoverModalEventListener(this.player1Name, this.player2Name, this.difficultySetting); // add event listener to restart button
-        setTimeout(showGameoverModal, 4000); // delay to allow feedback on user answer for final player2 turn
+        showGameoverModal();
         
         
 

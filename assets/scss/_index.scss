@@ -51,6 +51,8 @@ body{
 
 // how to play info contents
 
+// ----- mobile
+
 .info-contents{
     color: base.$yellow;
     font-family: base.$title-font;
@@ -71,5 +73,21 @@ body{
 
     &.hide{
         display: none;     
+    }
+}
+
+// ---------------------- tablet
+
+@media screen and (min-width: 767px){
+    .info-contents{
+        font-size: 1.4rem;
+    }
+}
+
+// ---------------------- desktop
+
+@media screen and (min-width: 1023px){
+    .info-contents{
+        font-size: 1.8rem;
     }
 }

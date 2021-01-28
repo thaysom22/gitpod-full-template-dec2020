@@ -32,6 +32,7 @@ function addModalInfoListener(){
 
         $('#welcome-modal .info-contents').toggleClass("hide");
         $('#welcome-input-form-wrapper').toggleClass("hide");
+        $('.modal-footer-wrapper').toggleClass("hide");
     }
     
 }
@@ -48,6 +49,7 @@ function addMainInfoListener(){
         $('#click-to-play-wrapper').toggleClass("hide");
         $('#scoreboards-wrapper').toggleClass("hide");
         $('#gameboard-grid-container').toggleClass("hide");
+        $('#footer-wrapper').toggleClass("hide");
     }
     
 }
