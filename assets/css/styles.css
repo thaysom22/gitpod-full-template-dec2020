@@ -67,10 +67,10 @@ body {
   font-family: "arbeiBerry", sans-serif;
   position: absolute;
   width: 80%;
-  max-width: 50rem;
+  max-width: 60rem;
   max-height: 60vh;
   z-index: 150;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
   left: 50%;
   top: 50%;
@@ -105,7 +105,7 @@ body {
 }
 .modal-open .modal {
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .modal {
@@ -137,7 +137,8 @@ body {
   max-height: calc(100vh - 2rem);
   width: 100%;
   background-color: #fff;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .modal-backdrop {
@@ -195,7 +196,7 @@ body {
   font-size: 2.5rem;
 }
 #welcome-input-form-wrapper .player-name-wrapper input {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 #welcome-input-form-wrapper input {
   text-align: center;
@@ -285,7 +286,7 @@ body {
     font-size: 4rem;
   }
   #welcome-input-form-wrapper .player-name-wrapper input {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #welcome-input-form-wrapper span {
     font-size: 3.5rem;

@@ -219,9 +219,14 @@ To deploy this application from it's remote Github repository, the following pro
 
 ### 4.2 How to clone and run this project locally
 
-*
-*
-*
+To clone this project locally from Github:
+
+1. Login to Github as [thaysom22](https://github.com/thaysom22)
+2. Go to the [Github repository page](https://github.com/thaysom22/maths-substitution-game) for this application
+3. Click the 'code' dropdown menu option near the top of the screen.
+4. Select the HTTPS option and copy the URL for the repository.
+5. Open local or cloud IDE with git installed (or built in) e.g gitpod and change current working directory to where clone is to be made. 
+6. Type git clone URL (where URL is the URL copied above) and press enter. Local clone of project will be created.
 
 ## 5. Testing
 

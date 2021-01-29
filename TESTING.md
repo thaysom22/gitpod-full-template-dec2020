@@ -7,7 +7,7 @@
 ## Contents
 
 1. Client stories testing
-2. Manual Testing (with bugs fixed)
+2. Manual Testing (with bugs fixed and unsolved bugs)
 3. Automated testing 
 4. Other testing
 
@@ -177,6 +177,7 @@ Testing of display and functionality of all components of the application:
 * When info button is pressed with modal footer displayed, the info content covers the footer content. Fix: added javascript to hide all footer content and the footer button when info popover is open.
 * When about button is clicked, the bottom of the footerconent is resting up against the viewport edge which makes it difficult to read. Fix: added window.scrollBy(0, 10) call to ensure it is fully in view.
 * The main gameboard page is displaying behind the welcome modal when the text content of the scorebaord and click to play elements has not been set by inputs to the welcome modal. Fix: added 'hide' class to container element for main page when document first loaded and removed with jquery when welcome modal is closed. 
+* On iOS iphone SE, the placeholder text in the player name input boxes is too large. Fix: reduced font size for inputs on mobile. 
 
 ### 2. Click to play component
 
@@ -194,6 +195,8 @@ Testing of display and functionality of all components of the application:
 
 * Size of font for current player name was too small on tablet and desktop devices. Fix: corrected css id seclector name in media queries.
 * Color contrast between ? and background poor when tested on Lenovo laptop screen. Fix: changed ? color to yellow.
+
+
 ### 3. Scoreboard component
 
 * When welcome modal is submitted (with valid player names and a difficulty level selected) and main page is first loaded, scoreboard displays with player 1 name and player 2 name above each sub board. Small cirle has content: 5 turns. Large circle has content: 0 score.
@@ -208,6 +211,7 @@ Testing of display and functionality of all components of the application:
 **Bugs fixed**
 
 * Gameover modal does not launch when player 2 turns decrease to zero (game continues). Moved calls to endGameCheck() function to after call to updateScoreboardDOM() function so that when check on player2turns === 0 is performed the scorebaord object is up to date. Also removed setTimeout wrapper from showGameoverModal function so gameover modal is displayed immediately after gameboard overlay is closed.
+* On iOS iphone 5 the player turns text overlaps container. Fix: reduced font size of player turns label and avlue on mobile devices. 
 
 ### Gameboard component
 
@@ -256,3 +260,21 @@ Testing of display and functionality of all components of the application:
 * Gameover modal always displaying 'this is a draw'. Fix: by corrected arguments passed to calculateScore function to player1Score and player2Score.
 * When restart game is clicked and player1 first choses an expression, the chosen expression is displayed twice in gameboard overlay. Fix: removed event listener from click to play ? element in DOM before gameover modal is closed when game restarted.
 * restart game and new game buttons are pushed off the bottom of the page on mobile views. Fix: reduced margin and padding and size of all elements for mobiel and added media queries and styles for tablet and above.
+
+### General solved bugs
+
+* When site is opened on a lenovo laptop in chrome browser a scroll bar appears/disappears on the right hand side of the page with every interaction with the page (input, click) which makes the viewable content jerk slightly horizontally. Fix: changed overflow:auto to overflow:hidden on all but overflow-y of modal content. // CREDIT: https://stackoverflow.com/questions/21563672/google-chrome-vertical-scroll-bars-mysteriously-appear-and-disappear 
+
+### Unsolved bugs
+
+
+
+## 3. Automated testing
+
+
+
+## 4. Other testing
+
+* I posted a link to my live website on my google classroom pages for my maths classes aged 13/14/15 and asked them to play the game on various devices and give me feedback and try to spot bugs.
+* I posted on the Code Institute 'peer review' channel to ask coursemates for feedback. 
+* I asked friends and family to play the game on various devices and give me feedback and try to spot bugs.
