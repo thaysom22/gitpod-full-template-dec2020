@@ -80,6 +80,9 @@ body {
   background-color: #9b5de5;
   box-shadow: 0 0 1.5rem black;
 }
+.info-contents li {
+  padding: 0.2rem;
+}
 .info-contents.hide {
   display: none;
 }
@@ -200,7 +203,7 @@ body {
 }
 #welcome-input-form-wrapper .choose-difficulty-wrapper {
   width: 75%;
-  height: 8rem;
+  height: 5rem;
   margin-top: -1rem;
   display: flex;
   flex-direction: row;
@@ -228,18 +231,17 @@ body {
 }
 #welcome-input-form-wrapper #start-game-button {
   background-color: #00bbf9;
-  padding: 1.5rem;
+  padding: 1rem;
   color: #fee440;
   font-family: "arbeiBerry", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border-style: solid;
   border-color: #fee440;
   border-width: 0.3rem;
   border-radius: 50%;
   box-shadow: 0 0 1rem black;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin: 0.5rem;
   cursor: pointer;
   outline: none;
   /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
@@ -285,9 +287,16 @@ body {
   #welcome-input-form-wrapper span {
     font-size: 3.5rem;
   }
+  #welcome-input-form-wrapper .choose-difficulty-wrapper {
+    height: 8rem;
+  }
   #welcome-input-form-wrapper .choose-difficulty-wrapper label {
     padding: 1rem;
     font-size: 3rem;
+  }
+  #welcome-input-form-wrapper #start-game-button {
+    padding: 1.5rem;
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 1023px) {
@@ -308,13 +317,13 @@ body {
 }
 #gameover-modal #final-results-wrapper #winner-result {
   width: 100%;
-  margin: 1rem 0.5rem 2rem 0.5rem;
-  padding: 5rem 2rem;
+  margin: 0.5rem;
+  padding: 3rem 2rem;
   background-color: #00f5d4;
   color: black;
 }
 #gameover-modal #final-results-wrapper #winner-result span {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 #gameover-modal #final-results-wrapper .player-result {
   display: flex;
@@ -330,8 +339,8 @@ body {
   color: #00bbf9;
 }
 #gameover-modal #final-results-wrapper #player1-result, #gameover-modal #final-results-wrapper #player2-result {
-  padding: 3rem;
-  margin: 0.5rem 1rem;
+  padding: 2.5rem;
+  margin: 0.5rem;
   width: 40%;
 }
 #gameover-modal #final-results-wrapper #player1-result .name, #gameover-modal #final-results-wrapper #player2-result .name {
@@ -350,13 +359,13 @@ body {
   align-items: center;
 }
 #gameover-modal #gameover-buttons-wrapper button {
-  padding: 1.25rem;
+  padding: 1rem;
   background-color: #00bbf9;
   cursor: pointer;
   color: #fee440;
-  margin: 1rem;
+  margin: 0.5rem;
   font-family: "arbeiBerry", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border-style: solid;
   border-color: #fee440;
@@ -389,10 +398,53 @@ body {
   transform: scale(1);
 }
 #gameover-modal #gameover-header {
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
 }
 
+@media screen and (min-width: 767px) {
+  #gameover-modal #final-results-wrapper #winner-result {
+    margin: 2rem;
+    padding: 5rem 4rem;
+  }
+  #gameover-modal #final-results-wrapper #winner-result span {
+    font-size: 3.5rem;
+  }
+  #gameover-modal #final-results-wrapper .player-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: #9b5de5;
+    border-width: 0.25rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0.5rem black;
+    background-color: #fee440;
+    color: #00bbf9;
+  }
+  #gameover-modal #final-results-wrapper #player1-result, #gameover-modal #final-results-wrapper #player2-result {
+    padding: 4rem;
+    margin: 1.5rem;
+    width: 40%;
+  }
+  #gameover-modal #final-results-wrapper #player1-result .name, #gameover-modal #final-results-wrapper #player2-result .name {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  #gameover-modal #final-results-wrapper #player1-result .score, #gameover-modal #final-results-wrapper #player2-result .score {
+    font-size: 4rem;
+  }
+  #gameover-modal #final-results-wrapper #gameover-header {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+  }
+  #gameover-modal #gameover-buttons-wrapper button {
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 2rem;
+  }
+}
 .heading {
   font-family: "arbeiBerry", sans-serif;
 }
@@ -405,6 +457,10 @@ body {
   align-items: center;
   height: 8rem;
   padding: 1rem 0.5rem;
+}
+
+.modal-header-wrapper {
+  margin-top: 1.5rem;
 }
 
 #main-heading,
@@ -739,7 +795,7 @@ body {
     margin-left: 2rem;
     margin-bottom: 2rem;
   }
-  #click-to-play-wrapper #currentPlayerName {
+  #click-to-play-wrapper #current-player-name {
     font-size: 2rem;
   }
   #click-to-play-wrapper i {
@@ -755,8 +811,8 @@ body {
     height: 20rem;
     width: 100%;
   }
-  #click-to-play-wrapper #currentPlayerName {
-    font-size: 3rem;
+  #click-to-play-wrapper #current-player-name {
+    font-size: 3.5rem;
     padding: 1rem;
   }
   #click-to-play-wrapper i {

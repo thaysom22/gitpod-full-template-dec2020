@@ -45,9 +45,9 @@ RUNNING TASKS (commit after each)
 * style buttons in gameboard overlay
 * add user feedback visual effects to all interactive elements (hover, click)
 * perform full manual testing on all elements of page of layout, sizing on different screen sizes
-
-
 * Perform full manual testing of functionality of game
+
+
 * confirm no error messages or log messages in console
 * deploy site
 * post on slack for advice on writing unit tests and TDD workflow advice

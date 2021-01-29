@@ -71,6 +71,10 @@ body{
     background-color: base.$purple;
     @include base.box-shadow($blur-radius: 1.5rem);
 
+    li{
+        padding: 0.2rem;
+    }
+
     &.hide{
         display: none;     
     }

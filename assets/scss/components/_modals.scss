@@ -107,7 +107,7 @@
     .choose-difficulty-wrapper{
 
         width: 75%;
-        height: 8rem;
+        height: 5rem;
         margin-top: -1rem;
         @include base.make-flexbox();
         label{
@@ -138,15 +138,14 @@
 
     #start-game-button{
         background-color: base.$blue;
-        padding: 1.5rem;
+        padding: 1rem;
         color: base.$yellow;
         font-family: base.$title-font;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         @include base.elliptical-border($color: base.$yellow, $width: 0.3rem);
         @include base.box-shadow($blur-radius: 1rem,);
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+        margin: .5rem;
         cursor: pointer;
         outline: none;
         @include base.grow;
@@ -179,12 +178,19 @@
             font-size: 3.5rem;
         }
         .choose-difficulty-wrapper{
+            height: 8rem;
+
             label{
                 padding: 1rem;
                 font-size: 3rem;
             }
         }
+        #start-game-button{
+            padding: 1.5rem;
+            font-size: 2rem;
+        }
     }
+    
 }
 
 
@@ -220,13 +226,13 @@
 
         #winner-result{
             width: 100%;
-            margin: 1rem .5rem 2rem .5rem;
-            padding: 5rem 2rem;
+            margin: .5rem;
+            padding: 3rem 2rem;
             background-color: base.$green;
             color: black;
 
             span{
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
         }
@@ -240,8 +246,8 @@
         }
 
         #player1-result,#player2-result{
-            padding: 3rem;
-            margin: .5rem 1rem;
+            padding: 2.5rem;
+            margin: .5rem;
             width: 40%;
 
             .name{
@@ -264,13 +270,13 @@
         @include base.make-flexbox($direction: column);
 
         button{
-            padding: 1.25rem;
+            padding: 1rem;
             background-color: base.$blue;
             cursor: pointer;
             color: base.$yellow;
-            margin: 1rem;
+            margin: .5rem;
             font-family: base.$title-font;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             @include base.elliptical-border($color: base.$yellow, $width: 0.3rem);
             @include base.box-shadow($blur-radius: 1rem,);
@@ -279,13 +285,63 @@
     }
 
     #gameover-header{
-        font-size: 4rem;
+        font-size: 3.5rem;
         margin-bottom: 1.5rem;
         
     }
 
-    
-    
+}
 
+// ------ tablet
+@media screen and (min-width: 767px){
+#gameover-modal{
+    #final-results-wrapper{
+        #winner-result{
+            margin: 2rem;
+            padding: 5rem 4rem;
 
+            span{
+                font-size: 3.5rem;
+            }
+        }
+
+        .player-result{
+            @include base.make-flexbox($direction: column);
+            @include base.elliptical-border($color: base.$purple);
+            @include base.box-shadow();
+            background-color: base.$yellow;
+            color: base.$blue;
+        }
+
+        #player1-result,#player2-result{
+            padding: 4rem;
+            margin: 1.5rem;
+            width: 40%;
+
+            .name{
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .score{
+                font-size: 4rem;
+            }
+        
+        }
+        #gameover-header{
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+        
+        }
+        
+    }
+    #gameover-buttons-wrapper{
+
+        button{
+            padding: 1.5rem;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+    }
+}
 }

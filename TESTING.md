@@ -163,7 +163,7 @@ Testing of display and functionality of all components of the application:
 * When footer is visible, all other content on welcome modal can be interacted with as described above.
 * When about button at bottom of screen is pressed while footer is displayed, footer content is hidden and content above moves down.
 
-* **TESTS for modal footer repeated for footer on main page when modal is closed as form and functionality are very similar.**
+* **TESTS for modal footer repeated for footer on main page when modal is closed and on gameover modal when launched as form and functionality are very similar.**
 
 **Bugs Fixed**
 
@@ -187,6 +187,10 @@ Testing of display and functionality of all components of the application:
 * After the player submits an answer this component remains the same until the gameboard overlay closes. Then the content changes to: player 2 name, pulsing '?' icon and 'click to play!' text.
 * Again, the ? disappears and replaced by a series of random numbers before displaying a final random number and the text 'choose an expression' beneath.
 * This component repeats this pattern of functionality throughout the turns of the game.
+
+**Bugs fixed**
+
+* Size of font for current player name was too small on tablet and desktop devices. Fix: corrected css id seclector name in media queries.
 
 ### 3. Scoreboard component
 
@@ -232,15 +236,22 @@ Testing of display and functionality of all components of the application:
 * With elliptical border, gameboard overlay content was overflowing outside border on tablet and desktop devices. Fix: reduced border radius to make overlay content border a rectangle with curved corners and increased height of container for overlay content on tablet and desktop sizes so all content fits comfortably.
 * If the info button is clicked when gameboard overlay is displayed, the gamboard overlay does not hide. Fix: Used jQuery to add .hide class to outer parent gameboard-wrapper, not gamebaord-grid-container when info button is clicked. 
 * If the info button is clicked when gameboard overlay is displayed, the header is obscured by the instructions element. Fix: changed .hide class from display:none to visibility: hidden style to push header up.
+* If the 'restart game' button is clicked in the gameover modal, the gameboard displays with a new set of expressions corresponding to the difficulty level of the preceeding game. All the appropriate above tests were then repeated for the gameboard and for the click to play and scoreboard components.
+
 
 ### 4. Gameover Modal
 
-*
-*
-
+* When player 2 turns remaining is 1 on the scoreboard, after player 2 has submitted a valid answer on gamebaord overlay, the gameover modal displays on top of all other content. 
+* Layout of gameover modal is clear and readable on mobile, tablet and desktop view sizes. Font size and element size is larger on tablet sizes than mobile. There is no overlap or overflow of elements and all elemnts are centered horizontally. 
+* Content of gameover modal is a header text, the info button does not appear on gameover modal, an elliptical component containing "Game over" and the name of the player with the highest score total at the end of the game. This was tested by playig a game where player 1 won and where player 2 won and checking the result displayed correctly. The game was also played so that it was a draw and the text: "The game is a draw" was displayed as expected. 
+* The elements below display player 1 name and final score and player 2 name and final score respectively. These were tested by playing multiple games at different difficulties, with different player names and different final scores and winner/loser and confirming the names matched those netered in the welcome modal and displayed in the scoreboard component on the main page and the scores are correct (after adding on the last turn score for player 2 to the player 2 total last seen displayed on scoreboard)
+* The restart game and new game buttons display below with the hover grow effect when hovered and clicked and with a cursor pointer. 
+* When the restart game button is clicked the main page is displayed with the player score reset to zero, the player turns reset to 5 and the click to play element showing player 1 name and the pulsing '?' icon. All the above tests for the gameboard, click to play and scoreboard components were repeated for the restarted game. 
+* When the new game button is clicked the page refreshes and the welcome modal is displayed with empty input boxes and no difficulty level selected. * All the above tests for the gameboard, click to play and scoreboard components were repeated for the new game.
 
 **Bugs fixed**
 
 * On final player2 turn the gameover modal was displaying before the user could see the background color change to indicate a correct/incorrect response. Fix: corrected by adding a delay equal to the delay for gameboard overlay feedback to the showGameoverModal function in the GameoverModal constructor
 * Gameover modal always displaying 'this is a draw'. Fix: by corrected arguments passed to calculateScore function to player1Score and player2Score.
 * When restart game is clicked and player1 first choses an expression, the chosen expression is displayed twice in gameboard overlay. Fix: removed event listener from click to play ? element in DOM before gameover modal is closed when game restarted.
+* restart game and new game buttons are pushed off the bottom of the page on mobile views. Fix: reduced margin and padding and size of all elements for mobiel and added media queries and styles for tablet and above.
