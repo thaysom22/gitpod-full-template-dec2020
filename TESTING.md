@@ -152,7 +152,7 @@ Testing of display and functionality of all components of the application:
 * When info button is pressed again, the popover closes and the welcome modal is visible exactly as before popover was opened.
 * Hover/active grow/shrink effect is observed when button is hovered over, pressed and released on desktop. On a touch screen a shrink effect is observed while pressed.
 
-* TESTS for modal info popover repeated for info popover on main page when modal is closed as form and functionality are very similar.
+* **TESTS for modal info popover repeated for info popover on main page when modal is closed as form and functionality are very similar.**
 
 **Modal footer**
 
@@ -163,7 +163,7 @@ Testing of display and functionality of all components of the application:
 * When footer is visible, all other content on welcome modal can be interacted with as described above.
 * When about button at bottom of screen is pressed while footer is displayed, footer content is hidden and content above moves down.
 
-* TESTS for modal footer repeated for footer on main page when modal is closed as form and functionality are very similar. 
+* **TESTS for modal footer repeated for footer on main page when modal is closed as form and functionality are very similar.**
 
 **Bugs Fixed**
 
@@ -205,16 +205,42 @@ Testing of display and functionality of all components of the application:
 
 ### Gameboard component
 
+* When main page is displayed from welcome modal the gameboard grid is displayed as two centered columns of 8 rectanges benath the scorebaord and click to play components containing LATEX rendered math expressions. On tablet devices the expressions display in a 4x4 grid with same page layout. On desktop devices the 4x4 grid displays to the right of the scoreboard and click to play components. 
+* All mathematical expressions are readable on all device sizes and centered in their containers with no overflow on any device size.
+* When the grid is initially displayed, the cursor does not display as a pointer when any part of this element is hovered over and nothing happens if anywhere in this element is clicked.
+* If the page is refreshed and when the welcome modal is submitted again with other difficulty level, the above tests were repeated. The grid displays with a different set of mathematical expressions with different form and numbers. If this is repeated again and again with the same difficulty level then each time a new set of expressions is displayed. 
+* Once player 1 has clicked 'click to play' element and a final random number has been generated: hovering anywhere over a rectangle in this gameboard grid the cursor displays as a pointer and when any element is clicked the grid is hidden behind a gameboard overlay. The overlay covers the entire gameboard exactly on all device sizes. 
+* The gameboard overlay content contains the LaTEX rendered expression exactly equal to the content of the element of the covered grid that was selected, beneath this the text: 'evaluate when x=a' where a is the number currently displayed in the click to play element. Beneath this, an input element that focuses and allows text/numerical input when clicked on, finally beneath this: two buttons, 'Enter' and 'Choose again'.
+* On all device sizes the content of the gameboard overlay displays in a vertical column layout and does not overflow the area of the elliptical inner container. The text and LaTEX are readable on all device sizes. 
+* When the gamebaord overlay is displayed no where else on the page is clickable EXCEPT the info button. If the info button is clicked then all content except header dissapears and the instructions element is displayed and visible above the instructions box. The info button can be clciked again and all previous page content returns and instrcutions box hides.
+* Both the 'enter' and 'choose again' buttons exhibit a smooth grow effect on hovering and return to orginal size when active. 
+* If no answer is entered in the input box (left blank) and 'enter' button is clicked: text in red appears above the 'enter button': 'Enter a valid value' for 5 seconds before hiding. The overlay does not hide and the rest of the content does not change.
+* If an non-numerical or invalid answer (spaces, letters, symbols) is entered in the input box and 'enter' button is clicked: text in red appears above the 'enter button': 'Enter a valid value' for 5 seconds before hiding. The overlay does not hide and the rest of the content does not change.
+* If the 'choose again' button is clicked when there is content or no content in the input box, the overlay hides and the gamebaord displays with all elements clickable. If any expression is clicked then the overlay reopens with the input box empty and no error messages displayed.
+* If the correct answer for the value of the expression shown is entered, the background of the overlay turns green and the input box and buttons are hidden and replaced  by a tick icon and text saying: "correct", "chosen expression value ranking: " (The ranking of the chosen expression for the random number generated) and "score for your turn: " (The score based upon the ranking). This test was repeated for numerous different expressions and variable values to confirm this content is displayed whenever the answer is correct. 
+* When player 1 submits a valid but incorrect answer in the gameboard overlay input, the background of the overlay turns red and the input box and buttons are hidden and replaced by content: "Incorrect, the correct answer was: a" where a is the correct value for the chosen expression and random number displayed in click to play element; "chosen expression value ranking: " and "score for your turn: " (which is -1 if answer submitted is incorrect).
+* After a correct or incorrect (valid) answer is submitted, the overlay hides again after 5 seconds. The score increase for the player 1 scoreboard is equal to the score for turn value just displayed in overlay. The click to play is displaying a pulsing ? icon with player 2 name above. The rectangle containing the grid expression that was just selected by player 1 now has a grey background. When player 2 clicks the ? icon and a final random number is displayed, all grid expression rectangles on the gameboard are clickable EXCEPT the one with a grey background. 
+* The above tests where completed for player 2's turn and again for player 1's turn until the end of the game. Each time the selected expression turned gey and was not available to click for the follow plater's turn. Once an expression was chosen from the grid and turned grey it was never clickable again during the game. Then a new game was started with same difficulty level and the tests were repeated again for the different expressions. The again, twice, with other difficulty level.
+
+**Bugs fixed**
+
+* After a valid answer is submitted in gameboard overlay input, the event listener and pulse effect on the ? click to play element is activated before the gameboard is visible. This is confusing to users and interupts the flow of the game. Fix: a delay equal to the time the gameboard overlay shows for was added before the event listner and pulse effect are added. 
+* MathJax content not rendering as intended after HTML is updated by javascript (prompted by user interactions). Fix: added a call to  MathJax.typeset() function to render updated html content after expressions for questions have been generated during gameboard setup.
+* Gameboard grid element has uneven horizontal space either side and is pushed up against the right edge of viewport. Fix: removed margins from grid item and added padding to main page wrapper and to wrapper for gamebaord for tablet sizes and above.
+* Buttons have a jerky animation between hover and active pseudo class states. Fix: changed active state transform to scale(1) so that satisfying press down effect is still achieved but button does not 'bounce' in an awkward way when clicked quickly.
+* Gameboard overlay was extending over whitespace to the right of grid on tablet and mobile. Fix: used calc() to reduce the width of gameboad overlay by the x-padding on gamebaord wrapper.
+* With elliptical border, gameboard overlay content was overflowing outside border on tablet and desktop devices. Fix: reduced border radius to make overlay content border a rectangle with curved corners and increased height of container for overlay content on tablet and desktop sizes so all content fits comfortably.
+* If the info button is clicked when gameboard overlay is displayed, the gamboard overlay does not hide. Fix: Used jQuery to add .hide class to outer parent gameboard-wrapper, not gamebaord-grid-container when info button is clicked. 
+* If the info button is clicked when gameboard overlay is displayed, the header is obscured by the instructions element. Fix: changed .hide class from display:none to visibility: hidden style to push header up.
+
+### 4. Gameover Modal
+
+*
+*
 
 
-
-
-
+**Bugs fixed**
 
 * On final player2 turn the gameover modal was displaying before the user could see the background color change to indicate a correct/incorrect response. Fix: corrected by adding a delay equal to the delay for gameboard overlay feedback to the showGameoverModal function in the GameoverModal constructor
 * Gameover modal always displaying 'this is a draw'. Fix: by corrected arguments passed to calculateScore function to player1Score and player2Score.
 * When restart game is clicked and player1 first choses an expression, the chosen expression is displayed twice in gameboard overlay. Fix: removed event listener from click to play ? element in DOM before gameover modal is closed when game restarted.
-* After a valid answer is submitted in gameboard overlay input, the event listener and pulse effect on the ? click to play element is activated before the gameboard is visible. This is confusing to users and interupts the flow of the game. Fix: a delay equal to the time the gameboard overlay shows for was added before the event listner and pulse effect are added. 
-* MathJax content not rendering as intended after HTML is updated by javascript (prompted by user interactions). Fix: added a call to  MathJax.typeset() function to render updated html content after expressions for questions have been generated during gameboard setup.
-* Gameboard grid element has uneven horizontal space either side and is pushed up against the right edge of viewport. Fix: removed margins from grid item and added padding to main wrapper for page.
-

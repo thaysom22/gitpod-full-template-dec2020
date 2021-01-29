@@ -6,13 +6,13 @@ class Scoreboard {
         this.player1Board = {
             playerName: player1Name,
             playerScore: 0,
-            playerTurns: 1, // turns remaining
+            playerTurns: 5, // turns remaining
             active: true // player1 starts
         };
         this.player2Board = {
             playerName: player2Name,
             playerScore: 0,
-            playerTurns: 1, // when player2Board.playerTurns === 0, game ends
+            playerTurns: 5, // when player2Board.playerTurns === 0, game ends
             active: false
         };
         this.difficultySetting = difficultySetting;

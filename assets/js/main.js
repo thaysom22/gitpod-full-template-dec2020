@@ -48,8 +48,9 @@ function addMainInfoListener(){
         $('#grid-container-body .info-contents').toggleClass("hide");
         $('#click-to-play-wrapper').toggleClass("hide");
         $('#scoreboards-wrapper').toggleClass("hide");
-        $('#gameboard-grid-container').toggleClass("hide");
+        $('#gameboard-wrapper').toggleClass("hide");
         $('#footer-wrapper').toggleClass("hide");
+
     }
     
 }

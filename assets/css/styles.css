@@ -264,8 +264,8 @@ body {
 }
 #welcome-input-form-wrapper #start-game-button:active {
   outline: none;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 @media screen and (min-width: 767px) {
@@ -385,8 +385,8 @@ body {
 }
 #gameover-modal #gameover-buttons-wrapper button:active {
   outline: none;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 #gameover-modal #gameover-header {
   font-size: 4rem;
@@ -448,8 +448,8 @@ body {
 #header-info-wrapper:active,
 .modal-header-info-wrapper:active {
   outline: none;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 #header-info-wrapper i,
 .modal-header-info-wrapper i {
@@ -771,6 +771,9 @@ body {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+#gameboard-wrapper.hide {
+  visibility: hidden;
+}
 
 #gameboard-grid-container {
   display: grid;
@@ -778,9 +781,6 @@ body {
   grid-template: repeat(8, 8rem)/1fr 1fr;
   grid-gap: 0.2rem;
   justify-items: center;
-}
-#gameboard-grid-container.hide {
-  visibility: hidden;
 }
 
 .gameboard-grid-item {
@@ -811,7 +811,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 10;
-  background-color: #9b5de5;
+  background-color: #f15bb5;
 }
 #gameboard-overlay.hide {
   display: none;
@@ -822,14 +822,13 @@ body {
   box-shadow: 0 0 0.5rem black;
   border-style: solid;
   border-color: #fee440;
-  border-width: 0.75rem;
-  border-radius: 50%;
+  border-width: 1rem;
+  border-radius: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 70%;
-  max-height: 40rem;
   width: calc(100% - 4rem);
   max-width: 50rem;
   margin: 1rem auto;
@@ -850,7 +849,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  justify-items: flex-start;
+  justify-content: flex-start;
   padding: 1rem 0.5rem;
 }
 #gameboard-overlay-content form.hide {
@@ -899,8 +898,8 @@ body {
 }
 #gameboard-overlay-content form button:active {
   outline: none;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 #gameboard-overlay-content #answer-feedback {
   display: flex;
@@ -931,10 +930,21 @@ body {
 }
 
 @media screen and (min-width: 767px) {
+  #gameboard-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   #gameboard-grid-container {
     grid-template: repeat(4, 10rem)/repeat(4, 1fr);
-    margin-left: 1rem;
-    margin-right: 1rem;
+  }
+
+  #gameboard-overlay {
+    width: calc(100% - 2rem);
+  }
+
+  #gameboard-overlay-content {
+    height: calc(100% - 2rem);
   }
 
   .gameboard-grid-item span {
@@ -945,6 +955,7 @@ body {
   #gameboard-wrapper {
     grid-area: gameboard;
     width: 100%;
+    margin-left: 1rem;
   }
 
   #gameboard-grid-container {
@@ -1000,8 +1011,8 @@ body {
 #about-trigger-wrapper:active,
 .modal-about-trigger-wrapper:active {
   outline: none;
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 #about-trigger-wrapper i,
 .modal-about-trigger-wrapper i {

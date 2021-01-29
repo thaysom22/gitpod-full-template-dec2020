@@ -254,7 +254,7 @@ class Gameboard {
                             let playerTurnScore = calculateTurnScore(correctBool, activeQuestionRanking); // calculate the score based on user input and active question ranking
 
 
-                            $('#answer-feedback .feedback2').text(`Chosen question value ranking: ${activeQuestionRanking+1}`); // adjust ranking to be 1-indexed for user
+                            $('#answer-feedback .feedback2').text(`Chosen expression value ranking: ${activeQuestionRanking+1}`); // adjust ranking to be 1-indexed for user
                             $('#answer-feedback .feedback3').text(`Score for your turn: ${playerTurnScore}`);
                             $('#gameboard-overlay-content form').addClass("hide");
                             $('#answer-feedback').removeClass('hide');

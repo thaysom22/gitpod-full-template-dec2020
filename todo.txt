@@ -42,27 +42,15 @@ RUNNING TASKS (commit after each)
 * add pulsing to ? icon and restart game button
 * added calculate score message in gameboard overlay
 * fix gameboard grid horizontal margins
-
-* perform full manual testing on all elements of page of layout, sizing on different screen sizes
-* Perform full manual testing of functionality of game
 * style buttons in gameboard overlay
 * add user feedback visual effects to all interactive elements (hover, click)
+* perform full manual testing on all elements of page of layout, sizing on different screen sizes
 
 
+* Perform full manual testing of functionality of game
 * confirm no error messages or log messages in console
 * deploy site
-* Facilitate user interaction with keyboard
-* implement responsiveness of all element sizes, positioning and readability
-  - main page: 
-    * increase clicktoplay margin
-    * increase playerName size and bottom margin in clicktoplay
-    * increase size of scoreboard circles 
-    * fix grid layout on mobile 
-  - gameover modal
-    * decrease button sizes on mobile
-    * put buttons side by side on >=tablet sizes
 * post on slack for advice on writing unit tests and TDD workflow advice
-* reset game turns to 5
 
 README
 
