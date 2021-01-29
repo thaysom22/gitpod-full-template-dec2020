@@ -193,7 +193,7 @@ Testing of display and functionality of all components of the application:
 **Bugs fixed**
 
 * Size of font for current player name was too small on tablet and desktop devices. Fix: corrected css id seclector name in media queries.
-
+* Color contrast between ? and background poor when tested on Lenovo laptop screen. Fix: changed ? color to yellow.
 ### 3. Scoreboard component
 
 * When welcome modal is submitted (with valid player names and a difficulty level selected) and main page is first loaded, scoreboard displays with player 1 name and player 2 name above each sub board. Small cirle has content: 5 turns. Large circle has content: 0 score.

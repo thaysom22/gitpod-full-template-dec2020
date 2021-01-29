@@ -640,16 +640,16 @@ body {
   position: relative;
   top: -1rem;
   left: -2rem;
-  height: 4rem;
+  height: 5rem;
   width: 5rem;
   z-index: 1;
   background-color: #f15bb5;
 }
 .player-scoreboard .score-turns .value {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 .player-scoreboard .score-turns .label {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 @media screen and (min-width: 500px) {
@@ -664,6 +664,12 @@ body {
     height: 5rem;
     width: 6rem;
     z-index: 1;
+  }
+  .player-scoreboard .score-turns .value {
+    font-size: 1.75rem;
+  }
+  .player-scoreboard .score-turns .label {
+    font-size: 1.5rem;
   }
 }
 @media screen and (min-width: 767px) {
@@ -736,7 +742,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #f15bb5;
+  color: #fee440;
 }
 #click-to-play-wrapper #random-number-wrapper.pulse {
   -webkit-transform: perspective(1px) translateZ(0);

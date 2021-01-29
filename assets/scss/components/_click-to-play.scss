@@ -29,7 +29,7 @@
     #random-number-wrapper{
         height: 6.5rem;
         @include base.make-flexbox($direction: column, $justify: center);
-        color: base.$pink;
+        color: base.$yellow;
     
         &.pulse{
 
