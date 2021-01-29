@@ -50,6 +50,9 @@ body {
 #grid-container-body {
   padding: 0.25rem;
 }
+#grid-container-body.hide {
+  visibility: hidden;
+}
 
 @media screen and (min-width: 1023px) {
   #grid-container-body {
@@ -293,6 +296,10 @@ body {
   #welcome-input-form-wrapper .choose-difficulty-wrapper label {
     padding: 1rem;
     font-size: 3rem;
+  }
+  #welcome-input-form-wrapper #welcome-modal-error-message1,
+#welcome-input-form-wrapper #welcome-modal-error-message2 {
+    font-size: 2rem;
   }
   #welcome-input-form-wrapper #start-game-button {
     padding: 1.5rem;

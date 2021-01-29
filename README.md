@@ -206,9 +206,16 @@ Layout:
 
 ### 4.1 Deployment process followed by developer to hosting platform
 
-*
-*
-*
+This project was developed using [Gitpod](https://gitpod.io/) cloud IDE, committed to gitpod workspace with git and then push remotely to the Github repository for the project.
+
+To deploy this application from it's remote Github repository, the following process was followed:
+
+1. Login to Github as [thaysom22](https://github.com/thaysom22)
+2. Go to the [Github repository page](https://github.com/thaysom22/maths-substitution-game) for this application
+3. Select settings from the menu and scroll to Github pages section.
+4. Select 'master' branch for source and '/root' for folder.
+5. Click 'save' and the page will refresh as the site is being built and deployed.
+6. After a short wait the [url for the live site](https://thaysom22.github.io/maths-substitution-game/) is available in the Github pages section of the settings page. 
 
 ### 4.2 How to clone and run this project locally
 

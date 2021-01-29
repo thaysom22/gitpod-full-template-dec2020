@@ -18,7 +18,7 @@ function addAboutSectionListener(){
         let aboutSectionContentElement = clickEvent.currentTarget.nextElementSibling; // CREDIT: https://www.w3schools.com/jsref/prop_element_nextelementsibling.asp 
         $(aboutSectionContentElement).toggleClass("hide");
         aboutSectionContentElement.scrollIntoView(false); // show footer contents when toggled CREDIT: https://www.w3schools.com/jsref/met_element_scrollintoview.asp 
-        
+        window.scrollBy(0, 10); // ensure entire footer content is comforably in view
     }
 }
 

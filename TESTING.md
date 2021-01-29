@@ -175,6 +175,8 @@ Testing of display and functionality of all components of the application:
 * On smaller mobile screens, info popover covered button in header. Fix: font size reduced on mobile and max height set using viewport height units.
 * Welcome modal error messages displaying with a large gap between. Fix: removed margins inherited from other styles
 * When info button is pressed with modal footer displayed, the info content covers the footer content. Fix: added javascript to hide all footer content and the footer button when info popover is open.
+* When about button is clicked, the bottom of the footerconent is resting up against the viewport edge which makes it difficult to read. Fix: added window.scrollBy(0, 10) call to ensure it is fully in view.
+* The main gameboard page is displaying behind the welcome modal when the text content of the scorebaord and click to play elements has not been set by inputs to the welcome modal. Fix: added 'hide' class to container element for main page when document first loaded and removed with jquery when welcome modal is closed. 
 
 ### 2. Click to play component
 
@@ -237,7 +239,6 @@ Testing of display and functionality of all components of the application:
 * If the info button is clicked when gameboard overlay is displayed, the gamboard overlay does not hide. Fix: Used jQuery to add .hide class to outer parent gameboard-wrapper, not gamebaord-grid-container when info button is clicked. 
 * If the info button is clicked when gameboard overlay is displayed, the header is obscured by the instructions element. Fix: changed .hide class from display:none to visibility: hidden style to push header up.
 * If the 'restart game' button is clicked in the gameover modal, the gameboard displays with a new set of expressions corresponding to the difficulty level of the preceeding game. All the appropriate above tests were then repeated for the gameboard and for the click to play and scoreboard components.
-
 
 ### 4. Gameover Modal
 

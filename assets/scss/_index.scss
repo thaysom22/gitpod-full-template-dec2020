@@ -31,6 +31,10 @@ body{
 
 #grid-container-body{
     padding: .25rem;
+
+    &.hide{
+        visibility: hidden;
+    }
 }
 
 // ------------------------- desktop  layout

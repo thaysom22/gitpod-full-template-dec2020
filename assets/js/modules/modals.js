@@ -70,6 +70,7 @@ class WelcomeModal {
             window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
             window.gameboard = new Gameboard(difficultySetting); 
             window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
+            $('#grid-container-body').removeClass('hide');
             setTimeout(hideWelcomeModal, 500);
         };
         
