@@ -366,7 +366,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-#gameover-modal #gameover-buttons-wrapper button {
+#gameover-modal #gameover-buttons-wrapper .gameover-button {
   padding: 1rem;
   background-color: #00bbf9;
   cursor: pointer;
@@ -389,18 +389,18 @@ body {
   /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
 @media (hover: hover) {
-  #gameover-modal #gameover-buttons-wrapper button:hover {
+  #gameover-modal #gameover-buttons-wrapper .gameover-button:hover {
     outline: none;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
 }
-#gameover-modal #gameover-buttons-wrapper button:focus {
+#gameover-modal #gameover-buttons-wrapper .gameover-button:focus {
   outline: none;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-#gameover-modal #gameover-buttons-wrapper button:active {
+#gameover-modal #gameover-buttons-wrapper .gameover-button:active {
   outline: none;
   -webkit-transform: scale(1);
   transform: scale(1);

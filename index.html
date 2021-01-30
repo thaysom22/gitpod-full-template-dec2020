@@ -14,7 +14,7 @@
     <!-- Load jQuery (slim build) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha512-/DXTXr6nQodMUiq+IUJYCt2PPOUjrHJ9wFrqpJ3XkgPNOZVfMok7cRw6CSxyCQxXn6ozlESsSh1/sMCTF1rL/g==" crossorigin="anonymous"></script>
     <!-- Load mathJax library from jsdelivr cdn for rendering mathematical expressions -->
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Load mathjs library from cdnjs so math object is available -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/8.1.1/math.js" integrity="sha512-OFr0yNTrn4TBOCW8hAkqVRjN45OYD4C3Zv3JA+/UFDW7rEjt7RV89OfUinLg/9GzHbUWYq1+jXzgVV/UsZWJHQ==" crossorigin="anonymous"></script>
     <!-- Local main.js (automatically deferred) -->
@@ -43,7 +43,6 @@
             <li>Once player 2 runs out of turns, the game is over and the player with the highest score wins!</li>
         </ol>
     </div>
-
     <!-- Click to play section -->
     <section id="click-to-play-wrapper" class="section-wrapper">
         <span id="current-player-name"></span>
@@ -56,7 +55,6 @@
             <p id="click-to-play-instruction">Click to Play!</p>
         </div>
     </section>
-
     <!-- Scoreboard section -->
     <section id="scoreboards-wrapper" class="section-wrapper">
         <div id="player1-scoreboard" class="player-scoreboard" title="player 1 scoreboard" aria-label="player 1 scoreboard">
@@ -82,7 +80,6 @@
             </div>
         </div>
     </section>
-
     <!-- Main gameboard section -->
     <section id="gameboard-wrapper" class="section-wrapper">
         <!-- gameboard overlay - hidden until grid item is clicked during a player turn --> 
@@ -125,7 +122,6 @@
             <div class="gameboard-grid-item"><span class="grid-expression"></span></div>
         </div>
     </section>
-
     <!-- Footer section -->
     <footer id="footer-wrapper" class="section-wrapper">
         <!-- On page load about-trigger has plus icon and footer content is not visible  -->
@@ -142,12 +138,10 @@
                 <span>Developer Portfolio</span>
                 </a>
             </div>
-
             <div id="copyright-wrapper">
                 <span>For eductional purposes only</span>
                 <span>&copy; Thomas Haysom 2020</span>
-            </div>
-            
+            </div> 
             <div id="github-repo-wrapper">
                 <a href="https://github.com/thaysom22/maths-substitution-game" target="_blank" aria-label="Click to open GitHub repo for this site" title="GitHub Repo: maths-substitution-game">
                 <i class="fab fa-github-square" aria-hidden="true" title="Click to open GitHub repo for this site"></i>
@@ -158,7 +152,6 @@
         </div>
     </footer>
 </div> 
-
 <!-- MODALS -->
 <!-- Welcome modal - open when document is loaded in browser -->
 <div class="modal" id="welcome-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="Welcome modal" aria-hidden="true">
@@ -184,7 +177,6 @@
                 <li>Once player 2 runs out of turns, the game is over and the player with the highest score wins!</li>
             </ol>
         </div>
-
         <!-- Input and submit in modal -->
         <div id="welcome-input-form-wrapper">
             <form id="welcome-modal-form" autocomplete="off">
@@ -212,7 +204,6 @@
                 <span id="welcome-modal-error-message2" title="Choose a difficulty error" aria-label="difficulty error message"></span>
             </form>
         </div>
-
         <!-- Footer section in modal -->
         <footer class="section-wrapper modal-footer-wrapper">
            <div class="modal-about-trigger-wrapper trigger-wrapper" title="View ABOUT section" aria-label="View ABOUT section content">
@@ -243,7 +234,6 @@
         </footer>
     </div>
 </div>  
-
 <!-- Gameover modal - open when document is loaded in browser -->
 <div class="modal hide" id="gameover-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-label="gameover-modal" aria-hidden="true">
     <div class="modal-content">
@@ -271,7 +261,7 @@
             
             <button id="restart-game-button" class="gameover-button" title="restart game" aria-label="restart game">Restart</button>
             <a href="." target="_self">
-                <button id="new-game-button" class="gameover-button" title="new game" aria-label="new game">New Game</button>
+                <div id="new-game-button" class="gameover-button" title="new game" aria-label="new game">New Game</div>
             </a>
         </div>
         <!-- Footer section in modal -->

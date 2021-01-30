@@ -275,8 +275,14 @@ Testing of display and functionality of all components of the application:
 
 ### 3.1 Code validation services
 
-W3 Markup Validation was used to validate HTML. 
-W3 CSS validation was used to validate CSS.
+**W3 Markup Validation was used to validate HTML.**
+
+* Error: <button> element should not appear as child of <a> element. Fix: changed button to div and retested button form and function.
+* Warnings: possible misuse of aria-label.
+
+**W3 CSS validation was used to validate CSS**
+
+
 JSHint was used to validate JavaScript.
 
 ## 4. Other testing

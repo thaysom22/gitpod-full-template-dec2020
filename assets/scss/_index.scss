@@ -2,44 +2,36 @@
 @use "base";
 
 // ------------- layout 
-
 .section-wrapper{
     margin: base.$section-margins;
 }
 
 // center all content vertically in viewport
-
 body{
     min-height: 100vh;
     width: 100%;
     @include base.make-flexbox();
 }
-
 #grid-container-body{
     width: 100%;
 }
 
-
 // -------------- fonts
-
 body{
     font-family: base.$body-font;
 }
 
-
-// ----------- mobile
-
+// ------ container elements
+// --------------- mobile styles
 #grid-container-body{
     padding: .25rem;
-
     &.hide{
         visibility: hidden;
     }
 }
 
-// ------------------------- desktop  layout
+// --------------- desktop styles
 // use grid layout for whole page on desktop viewport
-
 @media screen and (min-width: 1023px){
     #grid-container-body{
         display: grid;
@@ -54,9 +46,7 @@ body{
 }
 
 // how to play info contents
-
 // ----- mobile
-
 .info-contents{
     color: base.$yellow;
     font-family: base.$title-font;
@@ -74,18 +64,15 @@ body{
     transform: translate(-50%,-50%);
     background-color: base.$purple;
     @include base.box-shadow($blur-radius: 1.5rem);
-
     li{
         padding: 0.2rem;
     }
-
     &.hide{
         display: none;     
     }
 }
 
 // ---------------------- tablet
-
 @media screen and (min-width: 767px){
     .info-contents{
         font-size: 1.4rem;
@@ -93,7 +80,6 @@ body{
 }
 
 // ---------------------- desktop
-
 @media screen and (min-width: 1023px){
     .info-contents{
         font-size: 1.8rem;
