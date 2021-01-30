@@ -267,11 +267,17 @@ Testing of display and functionality of all components of the application:
 
 ### Unsolved bugs
 
-
+* Error message in console: "WebSocket connection failed". Followed traceback and this error occurs in javascript injected by the liveserver used by gitpod. Same error does not occur on console for deployed site on github pages.
+* Numerous 'violation' warnings occur in console when event handlers are called. This is because some event handlers need to wait for user interaction or for a setTimeout call to complete so are delayed. These delays are part of the user experience rather than a performance issue. 
+* HTTP 404 error when devtool tries to load SourceMap for javascript minification. I could not find a way to fix this and after all testing was completed I could not see that it was affecting user experience of the application although it way have been slowing down the site slighly due to uncompressed code being served to client.
 
 ## 3. Automated testing
 
+### 3.1 Code validation services
 
+W3 Markup Validation was used to validate HTML. 
+W3 CSS validation was used to validate CSS.
+JSHint was used to validate JavaScript.
 
 ## 4. Other testing
 

@@ -189,7 +189,7 @@ body {
   border-width: 0.25rem;
   border-radius: 50%;
   box-shadow: 0 0 0.5rem black;
-  background-color: #00f5d4;
+  background-color: #9b5de5;
 }
 #welcome-input-form-wrapper .player-name-wrapper label {
   margin-bottom: 0.5rem;
@@ -555,11 +555,11 @@ body {
 
   #header-info-wrapper i,
 .modal-header-info-wrapper i {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
   #header-info-wrapper span,
 .modal-header-info-wrapper span {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 1023px) {
@@ -574,10 +574,10 @@ body {
   }
 
   #header-info-wrapper i {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   #header-info-wrapper span {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 #scoreboards-wrapper {

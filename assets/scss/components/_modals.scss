@@ -89,7 +89,7 @@
         @include base.make-flexbox($direction: column);
         @include base.elliptical-border($color: base.$blue);
         @include base.box-shadow();
-        background-color: base.$green;
+        background-color: base.$purple;
         label{
             margin-bottom: 0.5rem;
             font-size: 2.5rem;

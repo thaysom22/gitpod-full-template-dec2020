@@ -46,18 +46,27 @@ RUNNING TASKS (commit after each)
 * add user feedback visual effects to all interactive elements (hover, click)
 * perform full manual testing on all elements of page of layout, sizing on different screen sizes
 * Perform full manual testing of functionality of game
+* deploy site to Github pages
+* put description of all features of application and features left to implement into README
+*  confirm no error messages or log messages in console
 
 
-* confirm no error messages or log messages in console
-* deploy site
+* write single jasmine test file
+* add steps to run unit jasmine unit tests to docs
+* discuss experience of unit testing in project evaluation
+
 * post on slack for advice on writing unit tests and TDD workflow advice
+* pass code validators for HTML, CSS and js
+* ensure all code files are readable and meet standards for indentation and spacing. check function/variable names are semantic
+* file names w/o spacing and capitalization
+* generate report from chrome lighthouse in dev tools
 
 README
 
 * Implement internal links in TOC to relevant sections
 * Reflections section
 
-FEATURES (Priority: P1, P2, P3)
+FEATURES 
 
 * Countdown timer P2
 * Scoreboard no. turns P1
@@ -73,22 +82,10 @@ FEATURES (Priority: P1, P2, P3)
 * Game over modal P3
 
 
-POSSIBLE EXTRA FEATURES
 
 
-* Add media query styling specifically for print view so teachers can print activity for use in lessons
-* Create a log of player responses and include option to Email to teacher on 'game over' modal
-* Optional settings for time limit per turn and number of turns per game and number of grid elements
-* Share on facebook/twitter link on game over page
-* Audio played as user feedback when clicking on elements of page and at significant points in gameplay
-* Insert error messages into HTML 
-* Increase number of grid elements to 20
-* Store top scores for each player in local storage so when restart game is clicked, player performance can be measured across multiple games. 
-* Add click event listener to body so that user can bring manually invoke the start of next turn once they have read feedback from gameboard overlay.
 
-ACCESSIBILITY CHECKLIST
 
-* Add title and aria-label attributes to links and interactive elements
 
 
 QUESTIONS FOR ARNOLD/TUTORING/SLACK
@@ -97,34 +94,6 @@ QUESTIONS FOR ARNOLD/TUTORING/SLACK
 * Tips for how to work effectively on a project to create MVP more quickly ad add in extra features/styling later?
 * When loading fixtures into Jasmine tests to test DOM manipulation I could not find a way to get loadFixtures() function to work with index.html file
 
-HIGH LEVEL ARCHITECTURE OF PROGRAM FUNCTIONALITY
 
-*Objects and data
 
-questions (array)
-gameboard (object, .addQuestion())
-scoreboard (object, .updateTurns(), updateTotal())
-timer(.start(), .end())
-randomNumber(.generate())
-
-*Scenes
-
-Welcome
-Main game
-Game over
-
-*Logic
-
-choose expression (function)
-check user input (function)
-calculate score (function)
-endGame(function)
-
-User interaction
-
-click grid element (onClick)
-inout expression value (on click and keyboard input)
-click to play (onClick)
-open info (onClick)
-open about footer (onClick)
 
