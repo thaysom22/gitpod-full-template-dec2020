@@ -36,14 +36,11 @@ class Scoreboard {
      * @param {*Number} playerTurnScore
      */
     endPlayerTurn(playerTurnScore) {
-
         updateScoreboardData.bind(this)(playerTurnScore);
         updateScoreboardDOM.bind(this)();
         endGameCheck.bind(this)();
         
-
-        
-        // updates player1Board and player2Board objects
+        // update player1Board and player2Board objects
         function updateScoreboardData(playerTurnScore) {
             if (this.player1Board.active === true) { // if turn belongs to player1...
                 this.player1Board.playerScore += playerTurnScore;
@@ -59,7 +56,7 @@ class Scoreboard {
             return;
         }
         
-        // updates scoreboard in DOM
+        // update scoreboard in DOM
         function updateScoreboardDOM() {    
             $('#player1-scoreboard .main-score>.value').text(this.player1Board.playerScore);
             $('#player2-scoreboard .main-score>.value').text(this.player2Board.playerScore);

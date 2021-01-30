@@ -1,9 +1,7 @@
 @use "../base";
 
 // -------------- gameboard
-
 // -------------------- mobile
-
 #gameboard-wrapper{
     position: relative;
     margin-top: 3rem;
@@ -18,8 +16,7 @@
     width: 100%;
     grid-template: repeat(8, 8rem) / 1fr 1fr;
     grid-gap: .2rem;
-    justify-items: center;
-    
+    justify-items: center;   
 }
 
 .gameboard-grid-item{
@@ -30,17 +27,13 @@
     @include base.box-shadow();
     border: base.$green 0.25rem solid;
     background-color: base.$yellow;
-    
     &.cursor{
         cursor: pointer;
     }
-
     span{
         font-size: 3rem;
-        color: black;
-        
+        color: black;   
     }
-
     &.disabled{
         background-color: rgba(0,0,0,0.2);
     }
@@ -52,14 +45,12 @@
     height: 100%;
     z-index: 10;
     background-color: base.$pink;
-
     &.hide{
         display: none;
     }
 }
 
 #gameboard-overlay-content{
-    
     background-color: base.$blue;
     @include base.box-shadow();
     @include base.elliptical-border($color: base.$yellow, $width: 1rem, $radius: 2rem);
@@ -68,35 +59,29 @@
     width: calc(100% - 4rem);
     max-width: 50rem;
     margin: 1rem auto;
-
     h3{
         text-align: center;
         font-size: 1.5rem;
         padding: 1rem 0.5rem;
         font-family: base.$title-font;
     }
-
     #gameboard-active-question span{
         font-size: 3rem;
         padding: 1rem 0.5rem;
         margin-top: 1rem;
     }
-
     form{
         @include base.make-flexbox($direction: column,);
         justify-content: flex-start;
         padding: 1rem 0.5rem;
-
         &.hide{
             display: none;
         }
-
         input{
             margin: 0.5rem;
             padding: 0.5rem;
             font-size: 2rem;
         }
-
         button{
             background-color: base.$blue;
             padding: 1rem;
@@ -113,11 +98,8 @@
             @include base.grow;
         }
     }
-
     #answer-feedback{
-        
         @include base.make-flexbox($direction: column);
-
         i{
             font-size: 3rem;
             padding: 0.5rem;
@@ -128,14 +110,12 @@
             text-align: center;
         }
     }
-
     &.correct-user-answer{
         background-color: rgb(10, 233, 10);
     }
     &.incorrect-user-answer{
         background-color: rgb(248, 4, 4);
     }
-
     #player-answer-error-message{
         font-size: 2rem;
         height: 2rem;
@@ -145,7 +125,6 @@
 }
 
 // ------------------------ tablet
-
 @media screen and (min-width: 767px){
     #gameboard-wrapper{
         padding-left: 1rem;
@@ -170,11 +149,9 @@
             font-size: 2rem;
         }
     }
-
 }
 
 // ------------------------ desktop
-
 @media screen and (min-width: 1023px){
     #gameboard-wrapper{
         grid-area: gameboard;

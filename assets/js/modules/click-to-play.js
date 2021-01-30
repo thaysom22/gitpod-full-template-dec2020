@@ -9,7 +9,6 @@ class ClickToPlay{
         this.player2Name = player2Name;
         this.difficultySetting = difficultySetting; 
         this.activePlayer = null; 
-        
         this.setupNewTurn(); // when game is initially loaded it is beginning of player turn
     }
 
@@ -39,7 +38,7 @@ class ClickToPlay{
 
         function updateVariableInDOM(variableValue){
             if (variableValue === null) { // start of turn
-                $('#random-number-wrapper').addClass("pulse")
+                $('#random-number-wrapper').addClass("pulse");
                 $('.fas.fa-question').removeClass("hide");
                 $('#variable-value').addClass("hide");
             } else {             
@@ -76,26 +75,20 @@ class ClickToPlay{
                         updateVariableInDOM(tempVariable);
                         count += 1; 
                     }   
-                }, 200);
-                
+                }, 200); 
                 return finalVariable;
                 
                 // uses getRandomRange function to produce a random number in required range
                 function numberGenerator(difficultySetting){
                     var randomVariable;
                     if (difficultySetting == "Easy") {
-                        randomVariable = getRandomRange(0, 5);
+                        randomVariable = getRandomRange(-1, 5);
                     } else { // difficultySetting === "Hard"
                         randomVariable = getRandomRange(-5, 5);
                     }
-
                     return randomVariable;
                 }
-
             }
-
         }
-
-    }
-    
+    } 
 }

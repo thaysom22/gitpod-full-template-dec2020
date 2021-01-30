@@ -1,13 +1,10 @@
 @use "../base";
 
 // ------------ footer
-
 // --------------------- mobile 
-
 #footer-wrapper,
 .modal-footer-wrapper{
     @include base.make-flexbox($direction: column);
-
     &.hide{
         display: none;
     }
@@ -30,17 +27,15 @@
 
 #about-content-wrapper,
 .modal-about-content-wrapper{
-
-    &.hide{
-        display: none;
-    }
-
     display: grid;
     grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
     width: 100%;
     height: 10rem;
     border-top: solid black .1rem;
     padding-top: .5rem;
+    &.hide{
+        display: none;
+    }
     i{
         font-size: 2rem;
         padding: .4rem 0;
@@ -72,12 +67,10 @@
 }
 
 // ---------------------- tablet
-
 @media screen and (min-width: 767px){
     #about-trigger-wrapper,
     .modal-about-trigger-wrapper{
         padding-bottom: 0.2rem;
-        
         i{
             font-size: 4rem;
         }
@@ -103,7 +96,6 @@
 }
 
 // ------------------------ desktop
-
 @media screen and (min-width: 1023px){
     #footer-wrapper,
     .modal-footer-wrapper{

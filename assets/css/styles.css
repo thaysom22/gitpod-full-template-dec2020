@@ -1,19 +1,27 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @font-face {
   font-family: "arbeiBerry";
-  src: url("../fonts/ArbeiBerry-rg3Ky.ttf") format("truetype");
+  src: url("../fonts/arbeiberry.ttf") format("truetype");
 }
 @font-face {
   font-family: "reallyFree";
-  src: url("../fonts/ReallyFree-ALwl7.ttf") format("truetype");
+  src: url("../fonts/reallyfree.ttf") format("truetype");
 }
 *, *::before, *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   outline: none;
 }
 
-*:focus {
+*:focus, *:active {
   outline: none;
 }
 
@@ -33,13 +41,24 @@ a {
 body {
   min-height: 100vh;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #grid-container-body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
 }
 
@@ -56,10 +75,13 @@ body {
 
 @media screen and (min-width: 1023px) {
   #grid-container-body {
+    display: -ms-grid;
     display: grid;
     justify-items: center;
-    align-items: center;
-    grid-template-areas: "heading heading heading heading" "click-to-play gameboard gameboard gameboard" "scoreboard gameboard gameboard gameboard" "foot foot foot foot";
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+        grid-template-areas: "heading heading heading heading" "click-to-play gameboard gameboard gameboard" "scoreboard gameboard gameboard gameboard" "foot foot foot foot";
   }
 }
 .info-contents {
@@ -79,9 +101,12 @@ body {
   border-color: #fee440;
   border-width: 0.25rem;
   border-radius: 2rem;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background-color: #9b5de5;
-  box-shadow: 0 0 1.5rem black;
+  -webkit-box-shadow: 0 0 1.5rem black;
+          box-shadow: 0 0 1.5rem black;
 }
 .info-contents li {
   padding: 0.2rem;
@@ -113,7 +138,9 @@ body {
   outline: none;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   z-index: 100;
   width: 70rem;
   height: 100%;
@@ -126,12 +153,22 @@ body {
 }
 
 .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   border: 1rem solid #00bbf9;
-  box-shadow: 0 0 0.5rem #00bbf9;
+  -webkit-box-shadow: 0 0 0.5rem #00bbf9;
+          box-shadow: 0 0 0.5rem #00bbf9;
   border-radius: 3rem;
   height: 100%;
   max-height: calc(100vh - 2rem);
@@ -163,32 +200,60 @@ body {
   display: none;
 }
 #welcome-input-form-wrapper form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #welcome-input-form-wrapper #player-names-container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #welcome-input-form-wrapper .player-name-wrapper {
   width: 75%;
   max-width: 25rem;
   height: 12rem;
   margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-style: solid;
   border-color: #00bbf9;
   border-width: 0.25rem;
   border-radius: 50%;
-  box-shadow: 0 0 0.5rem black;
+  -webkit-box-shadow: 0 0 0.5rem black;
+          box-shadow: 0 0 0.5rem black;
   background-color: #9b5de5;
 }
 #welcome-input-form-wrapper .player-name-wrapper label {
@@ -209,10 +274,19 @@ body {
   width: 75%;
   height: 5rem;
   margin-top: -1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #welcome-input-form-wrapper .choose-difficulty-wrapper label {
   padding: 0.75rem;
@@ -244,7 +318,8 @@ body {
   border-color: #fee440;
   border-width: 0.3rem;
   border-radius: 50%;
-  box-shadow: 0 0 1rem black;
+  -webkit-box-shadow: 0 0 1rem black;
+          box-shadow: 0 0 1rem black;
   margin: 0.5rem;
   cursor: pointer;
   outline: none;
@@ -253,30 +328,37 @@ body {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+     transition-duration: 0.2s;
   /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
 @media (hover: hover) {
   #welcome-input-form-wrapper #start-game-button:hover {
     outline: none;
     -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+        transform: scale(1.1);
   }
 }
 #welcome-input-form-wrapper #start-game-button:focus {
   outline: none;
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 #welcome-input-form-wrapper #start-game-button:active {
   outline: none;
   -webkit-transform: scale(1);
-  transform: scale(1);
+  -ms-transform: scale(1);
+      transform: scale(1);
 }
 
 @media screen and (min-width: 767px) {
   #welcome-input-form-wrapper #player-names-container {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   #welcome-input-form-wrapper .player-name-wrapper {
     height: 20rem;
@@ -313,15 +395,28 @@ body {
   }
 }
 #gameover-modal .modal-content {
-  justify-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 #gameover-modal #final-results-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  align-self: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 #gameover-modal #final-results-wrapper #winner-result {
   width: 100%;
@@ -334,15 +429,25 @@ body {
   font-size: 2.5rem;
 }
 #gameover-modal #final-results-wrapper .player-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-style: solid;
   border-color: #9b5de5;
   border-width: 0.25rem;
   border-radius: 50%;
-  box-shadow: 0 0 0.5rem black;
+  -webkit-box-shadow: 0 0 0.5rem black;
+          box-shadow: 0 0 0.5rem black;
   background-color: #fee440;
   color: #00bbf9;
 }
@@ -359,12 +464,22 @@ body {
   font-size: 3rem;
 }
 #gameover-modal #gameover-buttons-wrapper {
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   margin: 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #gameover-modal #gameover-buttons-wrapper .gameover-button {
   padding: 1rem;
@@ -379,31 +494,36 @@ body {
   border-color: #fee440;
   border-width: 0.3rem;
   border-radius: 50%;
-  box-shadow: 0 0 1rem black;
+  -webkit-box-shadow: 0 0 1rem black;
+          box-shadow: 0 0 1rem black;
   /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+     transition-duration: 0.2s;
   /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
 @media (hover: hover) {
   #gameover-modal #gameover-buttons-wrapper .gameover-button:hover {
     outline: none;
     -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+        transform: scale(1.1);
   }
 }
 #gameover-modal #gameover-buttons-wrapper .gameover-button:focus {
   outline: none;
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 #gameover-modal #gameover-buttons-wrapper .gameover-button:active {
   outline: none;
   -webkit-transform: scale(1);
-  transform: scale(1);
+  -ms-transform: scale(1);
+      transform: scale(1);
 }
 #gameover-modal #gameover-header {
   font-size: 3.5rem;
@@ -419,15 +539,25 @@ body {
     font-size: 3.5rem;
   }
   #gameover-modal #final-results-wrapper .player-result {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border-style: solid;
     border-color: #9b5de5;
     border-width: 0.25rem;
     border-radius: 50%;
-    box-shadow: 0 0 0.5rem black;
+    -webkit-box-shadow: 0 0 0.5rem black;
+            box-shadow: 0 0 0.5rem black;
     background-color: #fee440;
     color: #00bbf9;
   }
@@ -459,10 +589,19 @@ body {
 
 #header-wrapper,
 .modal-header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 8rem;
   padding: 1rem 0.5rem;
 }
@@ -473,7 +612,9 @@ body {
 
 #main-heading,
 .modal-main-heading {
-  flex-grow: 3;
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
   font-size: 2rem;
   text-align: center;
 }
@@ -482,17 +623,29 @@ body {
 .modal-header-info-wrapper {
   cursor: pointer;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+     transition-duration: 0.2s;
   /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
 @media (hover: hover) {
@@ -500,20 +653,23 @@ body {
 .modal-header-info-wrapper:hover {
     outline: none;
     -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+        transform: scale(1.1);
   }
 }
 #header-info-wrapper:focus,
 .modal-header-info-wrapper:focus {
   outline: none;
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 #header-info-wrapper:active,
 .modal-header-info-wrapper:active {
   outline: none;
   -webkit-transform: scale(1);
-  transform: scale(1);
+  -ms-transform: scale(1);
+      transform: scale(1);
 }
 #header-info-wrapper i,
 .modal-header-info-wrapper i {
@@ -550,7 +706,9 @@ body {
   #main-heading,
 .modal-main-heading {
     font-size: 4.5rem;
-    flex-grow: 4;
+    -webkit-box-flex: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
   }
 
   #header-info-wrapper i,
@@ -581,10 +739,19 @@ body {
   }
 }
 #scoreboards-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 16rem;
 }
 #scoreboards-wrapper.hide {
@@ -598,21 +765,40 @@ body {
 
 .player-scoreboard {
   margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .player-scoreboard .main-score {
   border-style: solid;
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;
-  box-shadow: 0 0 0.5rem black;
+  -webkit-box-shadow: 0 0 0.5rem black;
+          box-shadow: 0 0 0.5rem black;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 10rem;
   width: 7rem;
   background-color: #00f5d4;
@@ -628,16 +814,27 @@ body {
   top: -2rem;
 }
 .player-scoreboard .score-turns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-style: solid;
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;
-  box-shadow: 0 0 0.5rem black;
-  align-self: flex-start;
+  -webkit-box-shadow: 0 0 0.5rem black;
+          box-shadow: 0 0 0.5rem black;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   position: relative;
   top: -1rem;
   left: -2rem;
@@ -659,7 +856,8 @@ body {
     width: 11rem;
   }
   .player-scoreboard .score-turns {
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
     position: relative;
     top: -1rem;
     height: 5rem;
@@ -713,15 +911,25 @@ body {
   }
 }
 #click-to-play-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-style: solid;
   border-color: black;
   border-width: 0.25rem;
   border-radius: 50%;
-  box-shadow: 0 0 0.75rem black;
+  -webkit-box-shadow: 0 0 0.75rem black;
+          box-shadow: 0 0 0.75rem black;
   margin-left: 1rem;
   margin-right: 1rem;
   height: 16rem;
@@ -739,16 +947,26 @@ body {
 }
 #click-to-play-wrapper #random-number-wrapper {
   height: 6.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #fee440;
 }
 #click-to-play-wrapper #random-number-wrapper.pulse {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   -webkit-animation-name: pulse;
   animation-name: pulse;
   -webkit-animation-duration: 1s;
@@ -846,22 +1064,35 @@ body {
 }
 
 #gameboard-grid-container {
+  display: -ms-grid;
   display: grid;
   width: 100%;
-  grid-template: repeat(8, 8rem)/1fr 1fr;
+  -ms-grid-rows: 8rem 0.2rem 8rem 0.2rem 8rem 0.2rem 8rem 0.2rem 8rem 0.2rem 8rem 0.2rem 8rem 0.2rem 8rem;
+  -ms-grid-columns: 1fr 0.2rem 1fr;
+      grid-template: repeat(8, 8rem)/1fr 1fr;
   grid-gap: 0.2rem;
   justify-items: center;
 }
 
 .gameboard-grid-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: solid 0.2rem black;
   max-width: 25rem;
   width: 100%;
-  box-shadow: 0 0 0.5rem black;
+  -webkit-box-shadow: 0 0 0.5rem black;
+          box-shadow: 0 0 0.5rem black;
   border: #00f5d4 0.25rem solid;
   background-color: #fee440;
 }
@@ -889,15 +1120,25 @@ body {
 
 #gameboard-overlay-content {
   background-color: #00bbf9;
-  box-shadow: 0 0 0.5rem black;
+  -webkit-box-shadow: 0 0 0.5rem black;
+          box-shadow: 0 0 0.5rem black;
   border-style: solid;
   border-color: #fee440;
   border-width: 1rem;
   border-radius: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 70%;
   width: calc(100% - 4rem);
   max-width: 50rem;
@@ -915,11 +1156,22 @@ body {
   margin-top: 1rem;
 }
 #gameboard-overlay-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 1rem 0.5rem;
 }
 #gameboard-overlay-content form.hide {
@@ -941,7 +1193,8 @@ body {
   border-color: #fee440;
   border-width: 0.3rem;
   border-radius: 50%;
-  box-shadow: 0 0 1rem black;
+  -webkit-box-shadow: 0 0 1rem black;
+          box-shadow: 0 0 1rem black;
   margin-bottom: 1rem;
   margin-top: 1rem;
   cursor: pointer;
@@ -951,31 +1204,44 @@ body {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+     transition-duration: 0.2s;
   /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
 @media (hover: hover) {
   #gameboard-overlay-content form button:hover {
     outline: none;
     -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+        transform: scale(1.1);
   }
 }
 #gameboard-overlay-content form button:focus {
   outline: none;
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 #gameboard-overlay-content form button:active {
   outline: none;
   -webkit-transform: scale(1);
-  transform: scale(1);
+  -ms-transform: scale(1);
+      transform: scale(1);
 }
 #gameboard-overlay-content #answer-feedback {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #gameboard-overlay-content #answer-feedback i {
   font-size: 3rem;
@@ -1006,7 +1272,9 @@ body {
   }
 
   #gameboard-grid-container {
-    grid-template: repeat(4, 10rem)/repeat(4, 1fr);
+    -ms-grid-rows: 10rem 0.2rem 10rem 0.2rem 10rem 0.2rem 10rem;
+    -ms-grid-columns: 1fr 0.2rem 1fr 0.2rem 1fr 0.2rem 1fr;
+        grid-template: repeat(4, 10rem)/repeat(4, 1fr);
   }
 
   #gameboard-overlay {
@@ -1038,10 +1306,19 @@ body {
 }
 #footer-wrapper,
 .modal-footer-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #footer-wrapper.hide,
 .modal-footer-wrapper.hide {
@@ -1051,17 +1328,27 @@ body {
 #about-trigger-wrapper,
 .modal-about-trigger-wrapper {
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 0.1rem;
   /* Bounce In CREDIT: https://github.com/IanLunn/Hover/blob/master/css/hover.css*/
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+     transition-duration: 0.2s;
   /* CREDIT: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/ */
 }
 @media (hover: hover) {
@@ -1069,20 +1356,23 @@ body {
 .modal-about-trigger-wrapper:hover {
     outline: none;
     -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+        transform: scale(1.1);
   }
 }
 #about-trigger-wrapper:focus,
 .modal-about-trigger-wrapper:focus {
   outline: none;
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+      transform: scale(1.1);
 }
 #about-trigger-wrapper:active,
 .modal-about-trigger-wrapper:active {
   outline: none;
   -webkit-transform: scale(1);
-  transform: scale(1);
+  -ms-transform: scale(1);
+      transform: scale(1);
 }
 #about-trigger-wrapper i,
 .modal-about-trigger-wrapper i {
@@ -1093,11 +1383,11 @@ body {
   font-size: 1.5rem;
   padding: 0 0.5rem;
 }
-
 #about-content-wrapper,
 .modal-about-content-wrapper {
+  display: -ms-grid;
   display: grid;
-  grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
+      grid-template-areas: "dev-portfolio github-repo" "copyright copyright";
   width: 100%;
   height: 10rem;
   border-top: solid black 0.1rem;
@@ -1118,42 +1408,76 @@ body {
 }
 #about-content-wrapper a,
 .modal-about-content-wrapper a {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #about-content-wrapper #dev-portfolio-wrapper,
 #about-content-wrapper .modal-dev-portfolio-wrapper,
 .modal-about-content-wrapper #dev-portfolio-wrapper,
 .modal-about-content-wrapper .modal-dev-portfolio-wrapper {
   grid-area: dev-portfolio;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #about-content-wrapper #github-repo-wrapper,
 #about-content-wrapper .modal-github-repo-wrapper,
 .modal-about-content-wrapper #github-repo-wrapper,
 .modal-about-content-wrapper .modal-github-repo-wrapper {
   grid-area: github-repo;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #about-content-wrapper #copyright-wrapper,
 #about-content-wrapper .modal-copyright-wrapper,
 .modal-about-content-wrapper #copyright-wrapper,
 .modal-about-content-wrapper .modal-copyright-wrapper {
-  order: 1;
   padding-top: 1rem;
   grid-area: copyright;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media screen and (min-width: 767px) {
@@ -1206,5 +1530,3 @@ body {
     font-size: 2rem;
   }
 }
-
-/*# sourceMappingURL=styles.css.map */

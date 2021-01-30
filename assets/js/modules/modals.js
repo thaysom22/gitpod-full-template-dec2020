@@ -2,16 +2,16 @@ export { WelcomeModal, GameoverModal };
 
 import { Gameboard } from "./gameboard.js";
 import { Scoreboard } from "./scoreboard.js";
-import { ClickToPlay } from "./clickToPlay.js";
+import { ClickToPlay } from "./click-to-play.js";
 
 class WelcomeModal {
     constructor(){
         addSubmitEventListener(this.submitWelcomeForm); // add event listener at instantiation
 
-        // addSubmitEventListener adds event listener to welcome modal form submit input element
+        // adds event handler
         function addSubmitEventListener(handler) {
             $("#welcome-modal-form").submit(handler);
-        };   
+        }
     }
 
     /**
@@ -21,10 +21,7 @@ class WelcomeModal {
     submitWelcomeForm(submitEvent) {
         submitEvent.preventDefault(); // prevent default reloading of page on form submission
         submitEvent.stopPropagation(); // prevent form input being appended to url
-        
-        
         $('#start-game-button')[0].blur();
-    
         // verify player1name and player2name inputs
         let player1Name = $('#player1Name').val();
         let player2Name = $('#player2Name').val();
@@ -63,7 +60,7 @@ class WelcomeModal {
             $('body').removeClass("modal-open");
             $('#welcome-modal').addClass("hide");
             $('#modal-backdrop').addClass("hide");  
-        };
+        }
 
         // instantiates components as global properties in browser and hides welcome modal   
         function startGame(player1Name, player2Name, difficultySetting) {
@@ -72,10 +69,8 @@ class WelcomeModal {
             window.clickToPlay = new ClickToPlay(player1Name, player2Name, difficultySetting);
             $('#grid-container-body').removeClass('hide');
             setTimeout(hideWelcomeModal, 500);
-        };
-        
+        }
     }      
- 
 }
 
 class GameoverModal{
@@ -91,8 +86,6 @@ class GameoverModal{
         addGameoverModalEventListener(this.player1Name, this.player2Name, this.difficultySetting); // add event listener to restart button
         showGameoverModal();
         
-        
-
         function calculateWinner(player1Score, player2Score){
             if (player1Score > player2Score){
                 return 1;
@@ -120,23 +113,19 @@ class GameoverModal{
             $('#player1-result .score').text(this.player1Score);
             $('#player2-result .name').text(this.player2Name);
             $('#player2-result .score').text(this.player2Score);
-
             $('#gameover-buttons-wrapper a').css("pointer-events", "auto"); // activates pointer events on 'new game' link
         }
 
         function addGameoverModalEventListener(player1Name, player2Name, difficultySetting){
-
             $('#restart-game-button').click(restartGameHandler);
 
             function restartGameHandler(clickEvent){
                 clickEvent.preventDefault();
                 clickEvent.stopPropagation();
                 $('#restart-game-button').off("click"); // remove this event listener
-
                 // reset redidual DOM effects of last game
                 resetGameboardDOM();
                 resetClickToPlayDOM();
-
                 // overwrite global objects with fresh instances
                 window.scoreboard = new Scoreboard(player1Name, player2Name, difficultySetting); 
                 window.gameboard = new Gameboard(difficultySetting); 

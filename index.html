@@ -36,8 +36,8 @@
             <li>Enter names for both players and choose a difficulty level</li>
             <li>Player 1 clicks on ? icon to generate a random number for the value of x</li>
             <li>Player 1 chooses an expression from the grid and then enters the value of the expression for their x</li>
-            <li>If player 1 tires to evaluate the expression, it is the end of their turn and the expression they chose is removed from the grid</li> 
-            <li>If answer is correct, more points are awarded for turn if it was one of the highest value options available from the grid</li>
+            <li>When player 1 enters a value, it is the end of their turn and the expression they chose is removed from the grid</li> 
+            <li>Higher value correct answers gain more points</li>
             <li>If answer is incorrect, player loses a point for turn</li>
             <li>Player 2 begins their turn</li>
             <li>Once player 2 runs out of turns, the game is over and the player with the highest score wins!</li>
@@ -183,11 +183,11 @@
                 <div id="player-names-container">
                 <div class="player-name-wrapper">
                     <label for="player1Name">Player 1</label>
-                    <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="8" title="player 1 name" aria-label="Enter player 1 name">
+                    <input type="text" id="player1Name" name="player1Name" placeholder="Enter Name" size="10" title="player 1 name" aria-label="Enter player 1 name">
                 </div>
                 <div class="player-name-wrapper">
                     <label for="player2Name">Player 2</label>
-                    <input type="text" id="player2Name" name="player2Name" placeholder="Enter Name" size="8" title="player 2 name" aria-label="Enter player 2 name">
+                    <input type="text" id="player2Name" name="player2Name" placeholder="Enter Name" size="10" title="player 2 name" aria-label="Enter player 2 name">
                 </div>
                 </div>
                 <span>Choose difficulty level:</span>

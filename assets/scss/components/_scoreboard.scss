@@ -2,17 +2,13 @@
 @use "../base";
 
 // ------ scoreboard
-
 // -------------------- smaller mobile
-
 #scoreboards-wrapper{
     @include base.make-flexbox();
     height: 16rem;
-
     &.hide{
         visibility: hidden; // keep space on page
     }
-    
     .scoreboard-title{
         font-size: 2rem;
         margin: 1rem;
@@ -21,10 +17,8 @@
 }
 
 .player-scoreboard{
-    
     margin: 1rem;
     @include base.make-flexbox($direction:column);
-    
     .main-score{
         @include base.elliptical-border();
         @include base.box-shadow();
@@ -32,13 +26,11 @@
         height: 10rem;
         width: 7rem;
         background-color: base.$green;
-
         >.value{
             font-size: 4rem;
             position: relative;
             top: -2rem;
         }
-
         >.label{
             font-size: 1.5rem;
             position: relative;
@@ -58,29 +50,23 @@
         width: 5rem;
         z-index: 1;
         background-color: base.$pink;
-
         .value{
             font-size: 1.5rem;
         }
-
         .label{
             font-size: 1rem;
         }
     }
 }
 
-// ------------------------ larger mobile/small tablet
+// -------------------larger mobile/small tablet
 // extra breakpoint added to accommodate scoreboard on smaller viewports
-
 @media screen and (min-width: 500px){
     .player-scoreboard{
-       
-        
         .main-score{
             height: 11rem;
             width: 11rem;
         }
-        
         .score-turns{
             align-self: flex-start;
             position: relative;
@@ -88,11 +74,9 @@
             height: 5rem;
             width: 6rem;
             z-index: 1;
-
             .value{
                 font-size: 1.75rem;
             }
-
             .label{
                 font-size: 1.5rem;
             }
@@ -100,14 +84,10 @@
     }
 }
 
-
-
 // ------------------------ tablet
-
 @media screen and (min-width: 767px){
     #scoreboards-wrapper{
     height: 16rem;
-
         .scoreboard-title{
             font-size: 3rem;
         }
@@ -116,11 +96,9 @@
         .main-score{
             height: 13rem;
             width: 12rem;
-
             >.value{
                 font-size: 6rem;
             }
-
             >.label{
                 font-size: 2rem;
             }
@@ -128,21 +106,17 @@
         .score-turns{
             height: 6rem;
             width: 7rem;
-
             >.value{
                 font-size: 2rem;
             }
-
             >.label{
                 font-size: 1.75rem;
             }
         }
     }
-
 }
 
 // ------------------------ desktop
-
 @media screen and (min-width: 1023px){
     #scoreboards-wrapper{
         grid-area: scoreboard;
@@ -151,6 +125,5 @@
         h4{
             font-size: 2.75rem;
         }
-    }
-    
+    }    
 }

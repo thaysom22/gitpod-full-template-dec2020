@@ -1,7 +1,6 @@
 import { getRandomRange } from "./helpers.js";
 export { Gameboard };
 
-
 class Gameboard {
     constructor(difficultySetting){
         this.currentQuestionId = null;
@@ -16,7 +15,7 @@ class Gameboard {
                 span.parentElement.questionId = questions[index].id; // creates a DOM property questionId which stores corresponding question object id value on .grid-expression (parent) 
             });
 
-            MathJax.typeset() // call mathjax synchronous .typeset() method as HTML was changed from when document was first rendered 
+            MathJax.typeset(); // call mathjax synchronous .typeset() method as HTML was changed from when document was first rendered 
             return questions;
         
             // returns an array of question objects with expressionSring and LaTexString values set 
@@ -34,7 +33,6 @@ class Gameboard {
                     };
                     questions.push(question);
                 });
-
                 return questions;
             }
 
@@ -58,9 +56,7 @@ class Gameboard {
                     `${randCoeff("Easy")} + x^3`,
                     `x^2 + ${randCoeff("Easy")}*x + ${randCoeff("Easy")}`
                 ];
-
                 easyTemplate = easyTemplate.map((exp) => exp.replaceAll("1*x", "x")); // replace all occurances of 1*x (standard mathematical convention)
-
                 let hardTemplate = [
                     `${randCoeff("Hard")}*x^2`,
                     `(${randCoeff("Hard")}*x)^2`,
@@ -79,9 +75,7 @@ class Gameboard {
                     `(${randCoeff("Hard")}*x)^2 - ${randCoeff("Hard")}`,
                     `${randCoeff("Hard")}*x^2 + ${randCoeff("Hard")}*x^3`
                 ];
-
                 hardTemplate = hardTemplate.map((exp) => exp.replaceAll("1*x", "x"));
-
                 let unshuffledExpressions;
                 if (difficultySetting === "Easy") {
                     unshuffledExpressions = easyTemplate;
@@ -112,10 +106,8 @@ class Gameboard {
                 let laTex;
                 expression = expression.replaceAll("*", ""); // remove all occurances of "*" operator from expression for formatting
                 node = math.parse(expression); // parse expression string into mathjs node 'expression tree' object
-                
                 laTex = node.toTex({implicit: 'hide'}); // do not show multiplication operator in LaTex 
                 laTex = "\\(" + laTex + "\\)"; // default delimiters for LaTex inline math in HTML doc: \( ... \)
-
                 return laTex;
             }
         }  
@@ -133,15 +125,14 @@ class Gameboard {
         setupOverlay(variableValue); // resets overlay from last answer submission
 
         function filterQuestions(questionsArray){
-            return questionsArray.filter(question => !question.disabled)
+            return questionsArray.filter(question => !question.disabled);
         }
         
         function evaluateQuestions(variableValue){
             this.questions.forEach(function(question){
                 let context = { x: variableValue };
-                question.answer = math.evaluate(question.expressionString, context) // math object is available in global namespace
+                question.answer = math.evaluate(question.expressionString, context); // math object is available in global namespace
             });
-
             return;
         }
 
@@ -152,7 +143,6 @@ class Gameboard {
             });
 
             answersWithIdArray.sort(function(a, b) {return b[0] - a[0];}); // sort by descending values of answer
-
             let prevAnswer = null;
             let sameRankingsCounter = 0; // tracks number of questions that have been assigned same ranking value
             var self = this; // create self binding that refers to gameboard instance 
@@ -165,7 +155,7 @@ class Gameboard {
                 }
 
                 prevAnswer = answerWithId[0];
-            })
+            });
         }
 
         function setupOverlay(variableValue){
@@ -187,11 +177,9 @@ class Gameboard {
             function activateGameboardOverlay(clickEvent) {
                 clickEvent.preventDefault();
                 clickEvent.stopPropagation();
-
                 let currentEventTarget = clickEvent.currentTarget; 
                 this.currentQuestionId = currentEventTarget.questionId; 
                 let cloneMjx = currentEventTarget.firstChild.firstChild.cloneNode(true); // create deep copy of selected math jax content node so that it remains on gameboard when appended to gameboard overlay
-                
                 showOverlay.bind(this)(cloneMjx); // unhides overlay to user, sets overlay content, turns on overlay event listeners
 
                 function showOverlay(mjxContent){
@@ -224,15 +212,13 @@ class Gameboard {
                     function userAnswerSubmitHandler(submitEvent) {
                         submitEvent.preventDefault();
                         submitEvent.stopPropagation();
-                        
                         let questionId = this.currentQuestionId;
                         let userAnswerString = $('#player-answer').val();
                         let userAnswerNumber = Number(userAnswerString);
                         let correctAnswer = this.questions.find(question => question.id === questionId).answer;
-                        let userAnswerRegex = /^-?\d+(\.\d+)?$/g // regex matches only valid (positive and negative) numerical (including decimal) user inputs without letters or other characters CREDIT: https://regexone.com/problem/matching_decimal_numbers 
+                        let userAnswerRegex = /^-?\d+(\.\d+)?$/g; // regex matches only valid (positive and negative) numerical (including decimal) user inputs without letters or other characters CREDIT: https://regexone.com/problem/matching_decimal_numbers 
                         let correctBool;
                         if (userAnswerString.match(userAnswerRegex)) { // if valid answer entered by user, turn is over
-                            
                             if (userAnswerNumber === correctAnswer) { 
                                 correctBool = true;
                                 $('#gameboard-overlay-content').addClass("correct-user-answer");
@@ -248,17 +234,13 @@ class Gameboard {
                             disableQuestion.bind(this)(questionId); // if a valid user attempt has been made, disable question
                             this.currentQuestionId = null; 
                             hideGameboardOverlay.bind(this)(4000); // 4 second delay for answer feedback
-
                             // store ranking of current question and calculate the score for turn 
                             let activeQuestionRanking = this.questions.find(question => question.id === questionId).ranking; // get the ranking of the active question
                             let playerTurnScore = calculateTurnScore(correctBool, activeQuestionRanking); // calculate the score based on user input and active question ranking
-
-
                             $('#answer-feedback .feedback2').text(`Chosen expression value ranking: ${activeQuestionRanking+1}`); // adjust ranking to be 1-indexed for user
                             $('#answer-feedback .feedback3').text(`Score for your turn: ${playerTurnScore}`);
                             $('#gameboard-overlay-content form').addClass("hide");
                             $('#answer-feedback').removeClass('hide');
-
                             $('.gameboard-grid-item').off("click"); // remove event listeners from gameboard grid
                             $('.gameboard-grid-item').removeClass("cursor");
                             // set up clickToPlay component for new turn and update scoreboard for end of turn

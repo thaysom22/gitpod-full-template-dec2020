@@ -264,6 +264,9 @@ Layout:
 * [jasmine-jquery]
 * [mathjs library](https://mathjs.org/index.html) linked from cdnjs and used to evaluate function expressions for Gameboard object
 * [mathJax library]() linked from jsdelivr cdn and used for rendering mathematical expressions in browser
+* [Autoprefixer CSS](https://autoprefixer.github.io/) for back compatibility with older browsers
+* [W3C CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator) to validate style.css 
+* [W3C Markup validatior](https://validator.w3.org/) to validate HTML
 
 ## 4. Deployment Proceedure
 

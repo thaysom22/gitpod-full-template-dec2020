@@ -263,13 +263,14 @@ Testing of display and functionality of all components of the application:
 
 ### General solved bugs
 
-* When site is opened on a lenovo laptop in chrome browser a scroll bar appears/disappears on the right hand side of the page with every interaction with the page (input, click) which makes the viewable content jerk slightly horizontally. Fix: changed overflow:auto to overflow:hidden on all but overflow-y of modal content. // CREDIT: https://stackoverflow.com/questions/21563672/google-chrome-vertical-scroll-bars-mysteriously-appear-and-disappear 
+
 
 ### Unsolved bugs
 
 * Error message in console: "WebSocket connection failed". Followed traceback and this error occurs in javascript injected by the liveserver used by gitpod. Same error does not occur on console for deployed site on github pages.
 * Numerous 'violation' warnings occur in console when event handlers are called. This is because some event handlers need to wait for user interaction or for a setTimeout call to complete so are delayed. These delays are part of the user experience rather than a performance issue. 
 * HTTP 404 error when devtool tries to load SourceMap for javascript minification. I could not find a way to fix this and after all testing was completed I could not see that it was affecting user experience of the application although it way have been slowing down the site slighly due to uncompressed code being served to client.
+* On iOS devices and on a lenovo laptop in chrome browser a scroll bar appears/disappears on the right hand side of the page with every interaction with the page (input, click) which makes the viewable content jerk slightly horizontally. Attempted fix: changed overflow:auto to overflow:hidden on all but overflow-y of modal content. However behaviour perseisted and I could not find a solution. // CREDIT: https://stackoverflow.com/questions/21563672/google-chrome-vertical-scroll-bars-mysteriously-appear-and-disappear  
 
 ## 3. Automated testing
 
@@ -279,11 +280,17 @@ Testing of display and functionality of all components of the application:
 
 * Error: <button> element should not appear as child of <a> element. Fix: changed button to div and retested button form and function.
 * Warnings: possible misuse of aria-label.
+* Passes with no errors
 
 **W3 CSS validation was used to validate CSS**
 
+* Warnings: unrecognised broswer extensions (these were added by CSS autoprefixer for compatibility with older browers)
+* Passes with no errors
 
-JSHint was used to validate JavaScript.
+**JSHint was used to validate JavaScript**
+
+* Passes with no major errors (only warnings about use of lanuage features available only in ES6)
+
 
 ## 4. Other testing
 

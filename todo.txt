@@ -49,17 +49,17 @@ RUNNING TASKS (commit after each)
 * deploy site to Github pages
 * put description of all features of application and features left to implement into README
 *  confirm no error messages or log messages in console
-
+* pass css through autoprefixer
+* ensure all code files are readable and meet standards for indentation and spacing. check function/variable names are semantic
+* pass code validators for CSS and js
+* file names w/o spacing and capitalization
 
 * write single jasmine test file
 * add steps to run unit jasmine unit tests to docs
 * discuss experience of unit testing in project evaluation
-
 * post on slack for advice on writing unit tests and TDD workflow advice
-* pass code validators for HTML, CSS and js
-* ensure all code files are readable and meet standards for indentation and spacing. check function/variable names are semantic
-* file names w/o spacing and capitalization
 * generate report from chrome lighthouse in dev tools
+* are warnings in console and in valdidators okay?
 
 README
 
