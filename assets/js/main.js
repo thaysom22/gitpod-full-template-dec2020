@@ -1,6 +1,9 @@
 import { WelcomeModal } from "./modules/modals.js";
 
-window.welcomeModal = new WelcomeModal(); // global property in browser
+export { addAboutSectionListener, addModalInfoListener, addMainInfoListener} 
+
+
+window.welcomeModal = new WelcomeModal(); 
 
 addAboutSectionListener(); // add event listeners to 'about' triggers in modals
 addModalInfoListener();
