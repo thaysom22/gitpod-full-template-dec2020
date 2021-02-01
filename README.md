@@ -305,7 +305,10 @@ To clone this project locally from Github:
 * The mathjs library is amazing! I can use this to help me create more educational tools and games in the future. I tried to use the api for this project (and I wrote function to send XML Request) as I wanted to practice using the XMLHttpRequest object and working with JSON data. However, the REST API is served only over http:// and not https:// so I was getting Mixed Content Error as site is hosted using https://. Thereefore I used the library instead linked in HTML source from CDN.
 * Try to use variables for reused values like delay for setTimeout calls so that these can be updated throughout codebase simultaneously. Having them hardcoded means that all must be found and changed and leaving one can break the application or compromise the intended user experience. 
 * Using mixins in scss was very useful to avoid repetitive codebase and save time!
+* Next project set up npm install sass and saas --watch commands to run at initialization of workspace and each time workspace is opened respectively. 
 * Would like to try incorportating use of window.localStorage and window.sessionStorage APIs (proabably to store user high scores across multiple game instances )
+* Use npm package for css post-processing (auto prefixing for older broswer compatibility)
+* I need more practice with unit testing. Writing meaningful and effective tests BEFORE writing code to try to pass those tests (a TDD workflow). I found during this project that trying to write tests before coding and having a clear idea of what the architecture and implemenation details of my program would be, was very difficult and time consuming. I ended up writing most tests POST implementation which was helpful to review my implementation choices - refactor if necessary - and to learn about unit test syntax, but I did not feel that this became integrated into my workflow and an effective tool to improve my code quality. 
 
 ## 7. Acknowledgements and Credits
 

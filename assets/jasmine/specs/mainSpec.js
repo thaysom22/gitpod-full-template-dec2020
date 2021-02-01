@@ -413,24 +413,116 @@ describe("Substitution skirmish game", function(){
 
     describe("welcome modal form", function(){
 
-        beforeEach(() => {
-            
-        })
-
         describe("when submitted with an empty player name", function(){
-            
-            it("", function() {
-
+            it("should display only player name error message", function() {
+                $('#player1Name').val("validName");
+                $('#player2Name').val("");
+                $('#welcomeModalForm #easier').prop("checked", true);
+                welcomeModal.submitWelcomeForm(new Event("submit"));
+                expect($('#welcome-modal-error-message1')).toContainText('Enter player names between 1 and 10 characters');
+                expect($('#welcome-modal-error-message2')).toContainText('');
             });
-
-
-
         });
 
+        describe("when submitted with a player name longer than 10 characters", function(){
+            it("should display only player name error message", function() {
+                $('#player1Name').val("validName");
+                $('#player2Name').val("aNameLongerThanTenCharacters");
+                $('#welcomeModalForm #harder').prop("checked", true);
+                welcomeModal.submitWelcomeForm(new Event("submit"));
+                expect($('#welcome-modal-error-message1')).toContainText('Enter player names between 1 and 10 characters');
+                expect($('#welcome-modal-error-message2')).toContainText('');
+            });
+        });
 
+        describe("when submitted with no difficulty level selected", function(){
+            it("should display only difficulty level error message", function() {
+                $('#player1Name').val("validName1");
+                $('#player2Name').val("validName2");
+                $('#welcomeModalForm #harder').prop("checked", true);
+                welcomeModal.submitWelcomeForm(new Event("submit"));
+                expect($('#welcome-modal-error-message1')).toContainText('');
+                expect($('#welcome-modal-error-message2')).toContainText('Choose a difficulty setting!');
+            });
+        });
+
+        describe("when submitted with valid player names and 'easier' difficulty level selected", function(){
+
+            beforeEach(() => {
+                $('#player1Name').val("validName1");
+                $('#player2Name').val("validName2");
+                $('#welcome-modal-form #easier').prop("checked", true); 
+                jasmine.clock().install();
+                welcomeModal.submitWelcomeForm(new Event("submit"));
+                jasmine.clock().tick(501); // tick clock forward CREDIT: https://jasmine.github.io/api/3.6/Clock.html 
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should add class .hide to #welcome-modal element", function() {
+                expect($('#welcome-modal')).toHaveClass("hide");
+            });
+            it("should add class .hide to #modal-backdrop element", function() {
+                expect($('#modal-backdrop')).toHaveClass("hide");
+            });
+            it("should remove class .modal-open from body element", function() {
+                expect($('body')).not.toHaveClass("modal-open");
+            });
+            it("should remove class .hide from #grid-container-body element", function() {
+                expect($('#grid-container-body')).not.toHaveClass("hide");
+            });
+            it("should create new global instance of ClickToPlay class", function() {
+                expect(window.clickToPlay).toBeInstanceOf(ClickToPlay);
+            });
+            it("should create new global instance of Scoreboard class", function() {
+                expect(window.scoreboard).toBeInstanceOf(Scoreboard);
+            });
+            it("should create new global instance of Gameboard class with easy difficulty setting", function() {
+                expect(window.gameboard).toBeInstanceOf(Gameboard);
+                expect(window.gameboard.difficultySetting).toBe("Easy");
+            });
+        });
+
+        describe("when submitted with valid player names and 'harder' difficulty level selected", function(){
+
+            beforeEach(() => {
+                $('#player1Name').val("validName1");
+                $('#player2Name').val("validName2");
+                $('#welcome-modal-form #harder').prop("checked", true); 
+                jasmine.clock().install();
+                welcomeModal.submitWelcomeForm(new Event("submit"));
+                jasmine.clock().tick(501); // tick clock forward CREDIT: https://jasmine.github.io/api/3.6/Clock.html 
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should add class .hide to #welcome-modal element", function() {
+                expect($('#welcome-modal')).toHaveClass("hide");
+            });
+            it("should add class .hide to #modal-backdrop element", function() {
+                expect($('#modal-backdrop')).toHaveClass("hide");
+            });
+            it("should remove class .modal-open from body element", function() {
+                expect($('body')).not.toHaveClass("modal-open");
+            });
+            it("should remove class .hide from #grid-container-body element", function() {
+                expect($('#grid-container-body')).not.toHaveClass("hide");
+            });
+            it("should create new global instance of ClickToPlay class", function() {
+                expect(window.clickToPlay).toBeInstanceOf(ClickToPlay);
+            });
+            it("should create new global instance of Scoreboard class", function() {
+                expect(window.scoreboard).toBeInstanceOf(Scoreboard);
+            });
+            it("should create new global instance of Gameboard class with easy difficulty setting", function() {
+                expect(window.gameboard).toBeInstanceOf(Gameboard);
+                expect(window.gameboard.difficultySetting).toBe("Hard");
+            });
+        });
     });
-
-
-
 });
 

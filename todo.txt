@@ -53,13 +53,15 @@ RUNNING TASKS (commit after each)
 * ensure all code files are readable and meet standards for indentation and spacing. check function/variable names are semantic
 * pass code validators for CSS and js
 * file names w/o spacing and capitalization
+* post on slack for advice on writing unit tests and TDD workflow advice
 
 * write single jasmine test file
 * add steps to run unit jasmine unit tests to docs
 * discuss experience of unit testing in project evaluation
-* post on slack for advice on writing unit tests and TDD workflow advice
 * generate report from chrome lighthouse in dev tools
 * are warnings in console and in valdidators okay?
+* hover effects on gameboard grid?
+* Project Pre-Submission Checklist
 
 README
 
