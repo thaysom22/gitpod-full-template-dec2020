@@ -302,7 +302,7 @@ describe("Substitution skirmish game", function(){
 
         describe("when clicked in welcome modal", function(){
             it("should add class .hide to contents of welcome modal", function(){
-                $('#welcome-modal .modal-header-info-wrapper').click();
+                $('#welcome-modal .modal-header-info-wrapper').click(); // simulate user interaction
                 expect($('#welcome-input-form-wrapper')).toHaveClass('hide');
                 expect($('.modal-footer-wrapper')).toHaveClass('hide');
 
@@ -359,6 +359,58 @@ describe("Substitution skirmish game", function(){
         });
     });
 
+    describe("about footer button", function(){
+
+        beforeEach(() => {
+            addAboutSectionListener();
+        });
+
+        describe("when clicked in welcome modal", function(){
+            it("should remove class .hide from footer about content in welcome modal", function(){
+                $('#welcome-modal .modal-about-trigger-wrapper').click();
+                expect($('#welcome-modal .modal-about-content-wrapper')).not.toHaveClass('hide');
+            });
+        });
+
+        describe("when clicked again in welcome modal", function(){
+            it("should add class .hide to footer about content in welcome modal", function(){
+                $('#welcome-modal .modal-about-trigger-wrapper').click();
+                $('#welcome-modal .modal-about-trigger-wrapper').click();
+                expect($('#welcome-modal .modal-about-content-wrapper')).toHaveClass('hide');
+            });
+        });
+
+        describe("when clicked in main page", function(){
+            it("should remove class .hide from footer about content in main page", function(){
+                $('#about-trigger-wrapper').click();
+                expect($('#about-content-wrapper')).not.toHaveClass('hide');
+            });
+        });
+
+        describe("when clicked again in main page", function(){
+            it("should add class .hide to footer about content in main page", function(){
+                $('#about-trigger-wrapper').click();
+                $('#about-trigger-wrapper').click();
+                expect($('#about-content-wrapper')).toHaveClass('hide');
+            });
+        });
+
+        describe("when clicked in gameover modal", function(){
+            it("should remove class .hide from footer about content in gameover modal", function(){
+                $('#gameover-modal .modal-about-trigger-wrapper').click();
+                expect($('#gameover-modal .modal-about-content-wrapper')).not.toHaveClass('hide');
+            });
+        });
+
+        describe("when clicked again in gameover modal", function(){
+            it("should remove class .hide from footer about content in gameover modal", function(){
+                $('#gameover-modal .modal-about-trigger-wrapper').click();
+                $('#gameover-modal .modal-about-trigger-wrapper').click();
+                expect($('#gameover-modal .modal-about-content-wrapper')).toHaveClass('hide');
+            });
+        });
+    });
+
     describe("welcome modal form", function(){
 
         beforeEach(() => {
@@ -376,9 +428,6 @@ describe("Substitution skirmish game", function(){
         });
 
 
-        describe("info button", function(){
-
-        });
     });
 
 
