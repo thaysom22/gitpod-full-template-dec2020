@@ -473,11 +473,13 @@ describe("Substitution skirmish game", function(){
             it("should remove class .hide from #grid-container-body element", function() {
                 expect($('#grid-container-body')).not.toHaveClass("hide");
             });
-            it("should create new global instance of ClickToPlay class", function() {
+            it("should create new global instance of ClickToPlay class with easy difficulty setting", function() {
                 expect(window.clickToPlay).toBeInstanceOf(ClickToPlay);
+                expect(window.clickToPlay.difficultySetting).toBe("Easy");
             });
-            it("should create new global instance of Scoreboard class", function() {
+            it("should create new global instance of Scoreboard class with easy difficulty setting", function() {
                 expect(window.scoreboard).toBeInstanceOf(Scoreboard);
+                expect(window.scoreboard.difficultySetting).toBe("Easy");
             });
             it("should create new global instance of Gameboard class with easy difficulty setting", function() {
                 expect(window.gameboard).toBeInstanceOf(Gameboard);
@@ -512,17 +514,85 @@ describe("Substitution skirmish game", function(){
             it("should remove class .hide from #grid-container-body element", function() {
                 expect($('#grid-container-body')).not.toHaveClass("hide");
             });
-            it("should create new global instance of ClickToPlay class", function() {
+            it("should create new global instance of ClickToPlay class with hard difficulty setting", function() {
                 expect(window.clickToPlay).toBeInstanceOf(ClickToPlay);
+                expect(window.clickToPlay.difficultySetting).toBe("Hard");
             });
-            it("should create new global instance of Scoreboard class", function() {
+            it("should create new global instance of Scoreboard class with hard difficulty setting", function() {
                 expect(window.scoreboard).toBeInstanceOf(Scoreboard);
+                expect(window.scoreboard.difficultySetting).toBe("Hard");
             });
-            it("should create new global instance of Gameboard class with easy difficulty setting", function() {
+            it("should create new global instance of Gameboard class with hard difficulty setting", function() {
                 expect(window.gameboard).toBeInstanceOf(Gameboard);
                 expect(window.gameboard.difficultySetting).toBe("Hard");
             });
         });
+    });
+
+    describe("click to play component", function(){
+
+        beforeEach(() => {
+            window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+        });
+
+        describe("constructor", function() {
+            it("should add text 'Click to Play!' to #click-to-play-instruction element", function(){
+                expect($('#click-to-play-instruction')).toContainText('Click to Play!');
+            });
+            it("should add text 'validName1' (player1Name) to #current-player-name element", function(){
+                expect($('#current-player-name')).toContainText('validName1');
+            });
+            it("should add class .pulse to #random-number-wrapper element", function(){
+                expect($('#random-number-wrapper')).toHaveClass('pulse');
+            });
+            it("should remove class .hide from .fas.fa-question element", function(){
+                expect($('.fas.fa-question')).not.toHaveClass('hide');
+            });
+            it("should add class .hide to #variable-value element", function(){
+                expect($('#variable-value')).toHaveClass('hide');
+            });
+        });
+
+        describe("when #random-number-wrapper is clicked at start of player turn", function(){
+            
+            // simulate user interaction and delay for chaning number animation effect
+            beforeEach(() => {
+                jasmine.clock().install();
+                $('#random-number-wrapper').click();
+                jasmine.clock().tick(2001);
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            
+            it("should change text of #click-to-play-instruction element to 'Choose an expression...'", function(){
+                expect($('#click-to-play-instruction')).toContainText("Choose an expression...");
+            });
+            it("should add class .hide to .fas.fa-question element", function(){
+                expect($('.fas.fa-question')).toHaveClass('hide');
+            });
+            it("should remove class .pulse from #random-number-wrapper element", function(){
+                expect($('#random-number-wrapper')).not.toHaveClass('pulse');
+            });
+            it("should remove class .hide from #variable-value element", function(){
+                expect($('#variable-value')).not.toHaveClass('hide');
+            });
+
+        });
+    });
+
+    describe("gameboard component", function() {
+
+    });
+
+    describe("scoreboard component", function() {
+
+    });
+
+    describe("gameover modal", function() {
+
     });
 });
 

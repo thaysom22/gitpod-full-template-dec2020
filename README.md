@@ -309,6 +309,7 @@ To clone this project locally from Github:
 * Would like to try incorportating use of window.localStorage and window.sessionStorage APIs (proabably to store user high scores across multiple game instances )
 * Use npm package for css post-processing (auto prefixing for older broswer compatibility)
 * I need more practice with unit testing. Writing meaningful and effective tests BEFORE writing code to try to pass those tests (a TDD workflow). I found during this project that trying to write tests before coding and having a clear idea of what the architecture and implemenation details of my program would be, was very difficult and time consuming. I ended up writing most tests POST implementation which was helpful to review my implementation choices - refactor if necessary - and to learn about unit test syntax, but I did not feel that this became integrated into my workflow and an effective tool to improve my code quality. 
+* When post-processing .css file after it has been compiled from scss, any changes are lost if changes to scss need to be made and css is recompiled. Is there a way to keep post-processing / post-editing when re-compiling?
 
 ## 7. Acknowledgements and Credits
 
