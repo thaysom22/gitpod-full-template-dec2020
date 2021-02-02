@@ -253,6 +253,9 @@ Layout:
 * Store top scores for each player in local storage so when restart game is clicked, player performance can be measured across multiple games. 
 * Add click event listener to body so that user can bring manually invoke the start of next turn once they have read feedback from gameboard overlay.
 * Add hover/active effects to gameboard grid
+* Info text changes when instructions content is visible to be 'back to game'
+* Footer icon changes to a '-' symbol when footer content is visible
+* After user answers a question, the grid could be displayed with the expressions reordered in descending value so user can better understand how to improve at the game
 
 ## 3.Technology Stack and Dependencies
 
