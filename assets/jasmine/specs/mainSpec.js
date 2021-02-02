@@ -531,11 +531,12 @@ describe("Substitution skirmish game", function(){
 
     describe("click to play component", function(){
 
-        beforeEach(() => {
-            window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
-        });
-
         describe("constructor", function() {
+
+            beforeEach(() => {
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+            });
+
             it("should add text 'Click to Play!' to #click-to-play-instruction element", function(){
                 expect($('#click-to-play-instruction')).toContainText('Click to Play!');
             });
@@ -557,6 +558,8 @@ describe("Substitution skirmish game", function(){
             
             // simulate user interaction and delay for chaning number animation effect
             beforeEach(() => {
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+                window.gameboard = new Gameboard("Hard");
                 jasmine.clock().install();
                 $('#random-number-wrapper').click();
                 jasmine.clock().tick(2001);
@@ -566,7 +569,6 @@ describe("Substitution skirmish game", function(){
                 jasmine.clock().uninstall();
             });
 
-            
             it("should change text of #click-to-play-instruction element to 'Choose an expression...'", function(){
                 expect($('#click-to-play-instruction')).toContainText("Choose an expression...");
             });
@@ -579,12 +581,54 @@ describe("Substitution skirmish game", function(){
             it("should remove class .hide from #variable-value element", function(){
                 expect($('#variable-value')).not.toHaveClass('hide');
             });
-
+            it("should add number to text of #variable-value element", function(){
+                expect(Number($('#variable-value').text())).toBeInstanceOf(Number); // passed if Number constructor can coerce text content to Number type
+            });
         });
     });
 
     describe("gameboard component", function() {
 
+        describe("constructor", function(){
+
+            beforeEach(() => {
+                window.gameboard = new Gameboard("Hard");
+            });
+
+            it("should store an array of 16 questions", function(){
+                expect(gameboard.questions.length).toBe(16);
+            });
+            it("each question should have numeric id property", function(){
+                expect(gameboard.questions[0].id).toBeInstanceOf(Number);
+            });
+            it("each question should have string latexString property", function(){
+                expect(gameboard.questions[1].latexString).toBeInstanceOf(String);
+            });
+            it("should add MathJax element to all .grid-expression elements of gameboard", function() {
+                expect($(".grid-expression")).toContainElement('.MathJax'); 
+            });
+        });
+
+        describe("when setupNewTurn method is called", function(){
+
+            beforeEach(() => {
+                window.gameboard = new Gameboard("Easy");
+                gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
+                gameboard.questions[1].expressionString = "2*x^2";
+                gameboard.questions[2].expressionString = "6*x";
+                gameboard.setupNewTurn(3); // click to play element has generated a 3
+            });
+
+            it("should evaluate answer property of each question correctly", function(){
+                expect(gameboard.questions[0].answer).toBe(36);
+                expect(gameboard.questions[1].answer).toBe(18);
+                expect(gameboard.questions[2].answer).toBe(18);
+            });
+            it("should evaluate ranking property of each question correctly", function(){
+                expect(gameboard.questions[0].ranking).toBeLessThan(gameboard.questions[1].ranking);
+                expect(gameboard.questions[1].ranking).toEqual(gameboard.questions[2].ranking);
+            });
+        });
     });
 
     describe("scoreboard component", function() {

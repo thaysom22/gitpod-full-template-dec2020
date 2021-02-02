@@ -248,11 +248,11 @@ Layout:
 * Add animation effects to displaying/hiding of elements on page to improve user experience
 * Add a countdown timer to the click to play component that runs once a player clicks ? and implement time bonus component (calculated from countdown timer value at end of turn) to scoreboard which rewards players for answering quickly
 * Add feature to welcome modal which allows user to select amount of time allowed per question
-* Create a log of player responses and include option to Email to teacher on 'game over' modal
-* Share scores on facebook/twitter link on game over page
+* Create a log of player responses and include option to email to teacher on 'game over' modal
+* Add option to share scores on facebook/twitter link on game over page
 * Store top scores for each player in local storage so when restart game is clicked, player performance can be measured across multiple games. 
 * Add click event listener to body so that user can bring manually invoke the start of next turn once they have read feedback from gameboard overlay.
-
+* Add hover/active effects to gameboard grid
 
 ## 3.Technology Stack and Dependencies
 
