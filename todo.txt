@@ -57,10 +57,10 @@ RUNNING TASKS (commit after each)
 
 * write single jasmine test file
 * add steps to run unit jasmine unit tests to docs
-* discuss experience of unit testing in project evaluation
+
 * generate report from chrome lighthouse in dev tools
-* are warnings in console and in valdidators okay?
 * hover effects on gameboard grid?
+* Changing icons on footer and info triggers when open/closed?
 * Project Pre-Submission Checklist
 
 README

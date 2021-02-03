@@ -922,7 +922,7 @@ describe("Substitution skirmish game", function(){
                 scoreboard.player1Board.playerTurns = 0;
                 scoreboard.player2Board.playerTurns = 1;
                 scoreboard.player1Board.active = false;
-                scoreboard.player1Board.active = true;
+                scoreboard.player2Board.active = true;
                 gameboard.questions[0].expressionString = "3*x^2"; // manually set some expressions
                 gameboard.setupNewTurn(4);
                 $($(".gameboard-grid-item")[0]).click(); 
@@ -938,13 +938,78 @@ describe("Substitution skirmish game", function(){
                 jasmine.clock().tick(4001); 
                 expect(window.gameoverModal).toBeInstanceOf(GameoverModal);
             });
-
+            it("should pass correct final player scores to gameoverModal object", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect(window.gameoverModal.player1Score).toBe(20);
+                expect(window.gameoverModal.player2Score).toBe(9); // -1 for incorrect answer
+            });
         });
 
     });
 
     describe("gameover modal", function() {
 
+        describe("constructor", function(){
+
+            describe("when player 1 has highest score", function(){
+
+                beforeEach(() => {
+                    window.gameoverModal = new GameoverModal("validName1", 2, "validName2", 1, "Easy");
+                });
+
+                it("should add text content 'validName1 is the winner!' to '#winner-result span' element", function(){
+                    expect($('#winner-result span')).toContainText('validName1 is the winner!');
+                });
+                it("should add value of player1Score as text to '#player1-result .score' element and value of player2Score as text to '#player2-result .score' element", function(){
+                    expect($('#player1-result .score')).toContainText("2");
+                    expect($('#player2-result .score')).toContainText("1");
+                });
+                it("should add 'validName1' as text to '#player1-result .name' element and 'validName2' as text to '#player2-result .name' element", function(){
+                    expect($('#player1-result .name')).toContainText('validName1');
+                    expect($('#player2-result .name')).toContainText('validName2');
+                });
+            });
+
+            describe("when player 2 has highest score", function(){
+
+                beforeEach(() => {
+                    window.gameoverModal = new GameoverModal("validName1", -1, "validName2", 1, "Easy");
+                });
+
+                it("should add text content 'validName1 is the winner!' to '#winner-result span' element", function(){
+                    expect($('#winner-result span')).toContainText('validName2 is the winner!');
+                });
+                it("should add value of player1Score as text to '#player1-result .score' element and value of player2Score as text to '#player2-result .score' element", function(){
+                    expect($('#player1-result .score')).toContainText("-1");
+                    expect($('#player2-result .score')).toContainText("1");
+                });
+                it("should add 'validName1' as text to '#player1-result .name' element and 'validName2' as text to '#player2-result .name' element", function(){
+                    expect($('#player1-result .name')).toContainText('validName1');
+                    expect($('#player2-result .name')).toContainText('validName2');
+                });
+            });
+
+            describe("when game is a draw", function(){
+
+                beforeEach(() => {
+                    window.gameoverModal = new GameoverModal("validName1", 5, "validName2", 5, "Hard");
+                });
+
+                it("should add text content 'The game is a DRAW!' to '#winner-result span' element", function(){
+                    expect($('#winner-result span')).toContainText('The game is a DRAW!');
+                });
+                it("should add value of player1Score as text to '#player1-result .score' element and value of player2Score as text to '#player2-result .score' element", function(){
+                    expect($('#player1-result .score')).toContainText("5");
+                    expect($('#player2-result .score')).toContainText("5");
+                });
+                it("should add 'validName1' as text to '#player1-result .name' element and 'validName2' as text to '#player2-result .name' element", function(){
+                    expect($('#player1-result .name')).toContainText('validName1');
+                    expect($('#player2-result .name')).toContainText('validName2');
+                });
+            });
+            
+        });
     });
 });
 

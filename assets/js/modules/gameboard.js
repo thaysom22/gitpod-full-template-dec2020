@@ -175,9 +175,6 @@ class Gameboard {
 
             // EVENT LISTENER FOR .gameboard-grid-item ELEMENTS
             function activateGameboardOverlay(clickEvent) {
-
-                console.log("test for grid item event listener");
-
                 clickEvent.preventDefault();
                 clickEvent.stopPropagation();
                 let currentEventTarget = clickEvent.currentTarget; 
