@@ -944,8 +944,22 @@ describe("Substitution skirmish game", function(){
                 expect(window.gameoverModal.player1Score).toBe(20);
                 expect(window.gameoverModal.player2Score).toBe(9); // -1 for incorrect answer
             });
+            it("should add class .modal-open to body element", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect($('body')).toHaveClass("modal-open");
+            });
+            it("should remove class .hide from #gameover-modal element", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect($('#gameover-modal')).not.toHaveClass("hide");
+            });
+            it("should remove class .hide from #modal-backdrop element", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect($('#modal-backdrop')).not.toHaveClass("hide");
+            });
         });
-
     });
 
     describe("gameover modal", function() {
@@ -1009,6 +1023,40 @@ describe("Substitution skirmish game", function(){
                 });
             });
             
+        });
+
+        describe("when 'restart game' button is clicked", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameoverModal = new GameoverModal("validName1", 10, "validName2", 8, "Hard");
+                $('#restart-game-button').click();
+                jasmine.clock().tick(201);
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should remove class .disabled from .gameboard-grid-item' elements", function(){
+                expect($('.gameboard-grid-item')).not.toHaveClass("disabled");
+            });
+            it("should remove class .modal-open from body element", function(){
+                expect($('body')).not.toHaveClass("modal-open");
+            });
+            it("should add class .hide to #gameover-modal element", function(){
+                expect($('#gameover-modal')).toHaveClass("hide");
+            });
+            it("should add class .hide to #modal-backdrop element", function(){
+                expect($('#modal-backdrop')).toHaveClass("hide");
+            });
+            it("should add validName1 as text content of #current-player-name element", function(){
+                expect($('#current-player-name')).toContainText("validName1");
+            });
+            it("should add validName1 as text content of '#player1-scoreboard .scoreboard-title' element and add validName2 as text content of '#player2-scoreboard .scoreboard-title' element", function(){
+                expect($('#player1-scoreboard .scoreboard-title')).toContainText("validName1");
+                expect($('#player2-scoreboard .scoreboard-title')).toContainText("validName2");
+            });
         });
     });
 });
