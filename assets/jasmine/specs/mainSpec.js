@@ -828,6 +828,119 @@ describe("Substitution skirmish game", function(){
 
     describe("scoreboard component", function() {
 
+        describe("constructor", function(){
+
+            beforeEach(() => {
+                window.scoreboard = new Scoreboard("validName1", "validName2", "Easy");
+            });
+
+            it("should add player1Name and player2Name as text to '#player1-scoreboard .scoreboard-title' and '#player2-scoreboard .scoreboard-title' elements", function(){
+                expect($('#player1-scoreboard .scoreboard-title')).toContainText("validName1");
+                expect($('#player2-scoreboard .scoreboard-title')).toContainText("validName2");
+            });
+            it("should set text content to '0' for '#player1-scoreboard .main-score>.value' and '#player1-scoreboard .main-score>.value' elements", function(){
+                expect($('#player1-scoreboard .main-score>.value')).toContainText("0");
+                expect($('#player2-scoreboard .main-score>.value')).toContainText("0");
+            });
+            it("should set text content to scoreboard.player1Board.playerTurns value for '#player1-scoreboard .score-turns>.value' element", function(){
+                expect($('#player1-scoreboard .score-turns>.value')).toContainText(scoreboard.player1Board.playerTurns.toString());
+            });
+            it("should set text content to scoreboard.player2Board.playerTurns value for '#player2-scoreboard .score-turns>.value' element", function(){
+                expect($('#player2-scoreboard .score-turns>.value')).toContainText(scoreboard.player2Board.playerTurns.toString());
+            });
+        });
+
+        describe("after player1 submits correct answer in gameboard", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+                window.scoreboard = new Scoreboard("validName1", "validName2", "Easy");
+                gameboard.questions[0].expressionString = "3*x^2"; // manually set some expressions
+                gameboard.setupNewTurn(4);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("48"); // correct
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should increase value in text of '#player1-scoreboard .main-score>.value' element", function(){
+                var oldScore = scoreboard.player1Board.playerScore;
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect(Number($('#player1-scoreboard .main-score>.value').text())).toBeGreaterThan(oldScore); // coerce text content of scorebaord element to Number and assert this is greater than score before correct answer was submitted
+            });
+            it("should decrease value in text of '#player1-scoreboard .score-turns>.value' to 4", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect($('#player1-scoreboard .score-turns>.value')).toContainText("4");
+            });
+        });
+
+        describe("after player submits incorrect answer", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+                window.scoreboard = new Scoreboard("validName1", "validName2", "Easy");
+                gameboard.questions[0].expressionString = "3*x^2"; // manually set some expressions
+                gameboard.setupNewTurn(4);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("-20"); // incorrect
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should decrease value by 1 in text of '#player1-scoreboard .main-score>.value' element", function(){
+                var oldScore = scoreboard.player1Board.playerScore;
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect(Number($('#player1-scoreboard .main-score>.value').text())).toEqual(oldScore - 1); // coerce text content of scorebaord element to Number and assert this is greater than score before correct answer was submitted
+            });
+            it("should decrease value in text of '#player1-scoreboard .score-turns>.value' to 4", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect($('#player1-scoreboard .score-turns>.value')).toContainText("4");
+            });
+        });
+
+        describe("when game finishes at end of last player2 turn", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+                window.scoreboard = new Scoreboard("validName1", "validName2", "Easy");
+                scoreboard.player1Board.playerScore = 20; // set up scorebaord data
+                scoreboard.player2Board.playerScore = 10;
+                scoreboard.player1Board.playerTurns = 0;
+                scoreboard.player2Board.playerTurns = 1;
+                scoreboard.player1Board.active = false;
+                scoreboard.player1Board.active = true;
+                gameboard.questions[0].expressionString = "3*x^2"; // manually set some expressions
+                gameboard.setupNewTurn(4);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("0"); // incorrect
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should instantiate Gameover modal instance", function(){
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); 
+                expect(window.gameoverModal).toBeInstanceOf(GameoverModal);
+            });
+
+        });
+
     });
 
     describe("gameover modal", function() {
