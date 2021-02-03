@@ -289,8 +289,24 @@ Testing of display and functionality of all components of the application:
 
 **JSHint was used to validate JavaScript**
 
-* Passes with no major errors (only warnings about use of lanuage features available only in ES6)
+* All Javascript files pass with no major errors (only warnings about use of lanuage features available only in ES6)
 
+### 3.2 Jasmine unit testing
+
+* The [Jasmine](https://jasmine.github.io/) testing framework was used to run automated unit tests for the Javascript functions and class methods in this project. The library was loaded from specRunner.html file using cdnjs CDN.
+* The [jasmine-jquery](https://github.com/velesin/jasmine-jquery) extension was loaded from specRunner.html file using jsdelivr CDN
+* The functions and modules for files in the js/modules directory were imported into mainSpec.js and the specifications can be found there.
+
+**To run tests:**
+
+1. Create a local clone of the project repository
+2. Run specRunner.html file in browser
+
+**To add jasmine tests**
+
+1. Open mainSpec.js file
+2. Add tests using the jasmine 3.1 framework
+3. Save mainSPec.js then refresh specRunner.html
 
 ## 4. Other testing
 

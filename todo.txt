@@ -54,8 +54,8 @@ RUNNING TASKS (commit after each)
 * pass code validators for CSS and js
 * file names w/o spacing and capitalization
 * post on slack for advice on writing unit tests and TDD workflow advice
-
 * write single jasmine test file
+
 * add steps to run unit jasmine unit tests to docs
 
 * generate report from chrome lighthouse in dev tools

@@ -288,7 +288,7 @@ describe("Substitution skirmish game", function(){
             <!-- modal-backdrop layer for modals -->
             <div id="modal-backdrop" class="modal-backdrop"></div>
             </body>        
-        `)
+        `);
         window.welcomeModal = new WelcomeModal(); // instantiate WelcomeModal class  
     });
 
@@ -689,7 +689,7 @@ describe("Substitution skirmish game", function(){
                 $('#player-answer').val("");
                 $('#submit-player-answer-button').click();
                 jasmine.clock().tick(201);
-            })
+            });
 
             afterEach(() => {
                 jasmine.clock().uninstall();
@@ -711,7 +711,7 @@ describe("Substitution skirmish game", function(){
                 $('#player-answer').val("abcd");
                 $('#submit-player-answer-button').click();
                 jasmine.clock().tick(201);
-            })
+            });
 
             afterEach(() => {
                 jasmine.clock().uninstall();
