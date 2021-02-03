@@ -639,10 +639,8 @@ describe("Substitution skirmish game", function(){
             beforeEach(() => {
                 window.gameboard = new Gameboard("Easy");
                 gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
-                gameboard.setupNewTurn(3);
-                clickEvent = new Event("click");
-                Object.defineProperty(clickEvent, 'currentTarget', {writable: false, value: $(".gameboard-grid-item")[0]}); // set property on Event object CREDIT: https://stackoverflow.com/questions/37456443/how-set-the-eventtarget-of-an-event 
-                $($(".gameboard-grid-item")[0]).click(clickEvent); 
+                gameboard.setupNewTurn(3); 
+                $($(".gameboard-grid-item")[0]).click(); 
             });
 
             it("should remove class .hide from #gameboard-overlay element", function(){
@@ -654,110 +652,177 @@ describe("Substitution skirmish game", function(){
             it("should set value of #player-answer element to empty", function(){
                 expect($("#player-answer")).toHaveValue(''); 
             });   
+        });
             
-            describe("when 'choose again' button is clicked in gameboard overlay", function(){
+        describe("when 'choose again' button is clicked in gameboard overlay", function(){
 
-                beforeEach(() => {
-                    jasmine.clock().install();
-                    $('#choose-again-button').click();
-                    jasmine.clock().tick(201);
-                });
-
-                afterEach(() => {
-                    jasmine.clock().uninstall();
-                });
-
-                it("should add class .hide to #gameboard-overlay element", function(){
-                    expect($('#gameboard-overlay')).toHaveClass("hide");
-                });
-                it("should remove MathJax element from #gameboard-active-question element", function(){
-                    expect($("#gameboard-active-question span")).not.toContainElement('.MathJax'); 
-                });
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
+                gameboard.setupNewTurn(3);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#choose-again-button').click();
+                jasmine.clock().tick(201);
             });
 
-            describe("when #player-answer value is empty and 'enter' button is clicked", function(){
-
-                beforeEach(() => {
-                    jasmine.clock().install();
-                    $('#player-answer').val("");
-                    $('#submit-player-answer-button').click();
-                    jasmine.clock().tick(201);
-                })
-
-                afterEach(() => {
-                    jasmine.clock().uninstall();
-                });
-
-                it("should display error message as text in #player-answer-error-message element", function(){
-                    expect($('#player-answer-error-message')).toContainText('Enter a valid value!');
-                });
+            afterEach(() => {
+                jasmine.clock().uninstall();
             });
 
-            describe("when #player-answer value is invalid and 'enter' button is clicked", function(){
-
-                beforeEach(() => {
-                    jasmine.clock().install();
-                    $('#player-answer').val("abcd");
-                    $('#submit-player-answer-button').click();
-                    jasmine.clock().tick(201);
-                })
-
-                afterEach(() => {
-                    jasmine.clock().uninstall();
-                });
-
-                it("should display error message as text in #player-answer-error-message element", function(){
-                    expect($('#player-answer-error-message')).toContainText('Enter a valid value!');
-                });
+            it("should add class .hide to #gameboard-overlay element", function(){
+                expect($('#gameboard-overlay')).toHaveClass("hide");
             });
-
-            describe("when #player-answer value is incorrect and 'enter' button is clicked", function(){
-
-                beforeEach(() => {
-                    jasmine.clock().install();
-                    $('#player-answer').val("24"); // correct answer to (2*x)^2 when x=3 is 36
-                    $('#submit-player-answer-button').click();
-                    jasmine.clock().tick(4001); // 4000ms delay while answer feedback is displayed to user
-                });
-
-                afterEach(() => {
-                    jasmine.clock().uninstall();
-                });
-
-                it("should add class .incorrect-user-answer to #gameboard-overlay-content element", function(){
-                    expect($('#gameboard-overlay-content')).toHaveClass('incorrect-user-answer');
-                });
-                it("should add classes .fas and .fa-check-circle to '#answer-feedback i' element", function(){
-                    expect($('#answer-feedback i')).toHaveClass('fas fa-check-circle');
-                });
-                it("should add text 'Correct!' to '#answer-feedback .feedback1' element", function(){
-                    expect($('#answer-feedback .feedback1')).toContainText('Correct!');
-                });
-                it("should add text content to '#answer-feedback .feedback2' element", function(){
-                    expect($('#answer-feedback .feedback2')).not.toBeEmpty();
-                });
-                it("should add text content to '#answer-feedback .feedback3' element", function(){
-                    expect($('#answer-feedback .feedback3')).not.toBeEmpty();
-                });
-                it("should add class .hide to '#gameboard-overlay-content form' element", function(){
-                    expect($('#gameboard-overlay-content form')).toHaveClass('hide');
-                });
-                it("should remove class .hide from #answer-feedback element", function(){
-                    expect($('#answer-feedback')).not.toHaveClass('hide');
-                });
-                it("should add class .hide to #gameboard-overlay element", function(){
-                    expect($('#gameboard-overlay')).toHaveClass('hide');
-                });
-                it("should remove all child elements from '#gameboard-active-question span' element", function(){
-                    expect($('#gameboard-active-question span')).toBeEmpty();   
-                }); 
-            });
-
-            describe("when #player-answer value is correct and 'enter' button is clicked", function(){
-
+            it("should remove MathJax element from #gameboard-active-question element", function(){
+                expect($("#gameboard-active-question span")).not.toContainElement('.MathJax'); 
             });
         });
 
+        describe("when #player-answer value is empty and 'enter' button is clicked", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
+                gameboard.setupNewTurn(3);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("");
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(201);
+            })
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should display error message as text in #player-answer-error-message element", function(){
+                expect($('#player-answer-error-message')).toContainText('Enter a valid value!');
+            });
+        });
+
+        describe("when #player-answer value is invalid and 'enter' button is clicked", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
+                gameboard.setupNewTurn(3);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("abcd");
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(201);
+            })
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should display error message as text in #player-answer-error-message element", function(){
+                expect($('#player-answer-error-message')).toContainText('Enter a valid value!');
+            });
+        });
+
+        describe("when #player-answer value is incorrect and 'enter' button is clicked", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+                window.scoreboard = new Scoreboard("validName1", "validName2", "Easy");
+                gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
+                gameboard.setupNewTurn(3);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("24"); // correct answer to (2*x)^2 when x=3 is 36
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); // 4000ms delay while answer feedback is displayed to user
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should add class .incorrect-user-answer to #gameboard-overlay-content element", function(){
+                expect($('#gameboard-overlay-content')).toHaveClass('incorrect-user-answer');
+            });
+            it("should add classes .fas and .fa-times-circle to '#answer-feedback i' element", function(){
+                expect($('#answer-feedback i')).toHaveClass('fas fa-times-circle');
+            });
+            it("should add text to '#answer-feedback .feedback1' element", function(){
+                expect($('#answer-feedback .feedback1')).toContainText('Incorrect, the correct answer is: 36');
+            });
+            it("should add text content to '#answer-feedback .feedback2' element", function(){
+                expect($('#answer-feedback .feedback2')).not.toBeEmpty();
+            });
+            it("should add text content to '#answer-feedback .feedback3' element", function(){
+                expect($('#answer-feedback .feedback3')).not.toBeEmpty();
+            });
+            it("should add class .hide to '#gameboard-overlay-content form' element", function(){
+                expect($('#gameboard-overlay-content form')).toHaveClass('hide');
+            });
+            it("should remove class .hide from #answer-feedback element", function(){
+                expect($('#answer-feedback')).not.toHaveClass('hide');
+            });
+            it("should add class .hide to #gameboard-overlay element", function(){
+                expect($('#gameboard-overlay')).toHaveClass('hide');
+            });
+            it("should remove all child elements from '#gameboard-active-question span' element", function(){
+                expect($('#gameboard-active-question span')).toBeEmpty();   
+            }); 
+            it("should add class .disabled to clicked gameboard item", function(){
+                expect($($(".gameboard-grid-item")[0])).toHaveClass("disabled");   
+            }); 
+        });
+
+        describe("when #player-answer value is correct and 'enter' button is clicked", function(){
+
+            beforeEach(() => {
+                jasmine.clock().install();
+                window.gameboard = new Gameboard("Easy");
+                window.clickToPlay = new ClickToPlay("validName1", "validName2", "Easy");
+                window.scoreboard = new Scoreboard("validName1", "validName2", "Easy");
+                gameboard.questions[0].expressionString = "(2*x)^2"; // manually set some expressions
+                gameboard.setupNewTurn(3);
+                $($(".gameboard-grid-item")[0]).click(); 
+                $('#player-answer').val("36"); // correct answer to (2*x)^2 when x=3 is 36
+                $('#submit-player-answer-button').click();
+                jasmine.clock().tick(4001); // 4000ms delay while answer feedback is displayed to user
+            });
+
+            afterEach(() => {
+                jasmine.clock().uninstall();
+            });
+
+            it("should add class correct-user-answer to #gameboard-overlay-content element", function(){
+                expect($('#gameboard-overlay-content')).toHaveClass('correct-user-answer');
+            });
+            it("should add classes .fas and .fa-check-circle to '#answer-feedback i' element", function(){
+                expect($('#answer-feedback i')).toHaveClass('fas fa-check-circle');
+            });
+            it("should add text 'Correct!' to '#answer-feedback .feedback1' element", function(){
+                expect($('#answer-feedback .feedback1')).toContainText('Correct!');
+            });
+            it("should add text content to '#answer-feedback .feedback2' element", function(){
+                expect($('#answer-feedback .feedback2')).not.toBeEmpty();
+            });
+            it("should add text content to '#answer-feedback .feedback3' element", function(){
+                expect($('#answer-feedback .feedback3')).not.toBeEmpty();
+            });
+            it("should add class .hide to '#gameboard-overlay-content form' element", function(){
+                expect($('#gameboard-overlay-content form')).toHaveClass('hide');
+            });
+            it("should remove class .hide from #answer-feedback element", function(){
+                expect($('#answer-feedback')).not.toHaveClass('hide');
+            });
+            it("should add class .hide to #gameboard-overlay element", function(){
+                expect($('#gameboard-overlay')).toHaveClass('hide');
+            });
+            it("should remove all child elements from '#gameboard-active-question span' element", function(){
+                expect($('#gameboard-active-question span')).toBeEmpty();   
+            }); 
+            it("should add class .disabled to clicked gameboard item", function(){
+                expect($($(".gameboard-grid-item")[0])).toHaveClass("disabled");   
+            }); 
+        });
         
     });
 
